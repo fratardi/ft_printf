@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/17 20:52:11 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/17 21:03:37 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ char *ft_addstrings(char *s1, char *s2)
 
 	s1p = ft_strlen(s1);
 	s2p = ft_strlen(s2);
-	if (!(ret = (char *)ft_memalloc((s1p >= s2p) ? s1p : s2p)))
+	if (!(ret = (char *)ft_memalloc((s1p >= s2p) ? s1p + 1 : s2p + 1)))
 		return (NULL);
+	ft_memset(ret, 0, (s1p >= s2p) ? s1p + 1 : s2p + 1);
 	ft_memset(ret, '0', (s1p >= s2p) ? s1p - 1 : s2p - 1);
 	diff = 0;
 	y = (s1p >= s2p) ? s1p : s2p;
@@ -52,9 +53,8 @@ char *ft_addstrings(char *s1, char *s2)
 	return (ret);
 }
 
-/* char *ft_pow5(int po)
+char *ft_pow5(int po)
 {
-	char *temp;
 	char *base;
 	char *ret;
 	size_t p;
@@ -65,25 +65,18 @@ char *ft_addstrings(char *s1, char *s2)
 		return (ft_strdup("1"));
 	if (po < 0)
 		po = -po;
-	//po++;
 	ret = ft_strdup("5");
 	while (po > 1)
 	{
 		i = 4;
 		base = ft_strdup(ret);
-		while (i)
-		{
-			temp = ft_strdup(base);
-			//mprintf("%s + %s = ", ret, temp);
-			ret = ft_addstrings(ret, temp);
-			//printf("+%s\n", ret);
-			i--;
-		}
+		while (i--)
+			ret = ft_addstrings(ret, base);
 		free(base);
 		po--;
 	}
 	return (ret);
-} */
+}
 
 /* char *ft_floatt(float a)
 {

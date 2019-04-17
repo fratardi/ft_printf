@@ -23,7 +23,7 @@ int main(void)
 		po++;
 	} */
 	printf("addstrings = %s et s1 = %s s2 = %s\n", ft_addstrings(s1, s2), s1, s2);
-	//ft_printf("pow5 = %s\n", ft_pow5(3));	
+	printf("pow5 = %s\n", ft_pow5(4096));	
 /* 	while (po != 50)
 	{
 		//ft_printf("pow5 = %s\n", ft_pow5(po));
@@ -32,7 +32,6 @@ int main(void)
 	} */
 /* 	printf(".%s _ NOUS\n", ft_floatt(3.1));
 	printf("%.80f _ VRAI\n", 3.1); */
-	return(0);
 
 	/*ft_fillbig(s1, s2);
 	printf("add - {%s}\n", ft_addstrings(s1, s2)); */
@@ -45,5 +44,6 @@ int main(void)
 	/* 	ft_putendl("\n\n\nTESTS COMPLET - <Return>");
 	getchar();
 	tests(); */
+	//while(1);
 	return (0);
 }
