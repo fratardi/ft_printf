@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/17 19:14:06 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/17 20:10:25 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char ft_addchar(char *s1, char *s2, char *ret, char carry)
 {
-	if (*s1 + *s2 + carry - (2 * '0') < 9)
+	if (*s1 + *s2 + carry - (2 * '0') <= 9)
 	{
 		*ret = *s1 + *s2 + carry - '0';
 		return (0);
@@ -33,6 +33,7 @@ char *ft_addstrings(char *s1, char *s2)
 
 	s1p = ft_strlen(s1);
 	s2p = ft_strlen(s2);
+	//printf("%s + %s = ", s1, s2);
 	if (!(ret = (char *)ft_memalloc((s1p >= s2p) ? s1p : s2p)))
 		return (NULL);
 	ft_memset(ret, '0', (s1p >= s2p) ? s1p - 1 : s2p - 1);
@@ -40,62 +41,22 @@ char *ft_addstrings(char *s1, char *s2)
 	y = (s1p >= s2p) ? s1p : s2p;
 	while (s1p-- && s2p-- && y--)
 	{
+		//printf("%c + %c + %d = ", s1[s1p], s2[s2p], diff);
 		diff = ft_addchar(&s1[s1p], &s2[s2p], &ret[y], diff);
-		ft_printf("{%c + %c} = %c\n", s1[s1p], s2[s2p], ret[y]);
+		//printf("= %c\n", ret[y]);
 	}
+	if (y == 0)
+		return(ret);
 	s2p--;
-	while (y-- && (s1p-- || s2p--))
-	{
-		ft_printf("{%c + %c} = %c\n", '0', (s1p) ? s1[s1p] : s2[s2p], ret[y]);
-		if (s2p)
-			diff = ft_addchar("0", &s2[s2p], &ret[y], diff);
-		else
-			diff = ft_addchar("0", &s1[s1p], &ret[y], diff);
-		//ft_printf("{%c + %c} = %c\n", ret[y], s2[s2p], ret[y]);
-	}
+	y -= (s2p) ? 1 : 0;
+	while(s2p >= 0)
+		diff = ft_addchar("0", &s2[s2p--], &ret[y--], diff);
+	while(s1p >= 0)
+		diff = ft_addchar("0", &s1[s1p--], &ret[y--], diff);
 	if (diff)
 		ret = ft_strjoinfree(ft_strdup("1"), ret);
-	return (ret);
+	return (&ret[0]);
 }
-
-/* char *ft_addstrings(char *s1, char *s2)
-{
-	int s1p;
-	int s2p;
-	int i;
-	char diff;
-	char *temp;
-
-	s1p = ft_strlen(s1);
-	s2p = ft_strlen(s2);
-
-	if (s1p < s2p)
-	{
-		temp = s1;
-		s1 = s2;
-		s2 = temp;
-		s1p = ft_strlen(s1);
-		s2p = ft_strlen(s2);
-	}
-	diff = 0;
-	while (s1p-- && s2p--)
-	{
-		diff = ft_addchar(&s1[s1p], &s2[s2p]);
-		//printf("{%c}\n", s1[s1p]);
-		i = 1;
-		while (diff && s1p - i >= 0)
-			diff = ft_addchar(&s1[s1p - i++], "1", );
-		if (diff)
-		{
-			s1 = ft_strjoinfree(ft_strdup("1"), s1);
-			s1p++;
-			diff = 0;
-		}
-		//printf("{%s}--{%d}\n", s1, diff);
-	}
-	//printf("addstring = %s\n", s1);
-	return (s1);
-} */
 
 /* char *ft_pow5(int po)
 {
@@ -119,9 +80,9 @@ char *ft_addstrings(char *s1, char *s2)
 		while (i)
 		{
 			temp = ft_strdup(base);
-			//printf("%s + %s = ", ret, temp);
+			//mprintf("%s + %s = ", ret, temp);
 			ret = ft_addstrings(ret, temp);
-			printf("+%s\n", ret);
+			//printf("+%s\n", ret);
 			i--;
 		}
 		free(base);
