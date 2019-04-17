@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/17 19:12:18 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/04/17 19:14:06 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,19 @@ char *ft_addstrings(char *s1, char *s2)
 	ft_memset(ret, '0', (s1p >= s2p) ? s1p - 1 : s2p - 1);
 	diff = 0;
 	y = (s1p >= s2p) ? s1p : s2p;
-	while ((s1p-- && s2p-- )&& y--)
+	while (s1p-- && s2p-- && y--)
 	{
 		diff = ft_addchar(&s1[s1p], &s2[s2p], &ret[y], diff);
-		//ft_printf("{%c + %c} = %c\n", s1[s1p], s2[s2p], ret[y]);
+		ft_printf("{%c + %c} = %c\n", s1[s1p], s2[s2p], ret[y]);
 	}
 	s2p--;
 	while (y-- && (s1p-- || s2p--))
 	{
-		diff = ft_addchar("0", &s2[s2p], &ret[y], diff);
+		ft_printf("{%c + %c} = %c\n", '0', (s1p) ? s1[s1p] : s2[s2p], ret[y]);
+		if (s2p)
+			diff = ft_addchar("0", &s2[s2p], &ret[y], diff);
+		else
+			diff = ft_addchar("0", &s1[s1p], &ret[y], diff);
 		//ft_printf("{%c + %c} = %c\n", ret[y], s2[s2p], ret[y]);
 	}
 	if (diff)
