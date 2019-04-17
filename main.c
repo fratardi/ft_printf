@@ -11,8 +11,8 @@ int main(void)
 	//ft_printf("TEST = %d %d\n", 12, 11, 88, 110);
 	
 
-	char *s1 = ft_strdup("6250");
-	char *s2 = ft_strdup("3125");
+	char *s1 = ft_strdup("999");
+	char *s2 = ft_strdup("333");
 	int po;
 
 /* 	while (po != 500)
