@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/17 20:42:44 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/17 20:47:41 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,8 @@ char *ft_addstrings(char *s1, char *s2)
 	diff = 0;
 	y = (s1p >= s2p) ? s1p : s2p;
 	while (s1p-- && s2p-- && y--)
-	{
-		//printf("%c + %c + %d = ", s1[s1p], s2[s2p], diff);
 		diff = ft_addchar(&s1[s1p], &s2[s2p], &ret[y], diff);
-		//printf("= %c\n", ret[y]);
-	}
-	if (y == 0 && diff)
-		ret = ft_strjoinfree(ft_strdup("1"), ret);
+	ret = (y== 0 && diff) ? ft_strjoinfree(ft_strdup("1"), ret) : ret;
 	if (y == 0)
 		return(ret);
 	s2p--;
@@ -55,8 +50,7 @@ char *ft_addstrings(char *s1, char *s2)
 		diff = ft_addchar("0", &s2[s2p--], &ret[y--], diff);
 	while(s1p >= 0)
 		diff = ft_addchar("0", &s1[s1p--], &ret[y--], diff);
-	if (diff)
-		ret = ft_strjoinfree(ft_strdup("1"), ret);
+	ret = (diff) ? ft_strjoinfree(ft_strdup("1"), ret) : ret;
 	return (&ret[0]);
 }
 
