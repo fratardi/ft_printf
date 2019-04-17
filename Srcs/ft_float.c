@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/17 20:47:41 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/17 20:52:11 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ char *ft_addstrings(char *s1, char *s2)
 
 	s1p = ft_strlen(s1);
 	s2p = ft_strlen(s2);
-	//printf("%s + %s = ", s1, s2);
 	if (!(ret = (char *)ft_memalloc((s1p >= s2p) ? s1p : s2p)))
 		return (NULL);
 	ft_memset(ret, '0', (s1p >= s2p) ? s1p - 1 : s2p - 1);
@@ -46,12 +45,11 @@ char *ft_addstrings(char *s1, char *s2)
 		return(ret);
 	s2p--;
 	y -= (s2p) ? 1 : 0;
-	while(s2p >= 0)
-		diff = ft_addchar("0", &s2[s2p--], &ret[y--], diff);
-	while(s1p >= 0)
-		diff = ft_addchar("0", &s1[s1p--], &ret[y--], diff);
+	while(s1p >= 0 || s2p >= 0)
+		diff = ft_addchar("0", (s1p >= 0) ? &s1[s1p--] : &s2[s2p--],
+		 &ret[y--], diff);
 	ret = (diff) ? ft_strjoinfree(ft_strdup("1"), ret) : ret;
-	return (&ret[0]);
+	return (ret);
 }
 
 /* char *ft_pow5(int po)
