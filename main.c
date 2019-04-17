@@ -23,7 +23,7 @@ int main(void)
 		po++;
 	} */
 	printf("addstrings = %s et s1 = %s s2 = %s\n", ft_addstrings(s1, s2), s1, s2);
-	ft_printf("pow5 = %s\n", ft_pow5(3));	
+	//ft_printf("pow5 = %s\n", ft_pow5(3));	
 /* 	while (po != 50)
 	{
 		//ft_printf("pow5 = %s\n", ft_pow5(po));
