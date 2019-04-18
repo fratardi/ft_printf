@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/18 18:14:52 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/04/18 18:55:22 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,38 @@ char 	*ft_pow2neg(int n)
 	ft_memset(fill , '0', i);
 	return(ft_strjoinfree(fill, ret));
 }
+
+
+void	ft_adjustnegpo(char **s1, char **s2)
+{
+	size_t i1;
+	size_t i2;
+	char *tojoin;
+	
+	i1 = ft_strlen(*s1);
+	i2 = ft_strlen(*s2);
+	if(i1 == i2)
+		return ;
+	if(i1 < i2)
+	{	
+		if(!(tojoin = (char *)ft_memalloc(sizeof(char ) * (i2 - i1 + 1))))
+			return;
+		ft_memset(tojoin, '0', i2 - i1);
+		*s1 = ft_strjoinfree(*s1, tojoin);
+	}
+	if(i1 > i2)
+	{
+		if(!(tojoin = (char *)ft_memalloc(sizeof(char ) * (i1 - i2 + 1))))
+				return;
+		ft_memset(tojoin, '0', i1 - i2);
+		*s2 = ft_strjoinfree(*s2, tojoin);
+	}
+}
+
+
+
+
+
 
 /* char *ft_floatt(float a)
 {

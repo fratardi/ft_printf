@@ -11,11 +11,13 @@ int main(void)
 	//ft_printf("TEST = %d %d\n", 12, 11, 88, 110);
 	
 
-	char *s1 = ft_strdup("333");
-	char *s2 = ft_strdup("9");
+	char *s1 = ft_pow2neg(1);
+	char *s2 = ft_pow2neg(2);
 	int po;
 
-/* 	while (po != 500)
+	ft_adjustnegpo(&s1, &s2);
+	
+	/* 	while (po != 500)
 	{
 		printf("%s + %s = ", s1, s2);
 		printf("%s = ", ft_addstrings(s1, s2));
@@ -23,7 +25,9 @@ int main(void)
 		po++;
 	} */
 	printf("addstrings = %s et s1 = %s s2 = %s\n", ft_addstrings(s1, s2), s1, s2);
-	printf("pow2neg = 0.%s\n", ft_pow2neg(11));	
+	printf("pow2neg = 0.%s\n", ft_pow2neg(11));
+	ft_adjustnegpo(&s1, &s2);
+	printf("\ns1 >>>    %s\ns2 >>>    %s\n", s1,s2);
 /* 	while (po != 50)
 	{
 		//ft_printf("pow5 = %s\n", ft_pow5(po));

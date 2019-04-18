@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/17 17:29:22 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/04/18 18:50:58 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ size_t				ft_printulli(unsigned long long int n, t_printinfo *l);
 
 /* Float */
 
+
+void				ft_adjustnegpo(char **s1, char **s2);
 char   				*ft_add_5(char *str);
 char 				*ft_mantissabin(float d);
 int					ft_expfloat(float a);
