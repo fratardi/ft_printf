@@ -11,12 +11,10 @@ int main(void)
 	//ft_printf("TEST = %d %d\n", 12, 11, 88, 110);
 	
 
-	char *s1 = ft_pow2neg(1);
-	char *s2 = ft_pow2neg(2);
+	char *s1 = ft_pow2neg(7);
+	char *s2 = ft_pow2neg(11);
 	int po;
-
-	ft_adjustnegpo(&s1, &s2);
-	
+	ft_adjustnegpo(&s1, &s2);	
 	/* 	while (po != 500)
 	{
 		printf("%s + %s = ", s1, s2);
@@ -28,7 +26,11 @@ int main(void)
 	printf("pow2neg = 0.%s\n", ft_pow2neg(11));
 	ft_adjustnegpo(&s1, &s2);
 	printf("\ns1 >>>    %s\ns2 >>>    %s\n", s1,s2);
-/* 	while (po != 50)
+
+	ft_putendl(ft_pow2c())	;
+	
+	
+	/* 	while (po != 50)
 	{
 		//ft_printf("pow5 = %s\n", ft_pow5(po));
 		//ft_printf("pow2neg = 0.%s\n", ft_pow2neg(po));

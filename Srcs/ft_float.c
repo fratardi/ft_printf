@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/18 18:55:22 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/04/18 20:25:13 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,50 @@ char *ft_pow5(int po)
 	}
 	return (ret);
 }
+
+char *ft_pow2c(int po)
+{
+	char *base;
+	char *ret;
+	size_t p;
+
+	p = (size_t)po;
+	if(!po)
+		return(ft_strdup("0"));
+	if(po < 0)
+		po = -po;
+	ret = ft_strdup("2");
+	while(po-- > 1)
+	{
+		base = ft_strdup(ret);
+		ret = ft_addstrings(ret,base);
+		free(base);
+	}
+	return(ret);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 char 	*ft_pow2neg(int n)
