@@ -11,14 +11,16 @@ int main(void)
 	//ft_printf("%s + %s = %s\n", s1, s2, ft_addstrings(s1, s2));
 	int i = 1;
 
-	while (i++ != 30)
+/* 	while (i++ != 30)
 	{
 		s1 = ft_strdup("2147483647");
 		s2 = ft_ullitoa(i);
 		ft_adjustpospo(&s1, &s2);
 		ft_printf("{%s + %s} = ", s1, s2);
 		ft_putendl(ft_addstrings(s1, s2));
-	}
+	} */
+	ft_floatt(1.3);
+
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/18 20:42:01 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/18 21:41:16 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,6 @@ size_t				ft_printulli(unsigned long long int n, t_printinfo *l);
 
 void				ft_adjustpospo(char **s1, char **s2);
 void				ft_adjustnegpo(char **s1, char **s2);
-char 				*ft_pow2c(int po);
 char   				*ft_add_5(char *str);
 char 				*ft_mantissabin(float d);
 int					ft_expfloat(float a);
@@ -124,7 +123,7 @@ char				*ft_pow5(int pow);
 char 				*ft_decimal(float a);
 void 				ft_hexfloat(void *content, size_t n);
 char				*ft_fillbig(char *s1, char *s2);
-char 				*ft_pow2neg(int po);
+char 				*ft_pow2str(int ex);
 char				*ft_floatt(float a);
 
 /* Unicode */

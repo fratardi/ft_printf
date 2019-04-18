@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/18 20:49:16 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/18 22:42:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,67 +51,6 @@ char *ft_addstrings(char *s1, char *s2)
 	ret = (diff) ? ft_strjoinfree(ft_strdup("1"), ret) : ret;
 	return (ret);
 }
-
-char *ft_pow5(int po)
-{
-	char *base;
-	char *ret;
-	size_t p;
-	int i;
-
-	p = (size_t)po;
-	if (po == 0)
-		return (ft_strdup("1"));
-	if (po < 0)
-		po = -po;
-	ret = ft_strdup("5");
-	while (po > 1)
-	{
-		i = 4;
-		base = ft_strdup(ret);
-		while (i--)
-			ret = ft_addstrings(ret, base);
-		free(base);
-		po--;
-	}
-	return (ret);
-}
-
-char *ft_pow2c(int po)
-{
-	char *base;
-	char *ret;
-	size_t p;
-
-	p = (size_t)po;
-	if(!po)
-		return(ft_strdup("0"));
-	if(po < 0)
-		po = -po;
-	ret = ft_strdup("2");
-	while(po-- > 1)
-	{
-		base = ft_strdup(ret);
-		ret = ft_addstrings(ret,base);
-		free(base);
-	}
-	return(ret);
-}
-
-char 	*ft_pow2neg(int n)
-{
-	char *ret;
-	char *fill;
-	size_t i;
-	
-	ret = ft_pow5(n);
-	i = n - ft_strlen(ret);
-	if(!(fill = (char *)ft_memalloc((sizeof(char)) * (i + 1))))
-		return(NULL);
-	ft_memset(fill , '0', i);
-	return(ft_strjoinfree(fill, ret));
-}
-
 
 void	ft_adjustnegpo(char **s1, char **s2)
 {
@@ -163,6 +102,51 @@ void	ft_adjustpospo(char **s1, char **s2)
 		ft_memset(tojoin, '0', i1 - i2);
 		*s2 = ft_strjoinfree(tojoin, *s2);
 	}
+}
+
+void	ft_floatt(float a)
+{
+	char *m;
+	int ex;
+
+	char *ent;
+	char *dec;
+
+	//char *base;
+	char *temp;
+
+	int b;
+
+	m = ft_mantissabin(a);
+	ex = ft_expfloat(a);
+	b = -1;
+	dec = (ex < 0) ? ft_pow2str(0 + ex) : ft_strdup("0");
+	//ent = ft_strdup("0");
+	ft_printf("ex = %d et mantissa = %s\n", ex, m);
+	ent = (ex >= 0) ? ft_pow2str(0 + ex) : ft_strdup("0");
+	printf("__%s.%s\n", ent, dec);
+	while(*m)
+	{
+		if (*m == '1')
+		{
+			if (b + ex >= 0)
+			{
+				temp = ft_pow2str(b + ex);
+				ft_adjustpospo(&temp, &ent);
+				ent = ft_addstrings(temp, ent);
+				printf("ent = %s\n", ent);
+			}
+			else if (b + ex < 0)
+			{
+				temp = ft_pow2str(b + ex);
+				ft_adjustnegpo(&temp, &dec);
+				dec = ft_addstrings(temp, dec);
+			}
+		}
+		b--;
+		m++;
+	}
+	printf("%s.%s\n", ent, dec);
 }
 
 /* char *ft_floatt(float a)
