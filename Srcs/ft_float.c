@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/17 21:03:37 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/18 17:50:49 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ char *ft_addstrings(char *s1, char *s2)
 	s2p = ft_strlen(s2);
 	if (!(ret = (char *)ft_memalloc((s1p >= s2p) ? s1p + 1 : s2p + 1)))
 		return (NULL);
-	ft_memset(ret, 0, (s1p >= s2p) ? s1p + 1 : s2p + 1);
 	ft_memset(ret, '0', (s1p >= s2p) ? s1p - 1 : s2p - 1);
 	diff = 0;
 	y = (s1p >= s2p) ? s1p : s2p;
