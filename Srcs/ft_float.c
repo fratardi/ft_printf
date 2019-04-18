@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/18 17:50:49 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/04/18 18:14:52 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,21 @@ char *ft_pow5(int po)
 		po--;
 	}
 	return (ret);
+}
+
+
+char 	*ft_pow2neg(int n)
+{
+	char *ret;
+	char *fill;
+	size_t i;
+	
+	ret = ft_pow5(n);
+	i = n - ft_strlen(ret);
+	if(!(fill = (char *)ft_memalloc((sizeof(char)) * (i + 1))))
+		return(NULL);
+	ft_memset(fill , '0', i);
+	return(ft_strjoinfree(fill, ret));
 }
 
 /* char *ft_floatt(float a)
