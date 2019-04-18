@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/18 20:25:13 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/04/18 20:49:16 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,30 +98,6 @@ char *ft_pow2c(int po)
 	return(ret);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 char 	*ft_pow2neg(int n)
 {
 	char *ret;
@@ -163,10 +139,31 @@ void	ft_adjustnegpo(char **s1, char **s2)
 	}
 }
 
-
-
-
-
+void	ft_adjustpospo(char **s1, char **s2)
+{
+	size_t i1;
+	size_t i2;
+	char *tojoin;
+	
+	i1 = ft_strlen(*s1);
+	i2 = ft_strlen(*s2);
+	if(i1 == i2)
+		return ;
+	if(i1 < i2)
+	{	
+		if(!(tojoin = (char *)ft_memalloc(sizeof(char ) * (i2 - i1 + 1))))
+			return;
+		ft_memset(tojoin, '0', i2 - i1);
+		*s1 = ft_strjoinfree(tojoin, *s1);
+	}
+	if(i1 > i2)
+	{
+		if(!(tojoin = (char *)ft_memalloc(sizeof(char ) * (i1 - i2 + 1))))
+				return;
+		ft_memset(tojoin, '0', i1 - i2);
+		*s2 = ft_strjoinfree(tojoin, *s2);
+	}
+}
 
 /* char *ft_floatt(float a)
 {

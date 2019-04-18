@@ -5,31 +5,25 @@
 
 int main(void)
 {
-	/* Fonction de DEBUG */
-	//ft_debug("Something Happen %d %d %d\n", 11, 10, 9);
+	char *s1;
+	char *s2;
 
-	//ft_printf("TEST = %d %d\n", 12, 11, 88, 110);
-	
+	//ft_printf("%s + %s = %s\n", s1, s2, ft_addstrings(s1, s2));
+	int i = 1;
 
-	char *s1 = ft_pow2neg(7);
-	char *s2 = ft_pow2neg(11);
-	int po;
-	ft_adjustnegpo(&s1, &s2);	
-	/* 	while (po != 500)
+	while (i++ != 30)
 	{
-		printf("%s + %s = ", s1, s2);
-		printf("%s = ", ft_addstrings(s1, s2));
-		printf("%s + %s\n", s1, s2);
-		po++;
-	} */
-	printf("addstrings = %s et s1 = %s s2 = %s\n", ft_addstrings(s1, s2), s1, s2);
-	printf("pow2neg = 0.%s\n", ft_pow2neg(11));
-	ft_adjustnegpo(&s1, &s2);
-	printf("\ns1 >>>    %s\ns2 >>>    %s\n", s1,s2);
+		s1 = ft_strdup("2147483647");
+		s2 = ft_ullitoa(i);
+		ft_adjustpospo(&s1, &s2);
+		ft_printf("{%s + %s} = ", s1, s2);
+		ft_putendl(ft_addstrings(s1, s2));
+	}
 
-	ft_putendl(ft_pow2c())	;
-	
-	
+	return (0);
+}
+
+
 	/* 	while (po != 50)
 	{
 		//ft_printf("pow5 = %s\n", ft_pow5(po));
@@ -51,5 +45,6 @@ int main(void)
 	getchar();
 	tests(); */
 	//while(1);
-	return (0);
-}
+
+		/* Fonction de DEBUG */
+	//ft_debug("Something Happen %d %d %d\n", 11, 10, 9);
