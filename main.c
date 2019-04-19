@@ -19,7 +19,8 @@ int main(void)
 		ft_printf("{%s + %s} = ", s1, s2);
 		ft_putendl(ft_addstrings(s1, s2));
 	} */
-	ft_floatt(1.3);
+	ft_floatt(1.1754945E-38);
+	printf("V__%f\n", 1.1754945E-38);
 
 
 	return (0);

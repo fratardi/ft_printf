@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/18 21:41:16 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/19 20:39:26 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ char 				*ft_decimal(float a);
 void 				ft_hexfloat(void *content, size_t n);
 char				*ft_fillbig(char *s1, char *s2);
 char 				*ft_pow2str(int ex);
-char				*ft_floatt(float a);
+void				ft_floatt(float a);
 
 /* Unicode */
 
