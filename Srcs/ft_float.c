@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/18 22:42:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/23 15:10:12 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,71 +40,71 @@ char *ft_addstrings(char *s1, char *s2)
 	y = (s1p >= s2p) ? s1p : s2p;
 	while (s1p-- && s2p-- && y--)
 		diff = ft_addchar(&s1[s1p], &s2[s2p], &ret[y], diff);
-	ret = (y== 0 && diff) ? ft_strjoinfree(ft_strdup("1"), ret) : ret;
+	ret = (y == 0 && diff) ? ft_strjoinfree(ft_strdup("1"), ret) : ret;
 	if (y == 0)
-		return(ret);
+		return (ret);
 	s2p--;
 	y -= (s2p) ? 1 : 0;
-	while(s1p >= 0 || s2p >= 0)
+	while (s1p >= 0 || s2p >= 0)
 		diff = ft_addchar("0", (s1p >= 0) ? &s1[s1p--] : &s2[s2p--],
-		 &ret[y--], diff);
+						  &ret[y--], diff);
 	ret = (diff) ? ft_strjoinfree(ft_strdup("1"), ret) : ret;
 	return (ret);
 }
 
-void	ft_adjustnegpo(char **s1, char **s2)
+void ft_adjustnegpo(char **s1, char **s2)
 {
 	size_t i1;
 	size_t i2;
 	char *tojoin;
-	
+
 	i1 = ft_strlen(*s1);
 	i2 = ft_strlen(*s2);
-	if(i1 == i2)
-		return ;
-	if(i1 < i2)
-	{	
-		if(!(tojoin = (char *)ft_memalloc(sizeof(char ) * (i2 - i1 + 1))))
+	if (i1 == i2)
+		return;
+	if (i1 < i2)
+	{
+		if (!(tojoin = (char *)ft_memalloc(sizeof(char) * (i2 - i1 + 1))))
 			return;
 		ft_memset(tojoin, '0', i2 - i1);
 		*s1 = ft_strjoinfree(*s1, tojoin);
 	}
-	if(i1 > i2)
+	if (i1 > i2)
 	{
-		if(!(tojoin = (char *)ft_memalloc(sizeof(char ) * (i1 - i2 + 1))))
-				return;
+		if (!(tojoin = (char *)ft_memalloc(sizeof(char) * (i1 - i2 + 1))))
+			return;
 		ft_memset(tojoin, '0', i1 - i2);
 		*s2 = ft_strjoinfree(*s2, tojoin);
 	}
 }
 
-void	ft_adjustpospo(char **s1, char **s2)
+void ft_adjustpospo(char **s1, char **s2)
 {
 	size_t i1;
 	size_t i2;
 	char *tojoin;
-	
+
 	i1 = ft_strlen(*s1);
 	i2 = ft_strlen(*s2);
-	if(i1 == i2)
-		return ;
-	if(i1 < i2)
-	{	
-		if(!(tojoin = (char *)ft_memalloc(sizeof(char ) * (i2 - i1 + 1))))
+	if (i1 == i2)
+		return;
+	if (i1 < i2)
+	{
+		if (!(tojoin = (char *)ft_memalloc(sizeof(char) * (i2 - i1 + 1))))
 			return;
 		ft_memset(tojoin, '0', i2 - i1);
 		*s1 = ft_strjoinfree(tojoin, *s1);
 	}
-	if(i1 > i2)
+	if (i1 > i2)
 	{
-		if(!(tojoin = (char *)ft_memalloc(sizeof(char ) * (i1 - i2 + 1))))
-				return;
+		if (!(tojoin = (char *)ft_memalloc(sizeof(char) * (i1 - i2 + 1))))
+			return;
 		ft_memset(tojoin, '0', i1 - i2);
 		*s2 = ft_strjoinfree(tojoin, *s2);
 	}
 }
 
-void	ft_floatt(float a)
+char *ft_floatt(float a)
 {
 	char *m;
 	int ex;
@@ -121,11 +121,10 @@ void	ft_floatt(float a)
 	ex = ft_expfloat(a);
 	b = -1;
 	dec = (ex < 0) ? ft_pow2str(0 + ex) : ft_strdup("0");
-	//ent = ft_strdup("0");
-	ft_printf("ex = %d et mantissa = %s\n", ex, m);
+	// ft_printf("ex = %d et mantissa = %s\n", ex, m);
 	ent = (ex >= 0) ? ft_pow2str(0 + ex) : ft_strdup("0");
-	printf("__%s.%s\n", ent, dec);
-	while(*m)
+	// printf("__%s.%s\n", ent, dec);
+	while (*m)
 	{
 		if (*m == '1')
 		{
@@ -146,58 +145,45 @@ void	ft_floatt(float a)
 		b--;
 		m++;
 	}
-	printf("%s.%s\n", ent, dec);
+	printf("Nous__%s.%s\n", ent, dec);
+	ent = ft_strjoinfree(ent, ft_strdup("."));
+	ent = ft_strjoinfree(ent, dec);
+	return (ent);
 }
 
-/* char *ft_floatt(float a)
+void ft_floatEdisp(char *str, int prec)
 {
-	char *m;
-	char *temp;
-	char *ret;
-	char *base;
-	//int i;
-	int ex;
-	unsigned long long int positiv;
-	size_t b;
+	int i;
+	int y;
+	int puiss;
 
-	m = ft_mantissabin(a);
-	ex = ft_expfloat(a);
-	printf("ex = %d et mantissa = %s\n", ex, m);
-	positiv = (ex > 0) ? ft_pow2(ex) : 0;
-	if (ex < 0)
-		positiv = (unsigned long long int)ft_pow(5, -ex);
-	b = (ex > 0) ? digitlen(positiv) : 0;
-	ex = 1;
-	temp = ft_memalloc(2048);
-	ft_bzero(temp, 2048);
-	temp[0] = 48;
-	while(*m)
-	{
-		if (*m == '1')
-		{
-			temp = ft_fillbig(temp, ft_pow2neg(ex));
-			temp = ft_addstrings(ft_pow2neg(ex), temp);
-		}
-		m++;
-		ex++;
-	}
-	temp = ft_strjoinfree(ft_strdup("1"), temp);
-	//printf("neg = %s\n", temp);
-	ret = ft_memalloc(2048);
-	ft_bzero(ret, 2048);
-	ret[0] = 48;
-	while(positiv--)
-	{
-		base = ft_strdup(temp);
-		//printf("{%s + %s}\n", ret, base);
-		ret = ft_addstrings(ret, base);
-		//printf("{%s} -- {%s}\n", ret, base);
-	}
-	while(b > 0)
-	{
-		printf("%c", *ret);
-		ret++;
-		b--;
-	}
-	return(ret);
-} */
+	i = 2;
+	y = 0;
+	puiss = 0;
+	if (str[0] != '0')
+		return;
+	while (str[i] && str[i] == '0')
+		i++;
+	puiss = i - 1;
+	ft_printf("Nous__%c.", str[i]);
+	while (y++ < prec)
+		ft_putchar(str[i++]);
+	ft_printf("E-%d\n", puiss);
+}
+
+char *ft_rounding(char *str, int prec)
+{
+	int i;
+
+	i = 0;
+	while (str[i] && str[i] != '.')
+		i++;
+	i += prec + 1;
+	if (str[i] == '5')
+		while (str[i] && str[i] == '5')
+			i++;
+	if (str[i] == 0 || str[i] > '5')
+		str[prec + 1] += 1;
+	str[prec + 2] = 0;
+	return (str);
+}

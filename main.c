@@ -19,10 +19,11 @@ int main(void)
 		ft_printf("{%s + %s} = ", s1, s2);
 		ft_putendl(ft_addstrings(s1, s2));
 	} */
-	ft_floatt(1.1754945E-38);
-	printf("V__%f\n", 1.1754945E-38);
-
-
+	//ft_floatt(1.1754945E-38);
+	printf("Vrai__%.250f\n", 1.1754945E-38);
+	ft_floatEdisp(ft_floatt(1.1754945E-38), 9);
+	ft_printf("Rounding for %d__%s\n", 2, ft_rounding(ft_floatt(1.5656), 2));
+	//ft_printf("Bin = %s\n", ft_bin(2147483647, 64));
 	return (0);
 }
 
