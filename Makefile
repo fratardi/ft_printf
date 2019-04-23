@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/04/18 22:00:41 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/04/23 16:13:17 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ C = ./Srcs/ft_split_format.c ./Srcs/ft_issyntax.c ./Srcs/ft_format_string.c \
 	./Srcs/Unicodes/ft_uni_str_len.c ./Srcs/ft_printf.c ./Srcs/ft_debug.c \
 	./Srcs/ft_display.c ./Srcs/ft_float.c ./Srcs/ft_convert.c \
 	./Srcs/ft_printdigits.c ./Srcs/ft_add_5.c ./Srcs/annex_float.c \
-	./Srcs/pow_str.c
+	./Srcs/pow_str.c ./Srcs/annex_double.c ./Srcs/annex_ldouble.c
 
 C_LIB = ./libft/ft_itoa.o ./libft/ft_freetab.o ./libft/ft_strnlen.o \
 		./libft/ft_strndup.o ./libft/ft_swap.o\
