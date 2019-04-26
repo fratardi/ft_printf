@@ -6,27 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 19:47:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/26 18:08:55 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/04/26 18:46:46 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Includes/ft_printf.h"
-
-
-
-
-float *ft_floatocaster(float d)
-{
-	float *ret;
-
-	ret = &d;
-	return(ret);
-}
-
-int	ft_getsexpld(long double val)
-{
-	return((int)val);
-}
 
 void ft_displaybin(void *content, size_t n)
 {

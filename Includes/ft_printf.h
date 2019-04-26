@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/26 18:44:26 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 18:51:00 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,7 @@ int 				ft_issyntax(char *str);
 void				ft_modndol(t_printinfo *list);
 size_t				ft_display(char **tab, t_printinfo *list, t_elem *elem);
 char				*ft_join(char *s1, char *s2);
+void				ft_displaybin(void *content, size_t n);
 
 /* Fill Stuct Print_Info */
 
