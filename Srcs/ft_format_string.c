@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/03/30 17:17:37 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 14:55:41 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ void ft_fillzerolist(t_printinfo *list)
 	list->extra = 0;
 	list->alt = 0;
 	list->showsign = 0;
+	list->is_long_double = 0;
+	list->is_long = 0;
+	list->is_char = 0;
+	list->is_short = 0;
 	list->wide = 0;
 	list->group = 0;
 	list->left = 0;
@@ -113,7 +117,7 @@ t_printinfo *ft_fillmod(char *str, t_printinfo *list)
 	i = 0;
 	hmod = 0;
 	lmod = 0;
-	while (str[i] && ft_strchr("hlL", str[i]) == NULL)
+	while (str[i] && ft_strchr("hlLz", str[i]) == NULL)
 		i++;
 	if (str[i] == 'z')
 		list->is_long = 1;

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/23 15:10:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 15:42:30 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void ft_adjustpospo(char **s1, char **s2)
 	}
 }
 
-char *ft_floatt(float a)
+/* char *ft_floatt(float a)
 {
 	char *m;
 	int ex;
@@ -149,9 +149,9 @@ char *ft_floatt(float a)
 	ent = ft_strjoinfree(ent, ft_strdup("."));
 	ent = ft_strjoinfree(ent, dec);
 	return (ent);
-}
+} */
 
-void ft_floatEdisp(char *str, int prec)
+void ft_floatEdispneg(char *str, int prec)
 {
 	int i;
 	int y;

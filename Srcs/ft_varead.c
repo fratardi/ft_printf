@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 19:04:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/12 15:42:58 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 15:07:35 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,11 @@ t_elem *ft_fillunsigned(t_printinfo *list, va_list va, t_elem *elem)
 
 t_elem *ft_fillfloats(t_printinfo *list, va_list va, t_elem *elem)
 {
-	if (list->is_long_double == 0)
-		elem->dble = va_arg(va, double);
-	else if (list->is_long == 0 && list->is_long_double != 0)
+	if (list->is_long_double != 0)
 		elem->long_double = va_arg(va, long double);
+	else
+		elem->dble = va_arg(va, double);
+
 	return (elem);
 }
 

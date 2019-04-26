@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 19:47:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/24 00:10:14 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/04/24 17:25:49 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ float *ft_floatocaster(float d)
 	ret = &d;
 	return(ret);
 }
-
-
 
 int	ft_getsexpld(long double val)
 {

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:42:47 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/03/30 17:26:00 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 14:55:51 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char			*ft_rest(char *to_print, char *str)
 
 t_printinfo		*ft_ifissyntax(char **tab, int i, t_printinfo *list)
 {
+	// list = ft_initlist(list);
     list = ft_fillndol(tab[i], list);
 	list = ft_fillprec(tab[i], list);
 	list = ft_fillflag(tab[i], list);

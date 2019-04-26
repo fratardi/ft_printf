@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/23 17:46:07 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 15:10:39 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,21 @@ unsigned int ft_get_sig_ldouble(long double d)
 	return (d > 0 ? 0 : 1);
 }
 
-char *ft_ldouble(long double a)
+size_t	ft_ldouble(long double a)
 {
 	char *m;
 	int ex;
 	char *ent;
 	char *dec;
 	char *temp;
+	size_t ret;
 	int b;
 
 	m = ft_mantissadouble(a);
 	ex = ft_expdouble(a);
 	b = -1;
 	dec = (ex < 0) ? ft_pow2str(0 + ex) : ft_strdup("0");
-	ft_printf("ex = %d et mantissa = %s\n", ex, m);
+	//ft_printf("ex = %d et mantissa = %s\n", ex, m);
 	ent = (ex >= 0) ? ft_pow2str(0 + ex) : ft_strdup("0");
 	// printf("__%s.%s\n", ent, dec);
 	while (*m)
@@ -87,8 +88,9 @@ char *ft_ldouble(long double a)
 		b--;
 		m++;
 	}
-	printf("Nous__%s.%s\n", ent, dec);
-	ent = ft_strjoinfree(ent, ft_strdup("."));
-	ent = ft_strjoinfree(ent, dec);
-	return (ent);
+	ft_printf("%s.%s", ent, dec);
+	ret = 1 + ft_strlen(ent) + ft_strlen(dec);
+	free(ent);
+	free(dec);
+	return (ret);
 }

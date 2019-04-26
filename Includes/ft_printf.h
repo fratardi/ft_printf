@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/23 17:41:33 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 15:36:22 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ unsigned int		ft_get_sig_double(double d);
 char 				*ft_double(double a);
 char				*ft_mantissaldouble(long double d);
 int					ft_expldouble(long double a);
-char				*ft_ldouble(long double a);
+size_t				ft_ldouble(long double a);
 
 
 /* Unicode */
