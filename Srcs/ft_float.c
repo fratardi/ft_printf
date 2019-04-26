@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/26 15:42:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 18:46:16 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,19 +171,29 @@ void ft_floatEdispneg(char *str, int prec)
 	ft_printf("E-%d\n", puiss);
 }
 
-char *ft_rounding(char *str, int prec)
+char *ft_rounding(char *str, size_t prec)
 {
 	int i;
 
 	i = 0;
-	while (str[i] && str[i] != '.')
-		i++;
-	i += prec + 1;
+/* 	while (str[i] && str[i] != '.')
+		i++; */
+	if (prec > ft_strlen(str))
+	{
+		while(prec > ft_strlen(str))
+			str = ft_strjoinfree(str, ft_strdup("0"));
+		return(str);
+	}
+	i += prec - 1;
 	if (str[i] == '5')
 		while (str[i] && str[i] == '5')
 			i++;
 	if (str[i] == 0 || str[i] > '5')
-		str[prec + 1] += 1;
-	str[prec + 2] = 0;
+	{
+		str[prec] = 0;
+		str = ft_addstrings(str, ft_strdup("1"));
+		//str[prec - 1] += 1;
+	}
+	str[prec] = 0;
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:48:00 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/26 15:11:13 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 18:38:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ size_t ft_display(char **tab, t_printinfo *list, t_elem *elem)
 			else if (list->type == 4)
 				ret += ft_print_uni_str(elem->value);
 			else if (list->type == 7)
-				ret += ft_ldouble((list->is_long_double == 0) ? elem->dble : elem->long_double);
+				ret += ft_ldouble((list->is_long_double == 0) ? elem->dble : elem->long_double, list->width);
 				//ft_hexfloat((float *)&(elem->dble), sizeof(float));
 			ft_putstr(ft_rest(NULL, tab[i]));
 			ret += ft_strlen(ft_rest(NULL, tab[i]));

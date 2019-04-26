@@ -27,7 +27,8 @@ int main(void)
 	//ft_hexfloat(&a, sizeof(long double));
 	//printf("exp_ldouble %d\n", ft_expldouble((long double)2.1));
 	//ft_ldouble(1.17549);
-	ft_printf("Nous__>> %Lf\n", 1.1754945E-38L);
+	ft_printf("Nous__>> %f\n", 3.753);
+	ft_printf("Rounding = %s", ft_rounding(ft_strdup("395"), 4));
 //	ft_floatEdisp("0.0000000541", 2);
 	//ft_printf("Bin double >> %s\n", ft_mantissadouble((double)1.1754945E-38));
 	//ft_printf("Rounding for %d__%s\n", 2, ft_rounding(ft_floatt(1.5656), 2));
