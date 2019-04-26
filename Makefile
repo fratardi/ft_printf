@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/04/26 18:52:37 by fratardi         ###   ########.fr        #
+#    Updated: 2019/04/26 19:20:00 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,18 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-C = ./Srcs/ft_split_format.c ./Srcs/ft_issyntax.c ./Srcs/ft_format_string.c \
-	./Srcs/ft_fill_struct.c ./Srcs/ft_varead.c \
-	./Srcs/Unicodes/ft_print_uni_char.c \
-	./Srcs/Unicodes/ft_print_uni_str.c ./Srcs/Unicodes/ft_uni_char_len.c \
-	./Srcs/Unicodes/ft_uni_str_len.c ./Srcs/ft_printf.c ./Srcs/ft_debug.c \
-	./Srcs/ft_display.c ./Srcs/ft_float.c ./Srcs/ft_convert.c \
-	./Srcs/ft_printdigits.c ./Srcs/ft_add_5.c ./Srcs/annex_float.c \
-	./Srcs/pow_str.c ./Srcs/annex_double.c ./Srcs/annex_ldouble.c \
-	./Srcs/ft_displaybin.c \
+C = ./Srcs/Parsing/ft_split_format.c ./Srcs/Parsing/ft_issyntax.c \
+	./Srcs/Parsing/ft_format_string.c ./Srcs/Parsing/ft_fill_struct.c \
+	./Srcs/Reader/ft_varead.c \
+	./Srcs/Unicodes/ft_print_uni_char.c ./Srcs/Unicodes/ft_print_uni_str.c\
+	./Srcs/Unicodes/ft_uni_char_len.c ./Srcs/Unicodes/ft_uni_str_len.c \
+	./Srcs/Display/ft_display.c ./Srcs/Maths/ft_float.c \
+	./Srcs/Display/ft_convert.c ./Srcs/Display/ft_printdigits.c \
+	./Srcs/Display/ft_displaybin.c\
+	./Srcs/Maths/annex_float.c ./Srcs/Maths/annex_ldouble.c\
+	./Srcs/Maths/pow_str.c ./Srcs/Maths/annex_double.c \
+	./Srcs/ft_printf.c \
+	./Srcs/ft_debug.c\
 
 C_LIB = ./libft/ft_itoa.o ./libft/ft_freetab.o ./libft/ft_strnlen.o \
 		./libft/ft_strndup.o ./libft/ft_swap.o\
