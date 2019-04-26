@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:25:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/26 19:17:14 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 20:22:54 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,24 @@
 
 /* Print Alignment */
 
-void ft_printalign(t_printinfo *list, size_t lenless, char *print)
+size_t ft_printalign(t_printinfo *list, size_t lenless, char *print)
 {
+	size_t ret;
+
 	list->width -= lenless;
 	if (list->left == 1)
 		ft_putstr(print);
+	ret = (list->left == 1) ? ft_strlen(print) : 0;
 	while (list->width > 0)
 	{
 		ft_putchar(' ');
 		list->width--;
+		ret++;
 	}
 	if (list->left == 0)
 		ft_putstr(print);
+	ret += (list->left == 0) ? ft_strlen(print) : 0;
+	return (ret);
 }
 
 /* Size */
@@ -58,88 +64,99 @@ size_t ft_size_hexa(unsigned long long int to_convert)
 
 /* Convert to Octal */
 
-void ft_convert_o(unsigned long long int to_convert, t_printinfo *list)
+size_t ft_convert_o(unsigned long long int to_convert, t_printinfo *list)
 {
 	char tab[17] = "012345678";
-	char ret[ft_size_octal(to_convert)];
+	char ret[ft_size_octal(to_convert) + ((list->alt == 1) ? 2 : 0)];
 	size_t size;
 
 	if (to_convert == 0)
-		return;
+		return (0);
 	if (list->alt == 1)
 		ft_putchar('0');
-	size = ft_size_octal(to_convert);
+	size = ft_size_octal(to_convert) + ((list->alt == 1) ? 2 : 0);
+	ret[0] = (list->alt == 1) ? '0': 0;
+	ret[1] = (list->alt == 1) ? 'X' : 0;
 	ret[size] = 0;
 	while (size--)
 	{
 		ret[size] = (tab[to_convert % 8]);
 		to_convert = to_convert / 8;
+		if (list->alt == 1 && size == 2)
+			break;
 	}
-	ft_printalign(list, ft_strlen(ret), ret);
+	return(ft_printalign(list, ft_strlen(ret), ret));
 }
 
 /* Convert to Hexa Lowercase */
 
-void ft_convert_x(unsigned long long int to_convert, t_printinfo *list)
+size_t ft_convert_x(unsigned long long int to_convert, t_printinfo *list)
 {
 	char tab[17] = "0123456789abcdef";
-	char ret[ft_size_hexa(to_convert)];
+	char ret[ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0)];
 	size_t size;
 
 	if (to_convert == 0)
-		return;
-	if (list->alt == 1)
-		ft_putstr("0x");
-	size = ft_size_hexa(to_convert);
+		return (0);
+	size = ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0);
+	ret[0] = (list->alt == 1) ? '0': 0;
+	ret[1] = (list->alt == 1) ? 'X' : 0;
 	ret[size] = 0;
 	while (size--)
 	{
 		ret[size] = (tab[to_convert % 16]);
 		to_convert = to_convert / 16;
+		if (list->alt == 1 && size == 2)
+			break;
 	}
-	ft_printalign(list, ft_strlen(ret), ret);
+	return(ft_printalign(list, ft_strlen(ret), ret));
 }
 
 /* Convert to Hexa Uppercase */
 
-void ft_convert_X(unsigned long long int to_convert, t_printinfo *list)
+size_t ft_convert_X(unsigned long long int to_convert, t_printinfo *list)
 {
 	char tab[17] = "0123456789ABCDEF";
-	char ret[ft_size_hexa(to_convert)];
+	char ret[ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0)];
 	size_t size;
 
 	if (to_convert == 0)
-		return;
-	if (list->alt == 1)
-		ft_putstr("0X");
-	size = ft_size_hexa(to_convert);
+		return (0);
+	size = ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0);
+	ret[0] = (list->alt == 1) ? '0': 0;
+	ret[1] = (list->alt == 1) ? 'X' : 0;
 	ret[size] = 0;
 	while (size--)
 	{
 		ret[size] = (tab[to_convert % 16]);
 		to_convert = to_convert / 16;
+		if (list->alt == 1 && size == 2)
+			break;
 	}
-	ft_printalign(list, ft_strlen(ret), ret);
+	return(ft_printalign(list, ft_strlen(ret), ret));
 }
 
 /* Print pointer address */
 
-void ft_convert_p(void *to_convert, t_printinfo *list)
+size_t ft_convert_p(void *to_convert, t_printinfo *list)
 {
 	char tab[17] = "0123456789abcdef";
-	char ret[ft_size_hexa((unsigned long long int)to_convert)];
+	char ret[ft_size_hexa((unsigned long long int)to_convert) + 2];
 	unsigned long long int converted = (unsigned long long int)to_convert;
 	size_t size;
 
 	if (to_convert == 0)
-		return;
-	ft_putstr("0x");
-	size = ft_size_hexa((unsigned long long int)to_convert);
+		return (0);
+	size = ft_size_hexa((unsigned long long int)to_convert) + 2;
+	ret[0] = '0';
+	ret[1] = 'x';
 	ret[size] = 0;
 	while (size--)
 	{
 		ret[size] = (tab[converted % 16]);
 		converted = converted / 16;
+		if (size == 2)
+			break;
 	}
-	ft_printalign(list, ft_strlen(ret), ret);
+	return(ft_printalign(list, ft_strlen(ret), ret));
 }

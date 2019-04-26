@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/26 19:18:38 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 19:24:51 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void ft_fillzerolist(t_printinfo *list)
 	list->left = 0;
 	list->is_unsigned = 0;
 	list->space = 0;
+	list->bin = 0;
 }
 
 /* Fill ndol */
@@ -56,7 +57,7 @@ t_printinfo *ft_fillflag(char *str, t_printinfo *list)
 	int i;
 
 	i = 1;
-	while (str[i] && ft_strchr("0 #'-+", str[i]) != NULL)
+	while (str[i] && ft_strchr("0 #'-+b", str[i]) != NULL)
 	{
 		if (list->extra != 1)
 			list->extra = (str[i] == '0') ? 1 : 0;
@@ -70,6 +71,8 @@ t_printinfo *ft_fillflag(char *str, t_printinfo *list)
 			list->showsign = (str[i] == '+') ? 1 : 0;
 		if (list->group != 1)
 			list->group = (str[i] == '\'') ? 1 : 0;
+		if (list->bin != 1)
+			list->bin = (str[i] == 'b') ? 1 : 0;
 		i++;
 	}
 	if (ft_strchr("0 #'+-", str[i]) == NULL && str[i - 1] == '%')

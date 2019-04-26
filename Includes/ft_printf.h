@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/26 18:51:00 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/04/26 19:51:29 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct			s_printinfo {
 	unsigned int		group;			/* is \' */
 	unsigned int		extra;			/*  */
 	unsigned int		wide;			/*  */
+	unsigned int		bin;
 	char				*to_print;		/* To Print */
 	char				t;				/* Type */
 	enum				e_type type;	/* Type */
@@ -153,10 +154,10 @@ size_t  			ft_printf(const char *format, ...);
 
 /* Converting Functions */
 
-void    			ft_convert_o(unsigned long long int to_convert, t_printinfo *list);
-void				ft_convert_x(unsigned long long int to_convert, t_printinfo *list);
-void				ft_convert_X(unsigned long long int to_convert, t_printinfo *list);
-void				ft_convert_p(void *to_convert, t_printinfo *list);
+size_t    			ft_convert_o(unsigned long long int to_convert, t_printinfo *list);
+size_t				ft_convert_x(unsigned long long int to_convert, t_printinfo *list);
+size_t				ft_convert_X(unsigned long long int to_convert, t_printinfo *list);
+size_t				ft_convert_p(void *to_convert, t_printinfo *list);
 
 /* Annex Functions */
 

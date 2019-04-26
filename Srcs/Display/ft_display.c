@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:48:00 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/26 19:17:22 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 20:34:20 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,63 +15,72 @@
 
 /* Display no h mod */
 
-size_t ft_dispnoh(t_printinfo *list, t_elem *elem, size_t ret)
+size_t ft_dispnoh(t_printinfo *list, t_elem *elem)
 {
+	size_t ret;
+
+	ret = 0;
 	if (ft_strchr("di", list->t) && list->is_unsigned == 0 && list->is_char == 0)
 		ret += ft_printlli(elem->lli, list);
 	else if (list->t == 'o')
-		ft_convert_o(elem->ulli, list);
+		ret += ft_convert_o(elem->ulli, list);
 	else if (list->t == 'x')
-		ft_convert_x(elem->ulli, list);
+		ret += ft_convert_x(elem->ulli, list);
 	else if (list->t == 'X')
-		ft_convert_X(elem->ulli, list);
+		ret += ft_convert_X(elem->ulli, list);
 	else if (list->t == 'u')
 		ret += ft_printulli(elem->ulli, list);
 	else if (list->t == 'p')
-		ft_convert_p(elem->value, list);
+		ret += ft_convert_p(elem->value, list);
 	return (ret);
 }
 
 /* Display with h mod -- char*/
 
-size_t ft_disphmodchar(t_printinfo *list, t_elem *elem, size_t ret)
+size_t ft_disphmodchar(t_printinfo *list, t_elem *elem)
 {
+	size_t ret;
+
+	ret = 0;
 	if (list->is_char == 1)
 	{
 		if (ft_strchr("di", list->t) && list->is_unsigned == 0 && list->is_char == 0)
 			ret += ft_printlli((signed char)elem->lli, list);
 		else if (list->t == 'o')
-			ft_convert_o((unsigned char)elem->ulli, list);
+			ret += ft_convert_o((unsigned char)elem->ulli, list);
 		else if (list->t == 'x')
-			ft_convert_x((unsigned char)elem->ulli, list);
+			ret += ft_convert_x((unsigned char)elem->ulli, list);
 		else if (list->t == 'X')
-			ft_convert_X((unsigned char)elem->ulli, list);
+			ret += ft_convert_X((unsigned char)elem->ulli, list);
 		else if (list->t == 'u')
 			ret += ft_printulli((unsigned char)elem->ulli, list);
 		else if (list->t == 'p')
-			ft_convert_p(elem->value, list);
+			ret += ft_convert_p(elem->value, list);
 	}
 	return (ret);
 }
 
 /* Display with h mod -- Short */
 
-size_t ft_disphmodshort(t_printinfo *list, t_elem *elem, size_t ret)
+size_t ft_disphmodshort(t_printinfo *list, t_elem *elem)
 {
+	size_t ret;
+
+	ret = 0;
 	if (list->is_short == 1)
 	{
 		if (ft_strchr("di", list->t) && list->is_unsigned == 0 && list->is_char == 0)
 			ret += ft_printlli((short)elem->lli, list);
 		else if (list->t == 'o')
-			ft_convert_o((unsigned short)elem->ulli, list);
+			ret += ft_convert_o((unsigned short)elem->ulli, list);
 		else if (list->t == 'x')
-			ft_convert_x((unsigned short)elem->ulli, list);
+			ret += ft_convert_x((unsigned short)elem->ulli, list);
 		else if (list->t == 'X')
-			ft_convert_X((unsigned short)elem->ulli, list);
+			ret += ft_convert_X((unsigned short)elem->ulli, list);
 		else if (list->t == 'u')
 			ret += ft_printulli((unsigned short)elem->ulli, list);
 		else if (list->t == 'p')
-			ft_convert_p(elem->value, list);
+			ret += ft_convert_p(elem->value, list);
 	}
 	return (ret);
 }
@@ -120,11 +129,11 @@ size_t ft_display(char **tab, t_printinfo *list, t_elem *elem)
 			while (elem->previous && elem->pos > list->ndol)
 				elem = elem->previous;
 			if (list->is_short == 0 && list->is_char == 0)
-				ret += ft_dispnoh(list, elem, ret);
+				ret += ft_dispnoh(list, elem);
 			else if (list->is_short == 1)
-				ret += ft_disphmodshort(list, elem, ret);
+				ret += ft_disphmodshort(list, elem);
 			else if (list->is_char == 1)
-				ret += ft_disphmodchar(list, elem, ret);
+				ret += ft_disphmodchar(list, elem);
 			if (list->type == 2)
 			{
 				ret++;
@@ -134,11 +143,11 @@ size_t ft_display(char **tab, t_printinfo *list, t_elem *elem)
 				ret += ft_print_uni_str(elem->value);
 			else if (list->type == 7)
 				ret += ft_ldouble((list->is_long_double == 0) ? elem->dble : elem->long_double, list->width);
-				//ft_hexfloat((float *)&(elem->dble), sizeof(float));
 			ft_putstr(ft_rest(NULL, tab[i]));
 			ret += ft_strlen(ft_rest(NULL, tab[i]));
 			list = list->next;
 		}
+
 		i++;
 	}
 	return (ret);
