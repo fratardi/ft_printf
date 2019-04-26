@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 19:47:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/24 17:25:49 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/26 18:08:55 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,39 +32,39 @@ void ft_displaybin(void *content, size_t n)
 {
 		
 	unsigned char *tmp;
-	unsigned char mask;
-	int i = 0;
+	unsigned int mask;
 
-	mask = 0x80;
-	tmp = (unsigned char *)content;
-
+	tmp = (unsigned char *)content + n - 1;
 	while(n--)
 	{
-		mask = 0x80;	
-		while(mask)
-		{
+		mask = 0x100;	
+		while((mask = mask >> 1))
 			(*tmp & mask) ? ft_putchar('1') :ft_putchar('0');
-			mask = mask >> 1;
-			i++;
-			if(i % 4 == 0)
-				ft_putchar(' ');
-		}
-//	ft_putchar(' ');
-//		ft_putchar(*tmp);
-//		ft_putchar(' ');
-		tmp++;
-//		ft_putchar('\n');
+		tmp--;
 	}
 }
 
 int	main()
 {
 
-double *newval; 
-	*newval = 0x3FD5555555555555L;
+//	float *newval; 
+//	*newval = -3.75;
+//int *truc;
+//*truc = 0x80008000;
+//
+//	float *newval2;
 
-	float newval2;
 
+
+//	*newval2 = -3.75;
+	char *str;
+
+	str = ft_strdup("0");
+
+		ft_displaybin(str, ft_strlen(str));
+		ft_putchar('\n');
+//		ft_hexfloat(&*newval, sizeof(float));
+		/*
 newval2 = 3.0;
 ft_print_uni_str("🤡  ");
 
@@ -74,9 +74,9 @@ ft_hexfloat(&*newval, sizeof(double));
 ft_putendl("\ndouble above\n");
 ft_hexfloat(&*newval, sizeof(float));
 ft_putendl("\nfloat above\n");
-
-ft_putchar('\n');
-
+*/
+ft_putchar('\n');/*
+*/
 //ft_displaybin(ft_floatocaster(newval2), sizeof(long double));
 /*newval = -*newval;
 */
