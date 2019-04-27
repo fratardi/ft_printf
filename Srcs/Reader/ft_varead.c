@@ -6,18 +6,20 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 19:04:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/26 19:18:58 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 16:02:48 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 #include <stdio.h>
 
-/* Count how many Arguments to be read */
+/*
+**Count how many Arguments to be read
+*/
 
 // FONCTION A MODIFIER Implementer les Wildcard *
 
-int ft_howmanyva(char **tab)
+int		ft_howmanyva(char **tab)
 {
 	int i;
 	int y;
@@ -46,41 +48,11 @@ int ft_howmanyva(char **tab)
 	return (count);
 }
 
-/* Fill the structure */
+/*
+**Read printinfo to fill elem
+*/
 
-t_elem *ft_filldi(t_printinfo *list, va_list va, t_elem *elem)
-{
-	if (list->is_long_double)
-		elem->lli = va_arg(va, long long int);
-	else if (list->is_long)
-		elem->lli = va_arg(va, long int);
-	else
-		elem->lli = va_arg(va, int);
-	return (elem);
-}
-
-t_elem *ft_fillunsigned(t_printinfo *list, va_list va, t_elem *elem)
-{
-	if (list->is_long_double)
-		elem->ulli = va_arg(va, unsigned long long int);
-	else if (list->is_long)
-		elem->ulli = va_arg(va, unsigned long int);
-	else
-		elem->ulli = va_arg(va, unsigned int);
-	return (elem);
-}
-
-t_elem *ft_fillfloats(t_printinfo *list, va_list va, t_elem *elem)
-{
-	if (list->is_long_double != 0)
-		elem->long_double = va_arg(va, long double);
-	else
-		elem->dble = va_arg(va, double);
-
-	return (elem);
-}
-
-t_elem *ft_readfill(t_printinfo *list, va_list va, t_elem *elem)
+t_elem	*ft_readfill(t_printinfo *list, va_list va, t_elem *elem)
 {
 	if (list->width == -1)
 		list->width = va_arg(va, int);
@@ -104,9 +76,11 @@ t_elem *ft_readfill(t_printinfo *list, va_list va, t_elem *elem)
 	return (elem);
 }
 
-/* Read Elypse and fill elem list */
+/*
+**Read Elypse and fill elem list
+*/
 
-t_va ft_initvaread(t_printinfo *list, char **tab)
+t_va	ft_initvaread(t_printinfo *list, char **tab)
 {
 	t_va varead;
 
@@ -122,7 +96,7 @@ t_va ft_initvaread(t_printinfo *list, char **tab)
 	return (varead);
 }
 
-t_elem *ft_varead(t_printinfo *list, va_list va, char **tab)
+t_elem	*ft_varead(t_printinfo *list, va_list va, char **tab)
 {
 	t_va varead;
 
@@ -140,9 +114,10 @@ t_elem *ft_varead(t_printinfo *list, va_list va, char **tab)
 				varead.nb_pos += 1;
 			}
 			else
-				break;
+				break ;
 		}
-		varead.elem = (varead.nb_pos == list->ndol) ? ft_readfill(list, va, varead.elem) : varead.elem;
+		varead.elem = (varead.nb_pos == list->ndol) ? 
+		ft_readfill(list, va, varead.elem) : varead.elem;
 		varead.nb_pos += 1;
 	}
 	return (varead.start);

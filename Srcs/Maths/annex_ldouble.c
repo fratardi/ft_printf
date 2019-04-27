@@ -6,19 +6,23 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 14:29:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 15:49:33 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-char *ft_mantissaldouble(long double d)
+/*
+**Get binary mantissa from long double
+*/
+
+char	*ft_mantissaldouble(long double d)
 {
-	__uint128_t *temp;
-	char *f;
-	__uint128_t i;
-	__uint128_t pos;
-	__uint128_t mask;
+	__uint128_t		*temp;
+	char			*f;
+	__uint128_t		i;
+	__uint128_t		pos;
+	__uint128_t		mask;
 
 	i = -1;
 	f = (char *)ft_memalloc(sizeof(char) * 65);
@@ -36,9 +40,14 @@ char *ft_mantissaldouble(long double d)
 	return (f);
 }
 
-int ft_expldouble(long double a)
+/*
+**Get exp from long double
+*/
+
+int		ft_expldouble(long double a)
 {
-	__uint128_t *b;
+	__uint128_t		*b;
+
 	b = (__uint128_t *)&a;
 	*b = *b >> 64;
 	*b = (*b & 0x7fff);
@@ -47,15 +56,19 @@ int ft_expldouble(long double a)
 	return ((long long int)(*b) - 16383);
 }
 
+/*
+**Main function to calculate and transform mant&exp to str long double
+*/
+
 size_t	ft_ldouble(long double a, size_t prec)
 {
-	char *m;
-	int ex;
-	char *ent;
-	char *dec;
-	char *temp;
-	size_t ret;
-	int b;
+	char	*m;
+	int		ex;
+	char	*ent;
+	char	*dec;
+	char	*temp;
+	size_t	ret;
+	int		b;
 
 	m = ft_mantissaldouble(a);
 	ex = ft_expldouble(a);

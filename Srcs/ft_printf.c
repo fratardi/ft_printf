@@ -6,15 +6,17 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:51:03 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/03/30 19:30:29 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 16:09:43 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/ft_printf.h"
 
-/* Verify if Format string is only a string */
+/*
+**Verify if Format string is only a string
+*/
 
-int onlystring(char **tab)
+int		onlystring(char **tab)
 {
 	int i;
 
@@ -28,13 +30,15 @@ int onlystring(char **tab)
 	return (1);
 }
 
-/* Print Only String */
+/*
+**Print Only String
+*/
 
-size_t ft_putonlystring(char **tab)
+size_t	ft_putonlystring(char **tab)
 {
-	int i;
-	int percent;
-	size_t ret;
+	int		i;
+	int		percent;
+	size_t	ret;
 
 	i = 0;
 	ret = 0;
@@ -65,9 +69,11 @@ size_t ft_putonlystring(char **tab)
 	return (ret);
 }
 
-/* Modify ndol to know witch element to print */
+/*
+**Modify ndol to know witch element to print
+*/
 
-void ft_modndol(t_printinfo *list)
+void	ft_modndol(t_printinfo *list)
 {
 	int i;
 
@@ -89,14 +95,16 @@ void ft_modndol(t_printinfo *list)
 	}
 }
 
-/* Main Function */
+/*
+**Main Function
+*/
 
-size_t ft_printf(const char *format, ...)
+size_t	ft_printf(const char *format, ...)
 {
-	char **tab;
-	va_list va;
-	t_printinfo *list;
-	t_elem *elem;
+	char		**tab;
+	va_list		va;
+	t_printinfo	*list;
+	t_elem		*elem;
 
 	tab = ft_split_format(format);
 	if (onlystring(tab) == 1)

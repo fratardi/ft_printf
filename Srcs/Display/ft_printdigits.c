@@ -6,11 +6,15 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 16:21:48 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/26 19:17:29 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 15:35:55 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
+
+/*
+**Align Digits
+*/
 
 void	align_digit(size_t align)
 {
@@ -21,12 +25,14 @@ void	align_digit(size_t align)
 	}
 }
 
-/* Print an LLD and return the length */
+/*
+**Print an LLD and return the length
+*/
 
-size_t ft_printlli(long long int n, t_printinfo *l)
+size_t	ft_printlli(long long int n, t_printinfo *l)
 {
-	char *to_print;
-	size_t ret;
+	char	*to_print;
+	size_t	ret;
 
 	if (!(to_print = ft_llitoa(n)))
 		return (0);
@@ -53,12 +59,14 @@ size_t ft_printlli(long long int n, t_printinfo *l)
 	return (ret);
 }
 
-/* Print an ULLD and return the length */
+/*
+**Print an ULLD and return the length
+*/
 
-size_t ft_printulli(unsigned long long int n, t_printinfo *l)
+size_t	ft_printulli(unsigned long long int n, t_printinfo *l)
 {
-	char *to_print;
-	size_t ret;
+	char	*to_print;
+	size_t	ret;
 
 	if (!(to_print = ft_ullitoa(n)))
 		return (0);

@@ -6,13 +6,17 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 14:31:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 14:31:52 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 15:44:49 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-char ft_addchar(char *s1, char *s2, char *ret, char carry)
+/*
+**Function that add 2 char
+*/
+
+char	ft_addchar(char *s1, char *s2, char *ret, char carry)
 {
 	if (*s1 + *s2 + carry - (2 * '0') <= 9)
 	{
@@ -23,13 +27,17 @@ char ft_addchar(char *s1, char *s2, char *ret, char carry)
 	return (1);
 }
 
-char *ft_addstrings(char *s1, char *s2)
+/*
+**Function that add 2 strings
+*/
+
+char	*ft_addstrings(char *s1, char *s2)
 {
-	int s1p;
-	int s2p;
-	int y;
-	char diff;
-	char *ret;
+	int		s1p;
+	int		s2p;
+	int		y;
+	char	diff;
+	char	*ret;
 
 	s1p = ft_strlen(s1);
 	s2p = ft_strlen(s2);
@@ -47,7 +55,7 @@ char *ft_addstrings(char *s1, char *s2)
 	y -= (s2p) ? 1 : 0;
 	while (s1p >= 0 || s2p >= 0)
 		diff = ft_addchar("0", (s1p >= 0) ? &s1[s1p--] : &s2[s2p--],
-						  &ret[y--], diff);
+		&ret[y--], diff);
 	ret = (diff) ? ft_strjoinfree(ft_strdup("1"), ret) : ret;
 	return (ret);
 }

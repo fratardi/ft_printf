@@ -6,11 +6,15 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:40:55 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/26 19:18:48 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 15:53:38 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
+
+/*
+**Verify if str contain a good syntax
+*/
 
 int		ft_issyntax(char *str)
 {

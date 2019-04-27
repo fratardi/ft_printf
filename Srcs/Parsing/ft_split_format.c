@@ -6,13 +6,15 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:36:47 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/26 19:18:53 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 15:53:57 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Parse 1 of format string and split % */
-
 #include "../../Includes/ft_printf.h"
+
+/*
+**Parse 1 of format string and split %
+*/
 
 int		ft_countargs(const char *format)
 {

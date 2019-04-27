@@ -29,8 +29,8 @@ int main(void)
 	//ft_ldouble(1.17549);
 	//ft_printf("Nous__>> %f\n", 3.753);
 	//ft_printf("Rounding = %s\n", ft_rounding(ft_strdup("395"), 4));
-	ft_printf("return = %s %c %lu %d %.3f\n", "test", 50, ft_printf("-->%#5X\n", 12), 150, 12.45);
-	printf("REAL = %s %c %lu %d %.3f\n", "test", 50, ft_printf("-->%#5X\n", 12), 150, 12.45);
+	ft_printf("return = %s %c %lu %d %.3f %X\n", "test", 50, ft_printf("-->%#5X\n", 12), 150, 12.45, 12);
+	printf("REAL = %s %c %lu %d %.3f %X\n", "test", 50, ft_printf("-->%#5X\n", 12), 150, 12.45, 12);
 //	ft_floatEdisp("0.0000000541", 2);
 	//ft_printf("Bin double >> %s\n", ft_mantissadouble((double)1.1754945E-38));
 	//ft_printf("Rounding for %d__%s\n", 2, ft_rounding(ft_floatt(1.5656), 2));

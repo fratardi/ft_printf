@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:25:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 14:58:02 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 15:27:39 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ size_t	ft_printalign(t_printinfo *list, size_t lenless, char *print)
 
 size_t	ft_convert_o(unsigned long long int to_convert, t_printinfo *list)
 {
-	char	tab[17] = "012345678";
+	char	*tab;
 	char	ret[ft_size_octal(to_convert) + ((list->alt == 1) ? 2 : 0)];
 	size_t	size;
 
+	tab = ft_strdup("012345678");
 	if (to_convert == 0)
 		return (0);
 	if (list->alt == 1)
@@ -61,6 +62,7 @@ size_t	ft_convert_o(unsigned long long int to_convert, t_printinfo *list)
 		if (list->alt == 1 && size == 2)
 			break ;
 	}
+	free(tab);
 	return (ft_printalign(list, ft_strlen(ret), ret));
 }
 
@@ -70,10 +72,11 @@ size_t	ft_convert_o(unsigned long long int to_convert, t_printinfo *list)
 
 size_t	ft_convert_x(unsigned long long int to_convert, t_printinfo *list)
 {
-	char	tab[17] = "0123456789abcdef";
+	char	*tab;
 	char	ret[ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0)];
 	size_t	size;
 
+	tab = ft_strdup("0123456789abcdef");
 	if (to_convert == 0)
 		return (0);
 	size = ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0);
@@ -87,6 +90,7 @@ size_t	ft_convert_x(unsigned long long int to_convert, t_printinfo *list)
 		if (list->alt == 1 && size == 2)
 			break ;
 	}
+	free(tab);
 	return (ft_printalign(list, ft_strlen(ret), ret));
 }
 
@@ -96,10 +100,11 @@ size_t	ft_convert_x(unsigned long long int to_convert, t_printinfo *list)
 
 size_t	ft_convert_X(unsigned long long int to_convert, t_printinfo *list)
 {
-	char	tab[17] = "0123456789ABCDEF";
+	char	*tab;
 	char	ret[ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0)];
 	size_t	size;
 
+	tab = ft_strdup("0123456789ABCDEF");
 	if (to_convert == 0)
 		return (0);
 	size = ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0);
@@ -113,6 +118,7 @@ size_t	ft_convert_X(unsigned long long int to_convert, t_printinfo *list)
 		if (list->alt == 1 && size == 2)
 			break ;
 	}
+	free(tab);
 	return (ft_printalign(list, ft_strlen(ret), ret));
 }
 
@@ -122,13 +128,15 @@ size_t	ft_convert_X(unsigned long long int to_convert, t_printinfo *list)
 
 size_t	ft_convert_p(void *to_convert, t_printinfo *list)
 {
-	char tab[17] = "0123456789abcdef";
+	char *tab;
 	char ret[ft_size_hexa((unsigned long long int)to_convert) + 2];
-	unsigned long long int converted = (unsigned long long int)to_convert;
+	unsigned long long int converted;
 	size_t size;
 
+	converted = (unsigned long long int)to_convert;
 	if (to_convert == 0)
 		return (0);
+	tab = ft_strdup("0123456789abcdef");
 	size = ft_size_hexa((unsigned long long int)to_convert) + 2;
 	ret[0] = '0';
 	ret[1] = 'x';
@@ -140,5 +148,6 @@ size_t	ft_convert_p(void *to_convert, t_printinfo *list)
 		if (size == 2)
 			break ;
 	}
+	free(tab);
 	return (ft_printalign(list, ft_strlen(ret), ret));
 }

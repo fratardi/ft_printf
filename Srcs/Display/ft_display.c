@@ -6,16 +6,17 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:48:00 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 14:38:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 15:32:27 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
-#include <stdio.h>
 
-/* Display the list with proper syntax and conversion */
+/*
+**Display the list with proper syntax and conversion
+*/
 
-void ft_printnotsynt(int *i, int *percent, size_t *ret, char **tab)
+void	ft_printnotsynt(int *i, int *percent, size_t *ret, char **tab)
 {
 	if (tab[*i][0] != '%')
 	{
@@ -40,7 +41,7 @@ void ft_printnotsynt(int *i, int *percent, size_t *ret, char **tab)
 	}
 }
 
-void ft_printsyntax(size_t *ret, t_elem *elem, t_printinfo *list)
+void	ft_printsyntax(size_t *ret, t_elem *elem, t_printinfo *list)
 {
 	if (list->is_short == 0 && list->is_char == 0)
 		*ret += ft_dispnoh(list, elem);
@@ -60,11 +61,11 @@ void ft_printsyntax(size_t *ret, t_elem *elem, t_printinfo *list)
 			elem->dble : elem->long_double, list->prec);
 }
 
-size_t ft_display(char **tab, t_printinfo *list, t_elem *elem)
+size_t	ft_display(char **tab, t_printinfo *list, t_elem *elem)
 {
-	int i;
-	int percent;
-	size_t ret;
+	int		i;
+	int		percent;
+	size_t	ret;
 
 	i = 0;
 	percent = 0;

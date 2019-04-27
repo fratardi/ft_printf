@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/04/27 14:52:22 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/04/27 16:14:43 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,9 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
 C = ./Srcs/Parsing/ft_split_format.c ./Srcs/Parsing/ft_issyntax.c \
-	./Srcs/Parsing/ft_format_string.c ./Srcs/Parsing/ft_fill_struct.c \
-	./Srcs/Reader/ft_varead.c \
+	./Srcs/Parsing/ft_format_string1.c ./Srcs/Parsing/ft_format_string2.c \
+	./Srcs/Parsing/ft_fill_struct.c \
+	./Srcs/Reader/ft_varead.c ./Srcs/Reader/ft_fillelem.c\
 	./Srcs/Unicodes/ft_print_uni_char.c ./Srcs/Unicodes/ft_print_uni_str.c\
 	./Srcs/Unicodes/ft_uni_char_len.c ./Srcs/Unicodes/ft_uni_str_len.c \
 	./Srcs/Display/ft_display.c ./Srcs/Maths/ft_adjustfloat.c \
@@ -30,7 +31,6 @@ C = ./Srcs/Parsing/ft_split_format.c ./Srcs/Parsing/ft_issyntax.c \
 	./Srcs/Maths/annex_float.c ./Srcs/Maths/annex_ldouble.c\
 	./Srcs/Maths/pow_str.c ./Srcs/Maths/ft_addstrings.c \
 	./Srcs/ft_printf.c \
-	./Srcs/ft_debug.c\
 
 C_LIB = ./libft/ft_itoa.o ./libft/ft_freetab.o ./libft/ft_strnlen.o \
 		./libft/ft_strndup.o ./libft/ft_swap.o\

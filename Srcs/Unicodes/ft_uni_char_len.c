@@ -6,28 +6,28 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 17:59:00 by fratardi          #+#    #+#             */
-/*   Updated: 2019/03/26 00:32:08 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/04/27 16:05:46 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-size_t ft_uni_char_len(char *str)
+size_t	ft_uni_char_len(char *str)
 {
-	if(!str | !*str)
+	if (!str | !*str)
 		return (0);
-	if((*str & UNI1) == UNI1)
+	if ((*str & UNI1) == UNI1)
 	{
-		if((*str & UNI2) == UNI2 && *(str + 1))
+		if ((*str & UNI2) == UNI2 && *(str + 1))
 		{
-			if((*str & UNI3) == UNI3 && *(str + 2))
-			{	
-				if((*str & UNI4) == UNI4 && *(str + 3))
-					return(4);
+			if ((*str & UNI3) == UNI3 && *(str + 2))
+			{
+				if ((*str & UNI4) == UNI4 && *(str + 3))
+					return (4);
 				return (3);
 			}
-			return(2);
+			return (2);
 		}
 	}
-	return(1);
+	return (1);
 }
