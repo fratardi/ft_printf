@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:42:47 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/26 19:18:29 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 14:17:25 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_printinfo		*ft_ifissyntax(char **tab, int i, t_printinfo *list)
 	list = ft_filltype(tab[i], list);
 	if (!(list->next = (t_printinfo*)malloc(sizeof(t_printinfo))))
 		exit(0);
-	list->next->to_print = ft_rest(NULL, tab[i]);
+	// list->next->to_print = ft_rest(NULL, tab[i]);
 	list->next->next = NULL;
 	list = list->next;
 	return (list);
@@ -71,12 +71,12 @@ t_printinfo		*ft_annex(char **tab, int i, t_printinfo *list)
 		list = ft_ifissyntax(tab, i, list);
 	else
 	{
-		list->to_print = ft_join(list->to_print, tab[i]);
+		// list->to_print = ft_join(list->to_print, tab[i]);
 		if (tab[i + 1] && ft_issyntax(tab[i]) == 1)
 		{
 			if (!(list->next = (t_printinfo*)malloc(sizeof(t_printinfo))))
 				exit(0);
-			list->next->to_print = ft_rest(NULL, tab[i]);
+			// list->next->to_print = ft_rest(NULL, tab[i]);
 			list->next->next = NULL;
 			list = list->next;
 		}
@@ -100,8 +100,8 @@ t_printinfo		*ft_fillstruct(char **tab)
 	list->to_print = NULL;
 	while (ft_issyntax(tab[i]) == 0)
 	{
-		if (tab[i][0] != '%' && tab[i][1] != 0)
-			list->to_print = ft_join(list->to_print, tab[i]);
+		//if (tab[i][0] != '%' && tab[i][1] != 0)
+		//	list->to_print = ft_join(list->to_print, tab[i]);
 		i++;
 	}
 	if (ft_issyntax(tab[i]) == 1)
@@ -109,8 +109,8 @@ t_printinfo		*ft_fillstruct(char **tab)
 		list = ft_ifissyntax(tab, i, list);
 		i++;
 	}
-	else
-		list->to_print = ft_join(list->to_print, tab[i]);
+	//else
+	//	list->to_print = ft_join(list->to_print, tab[i]);
 	while (tab[i])
 	{
 		list = ft_annex(tab, i, list);

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/26 19:51:29 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 14:53:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,24 +114,24 @@ size_t				ft_printulli(unsigned long long int n, t_printinfo *l);
 
 void				ft_adjustpospo(char **s1, char **s2);
 void				ft_adjustnegpo(char **s1, char **s2);
-char   				*ft_add_5(char *str);
-char 				*ft_mantissabin(float d);
-int					ft_expfloat(float a);
-unsigned int		ft_get_sig(float d);
+//char   				*ft_add_5(char *str);
+// char 				*ft_mantissabin(float d);
+// int					ft_expfloat(float a);
+// unsigned int		ft_get_sig(float d);
 char				ft_addchar(char *s1, char *s2, char *ret, char carry);
 char 				*ft_addstrings(char *s1, char *s2);
 char				*ft_pow5(int pow);
-char 				*ft_decimal(float a);
+// char 				*ft_decimal(float a);
 void 				ft_hexfloat(void *content, size_t n);
 char				*ft_fillbig(char *s1, char *s2);
 char 				*ft_pow2str(int ex);
-char				*ft_floatt(float a);
+// char				*ft_floatt(float a);
 void				ft_floatEdisp(char *str, int prec);
 char				*ft_rounding(char *str, size_t prec);
-char				*ft_mantissadouble(double d);
-int					ft_expdouble(double a);
-unsigned int		ft_get_sig_double(double d);
-char 				*ft_double(double a);
+// char				*ft_mantissadouble(double d);
+// int					ft_expdouble(double a);
+// unsigned int		ft_get_sig_double(double d);
+// char 				*ft_double(double a);
 char				*ft_mantissaldouble(long double d);
 int					ft_expldouble(long double a);
 size_t				ft_ldouble(long double a, size_t prec);
@@ -154,10 +154,19 @@ size_t  			ft_printf(const char *format, ...);
 
 /* Converting Functions */
 
+size_t				ft_size_octal(unsigned long long int to_convert);
+size_t				ft_size_hexa(unsigned long long int to_convert);
 size_t    			ft_convert_o(unsigned long long int to_convert, t_printinfo *list);
 size_t				ft_convert_x(unsigned long long int to_convert, t_printinfo *list);
 size_t				ft_convert_X(unsigned long long int to_convert, t_printinfo *list);
 size_t				ft_convert_p(void *to_convert, t_printinfo *list);
+
+/* Display Functions */
+
+size_t				ft_display(char **tab, t_printinfo *list, t_elem *elem);
+size_t				ft_dispnoh(t_printinfo *list, t_elem *elem);
+size_t				ft_disphmodchar(t_printinfo *list, t_elem *elem);
+size_t				ft_disphmodshort(t_printinfo *list, t_elem *elem);
 
 /* Annex Functions */
 
@@ -165,7 +174,6 @@ char				**ft_split_format(const char *format);
 char		        *ft_rest(char *to_print, char *str);
 int 				ft_issyntax(char *str);
 void				ft_modndol(t_printinfo *list);
-size_t				ft_display(char **tab, t_printinfo *list, t_elem *elem);
 char				*ft_join(char *s1, char *s2);
 void				ft_displaybin(void *content, size_t n);
 
