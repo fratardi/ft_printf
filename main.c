@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 17:23:33 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 17:51:40 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main(void)
 {
-	ft_putnbr(ft_printf("\n__%s\n", "abc"));
-	ft_putnbr(printf("\n__%s\n", "abc"));
+	ft_putnbr(ft_printf("\n__%-5s\n", "abc"));
+	ft_putnbr(printf("\n__%-5s\n", "abc"));
 	return (0);
 }
