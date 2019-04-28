@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 16:21:48 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 17:11:06 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 17:16:59 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,18 @@
 **Align Digits
 */
 
-void align_digit(size_t align)
+size_t align_digit(size_t align, t_printinfo *list)
 {
+	size_t ret;
+	
+	ret = 0;
 	while (align)
 	{
-		ft_putchar(' ');
+		ft_putchar((list->extra) ? '0' : ' ');
 		align--;
+		ret++;
 	}
+	return (ret);
 }
 
 /*
@@ -42,7 +47,7 @@ size_t ft_printlli(long long int n, t_printinfo *l)
 	if (l->width != 0 && (size_t)l->width > ft_strlen(to_print) && !l->left)
 	{
 		l->width -= ft_strlen(to_print);
-		align_digit(l->width);
+		ret += align_digit(l->width, l);
 	}
 	if (l->showsign && to_print[0] != '-')
 	{
@@ -53,7 +58,7 @@ size_t ft_printlli(long long int n, t_printinfo *l)
 	if (l->width != 0 && (size_t)l->width > ft_strlen(to_print) && l->left)
 	{
 		l->width -= ft_strlen(to_print) + ((ret == 0) ? 0 : 1);
-		align_digit(l->width);
+		ret += align_digit(l->width, l);
 	}
 	ret += ft_strlen(to_print);
 	free(to_print);
@@ -77,7 +82,7 @@ size_t ft_printulli(unsigned long long int n, t_printinfo *l)
 	if (l->width != 0 && (size_t)l->width > ft_strlen(to_print) && !l->left)
 	{
 		l->width -= ft_strlen(to_print);
-		align_digit(l->width);
+		ret += align_digit(l->width, l);
 	}
 	if (l->showsign && to_print[0] != '-')
 	{
@@ -88,7 +93,7 @@ size_t ft_printulli(unsigned long long int n, t_printinfo *l)
 	if (l->width != 0 && (size_t)l->width > ft_strlen(to_print) && l->left)
 	{
 		l->width -= ft_strlen(to_print) + ((ret == 0) ? 0 : 1);
-		align_digit(l->width);
+		ret += align_digit(l->width, l);
 	}
 	ret += ft_strlen(to_print);
 	free(to_print);
