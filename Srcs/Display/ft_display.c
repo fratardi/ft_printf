@@ -6,11 +6,30 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:48:00 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 16:02:44 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 16:29:47 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
+
+/*
+**Align String
+*/
+
+size_t	ft_alignstr(char *str, t_printinfo *list)
+{
+	size_t ret;
+
+	ret = 0;
+	list->width -= ft_strlen(str);
+	while(list->width--)
+	{
+		ft_putchar(' ');
+		ret++;
+	}
+	ret += ft_print_n_uni_str(str, list->prec);
+	return (ret);
+}
 
 /*
 **Display the list with proper syntax and conversion
@@ -55,7 +74,7 @@ void	ft_printsyntax(size_t *ret, t_elem *elem, t_printinfo *list)
 		ft_putchar((int)elem->lli);
 	}
 	else if (list->type == 4)
-		*ret += ft_print_n_uni_str(elem->value, list->prec);
+		*ret += ft_alignstr(elem->value, list);
 	else if (list->type == 7)
 		*ret += ft_ldouble((list->is_long_double == 0) ? \
 			elem->dble : elem->long_double, list->prec);
