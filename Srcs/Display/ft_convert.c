@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:25:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 16:06:17 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 16:22:37 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ size_t	ft_convert_o(unsigned long long int to_convert, t_printinfo *list)
 
 	tab = ft_strdup("012345678");
 	if (to_convert == 0)
-		return (0);
+		return (ft_printalign(list, 1, "0"));
 	if (list->alt == 1)
 		ft_putchar('0');
 	size = ft_size_octal(to_convert) + ((list->alt == 1) ? 2 : 0);
@@ -78,7 +78,7 @@ size_t	ft_convert_x(unsigned long long int to_convert, t_printinfo *list)
 
 	tab = ft_strdup("0123456789abcdef");
 	if (to_convert == 0)
-		return (0);
+		return (ft_printalign(list, 1, "0"));
 	size = ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0);
 	ret[0] = (list->alt == 1) ? '0' : 0;
 	ret[1] = (list->alt == 1) ? 'x' : 0;
@@ -106,7 +106,7 @@ size_t	ft_convert_X(unsigned long long int to_convert, t_printinfo *list)
 
 	tab = ft_strdup("0123456789ABCDEF");
 	if (to_convert == 0)
-		return (0);
+		return (ft_printalign(list, 1, "0"));
 	size = ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0);
 	ret[0] = (list->alt == 1) ? '0' : 0;
 	ret[1] = (list->alt == 1) ? 'X' : 0;
