@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 18:12:44 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/28 13:58:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 15:52:46 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,6 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 char				*ft_ullitoa(unsigned long long int n);
 t_list				*ft_lstmap(t_list *list, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
-size_t				ft_putnstr(char const *s, size_t size);
+int				ft_putnstr(char const *s, int size);
 
 #endif

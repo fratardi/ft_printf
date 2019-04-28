@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:25:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 15:27:39 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 15:54:47 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_printalign(t_printinfo *list, size_t lenless, char *print)
 	ret = (list->left == 1) ? ft_strlen(print) : 0;
 	while (list->width > 0)
 	{
-		ft_putchar(' ');
+		ft_putchar((list->extra) ? '0' : ' ');
 		list->width--;
 		ret++;
 	}
@@ -81,7 +81,7 @@ size_t	ft_convert_x(unsigned long long int to_convert, t_printinfo *list)
 		return (0);
 	size = ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0);
 	ret[0] = (list->alt == 1) ? '0' : 0;
-	ret[1] = (list->alt == 1) ? 'X' : 0;
+	ret[1] = (list->alt == 1) ? 'x' : 0;
 	ret[size] = 0;
 	while (size--)
 	{
