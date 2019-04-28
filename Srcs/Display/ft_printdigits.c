@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 16:21:48 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 16:48:11 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 17:11:06 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **Align Digits
 */
 
-void	align_digit(size_t align)
+void align_digit(size_t align)
 {
 	while (align)
 	{
@@ -29,15 +29,16 @@ void	align_digit(size_t align)
 **Print an LLD and return the length
 */
 
-size_t	ft_printlli(long long int n, t_printinfo *l)
+size_t ft_printlli(long long int n, t_printinfo *l)
 {
-	char	*to_print;
-	size_t	ret;
+	char *to_print;
+	size_t ret;
 
 	if (!(to_print = ft_llitoa(n)))
 		return (0);
 	ret = 0;
-	ft_putchar((l->space == 1 && l->width == 0) ? ' ' : 0);
+	if (l->space == 1 && l->width == 0)
+		ft_putchar(' ');
 	if (l->width != 0 && (size_t)l->width > ft_strlen(to_print) && !l->left)
 	{
 		l->width -= ft_strlen(to_print);
@@ -63,15 +64,16 @@ size_t	ft_printlli(long long int n, t_printinfo *l)
 **Print an ULLD and return the length
 */
 
-size_t	ft_printulli(unsigned long long int n, t_printinfo *l)
+size_t ft_printulli(unsigned long long int n, t_printinfo *l)
 {
-	char	*to_print;
-	size_t	ret;
+	char *to_print;
+	size_t ret;
 
 	if (!(to_print = ft_ullitoa(n)))
 		return (0);
 	ret = 0;
-	ft_putchar((l->space == 1 && l->width == 0) ? ' ' : 0);
+	if (l->space == 1 && l->width == 0)
+		ft_putchar(' ');
 	if (l->width != 0 && (size_t)l->width > ft_strlen(to_print) && !l->left)
 	{
 		l->width -= ft_strlen(to_print);
