@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/15 17:27:11 by fratardi          #+#    #+#              #
-#    Updated: 2019/04/15 18:24:58 by fratardi         ###   ########.fr        #
+#    Updated: 2019/04/28 13:56:00 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,8 @@ ft_strmapi.c\
 ft_strrchr.c\
 ft_pow2.c\
 ft_ullitoa.c\
-ft_pow.c
+ft_pow.c\
+ft_putnstr.c\
 
 OBJ = $(SRC:.c=.o)
 $(NAME): $(OBJ)

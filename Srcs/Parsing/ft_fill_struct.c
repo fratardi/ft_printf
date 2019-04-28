@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:42:47 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 16:23:40 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 13:39:47 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ char			*ft_rest(char *to_print, char *str)
 	while (str[i] && ft_strchr("diouxXcfsp", str[i]) == NULL)
 		i++;
 	i++;
-	to_print = ft_join(to_print, &str[i]);
-	return (to_print);
+	to_print = NULL;
+	// to_print = ft_strjoinfree(to_print, &str[i]);
+	return (&str[i]);
 }
 
 /*

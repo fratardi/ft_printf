@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 16:22:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 14:01:11 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
 		i++;
 	while (str[i] && str[i] == '.')
 		i++;
+	if (str[i] == '0')
+	{
+		list->prec = 0;
+		return (list);
+	}
 	list->prec = (str[i] == '*') ? -1 : ft_atoi(&str[i]);
 	return (list);
 }

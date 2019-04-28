@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:51:03 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 16:09:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 12:33:53 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	ft_modndol(t_printinfo *list)
 size_t	ft_printf(const char *format, ...)
 {
 	char		**tab;
+	size_t		ret;
 	va_list		va;
 	t_printinfo	*list;
 	t_elem		*elem;
@@ -117,6 +118,10 @@ size_t	ft_printf(const char *format, ...)
 	va_start(va, format);
 	elem = ft_varead(list, va, tab);
 	va_end(va);
+	ret = ft_display(tab, list, elem);
+	ft_free_parsing(tab);
+	ft_free_elem(elem, list);
+	ft_free_printinfo(list);
 	//ft_debugelem(elem);
-	return (ft_display(tab, list, elem));
+	return (ret);
 }

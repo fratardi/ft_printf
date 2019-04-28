@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 16:22:05 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 14:03:24 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ void	ft_fillzerolist(t_printinfo *list)
 	list->showsign = 0;
 	list->is_long_double = 0;
 	list->is_long = 0;
+	list->prec = -2;
 	list->is_char = 0;
 	list->is_short = 0;
-	list->wide = 0;
+	//list->wide = 0;
 	list->group = 0;
 	list->left = 0;
 	list->is_unsigned = 0;

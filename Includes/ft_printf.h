@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/27 16:25:37 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 12:34:15 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,5 +217,13 @@ t_elem				*ft_varead(t_printinfo *list, va_list va, char **tab);
 t_elem				*ft_filldi(t_printinfo *list, va_list va, t_elem *elem);
 t_elem				*ft_fillunsigned(t_printinfo *list, va_list va, t_elem *elem);
 t_elem				*ft_fillfloats(t_printinfo *list, va_list va, t_elem *elem);
+
+/*
+**Free
+*/
+
+void				ft_free_parsing(char **tab);
+void				ft_free_elem(t_elem *elem, t_printinfo *list);
+void				ft_free_printinfo(t_printinfo *list);
 
 #endif

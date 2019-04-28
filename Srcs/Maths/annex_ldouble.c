@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 15:49:33 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 13:28:43 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_mantissaldouble(long double d)
 	__uint128_t		mask;
 
 	i = -1;
-	f = (char *)ft_memalloc(sizeof(char) * 65);
+	f = (char *)ft_memalloc(sizeof(char) * 66);
 	mask = 0x8000000000000000;
 	temp = (__uint128_t *)&d;
 	pos = 0;
@@ -67,6 +67,8 @@ size_t	ft_ldouble(long double a, size_t prec)
 	char	*ent;
 	char	*dec;
 	char	*temp;
+	char	*tempent;
+	char	*tempdec;
 	size_t	ret;
 	int		b;
 
@@ -83,13 +85,18 @@ size_t	ft_ldouble(long double a, size_t prec)
 			if (b + ex >= 0)
 			{
 				ft_adjustpospo(&temp, &ent);
-				ent = ft_addstrings(temp, ent);
+				tempent = ft_addstrings(temp, ent);
+				free(ent);
+				ent = tempent;
 			}
 			else if (b + ex < 0)
 			{
 				ft_adjustnegpo(&temp, &dec);
-				dec = ft_addstrings(temp, dec);
+				tempdec = ft_addstrings(temp, dec);
+				free(dec);
+				dec = tempdec;
 			}
+			free(temp);
 		}
 		b--;
 		m++;
@@ -100,5 +107,7 @@ size_t	ft_ldouble(long double a, size_t prec)
 	ret = 1 + ft_strlen(ent) + ft_strlen(dec);
 	free(ent);
 	free(dec);
+	//free(temp);
+	//free(m);
 	return (ret);
 }

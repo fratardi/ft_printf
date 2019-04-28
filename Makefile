@@ -6,11 +6,11 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/04/27 16:14:43 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/04/28 13:56:43 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 LIB = ./libft/libft.a
 
@@ -30,6 +30,7 @@ C = ./Srcs/Parsing/ft_split_format.c ./Srcs/Parsing/ft_issyntax.c \
 	./Srcs/Display/size_convert.c \
 	./Srcs/Maths/annex_float.c ./Srcs/Maths/annex_ldouble.c\
 	./Srcs/Maths/pow_str.c ./Srcs/Maths/ft_addstrings.c \
+	./Srcs/Free/ft_free_parsing.c ./Srcs/Free/ft_free_lists.c\
 	./Srcs/ft_printf.c \
 
 C_LIB = ./libft/ft_itoa.o ./libft/ft_freetab.o ./libft/ft_strnlen.o \
@@ -59,7 +60,7 @@ C_LIB = ./libft/ft_itoa.o ./libft/ft_freetab.o ./libft/ft_strnlen.o \
 		./libft/ft_strmap.o ./libft/ft_strnstr.o ./libft/ft_isprint.o \
 		./libft/ft_memmove.o ./libft/ft_putstr.o\
 		./libft/ft_strdup.o ./libft/ft_strmapi.o ./libft/ft_strrchr.o\
-		./libft/ft_pow2.c ./libft/ft_ullitoa.c
+		./libft/ft_pow2.o ./libft/ft_ullitoa.o ./libft/ft_putnstr.o \
 
 O = $(C:.c=.o)
 

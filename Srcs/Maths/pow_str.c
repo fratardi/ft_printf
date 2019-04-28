@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 15:48:38 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 13:36:35 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 char	*ft_pow5(int po)
 {
 	char	*base;
+	char	*tmp;
 	char	*ret;
 	size_t	p;
 	int		i;
@@ -34,7 +35,12 @@ char	*ft_pow5(int po)
 		i = 4;
 		base = ft_strdup(ret);
 		while (i--)
-			ret = ft_addstrings(ret, base);
+		{
+			tmp = ft_addstrings(ret, base);
+			//free(ret);
+			ret = ft_strdup(tmp);
+			free(tmp);
+		}
 		free(base);
 		po--;
 	}
