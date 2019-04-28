@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 16:21:48 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 15:55:15 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 15:55:49 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ size_t	ft_printulli(unsigned long long int n, t_printinfo *l)
 		ret++;
 		ft_putchar('+');
 	}
-	ft_putnstr(to_print, l->prec < 0 ? 0 : l->prec);
+	ft_putnstr(to_print, l->prec);
 	if (l->width != 0 && (size_t)l->width > ft_strlen(to_print) && l->left)
 	{
 		l->width -= ft_strlen(to_print) + ((ret == 0) ? 0 : 1);

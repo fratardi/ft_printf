@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/28 12:34:15 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 16:02:17 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,7 @@ size_t				ft_print_uni_str(char *str);
 size_t				ft_print_uni_char(char *str);
 size_t				ft_uni_char_len(char *str);
 size_t				ft_uni_str_len(char *str);
+int	ft_print_n_uni_str(char *str, int size);
 
 /*
 **Fonction Principale

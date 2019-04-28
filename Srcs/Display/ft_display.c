@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:48:00 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 15:45:56 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 16:02:44 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_printsyntax(size_t *ret, t_elem *elem, t_printinfo *list)
 		ft_putchar((int)elem->lli);
 	}
 	else if (list->type == 4)
-		*ret += ft_print_uni_str(elem->value);
+		*ret += ft_print_n_uni_str(elem->value, list->prec);
 	else if (list->type == 7)
 		*ret += ft_ldouble((list->is_long_double == 0) ? \
 			elem->dble : elem->long_double, list->prec);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
+/*   Updated: 2019/04/28 16:11:56 by tpacaud          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./Includes/ft_printf.h"
 #include <stdio.h>
 
@@ -32,7 +44,8 @@ int main(void)
 //	ft_printf("%hhd\n", 126);
 //	ft_printf("return = %s %c %lu %d %.3f %X %lld\n", "test", 50, ft_printf("-->%#5X\n", 12), 150, 12.45, 12, (long long int)-2147483648);
 //	printf("REAL = %s %c %lu %d %.3f %X %lld\n", "test", 50, ft_printf("-->%#5X\n", 12), 150, 12.45, 12, (long long int)-2147483648);
-  ft_printf("%.2d", 4242);
+	ft_putnbr(ft_printf("\n%.3s\n", NULL));
+	ft_putnbr(printf("\n%.3s\n", NULL));
 //	ft_floatEdisp("0.0000000541", 2);
 	//ft_printf("Bin double >> %s\n", ft_mantissadouble((double)1.1754945E-38));
 	//ft_printf("Rounding for %d__%s\n", 2, ft_rounding(ft_floatt(1.5656), 2));
