@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:48:00 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 16:29:47 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 16:35:32 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 size_t	ft_alignstr(char *str, t_printinfo *list)
 {
 	size_t ret;
-
+	int len;
+	
 	ret = 0;
-	list->width -= ft_strlen(str);
+	len = ft_strlen(str);
+	list->width -= (len >= list->width) ? list->width : len;
 	while(list->width--)
 	{
 		ft_putchar(' ');
