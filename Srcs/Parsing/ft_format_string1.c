@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 16:45:21 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 17:24:56 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,11 @@ t_printinfo	*ft_fillwidth(char *str, t_printinfo *list)
 	i = 1;
 	while (str[i] && ft_strchr("0 #'-+", str[i]))
 		i++;
+	if (str[i] != '0' && ft_atoi(&str[i]) == 0)
+	{
+		list->width = -2;
+		return(list);
+	}
 	list->width = (str[i] == '*') ? -1 : ft_atoi(&str[i]);
 	return (list);
 }
