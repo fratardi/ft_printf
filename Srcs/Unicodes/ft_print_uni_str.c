@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 18:45:46 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/28 16:15:10 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 16:19:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int ft_print_n_uni_str(char *str, int size)
 
 	if (!str)
 	{
-		ft_print_n_uni_str("(null)", size);
-		return (size);
+		ft_print_n_uni_str("(null)", (size == 0) ? 6 : size);
+		return (size == 0 ? 6 : size);
 	}
 	if (size < 0)
 		return (0);

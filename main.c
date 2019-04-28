@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 16:13:23 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 16:17:55 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int main(void)
 {
-	ft_printf("")
+	ft_putnbr(ft_printf("\n@moulitest: %s\n", NULL));
+	ft_putnbr(printf("\n@moulitest: %s\n", NULL));
 	return (0);
 }
