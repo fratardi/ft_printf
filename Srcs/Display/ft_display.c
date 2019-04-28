@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:48:00 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 17:52:01 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/28 17:59:32 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,27 @@
 **Align String
 */
 
-size_t	ft_alignstr(char *str, t_printinfo *list)
+size_t ft_alignstr(char *str, t_printinfo *list)
 {
 	size_t ret;
 	int len;
-	
+
 	ret = 0;
+	if (!str)
+	{
+		ret += ft_print_n_uni_str(str, (list->prec >= 0) ? list->prec : 6);
+		return (ret);
+	}
 	len = (list->prec < 0) ? ft_strlen(str) : list->prec;
 	if (list->width != 0)
 		list->width -= (len >= list->width) ? list->width : len;
-	while(list->width-- > 0 && !list->left)
+	while (list->width-- > 0 && !list->left)
 	{
 		ft_putchar(' ');
 		ret++;
 	}
 	ret += ft_print_n_uni_str(str, (list->prec >= 0) ? list->prec : len);
-	while(list->width-- >= 0 && list->left)
+	while (list->width-- >= 0 && list->left)
 	{
 		ft_putchar(' ');
 		ret++;
@@ -43,7 +48,7 @@ size_t	ft_alignstr(char *str, t_printinfo *list)
 **Display the list with proper syntax and conversion
 */
 
-void	ft_printnotsynt(int *i, int *percent, size_t *ret, char **tab)
+void ft_printnotsynt(int *i, int *percent, size_t *ret, char **tab)
 {
 	if (tab[*i][0] != '%')
 	{
@@ -68,7 +73,7 @@ void	ft_printnotsynt(int *i, int *percent, size_t *ret, char **tab)
 	}
 }
 
-void	ft_printsyntax(size_t *ret, t_elem *elem, t_printinfo *list)
+void ft_printsyntax(size_t *ret, t_elem *elem, t_printinfo *list)
 {
 	if (list->is_short == 0 && list->is_char == 0)
 		*ret += ft_dispnoh(list, elem);
@@ -84,15 +89,14 @@ void	ft_printsyntax(size_t *ret, t_elem *elem, t_printinfo *list)
 	else if (list->type == 4)
 		*ret += ft_alignstr(elem->value, list);
 	else if (list->type == 7)
-		*ret += ft_ldouble((list->is_long_double == 0) ? \
-			elem->dble : elem->long_double, list->prec);
+		*ret += ft_ldouble((list->is_long_double == 0) ? elem->dble : elem->long_double, list->prec);
 }
 
-size_t	ft_display(char **tab, t_printinfo *list, t_elem *elem)
+size_t ft_display(char **tab, t_printinfo *list, t_elem *elem)
 {
-	int		i;
-	int		percent;
-	size_t	ret;
+	int i;
+	int percent;
+	size_t ret;
 
 	i = 0;
 	percent = 0;
