@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 16:21:48 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 17:16:59 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/29 18:14:11 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ size_t align_digit(size_t align, t_printinfo *list)
 	size_t ret;
 	
 	ret = 0;
+	//printf("debug = %d\n", list->showsign);
 	while (align)
 	{
-		ft_putchar((list->extra) ? '0' : ' ');
+		ft_putchar((list->extra && !list->left) ? '0' : ' ');
 		align--;
 		ret++;
 	}
@@ -42,8 +43,11 @@ size_t ft_printlli(long long int n, t_printinfo *l)
 	if (!(to_print = ft_llitoa(n)))
 		return (0);
 	ret = 0;
-	if (l->space == 1 && l->width == 0)
+	if (l->space == 1 && l->width == 0 && !l->showsign)
+	{
 		ft_putchar(' ');
+		ret++;
+	}
 	if (l->width != 0 && (size_t)l->width > ft_strlen(to_print) && !l->left)
 	{
 		l->width -= ft_strlen(to_print);
@@ -54,6 +58,13 @@ size_t ft_printlli(long long int n, t_printinfo *l)
 		ret++;
 		ft_putchar('+');
 	}
+	if (l->prec > (int)ft_strlen(to_print))
+		while(l->prec > (int)ft_strlen(to_print))
+		{
+			ft_putchar('0');
+			ret++;
+			l->prec--;
+		}
 	ft_putnstr(to_print, (l->prec == -2) ? ft_strlen(to_print) : l->prec);
 	if (l->width != 0 && (size_t)l->width > ft_strlen(to_print) && l->left)
 	{
@@ -77,17 +88,10 @@ size_t ft_printulli(unsigned long long int n, t_printinfo *l)
 	if (!(to_print = ft_ullitoa(n)))
 		return (0);
 	ret = 0;
-	if (l->space == 1 && l->width == 0)
-		ft_putchar(' ');
 	if (l->width != 0 && (size_t)l->width > ft_strlen(to_print) && !l->left)
 	{
 		l->width -= ft_strlen(to_print);
 		ret += align_digit(l->width, l);
-	}
-	if (l->showsign && to_print[0] != '-')
-	{
-		ret++;
-		ft_putchar('+');
 	}
 	ft_putnstr(to_print, (l->prec == -2) ? ft_strlen(to_print) : l->prec);
 	if (l->width != 0 && (size_t)l->width > ft_strlen(to_print) && l->left)
