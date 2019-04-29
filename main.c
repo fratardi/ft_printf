@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/29 17:17:47 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/29 19:38:53 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 int main(void)
 {
-	ft_printf("@moulitest: %#.x %#.0x\n", 0, 0);
-	printf("@moulitest: %#.x %#.0x\n", 0, 0);
+	ft_printf("%s %c %o %x %X %lld", "test", '*', 41, 40, 39, 38);
 	return (0);
 }

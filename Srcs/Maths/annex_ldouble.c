@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/29 18:14:20 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/29 18:41:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		ft_expldouble(long double a)
 **Main function to calculate and transform mant&exp to str long double
 */
 
-size_t	ft_ldouble(long double a, size_t prec)
+/* size_t	ft_ldouble(long double a, size_t prec)
 {
 	char	*m;
 	int		ex;
@@ -111,3 +111,4 @@ size_t	ft_ldouble(long double a, size_t prec)
 	//free(m);
 	return (ret);
 }
+ */

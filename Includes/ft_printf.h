@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/28 16:02:17 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/29 19:28:06 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct			s_printinfo {
 	unsigned int		extra;			/* Is '0' */
 	unsigned int		bin;
 	char				t;				/* Type */
+	char				*buf;			/* Buffer */
 	enum				e_type type;	/* Type */
 	struct s_printinfo	*next;
 }           			t_printinfo;
@@ -79,11 +80,9 @@ typedef struct			s_elem{
 	void					*value;			/* Value of ptr */
 	long long int			lli;
 	unsigned long long int	ulli;
-	float					f;
 	double					dble;
 	long double				long_double;
 	int						c;
-	char					*rest;			/* Rest to print */
 	unsigned int			pos;			/* Position of the list-elem */
 	struct s_elem			*previous;
 	struct s_elem			*next;
@@ -172,10 +171,10 @@ size_t  			ft_printf(const char *format, ...);
 
 size_t				ft_size_octal(unsigned long long int to_convert);
 size_t				ft_size_hexa(unsigned long long int to_convert);
-size_t    			ft_convert_o(unsigned long long int to_convert, t_printinfo *list);
-size_t				ft_convert_x(unsigned long long int to_convert, t_printinfo *list);
-size_t				ft_convert_X(unsigned long long int to_convert, t_printinfo *list);
-size_t				ft_convert_p(void *to_convert, t_printinfo *list);
+char    			*ft_convert_o(unsigned long long int to_convert);
+char				*ft_convert_x(unsigned long long int to_convert);
+char				*ft_convert_X(unsigned long long int to_convert);
+char				*ft_convert_p(void *to_convert);
 
 /*
 **Display Functions
@@ -201,6 +200,7 @@ void				ft_displaybin(void *content, size_t n);
 **Fill Stuct Print_Info
 */
 
+void				ft_fillbuf(t_printinfo *list, t_elem *elem);
 void				ft_fillzerolist(t_printinfo *list);
 t_printinfo 		*ft_fillstruct(char **tab);
 t_printinfo 		*ft_fillflag(char *str, t_printinfo *list);

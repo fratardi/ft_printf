@@ -6,148 +6,103 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:25:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/29 18:17:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/29 18:38:11 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
 /*
-**Print Alignment
-*/
-
-size_t	ft_printalign(t_printinfo *list, size_t lenless, char *print)
-{
-	size_t ret;
-
-	list->width -= lenless;
-	if (list->left == 1)
-		ft_putstr(print);
-	ret = (list->left == 1) ? ft_strlen(print) : 0;
-	while (list->width > 0)
-	{
-		ft_putchar(' ');
-		list->width--;
-		ret++;
-	}
-	if (list->left == 0)
-		ft_putstr(print);
-	ret += (list->left == 0) ? ft_strlen(print) : 0;
-	return (ret);
-}
-
-/*
 **Convert to Octal
 */
 
-size_t	ft_convert_o(unsigned long long int to_convert, t_printinfo *list)
+char	*ft_convert_o(unsigned long long int to_convert)
 {
-	char	*tab;
-	char	ret[ft_size_octal(to_convert) + ((list->alt == 1) ? 2 : 0)];
+	static char	tab[17] = "012345678";
+	char	*ret;
 	size_t	size;
 
-	tab = ft_strdup("012345678");
 	if (to_convert == 0)
-		return (ft_print_n_uni_str("0", 0));
-	if (list->alt == 1)
-		ft_putchar('0');
-	size = ft_size_octal(to_convert) + ((list->alt == 1) ? 2 : 0);
-	ret[0] = (list->alt == 1) ? '0' : 0;
-	ret[1] = (list->alt == 1) ? 'X' : 0;
-	ret[size] = 0;
+		return (ft_strdup("0"));
+	size = ft_size_octal(to_convert);
+	if (!(ret = (char *)ft_memalloc(sizeof(char) * size)))
+		return (NULL);
 	while (size--)
 	{
 		ret[size] = (tab[to_convert % 8]);
 		to_convert = to_convert / 8;
-		if (list->alt == 1 && size == 2)
-			break ;
 	}
-	free(tab);
-	return (ft_printalign(list, ft_strlen(ret), ret));
+	return (ret);
 }
 
 /*
 **Convert to Hexa Lowercase
 */
 
-size_t	ft_convert_x(unsigned long long int to_convert, t_printinfo *list)
+char	*ft_convert_x(unsigned long long int to_convert)
 {
-	char	*tab;
-	char	ret[ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0)];
+	static char	tab[17] = "0123456789abcdef";
+	char	*ret;
 	size_t	size;
 
-	tab = ft_strdup("0123456789abcdef");
 	if (to_convert == 0)
-		return (ft_print_n_uni_str("0", 0));
-	size = ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0);
-	ret[0] = (list->alt == 1) ? '0' : 0;
-	ret[1] = (list->alt == 1) ? 'x' : 0;
-	ret[size] = 0;
+		return (ft_strdup("0"));
+	size = ft_size_hexa(to_convert);
+	if (!(ret = (char *)ft_memalloc(sizeof(char) * size)))
+		return (NULL);
 	while (size--)
 	{
 		ret[size] = (tab[to_convert % 16]);
 		to_convert = to_convert / 16;
-		if (list->alt == 1 && size == 2)
-			break ;
 	}
-	free(tab);
-	return (ft_printalign(list, ft_strlen(ret), ret));
+	return (ret);
 }
 
 /*
 **Convert to Hexa Uppercase
 */
 
-size_t	ft_convert_X(unsigned long long int to_convert, t_printinfo *list)
+char *ft_convert_X(unsigned long long int to_convert)
 {
-	char	*tab;
-	char	ret[ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0)];
+	static char	tab[17] = "0123456789ABCDEF";
+	char	*ret;
 	size_t	size;
 
-	tab = ft_strdup("0123456789ABCDEF");
 	if (to_convert == 0)
-		return (ft_print_n_uni_str("0", 0));
-	size = ft_size_hexa(to_convert) + ((list->alt == 1) ? 2 : 0);
-	ret[0] = (list->alt == 1) ? '0' : 0;
-	ret[1] = (list->alt == 1) ? 'X' : 0;
-	ret[size] = 0;
+		return (ft_strdup("0"));
+	size = ft_size_hexa(to_convert);
+	if (!(ret = (char *)ft_memalloc(sizeof(char) * size)))
+		return (NULL);
 	while (size--)
 	{
 		ret[size] = (tab[to_convert % 16]);
 		to_convert = to_convert / 16;
-		if (list->alt == 1 && size == 2)
-			break ;
 	}
-	free(tab);
-	return (ft_printalign(list, ft_strlen(ret), ret));
+	return (ret);
 }
+
 
 /*
 **Print pointer address
 */
 
-size_t	ft_convert_p(void *to_convert, t_printinfo *list)
+char *ft_convert_p(void *to_convert)
 {
-	char *tab;
-	char ret[ft_size_hexa((unsigned long long int)to_convert) + 2];
+	static char tab[17] = "0123456789abcdef";
+	char *ret;
 	unsigned long long int converted;
 	size_t size;
 
 	converted = (unsigned long long int)to_convert;
 	if (to_convert == 0)
-		return (0);
-	tab = ft_strdup("0123456789abcdef");
-	size = ft_size_hexa((unsigned long long int)to_convert) + 2;
-	ret[0] = '0';
-	ret[1] = 'x';
-	ret[size] = 0;
+		return (ft_strdup("0"));
+	size = ft_size_hexa((unsigned long long int)to_convert);
+	if(!(ret = (char *)ft_memalloc(sizeof(char) * size)))
+		return (NULL);
 	while (size--)
 	{
 		ret[size] = (tab[converted % 16]);
 		converted = converted / 16;
-		if (size == 2)
-			break ;
 	}
-	free(tab);
-	return (ft_printalign(list, ft_strlen(ret), ret));
+	return (ret);
 }

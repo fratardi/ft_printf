@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:51:03 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 14:33:13 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/29 19:40:11 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,45 +28,6 @@ int		onlystring(char **tab)
 		i++;
 	}
 	return (1);
-}
-
-/*
-**Print Only String
-*/
-
-size_t	ft_putonlystring(char **tab)
-{
-	int		i;
-	int		percent;
-	size_t	ret;
-
-	i = 0;
-	ret = 0;
-	while (tab[i])
-	{
-		if (tab[i][0] != '%')
-		{
-			ft_putstr(tab[i]);
-			ret += ft_strlen(tab[i]);
-		}
-		else if (tab[i][0] == '%' && tab[i][1] != 0)
-		{
-			ft_putstr(&tab[i][1]);
-			ret += ft_strlen(&tab[i][1]);
-		}
-		else
-		{
-			percent = 0;
-			while (tab[i] && tab[i][0] == '%' && tab[i][1] == 0)
-			{
-				percent++;
-				i++;
-			}
-			ft_putstr(((percent + 1) % 2 == 0) ? tab[i] : "%");
-		}
-		i++;
-	}
-	return (ret);
 }
 
 /*
@@ -107,10 +68,11 @@ size_t	ft_printf(const char *format, ...)
 	t_printinfo	*list;
 	t_elem		*elem;
 
+	ret = 0;
 	tab = ft_split_format(format);
 	if (onlystring(tab) == 1)
 	{
-		ft_putonlystring(tab);
+		//ft_putonlystring(tab);
 		return (ft_strlen(format));
 	}
 	list = ft_fillstruct(tab);
@@ -118,7 +80,17 @@ size_t	ft_printf(const char *format, ...)
 	va_start(va, format);
 	elem = ft_varead(list, va, tab);
 	va_end(va);
-	ret = ft_display(tab, list, elem);
+	/* TOUT A REFAIRE */
+	ft_fillbuf(list, elem);
+	while(list->next)
+	{
+		ft_putendl(list->buf);
+		list = list->next;
+	}
+	ft_putendl(list->buf);
+	// ft_treatelemtoprintinfo(list, elem);
+	// ft_padbufprintinfo(list);
+	// ret = ft_display(list);
 	ft_free_parsing(tab);
 	ft_free_elem(elem, list);
 	ft_free_printinfo(list);
