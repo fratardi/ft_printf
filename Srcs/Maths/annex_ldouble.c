@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/29 18:41:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/29 20:00:31 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		ft_expldouble(long double a)
 **Main function to calculate and transform mant&exp to str long double
 */
 
-/* size_t	ft_ldouble(long double a, size_t prec)
+char	*ft_ldouble(long double a, size_t prec)
 {
 	char	*m;
 	int		ex;
@@ -103,12 +103,14 @@ int		ft_expldouble(long double a)
 	}
 	ent = ((a < 0) ? ft_strjoinfree(ft_strdup("-"), ent) : ent);
 	dec = ft_rounding(dec, (prec) ? prec : 6);
-	ft_printf("%s.%s", ent, dec);
+	printf("debug3\n");
+	//ft_printf("%s.%s", ent, dec);
 	ret = 1 + ft_strlen(ent) + ft_strlen(dec);
-	free(ent);
-	free(dec);
+	ent = ft_strjoinfree(ent, ft_strdup("."));
+	ent = ft_strjoinfree(ent, dec);
+	//free(ent);
+	//free(dec);
 	//free(temp);
 	//free(m);
-	return (ret);
+	return (ent);
 }
- */

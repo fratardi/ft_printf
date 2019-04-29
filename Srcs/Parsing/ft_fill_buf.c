@@ -6,11 +6,19 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/29 19:39:48 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/29 20:05:01 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
+
+void	ft_fillbuf_float(t_printinfo *list, t_elem *elem)
+{
+	if (list->t == 'f' && !list->is_long_double)
+		list->buf = ft_ldouble(elem->dble, (list->prec < 0) ? 6 : (size_t)list->prec);
+	else if (list->t == 'f' && list->is_long_double)
+		list->buf = ft_ldouble(elem->long_double, (list->prec < 0) ? 6 : (size_t)list->prec);
+}
 
 void	ft_fillbuf_convert(t_printinfo *list, t_elem *elem)
 {
@@ -74,6 +82,8 @@ void	ft_fillbuf(t_printinfo *list, t_elem *elem)
 			ft_fillbuf_digits(list, elem);
 		else if (ft_strchr("oxXp", list->t))
 			ft_fillbuf_convert(list, elem);
+		else if (list->t == 'f')
+			ft_fillbuf_float(list, elem);
 		list = list->next;
 		elem = start;
 	}
