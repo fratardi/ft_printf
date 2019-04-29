@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pad_alt.c                                       :+:      :+:    :+:   */
+/*   ft_remove_trailing_zeroes.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fratardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/29 20:41:16 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/29 21:49:17 by fratardi         ###   ########.fr       */
+/*   Created: 2019/04/29 21:33:26 by fratardi          #+#    #+#             */
+/*   Updated: 2019/04/29 21:47:11 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
-
-void	ft_pad_alt(t_printinfo list, t_elem elem)
+void	ft_remove_trailing_zeroes(char *str)
 {
-	if(list.t == 'x' || list.t == 'X')
-		ft_remove_trailing_zeroe(list.buf);
-	if(list.t == 'x')
-		list.buf = ft_strjoinfree(ft_strdup("0x"), list.buf);
-	if(list.t == 'X')
-		list.buf = ft_strjoinfree(ft_strdup("0X"), list.buf);
+	size_t	i;
+	char 	*ret;
+
+	ret = NULL;
+	i = ft_strlen(str);
+	while(i < 0 && str[i] == '0')
+		i--;
+	if(i)
+	{
+		ret = ft_strndup(str, i);
+		free(str);
+		return(ret);
+	}
+	return(str);
 }
