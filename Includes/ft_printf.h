@@ -227,4 +227,17 @@ void				ft_free_parsing(char **tab);
 void				ft_free_elem(t_elem *elem, t_printinfo *list);
 void				ft_free_printinfo(t_printinfo *list);
 
+/*
+**
+*/
+
+void				ft_pad(t_printinfo *info);
+void				ft_pad_alt(t_printinfo list);
+
+
+
+
+
+
+
 #endif

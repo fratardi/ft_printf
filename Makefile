@@ -30,7 +30,8 @@ C = ./Srcs/Parsing/ft_split_format.c ./Srcs/Parsing/ft_issyntax.c \
 	./Srcs/Display/size_convert.c \
 	./Srcs/Maths/annex_float.c ./Srcs/Maths/annex_ldouble.c\
 	./Srcs/Maths/pow_str.c ./Srcs/Maths/ft_addstrings.c \
-	./Srcs/Free/ft_free_parsing.c ./Srcs/Free/ft_free_lists.c\
+	./Srcs/Free/ft_free_parsing.c ./Srcs/Free/ft_free_lists.c \
+	./Srcs/Padding/ft_pad.c ./Srcs/Padding/ft_pad_alt.c \
 	./Srcs/ft_printf.c \
 
 C_LIB = ./libft/ft_itoa.o ./libft/ft_freetab.o ./libft/ft_strnlen.o \

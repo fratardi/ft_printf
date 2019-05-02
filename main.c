@@ -18,5 +18,7 @@
 int main(void)
 {
 	ft_printf("%s %c %o %x %X %lld %f %Lf", "test", '*', 41, 40, 39, 38, 12.5, 1.3L);
+	printf("\n%#x\n", 123.456);
+
 	return (0);
 }

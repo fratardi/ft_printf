@@ -10,24 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/ft_printf.h"
+#include "../../Includes/ft_printf.h"
 
-void	ft_pad(t_printfinfo *info, t_elem *list)
+void	ft_pad(t_printinfo *info)
 {
-	t_printinfo *tmpi;
-	t_elem		*tmplist;
+	t_printinfo 	*tmp_info;
 
-	tmpi = info;
-	tmplist = list;
-	while(*tmpi && *tmplist)
+	tmp_info = info;
+	while(tmp_info)
 	{
-		ft_pad_alt(*tmpi ,*tmplist);	
-/*		ft_pad_extra(*tmpi ,*tmplist);
-		ft_pad_left(*tmpi ,*tmplist);
-		ft_pad_space(*tmpi ,*tmplist);
-		ft_pad_showsig(*tmpi ,*tmplist);	
-		ft_pad_group(*tmpi ,*tmplist);*/
-		tmpelem = tmpelem->next;
-		tmpi = tmpi->next;			
+		ft_pad_alt(*tmp_info);	
+/*		ft_pad_extra(*tmp_info ,*tmp_elem);
+		ft_pad_left(*tmp_info ,*tmp_elem);
+		ft_pad_space(*tmp_info ,*tmp_elem);
+		ft_pad_showsig(*tmp_info ,*tmp__elem);	
+		ft_pad_group(*tmp_info ,*tmp_elem);*/
+		tmp_info = tmp_info->next;			
 	}
 }

@@ -12,10 +12,10 @@
 
 #include "../../Includes/ft_printf.h"
 
-void	ft_pad_alt(t_printinfo list, t_elem elem)
+void	ft_pad_alt(t_printinfo list)
 {
-		if(list.t == 'x' || list.t == 'X') 
-			ft_remove_trailing_zeroe(list.buf);
+//		if(list.t == 'x' || list.t == 'X') 
+//			ft_remove_trailing_zeroe(list.buf);
 		if(list.t == 'x' && !list.extra)
 			list.buf = ft_strjoinfree(ft_strdup("0x"), list.buf);
 		if(list.t == 'X' && !list.extra)
