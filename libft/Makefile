@@ -28,6 +28,7 @@ ft_lstdel.c\
 ft_lstdelone.c\
 ft_lstnew.c\
 ft_memset.c\
+ft_memaset.c\
 ft_putstr_fd.c\
 ft_print_table.c\
 ft_isspace.c\

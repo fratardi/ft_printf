@@ -51,7 +51,7 @@ C_LIB = ./libft/ft_itoa.o ./libft/ft_freetab.o ./libft/ft_strnlen.o \
 		./libft/ft_strsub.o ./libft/ft_isalnum.o ./libft/ft_memchr.o \
 		./libft/ft_putendl.o ./libft/ft_strclr.o ./libft/ft_strjoin.o\
 		./libft/ft_strncpy.o ./libft/ft_strtrim.o ./libft/ft_isalpha.o \
-		./libft/ft_memcmp.o ./libft/ft_putendl_fd.o \
+		./libft/ft_memcmp.o ./libft/ft_putendl_fd.o ./libft/ft_memaset.o\
 		./libft/ft_strcmp.o ./libft/ft_strlcat.o ./libft/ft_strnequ.o \
 		./libft/ft_tolower.o ./libft/ft_isascii.o \
 		./libft/ft_memcpy.o ./libft/ft_putnbr.o ./libft/ft_strcpy.o\

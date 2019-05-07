@@ -25,6 +25,7 @@ size_t				ft_strnlen(const char *s, size_t maxlen);
 char				*ft_strndup(const char *s1, size_t n);
 void				ft_swap(int *a, int *b);
 void				ft_print_table(char **tab);
+void				*ft_memaset(int c, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void	*dst, const void *src, size_t n);
