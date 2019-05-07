@@ -6,8 +6,14 @@
 /*   By: fratardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 18:51:35 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/07 18:51:36 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/07 19:20:15 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+void	ft_pad_extra(t_printinfp *list)
+{
+	if(!list->left && !list->prec && list->extra)
+	{
+						
+	}
+}
