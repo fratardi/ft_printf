@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:51:03 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/29 19:40:11 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/07 18:59:00 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ size_t	ft_printf(const char *format, ...)
 	va_end(va);
 	/* TOUT A REFAIRE */
 	ft_fillbuf(list, elem);
+	ft_pad(&*list);
 	while(list->next)
 	{
 		ft_putendl(list->buf);
