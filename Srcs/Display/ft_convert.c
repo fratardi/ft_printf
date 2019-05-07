@@ -95,11 +95,12 @@ char *ft_convert_p(void *to_convert)
 
 	converted = (unsigned long long int)to_convert;
 	if (to_convert == 0)
-		return (ft_strdup("0"));
-	size = ft_size_hexa((unsigned long long int)to_convert);
+		return (ft_strdup("0x0"));
+	size = ft_size_hexa((unsigned long long int)to_convert) + 2;
 	if(!(ret = (char *)ft_memalloc(sizeof(char) * size)))
 		return (NULL);
-	while (size--)
+	ret = "0x";
+	while (size-- > 1)
 	{
 		ret[size] = (tab[converted % 16]);
 		converted = converted / 16;
