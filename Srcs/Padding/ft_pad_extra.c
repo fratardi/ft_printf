@@ -6,22 +6,20 @@
 /*   By: fratardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 18:51:35 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/07 21:08:40 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/08 20:00:33 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_pad_extra(t_printinfp *list)
+#include "../../Includes/ft_printf.h"
+
+void	ft_pad_extra(t_printinfo *list)
 {
-	(!list->extra || (list->prec && ft_strchr("diouxX"), list-t))
+//	ft_debug(list);
+//	printf("extra  =->   %d prec = -> %d width =  ->  %d \n", list->extra, list->prec , list->width);
+	if(!list->extra || (list->prec && ft_strchr("diouxX", list->t)))
 		return;
-	if(list->extra && ft_strchr(" diouxXaAeEfFgG", list-t)
-	{
-		
+	if((list->extra && ft_strchr("diouxXf", list->t) ) || ((int)ft_strlen(list->buf) >= list->width))
 		return;
-	}
-	if(list->extra)
-	{
-		
-	}
-	
+	list->buf = ft_strjoinfree((char *)ft_memaset('0', list->width - (ft_strlen(list->buf))), list->buf);
+	//ft_putendl(list->buf);
 }
