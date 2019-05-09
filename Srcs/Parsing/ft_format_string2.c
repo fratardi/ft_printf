@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 16:47:55 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/09 18:19:52 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_fillzerolist(t_printinfo *list)
 	list->is_unsigned = 0;
 	list->space = 0;
 	list->bin = 0;
+	list->buflen = 0;	
 }
 
 /*

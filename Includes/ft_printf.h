@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/08 20:00:14 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/09 18:18:10 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct			s_printinfo {
 	unsigned int		bin;
 	char				t;				/* Type */
 	char				*buf;			/* Buffer */
+	size_t				buflen;			/*length of buffer*/
 	enum				e_type type;	/* Type */
 	struct s_printinfo	*next;
 }           			t_printinfo;

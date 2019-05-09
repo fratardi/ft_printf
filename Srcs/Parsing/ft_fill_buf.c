@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/07 19:59:07 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/09 19:51:14 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	ft_fillbuf(t_printinfo *list, t_elem *elem)
 			ft_fillbuf_convert(list, elem);
 		else if (list->t == 'f')
 			ft_fillbuf_float(list, elem);
+		list->buflen = ft_strlen(list->buf);
 		list = list->next;
 		elem = start;
 	}
