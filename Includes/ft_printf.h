@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/09 20:37:33 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/09 20:39:29 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,13 +160,19 @@ int	ft_print_n_uni_str(char *str, int size);
 **Fonction Principale
 */
 
-
+/*
+**	A enlever
+*/
 size_t 				ft_debug(const char *format, ...);
 void				ft_debugf(void);
-
 void				ft_printdebuglist(t_printinfo *list, char **tab);
 void				ft_debugelem(t_elem *elem);
 void 				tests(void);
+
+
+
+
+
 size_t  			ft_printf(const char *format, ...);
 
 /*
