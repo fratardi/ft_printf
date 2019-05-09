@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/08 20:45:19 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/09 20:21:11 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,12 @@ int main(void)
 //	 ft_putendl((char *)ft_memaset('b',0));
 	 //printf("%#s\n%c\n%#o\n%#x\n%#X\n%lld\n%f\n%Lf\n%#LF\n", "test", '*', 41, 40, 39, 38, 12.5, 1.3L, 123.456L);
 //	printf("\n%#x\n", 123.456);
-
-	printf("%-07.3o\n",4242);
- ft_printf("%-07.3o\n", 4242);
-
+//	printf("%#012x\n",4242);
+//ft_printf("%#012x\n", 4242);
+	ft_debugf();	
 	//ft_printf("%01s", "123");
 	//ft_printf("%05s", "123");
 	//ft_printf("%5%");
-
 
 
 	return (0);
