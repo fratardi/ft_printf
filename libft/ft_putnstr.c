@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 20:35:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/28 15:54:02 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/09 21:38:11 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	ft_putnstr(char const *s, int size)
 	if (!s || size < 0)
 		return (0);
 	write(1, s, (len >= size) ? size : len);
-	return(len >= size ? size : len);
+	return (len >= size ? size : len);
 }
