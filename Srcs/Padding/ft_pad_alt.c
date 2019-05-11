@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pad_alt.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 20:41:16 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/11 21:27:58 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/12 01:15:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ void	ft_pad_alt(t_printinfo *list)
 {
 	if(list->alt && !list->left)
 	{
-		if(list->t == 'x' && !list->extra)
+		if(list->t == 'x' && !list->extra && (list->buflen += 2))
 			list->buf = ft_strjoinfree(ft_strdup("0x"), list->buf);
-		if(list->t == 'X' && !list->extra)
+		if(list->t == 'X' && !list->extra && (list->buflen += 2))
 			list->buf = ft_strjoinfree(ft_strdup("0X"), list->buf);
+		list->buf[list->buflen] = 0;
 	}
 }

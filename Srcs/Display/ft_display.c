@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/11 21:32:06 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 00:42:34 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,11 @@ size_t	ft_display(char **tab, t_printinfo *list)
 	{
 		if (ft_issyntax(tab[i]) == 1)
 		{
-			ret += ft_print_n_uni_str(list->buf, list->buflen);
+			ret += ft_strlen(list->buf);
+			ft_putstr(list->buf);
 			temp = ft_rest(tab[i]);
-			ret += ft_print_n_uni_str(temp, ft_strlen(temp));
+			ret += ft_strlen(temp);
+			ft_putstr(temp);
 			list = list->next;
 		}
 		else

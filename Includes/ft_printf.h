@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/11 21:38:32 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/12 00:35:21 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,6 +195,7 @@ size_t				ft_dispnoh(t_printinfo *list, t_elem *elem);
 size_t				ft_disphmodchar(t_printinfo *list, t_elem *elem);
 size_t				ft_disphmodshort(t_printinfo *list, t_elem *elem);
 int		onlystring(char **tab);
+size_t	ft_putonlystring(char **tab);
 
 /*
 **Annex Functions
