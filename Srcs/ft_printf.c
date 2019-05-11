@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:51:03 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/09 19:51:33 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/11 21:30:40 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,13 @@ size_t	ft_printf(const char *format, ...)
 	/* TOUT A REFAIRE */
 	ft_fillbuf(list, elem);
 	ft_pad(&*list);
-	while(list->next)
+	ft_display(tab, list);
+/* 	while(list->next)
 	{
 		ft_putendl(list->buf);
 		list = list->next;
 	}
-	ft_putendl(list->buf);
+	ft_putendl(list->buf); */
 	// ft_treatelemtoprintinfo(list, elem);
 	// ft_padbufprintinfo(list);
 	// ret = ft_display(list);

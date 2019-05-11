@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/11 21:11:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/11 21:31:35 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,17 +190,18 @@ char				*ft_convert_p(void *to_convert);
 **Display Functions
 */
 
-size_t				ft_display(char **tab, t_printinfo *list, t_elem *elem);
+size_t	ft_display(char **tab, t_printinfo *list);
 size_t				ft_dispnoh(t_printinfo *list, t_elem *elem);
 size_t				ft_disphmodchar(t_printinfo *list, t_elem *elem);
 size_t				ft_disphmodshort(t_printinfo *list, t_elem *elem);
+int		onlystring(char **tab);
 
 /*
 **Annex Functions
 */
 
 char				**ft_split_format(const char *format);
-char		        *ft_rest(char *to_print, char *str);
+char		        *ft_rest(char *str);
 int 				ft_issyntax(char *str);
 void				ft_modndol(t_printinfo *list);
 char				*ft_join(char *s1, char *s2);
