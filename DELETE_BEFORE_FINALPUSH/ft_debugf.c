@@ -2,12 +2,14 @@
 
 void	ft_debugf(void)
 {
-	
+	printf("%+5.1f\n", -42.3);
+	ft_printf("%+5.1f\n", -42.3);
+
 
 	// ft_putendl("orig below");
-	/*ft_putendl(ft_itoa(*/printf("real >> %d\n", printf("%.2s\n", "-42"))/*))*/;
+	/*ft_putendl(ft_itoa(*//*))*/
 	// ft_putendl("\ncopy below");
-	/*ft_putendl(ft_itoa(*/ft_printf("%.2s\n", "-42")/*))*/;
+	/*ft_putendl(ft_itoa(*//*))*/
 /*	ft_putendl("debut du test");
 	
 	ft_putendl("orig below");

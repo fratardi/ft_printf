@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/05/09 21:01:37 by fratardi         ###   ########.fr        #
+#    Updated: 2019/05/11 21:13:27 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ C = ./Srcs/Parsing/ft_split_format.c ./Srcs/Parsing/ft_issyntax.c \
 	./Srcs/Free/ft_free_parsing.c ./Srcs/Free/ft_free_lists.c \
 	./Srcs/Padding/ft_pad_prec.c \
 	./Srcs/Padding/ft_pad.c ./Srcs/Padding/ft_pad_alt.c \
-	./Srcs/Padding/ft_pad_extra.c\
+	./Srcs/Padding/ft_pad_extra.c ./Srcs/Padding/ft_pad_showsig.c\
+	./Srcs/Padding/ft_pad_space.c \
 	./Srcs/ft_printf.c \
 	./DELETE_BEFORE_FINALPUSH/ft_debugf.c\
 
