@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/29 20:00:31 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 00:15:47 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ char	*ft_ldouble(long double a, size_t prec)
 	}
 	ent = ((a < 0) ? ft_strjoinfree(ft_strdup("-"), ent) : ent);
 	dec = ft_rounding(dec, (prec) ? prec : 6);
-	printf("debug3\n");
 	//ft_printf("%s.%s", ent, dec);
 	ret = 1 + ft_strlen(ent) + ft_strlen(dec);
 	ent = ft_strjoinfree(ent, ft_strdup("."));
