@@ -6,7 +6,7 @@
 /*   By: fratardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 20:42:57 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/11 20:57:55 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/11 21:43:12 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_pad_space(t_printinfo *list)
 
 	width = list->width;
 	blen = list->buflen;
-	if (ft_strchr(list->buf, '-') && width == -2)
+	if (list->left || (ft_strchr(list->buf, '-') && width == -2))
 		return ;
 	if (ft_strchr("aAdeEfFgGi", list->t) && ((width > blen)))
 	{

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 20:37:18 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/11 21:11:44 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/11 21:44:43 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_pad(t_printinfo *info)
 		ft_pad_alt(tmp_info);//option ''	
 		ft_pad_showsig(tmp_info); // option '+'
 		ft_pad_space(tmp_info); // option 'espace'
-		//ft_pad_left(tmp_info);	//option '-'
+		ft_pad_left(tmp_info);	//option '-'
 		//ft_pad_group(tmp_info); // 'apostrophe'
 		ft_pad_extra(tmp_info); //option 0
 		tmp_info = tmp_info->next;			

@@ -3,8 +3,9 @@
 void	ft_debugf(void)
 {
 	//printf("% +5.1f\n", -42.3);
-	ft_printf("test % +7.1f ici\n", -42.3);
+	ft_printf("test >> %-+7.1f\n", -42.3);
 
+	printf("vrai >> %-+7.1f\n", -42.3);
 
 	// ft_putendl("orig below");
 	/*ft_putendl(ft_itoa(*//*))*/

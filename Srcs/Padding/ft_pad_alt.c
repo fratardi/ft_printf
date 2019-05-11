@@ -6,7 +6,7 @@
 /*   By: fratardi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 20:41:16 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/09 19:45:22 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/11 21:27:58 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_pad_alt(t_printinfo *list)
 {
-	if(list->alt)
+	if(list->alt && !list->left)
 	{
 		if(list->t == 'x' && !list->extra)
 			list->buf = ft_strjoinfree(ft_strdup("0x"), list->buf);
