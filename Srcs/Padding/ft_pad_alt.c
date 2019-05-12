@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 20:41:16 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/12 02:37:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 03:03:16 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_pad_alt(t_printinfo *list)
 		return ;
 	if(list->alt && list->buf[0])
 	{
-		if (list->t == 'o' && !list->extra && (list->buflen++))
+		if (list->t == 'o' && !list->extra && (list->buflen += 1))
 			list->buf = ft_strjoinfree(ft_strdup("0"), list->buf);
 		if(list->t == 'x' && !list->extra && (list->buflen += 2))
 			list->buf = ft_strjoinfree(ft_strdup("0x"), list->buf);
