@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 02:57:53 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 03:45:57 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
 	int i;
 
 	i = 0;
-	while (str[i] && str[i] != '.')
+	while (str[i] && str[i] != '.' && !ft_strchr("cs", str[i]))
 		i++;
-	while (str[i] && str[i] == '.')
+	while (str[i] && str[i] == '.'&& !ft_strchr("cs", str[i]))
 		i++;
-	if (!str[i])
+	if (!str[i] || ft_strchr("cs", str[i]))
 		return (list);
 /* 	if (str[i] == '0')
 	{

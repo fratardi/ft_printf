@@ -3,7 +3,7 @@
 void	ft_debugf(void)
 {
 	//printf("% +5.1f\n", -42.3);
-	ft_printf("%s %s %s %s string. gg!", "this", "is", "a", "multi", "string");
+	ft_printf("%s %s %s %s string. gg!", "this", "is", "a", "multi");
 
 	printf("%s %s %s %s string. gg!", "this", "is", "a", "multi");
 
