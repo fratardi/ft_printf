@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:25:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/29 18:38:11 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 19:15:06 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,16 +94,16 @@ char *ft_convert_p(void *to_convert)
 	size_t size;
 
 	converted = (unsigned long long int)to_convert;
-	if (to_convert == 0)
+	if (to_convert == 0 || to_convert == NULL)
 		return (ft_strdup("0x0"));
-	size = ft_size_hexa((unsigned long long int)to_convert) + 2;
+	size = ft_size_hexa((unsigned long long int)to_convert);
 	if(!(ret = (char *)ft_memalloc(sizeof(char) * size)))
 		return (NULL);
-	ret = "0x";
-	while (size-- > 1)
+	while (size--)
 	{
 		ret[size] = (tab[converted % 16]);
 		converted = converted / 16;
 	}
+	ret = ft_strjoinfree(ft_strdup("0x"), ret);
 	return (ret);
 }
