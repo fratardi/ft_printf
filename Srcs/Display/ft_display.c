@@ -6,25 +6,48 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 04:18:50 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 23:03:04 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-/* int onlystring(char **tab)
+size_t ft_putnotsyntax(char *str, char *s1)
 {
+	size_t ret;
 	size_t i;
-
-	i = 0;
-	while (tab[i])
-	{
-		if (ft_issyntax(tab[i]) == 1)
-			return (1);
+	int width;
+	char *pad;
+	
+	if (!str)
+		return (0);
+	ret = 0;
+	width = ft_atoi(&str[(str[1] == '-') ? 2 : 1]);
+	width -= (width > 0) ? 1 : 0; 
+	pad = ft_memaset(' ', (size_t)width);
+	i = (str[1] == '-') ? 2 : 1;
+	while (ft_isdigit(str[i]) == 1)
 		i++;
+	if (str[1] == '-')
+	{
+		if (str[i] != 0)
+			ft_putchar(str[i]);
+		else if (str[i] == 0 && s1)
+			ft_putstr(s1);
+		ft_putstr(pad);
+		if (str[i])
+			ft_putstr(&str[i + 1]);
 	}
-	return (0);
-} */
+	else
+	{
+		ft_putstr(pad);
+		ft_putstr(&str[i]);
+	}
+	if (width && str[i] && pad)
+		ret = ft_strlen(&str[i]) + ft_strlen(pad);
+	free(pad);
+	return (ret);
+}
 
 size_t	ft_putonlystring(char **tab)
 {
@@ -34,29 +57,34 @@ size_t	ft_putonlystring(char **tab)
 
 	i = 0;
 	ret = 0;
-	while (tab[i])
+	percent = 0;
+	while (tab[i] && tab[i][0])
 	{
 		if (tab[i][0] != '%')
 		{
 			ft_putstr(tab[i]);
 			ret += ft_strlen(tab[i]);
 		}
-		else if (tab[i][0] == '%' && tab[i][1] != 0)
+		if (tab[i][0] == '%' && tab[i][1] != 0)
 		{
-			ft_putstr(&tab[i][1]);
-			ret += ft_strlen(&tab[i][1]);
+			ret += ft_putnotsyntax(tab[i], tab[i + 1]);
+			if (tab[i][1] == '-' && tab[i + 1])
+				i+=1;
+			percent++;
 		}
-		else
+		else if (tab[i][0] == '%' && !tab[i][1])
 		{
-			percent = 0;
 			while (tab[i] && tab[i][0] == '%' && tab[i][1] == 0)
 			{
 				percent++;
 				i++;
 			}
+			i--;
+			// printf("%i", (percent + 1) % 2);
 			ft_putstr(((percent + 1) % 2 == 0) ? tab[i] : "%");
 		}
-		i++;
+		if (tab[i])
+			i++;
 	}
 	return (ret);
 }
