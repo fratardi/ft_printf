@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 18:51:35 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/12 01:58:25 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 02:51:58 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ void	ft_pad_extra(t_printinfo *list)
 	list->buf = ft_strjoinfree((char *)ft_memaset('0', list->width - ((int)list->buflen)), list->buf);
 	if (sig != 0)
 		list->buf = ft_strjoinfree(ft_strdup((sig == 1) ? "+" : "-"), list->buf);
+	if (list->alt && ft_strchr("xX", list->t))
+		list->buf[1] = (list->t == 'X') ? 'X' : 'x';
 	//ft_putendl(list->buf);
 }
