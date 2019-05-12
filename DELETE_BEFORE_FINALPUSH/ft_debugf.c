@@ -3,9 +3,9 @@
 void	ft_debugf(void)
 {
 	//printf("% +5.1f\n", -42.3);
-	ft_printf("%s %s %s %s string. gg!", "this", "is", "a", "multi");
+	ft_printf("%#-08x\n", 42);
 
-	printf("%s %s %s %s string. gg!", "this", "is", "a", "multi");
+	printf("%#-8x\n", 42);
 
 	// ft_putendl("orig below");
 	/*ft_putendl(ft_itoa(*//*))*/
