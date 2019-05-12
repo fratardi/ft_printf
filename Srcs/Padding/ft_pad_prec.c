@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/12 02:37:04 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 03:01:13 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ void ft_pad_prec(t_printinfo *l)
 	char *temp;
 
 	neg = 0;
-/* 	if ((l->prec == -2) && ft_strchr("diuxX", l->t) && l->buflen == 1 && l->buf[0] == '0')
+	// printf("prec = %d\n", l->prec);
+	if ((l->prec == 0) && ft_strchr("diouxX", l->t) && l->buflen == 1 && l->buf[0] == '0')
 	{
 		l->buf[0] = 0;
 		l->buflen = 0;
-	} */
+		return ;
+	}
 	if (l->prec < 0 || l->t == 'f' || l->t == 'c' || l->t == 'p')
 		return;
 	prec = l->prec - l->buflen + ((l->buf[0] == '-' && ft_strchr("di", l->t)) ? 1 : 0);
