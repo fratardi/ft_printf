@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 02:11:48 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 04:18:01 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void	ft_fillbuf(t_printinfo *list, t_elem *elem)
 		else if (list->t == 'c')
 		{
 			c = (char)elem->lli;
+			if (c == 0)
+				list->special = 0;
 			list->buf = ft_strndup(&c, 1);
 		}
 		else if (ft_strchr("diu", list->t))

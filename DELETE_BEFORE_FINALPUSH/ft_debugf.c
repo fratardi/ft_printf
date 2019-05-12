@@ -3,9 +3,8 @@
 void	ft_debugf(void)
 {
 	//printf("% +5.1f\n", -42.3);
-	ft_printf("%#-08x\n", 42);
-
-	printf("%#-8x\n", 42);
+	ft_printf("% c", 0);
+	printf("%c", 0);
 
 	// ft_putendl("orig below");
 	/*ft_putendl(ft_itoa(*//*))*/
