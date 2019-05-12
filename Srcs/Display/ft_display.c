@@ -6,13 +6,13 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 23:48:09 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 23:53:51 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-size_t ft_putnotsyntax(char *str, char *s1)
+size_t ft_putnotsyntax(char *str, char *s1, int *y)
 {
 	size_t ret;
 	size_t i;
@@ -22,6 +22,8 @@ size_t ft_putnotsyntax(char *str, char *s1)
 	if (!str)
 		return (0);
 	ret = 0;
+	
+	// printf("y1 = %d", *y);
 	width = ft_atoi(&str[(str[1] == '-') ? 2 : 1]);
 	width -= (width > 0) ? 1 : 0;
 	pad = (width) ? ft_memaset(' ', (size_t)width) : NULL;
@@ -32,27 +34,23 @@ size_t ft_putnotsyntax(char *str, char *s1)
 	{
 		if (str[i] != 0)
 			ft_putchar(str[i]);
-		if (str[i] == 0 && s1)
+		if (str[i] == 0 && s1 && (*y += 1))
 			ft_putstr(s1);
 		 ft_putstr(pad);
 		if (str[i])
 			ft_putstr(&str[i + 1]);
-/* 		if (s1)
-			index++; */
 	}
 	else
 	{
 		ft_putstr(pad);
 		if (str[i])
 			ft_putstr(&str[i]);
-		else
-		{
+		else if (s1 && !str[i] && (*y += 1))
 			ft_putstr(s1);
-			// index++;
-		}
 	}
 	ret = ft_strlen((str[i]) ? &(str[i]) : s1) + ((pad) ? ft_strlen(pad) : 0);
 	free(pad);
+	// printf("y = %d", *y);
 	return (ret);
 }
 
@@ -75,7 +73,7 @@ size_t	ft_putonlystring(char **tab)
 		}
 		if (tab[i][0] == '%' && tab[i][1] != 0)
 		{
-			ret += ft_putnotsyntax(tab[i], tab[i + 1]);
+			ret += ft_putnotsyntax(tab[i], tab[i + 1], &i);
 			if (tab[i][1] == '-' && tab[i + 1])
 				i += 1;
 			percent++;
