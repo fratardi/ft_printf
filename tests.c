@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 22:37:47 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/03/30 19:23:56 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 19:24:15 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void tests(void)
 	char stre[] = {'a', 's', 10, 'e', 'k', 0};
 
 
-	printf("\n    valeur de retour du string   |%zu|\n", ft_print_uni_str(""));
+/* 	printf("\n    valeur de retour du string   |%zu|\n", ft_print_uni_str(""));
 	printf("\n    valeur de retour du string   |%zu|\n", ft_print_uni_str("q"));
 	printf("\n    valeur de retour du string   |%zu|\n", ft_print_uni_str("é"));
 	printf("\n    valeur de retour du string   |%zu|\n", ft_print_uni_str("♴"));
-	printf("\n    valeur de retour du string   |%zu|\n", ft_print_uni_str("😄"));
+	printf("\n    valeur de retour du string   |%zu|\n", ft_print_uni_str("😄")); */
 
-	ft_putendl("\n\n");
+	/* ft_putendl("\n\n"); */
 
 
 

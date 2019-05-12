@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 19:16:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 19:27:40 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int main(void)
 //ft_printf("%#012x\n", 4242);
 	ft_debugf();	
 
-	ft_printf("%-15.0p\n", str);
-	printf("%-15.0p\n", str);
+	ft_printf("%#-6.3d\n", -2147483647);
+	printf("%#-6.3d\n", -2147483647);
 	//ft_printf("%01s", "123");
 	//ft_printf("%05s", "123");
 	//ft_printf("%5%");
-
+	//tests();
 
 	return (0);
 }
