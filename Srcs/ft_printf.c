@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:51:03 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 00:42:21 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 23:24:27 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,7 @@ size_t	ft_printf(const char *format, ...)
 	ret = 0;
 	tab = ft_split_format(format);
 	if (onlystring(tab) == 1)
-	{
-		ft_putonlystring(tab);
-		return (ft_strlen(format));
-	}
+		return (ft_putonlystring(tab));
 	list = ft_fillstruct(tab);
 	ft_modndol(list);
 	va_start(va, format);
