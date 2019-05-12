@@ -3,9 +3,9 @@
 void	ft_debugf(void)
 {
 	//printf("% +5.1f\n", -42.3);
-	ft_printf("@moulitest: %#.x %#.0x\n", 0, 0);
+	ft_printf("%s %s %s %s string. gg!", "this", "is", "a", "multi", "string");
 
-	printf("@moulitest: %#.x %#.0x\n", 0, 0);
+	printf("%s %s %s %s string. gg!", "this", "is", "a", "multi");
 
 	// ft_putendl("orig below");
 	/*ft_putendl(ft_itoa(*//*))*/

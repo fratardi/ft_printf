@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 20:42:57 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/12 03:08:05 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 03:28:10 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,24 @@ void	ft_pad_space(t_printinfo *list)
 
 	width = list->width;
 	blen = list->buflen;
-	// printf("blen = %d\n", blen);
+	// printf("{%s}{%d}\n", list->buf, list->width);
 	if (list->left || (ft_strchr(list->buf, '-') && width == -2))
 		return ;
- 	if (ft_strchr("xXo", list->t) && !list->extra && (list->buflen = width) && width > blen)
+ 	if (ft_strchr("xXo", list->t) && !list->extra && width > blen && (list->buflen = width))
 		list->buf = ft_strjoinfree(ft_memaset(' ', width - blen), list->buf);
 	if (ft_strchr("aAdeEfFgGiucs", list->t) && ((width > blen)) && !list->extra)
 	{
 		list->buf = ft_strjoinfree(ft_memaset(' ', width - blen), list->buf);
 		list->buflen = width;
 	}
-	if (ft_strchr("aAdeEfFgGi", list->t) && list->width == -2 && list->space && !list->showsign && !list->extra)
+	if (ft_strchr("aAdeEfFgGid", list->t) && list->width == -2 && list->space && !list->showsign && !list->extra)
 	{
 		list->buf = ft_strjoinfree(ft_strdup(" "), list->buf);
 		list->buflen += 1;
+	}
+	if (ft_strchr("di", list->t) && list->extra && list->prec != -2 && !list->showsign)
+	{
+		list->buf = ft_strjoinfree(ft_memaset(' ', width - blen), list->buf);
+		list->buflen = width;
 	}
 }
