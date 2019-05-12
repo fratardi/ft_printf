@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 01:42:26 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 02:02:18 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_fillbuf_digits(t_printinfo *list, t_elem *elem)
 	else if (list->is_short && list->is_unsigned)
 		list->buf = ft_ullitoa((short)elem->lli);
 	else if (list->is_unsigned && list->t == 'u')
-		list->buf = ft_ullitoa(elem->lli);
+		list->buf = ft_ullitoa(elem->ulli);
 }
 
 void	ft_fillbuf(t_printinfo *list, t_elem *elem)
