@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:36:47 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/27 15:53:57 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/13 00:10:04 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	**ft_split_format(const char *format)
 
 	n = ft_countargs(format);
 	pos = 0;
-	if (!(ret = (char **)malloc(sizeof(char *) * ft_countargs(format) + 1)))
+	if (!(ret = (char **)malloc(sizeof(char *) * (ft_countargs(format) + 1))))
 		return (NULL);
 	ret[n] = NULL;
 	while (n != 0)

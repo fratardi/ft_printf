@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 23:38:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/13 00:00:12 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(void)
 //ft_printf("%#012x\n", 4242);
 	ft_debugf();	
 
-	ft_printf(">> %d\n", (ft_printf("%5%\n", -2147483647)));
+	ft_printf(">> %d\n", (ft_printf("%5%lld ksdjhf kjsdh fkjsd hf\n", -2147483647)));
 	printf("%5%\n");
 	//ft_printf("%01s", "123");
 	//ft_printf("%05s", "123");
