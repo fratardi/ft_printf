@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 02:02:18 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/12 02:11:48 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_fillbuf_convert(t_printinfo *list, t_elem *elem)
 
 void	ft_fillbuf_digits(t_printinfo *list, t_elem *elem)
 {
+	// printf(">> %lld", elem->lli);
 	if (list->is_char && !list->is_unsigned)
 		list->buf = ft_llitoa((char)elem->lli);
 	else if (list->is_short && !list->is_unsigned)
@@ -72,7 +73,7 @@ void	ft_fillbuf(t_printinfo *list, t_elem *elem)
 		while(elem->next && elem->pos != list->ndol)
 			elem = elem->next;
 		if (list->t == 's')
-			list->buf = ft_strdup((char *)elem->value);
+			list->buf = ft_strdup((elem->value != NULL) ? (char *)elem->value : "(null)");
 		else if (list->t == 'c')
 		{
 			c = (char)elem->lli;
