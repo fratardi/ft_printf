@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 00:15:47 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/14 23:18:36 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,18 @@ char	*ft_ldouble(long double a, size_t prec)
 	char	*tempent;
 	char	*tempdec;
 	size_t	ret;
+	size_t	i;
 	int		b;
 
-	m = ft_mantissaldouble(a);
-	ex = ft_expldouble(a);
+	i = 0;
 	b = -1;
+	ex = ft_expldouble(a);
 	dec = (ex < 0) ? ft_pow2str(0 + ex) : ft_strdup("0");
 	ent = (ex >= 0) ? ft_pow2str(0 + ex) : ft_strdup("0");
-	while (*m)
+	m = ft_mantissaldouble(a);
+	while (m[i])
 	{
-		if (*m == '1')
+		if (m[i] == '1')
 		{
 			temp = ft_pow2str(b + ex);
 			if (b + ex >= 0)
@@ -87,29 +89,32 @@ char	*ft_ldouble(long double a, size_t prec)
 				ft_adjustpospo(&temp, &ent);
 				tempent = ft_addstrings(temp, ent);
 				free(ent);
-				ent = tempent;
+				ent = ft_strdup(tempent);
+				free(tempent);
 			}
 			else if (b + ex < 0)
 			{
 				ft_adjustnegpo(&temp, &dec);
 				tempdec = ft_addstrings(temp, dec);
 				free(dec);
-				dec = tempdec;
+				dec = ft_strdup(tempdec);
+				free(tempdec);
 			}
 			free(temp);
 		}
 		b--;
-		m++;
+		i++;
 	}
 	ent = ((a < 0) ? ft_strjoinfree(ft_strdup("-"), ent) : ent);
 	dec = ft_rounding(dec, (prec) ? prec : 6);
 	//ft_printf("%s.%s", ent, dec);
-	ret = 1 + ft_strlen(ent) + ft_strlen(dec);
+	// ret = 1 + ft_strlen(ent) + ft_strlen(dec);
 	ent = ft_strjoinfree(ent, ft_strdup("."));
 	ent = ft_strjoinfree(ent, dec);
-	//free(ent);
-	//free(dec);
-	//free(temp);
-	//free(m);
-	return (ent);
+	ret = ft_strlen(ent);
+	free(dec);
+	free(temp);
+	free(m);
+	free(ent);
+	return (ft_strdup("neg"));
 }

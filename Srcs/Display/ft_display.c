@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 23:53:51 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/14 22:52:04 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ size_t	ft_display(char **tab, t_printinfo *list)
 			temp = ft_rest(tab[i]);
 			ret += ft_strlen(temp);
 			ft_putstr(temp);
+			// free(list->buf);
 			list = list->next;
 		}
 		else

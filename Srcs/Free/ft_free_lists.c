@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 12:01:14 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/29 19:40:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/14 22:53:52 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_free_elem(t_elem *elem, t_printinfo *list)
 			list = start;
 		}
 	}
+	free(elem);
 }
 
 void	ft_free_printinfo(t_printinfo *list)
@@ -45,4 +46,6 @@ void	ft_free_printinfo(t_printinfo *list)
 		free(list);
 		list = temp;
 	}
+	free(list->buf);
+	free(list);
 }

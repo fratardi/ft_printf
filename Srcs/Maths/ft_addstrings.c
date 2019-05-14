@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 14:31:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/28 13:27:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/14 22:36:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,5 @@ char	*ft_addstrings(char *s1, char *s2)
 		diff = ft_addchar("0", (s1p >= 0) ? &s1[s1p--] : &s2[s2p--],
 		&ret[y--], diff);
 	ret = (diff) ? ft_strjoinfree(ft_strdup("1"), ret) : ret;
-	free(s1);
-	//free(s2);
 	return (ret);
 }
