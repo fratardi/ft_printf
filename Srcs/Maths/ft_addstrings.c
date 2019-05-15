@@ -6,11 +6,25 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 14:31:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/14 22:36:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/15 19:21:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
+
+char	*ft_joinfree(char *s1, char *s2)
+{
+	char *ret;
+
+	if (!s1)
+		return((s2) ? s2 : NULL);
+	if (!s2)
+		return(s1);
+	ret = ft_strjoin(s1, s2);
+	free(s1);
+	free(s2);
+	return (ret);	
+}
 
 /*
 **Function that add 2 char
@@ -48,7 +62,7 @@ char	*ft_addstrings(char *s1, char *s2)
 	y = (s1p >= s2p) ? s1p : s2p;
 	while (s1p-- && s2p-- && y--)
 		diff = ft_addchar(&s1[s1p], &s2[s2p], &ret[y], diff);
-	ret = (y == 0 && diff) ? ft_strjoinfree(ft_strdup("1"), ret) : ret;
+	ret = (y == 0 && diff) ? ft_joinfree(ft_strdup("1"), ret) : ret;
 	if (y == 0)
 		return (ret);
 	s2p--;
@@ -56,6 +70,6 @@ char	*ft_addstrings(char *s1, char *s2)
 	while (s1p >= 0 || s2p >= 0)
 		diff = ft_addchar("0", (s1p >= 0) ? &s1[s1p--] : &s2[s2p--],
 		&ret[y--], diff);
-	ret = (diff) ? ft_strjoinfree(ft_strdup("1"), ret) : ret;
+	ret = (diff) ? ft_joinfree(ft_strdup("1"), ret) : ret;
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/14 22:49:04 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/15 19:23:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,7 +206,7 @@ char				**ft_split_format(const char *format);
 char		        *ft_rest(char *str);
 int 				ft_issyntax(char *str);
 void				ft_modndol(t_printinfo *list);
-char				*ft_join(char *s1, char *s2);
+char				*ft_joinfree(char *s1, char *s2);
 void				ft_displaybin(void *content, size_t n);
 
 /*

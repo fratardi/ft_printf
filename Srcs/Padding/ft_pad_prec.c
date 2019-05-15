@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/12 04:53:27 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/15 19:28:25 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void ft_pad_prec(t_printinfo *l)
 	prec = l->prec - l->buflen + ((l->buf[0] == '-' && ft_strchr("di", l->t)) ? 1 : 0);
 	if (ft_strchr("uoxX", l->t) && prec > 0)
 	{
-		l->buf = ft_strjoinfree(ft_memaset('0', (size_t)prec), l->buf);
+		l->buf = ft_joinfree(ft_memaset('0', (size_t)prec), l->buf);
 		l->buflen += prec;
 	}
 	l->buf[l->prec] = (l->t == 's' && prec < 0 && l->prec != -2) ? 0 : l->buf[l->prec];
@@ -53,8 +53,8 @@ void ft_pad_prec(t_printinfo *l)
 			free(l->buf);
 			l->buf = temp;
 		}
-		l->buf = (prec) ? ft_strjoinfree(ft_memaset('0', (size_t)prec), l->buf) : l->buf;
-		l->buf = (neg != 0) ? ft_strjoinfree(ft_strdup("-"), l->buf) : l->buf;
+		l->buf = (prec) ? ft_joinfree(ft_memaset('0', (size_t)prec), l->buf) : l->buf;
+		l->buf = (neg != 0) ? ft_joinfree(ft_strdup("-"), l->buf) : l->buf;
 	}
 	ft_mod_pad_prec(prec, l);
 }

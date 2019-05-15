@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/14 23:18:36 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/15 19:35:42 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ char	*ft_ldouble(long double a, size_t prec)
 	char	*temp;
 	char	*tempent;
 	char	*tempdec;
-	size_t	ret;
 	size_t	i;
 	int		b;
 
@@ -94,7 +93,7 @@ char	*ft_ldouble(long double a, size_t prec)
 			}
 			else if (b + ex < 0)
 			{
-				ft_adjustnegpo(&temp, &dec);
+				// ft_adjustnegpo(&temp, &dec);
 				tempdec = ft_addstrings(temp, dec);
 				free(dec);
 				dec = ft_strdup(tempdec);
@@ -105,16 +104,14 @@ char	*ft_ldouble(long double a, size_t prec)
 		b--;
 		i++;
 	}
-	ent = ((a < 0) ? ft_strjoinfree(ft_strdup("-"), ent) : ent);
+	ent = ((a < 0) ? ft_joinfree(ft_strdup("-"), ent) : ent);
 	dec = ft_rounding(dec, (prec) ? prec : 6);
 	//ft_printf("%s.%s", ent, dec);
-	// ret = 1 + ft_strlen(ent) + ft_strlen(dec);
-	ent = ft_strjoinfree(ent, ft_strdup("."));
-	ent = ft_strjoinfree(ent, dec);
-	ret = ft_strlen(ent);
-	free(dec);
-	free(temp);
+	ent = ft_joinfree(ent, ft_strdup("."));
+	ent = ft_joinfree(ent, dec);
+	// free(dec);
+	// free(temp);
 	free(m);
-	free(ent);
-	return (ft_strdup("neg"));
+	// free(ent);
+	return (ent);
 }

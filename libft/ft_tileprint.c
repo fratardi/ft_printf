@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pad_showsig.c                                   :+:      :+:    :+:   */
+/*   ft_tileprint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpacaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/08 20:44:09 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/15 19:33:04 by tpacaud          ###   ########.fr       */
+/*   Created: 2018/11/13 13:56:34 by tpacaud           #+#    #+#             */
+/*   Updated: 2018/11/14 13:19:23 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "libft.h"
 
-void	ft_pad_showsig(t_printinfo *list)
+void	ft_tileprint(t_list *ptr)
 {
-	if (!ft_strchr("dif", list->t) || !list->showsign || list->buf[0] == '-')
-		return ;
-	list->buf = ft_joinfree(ft_strdup("+"), list->buf);
-	list->buflen++;
+	ft_putstr("Content of tile = ");
+	ft_putstr((char*)ptr->content);
+	ft_putchar('\n');
 }

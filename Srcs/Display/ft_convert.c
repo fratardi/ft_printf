@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:25:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 19:15:06 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/15 19:31:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,6 @@ char *ft_convert_p(void *to_convert)
 		ret[size] = (tab[converted % 16]);
 		converted = converted / 16;
 	}
-	ret = ft_strjoinfree(ft_strdup("0x"), ret);
+	ret = ft_joinfree(ft_strdup("0x"), ret);
 	return (ret);
 }

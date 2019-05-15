@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/29 20:05:50 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/15 19:32:27 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	ft_adjustnegpo(char **s1, char **s2)
 		if (!(tojoin = (char *)ft_memalloc(sizeof(char) * (i2 - i1 + 1))))
 			return ;
 		ft_memset(tojoin, '0', i2 - i1);
-		*s1 = ft_strjoinfree(*s1, tojoin);
+		*s1 = ft_joinfree(*s1, tojoin);
 	}
 	if (i1 > i2)
 	{
 		if (!(tojoin = (char *)ft_memalloc(sizeof(char) * (i1 - i2 + 1))))
 			return ;
 		ft_memset(tojoin, '0', i1 - i2);
-		*s2 = ft_strjoinfree(*s2, tojoin);
+		*s2 = ft_joinfree(*s2, tojoin);
 	}
 }
 
@@ -57,14 +57,14 @@ void	ft_adjustpospo(char **s1, char **s2)
 		if (!(tojoin = (char *)ft_memalloc(sizeof(char) * (i2 - i1 + 1))))
 			return ;
 		ft_memset(tojoin, '0', i2 - i1);
-		*s1 = ft_strjoinfree(tojoin, *s1);
+		*s1 = ft_joinfree(tojoin, *s1);
 	}
 	if (i1 > i2)
 	{
 		if (!(tojoin = (char *)ft_memalloc(sizeof(char) * (i1 - i2 + 1))))
 			return ;
 		ft_memset(tojoin, '0', i1 - i2);
-		*s2 = ft_strjoinfree(tojoin, *s2);
+		*s2 = ft_joinfree(tojoin, *s2);
 	}
 }
 
@@ -105,7 +105,7 @@ char	*ft_rounding(char *str, size_t prec)
 	if (prec > ft_strlen(str))
 	{
 		while (prec > ft_strlen(str))
-			str = ft_strjoinfree(str, ft_strdup("0"));
+			str = ft_joinfree(str, ft_strdup("0"));
 		return (str);
 	}
 	i += prec;

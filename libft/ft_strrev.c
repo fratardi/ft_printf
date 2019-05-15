@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pad_showsig.c                                   :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpacaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/08 20:44:09 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/15 19:33:04 by tpacaud          ###   ########.fr       */
+/*   Created: 2018/11/11 04:32:32 by tpacaud           #+#    #+#             */
+/*   Updated: 2018/11/11 04:35:57 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "./libft.h"
 
-void	ft_pad_showsig(t_printinfo *list)
+char	*ft_strrev(char const *str)
 {
-	if (!ft_strchr("dif", list->t) || !list->showsign || list->buf[0] == '-')
-		return ;
-	list->buf = ft_joinfree(ft_strdup("+"), list->buf);
-	list->buflen++;
+	int		i;
+	int		y;
+	char	*ret;
+
+	i = 0;
+	y = ft_strlen(str) - 1;
+	ret = NULL;
+	while (y >= 0)
+		ret[i++] = str[y--];
+	ret[i] = 0;
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 21:05:06 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/29 18:14:25 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/15 19:31:57 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_fillbig(char *s1, char *s2)
 {
 	while (ft_strlen(s1) < ft_strlen(s2))
-		s1 = ft_strjoinfree(s1, ft_strdup("0"));
+		s1 = ft_joinfree(s1, ft_strdup("0"));
 	return (s1);
 }
 

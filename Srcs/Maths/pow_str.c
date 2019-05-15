@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/14 22:35:54 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/15 19:26:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char	*ft_pow2neg(int n)
 	if (!(fill = (char *)ft_memalloc((sizeof(char)) * (i + 1))))
 		return (NULL);
 	ft_memset(fill, '0', i);
-	return (ft_strjoinfree(fill, ret));
+	return (ft_joinfree(fill, ret));
 }
 
 char	*ft_pow2str(int ex)
