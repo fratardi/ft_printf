@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/15 20:18:37 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/15 20:29:21 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ t_printinfo	*ft_fillmod(char *str, t_printinfo *list)
 	i = 0;
 	hmod = 0;
 	lmod = 0;
-	while (str[i] && ft_strchr("hlLz", str[i]) == NULL)
+	while (str[i] && ft_strchr("hlLzj", str[i]) == NULL)
 		i++;
+	list->max = (str[i] == 'j') ? 1 : 0;
 	list->is_long = (str[i] == 'z') ? 1 : 0;
 	list->is_long_double = (str[i] == 'L') ? 1 : 0;
 	while (str[i] && ft_strchr("h", str[i]) != NULL)

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/15 19:23:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/15 20:26:17 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct			s_printinfo {
 	int 				prec;			/* Precision */
 	int 				width;			/* Width */
 	unsigned int		ndol;			/* Elem n° */
+	unsigned int		max;
 	unsigned int		is_long_double;	/* Is a Double Long */
 	unsigned int		is_char;		/* Is char */
 	unsigned int		is_unsigned;	/* Is an unsigned */
