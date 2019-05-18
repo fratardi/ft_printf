@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/15 19:35:42 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/18 03:00:02 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,56 +62,46 @@ int		ft_expldouble(long double a)
 
 char	*ft_ldouble(long double a, size_t prec)
 {
-	char	*m;
-	int		ex;
-	char	*ent;
-	char	*dec;
-	char	*temp;
-	char	*tempent;
-	char	*tempdec;
-	size_t	i;
-	int		b;
+	t_double	dble;
+	int i;
 
 	i = 0;
-	b = -1;
-	ex = ft_expldouble(a);
-	dec = (ex < 0) ? ft_pow2str(0 + ex) : ft_strdup("0");
-	ent = (ex >= 0) ? ft_pow2str(0 + ex) : ft_strdup("0");
-	m = ft_mantissaldouble(a);
-	while (m[i])
+	dble.b = -1;
+	dble.ex = ft_expldouble(a);
+	dble.dec = (dble.ex < 0) ? ft_pow2str(0 + dble.ex) : ft_strdup("0");
+	dble.ent = (dble.ex >= 0) ? ft_pow2str(0 + dble.ex) : ft_strdup("0");
+	dble.m = ft_mantissaldouble(a);
+	while (dble.m[i])
 	{
-		if (m[i] == '1')
+		if (dble.m[i] == '1')
 		{
-			temp = ft_pow2str(b + ex);
-			if (b + ex >= 0)
+			dble.temp = ft_pow2str(dble.b + dble.ex);
+			if (dble.b + dble.ex >= 0)
 			{
-				ft_adjustpospo(&temp, &ent);
-				tempent = ft_addstrings(temp, ent);
-				free(ent);
-				ent = ft_strdup(tempent);
-				free(tempent);
+				ft_adjustpospo(&dble.temp, &dble.ent);
+				dble.tempent = ft_addstrings(dble.temp, dble.ent);
+				free(dble.ent);
+				dble.ent = ft_strdup(dble.tempent);
+				free(dble.tempent);
 			}
-			else if (b + ex < 0)
+			else if (dble.b + dble.ex < 0)
 			{
-				// ft_adjustnegpo(&temp, &dec);
-				tempdec = ft_addstrings(temp, dec);
-				free(dec);
-				dec = ft_strdup(tempdec);
-				free(tempdec);
+				ft_adjustnegpo(&dble.temp, &dble.dec);
+				dble.tempdec = ft_addstrings(dble.temp, dble.dec);
+				free(dble.dec);
+				dble.dec = ft_strdup(dble.tempdec);
+				free(dble.tempdec);
 			}
-			free(temp);
+			free(dble.temp);
 		}
-		b--;
+		dble.b--;
 		i++;
 	}
-	ent = ((a < 0) ? ft_joinfree(ft_strdup("-"), ent) : ent);
-	dec = ft_rounding(dec, (prec) ? prec : 6);
+	dble.ent = ((a < 0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
+	dble.dec = ft_rounding(dble.dec, (prec) ? prec : 6);
 	//ft_printf("%s.%s", ent, dec);
-	ent = ft_joinfree(ent, ft_strdup("."));
-	ent = ft_joinfree(ent, dec);
-	// free(dec);
-	// free(temp);
-	free(m);
-	// free(ent);
-	return (ent);
+	dble.ent = ft_joinfree(dble.ent, ft_strdup("."));
+	dble.ent = ft_joinfree(dble.ent, dble.dec);
+	free(dble.m);
+	return (dble.ent);
 }
