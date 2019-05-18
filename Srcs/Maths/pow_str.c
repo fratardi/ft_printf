@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/18 02:55:39 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/18 04:13:25 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ char	*ft_pow2c(int po)
 	char	*base;
 	char	*ret;
 	char	*tmp;
-	size_t	p;
 
-	p = (size_t)po;
 	if (!po)
 		return (ft_strdup("0"));
 	if (po < 0)

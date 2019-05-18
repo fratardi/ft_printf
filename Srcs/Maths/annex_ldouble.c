@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/18 03:57:03 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/18 04:07:44 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,14 @@ t_double	ft_doublesign(t_double dble)
 		ft_adjustpospo(&dble.temp, &dble.ent);
 		dble.tempent = ft_addstrings(dble.temp, dble.ent);
 		free(dble.ent);
-		dble.ent = ft_strdup(dble.tempent);
-		free(dble.tempent);
+		dble.ent = dble.tempent;
 	}
 	else if (dble.b + dble.ex < 0)
 	{
 		ft_adjustnegpo(&dble.temp, &dble.dec);
 		dble.tempdec = ft_addstrings(dble.temp, dble.dec);
 		free(dble.dec);
-		dble.dec = ft_strdup(dble.tempdec);
-		free(dble.tempdec);
+		dble.dec = dble.tempdec;
 	}
 	free(dble.temp);
 	return (dble);

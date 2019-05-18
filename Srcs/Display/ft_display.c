@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/18 03:58:15 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/18 04:09:16 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,10 @@ int		ft_percent(char **tab, int i, size_t *ret)
 size_t	ft_putonlystring(char **tab)
 {
 	int		i;
-	int		percent;
 	size_t	ret;
 
 	i = 0;
 	ret = 0;
-	percent = 0;
 	while (tab[i] && tab[i][0])
 	{
 		i = ft_percent(tab, i, &ret);
