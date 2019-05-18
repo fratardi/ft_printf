@@ -6,24 +6,26 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 20:44:00 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/15 19:28:05 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/18 03:13:11 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void ft_pad_left(t_printinfo *list)
+void ft_pad_left(t_printinfo *l)
 {
-	if (list->left && list->alt && ft_strchr("xX", list->t) && (list->buflen += 2))
-		list->buf = ft_joinfree(ft_strdup((list->t == 'x') ? "0x" : "0X"), list->buf);
-	if (list->left && (list->width > (int)list->buflen) && list->t != 'n')
+	if (l->left && l->alt && ft_strchr("xX", l->t) && (l->buflen += 2))
+		l->buf = ft_joinfree(ft_strdup((l->t == 'x') ? "0x" : "0X"), l->buf);
+	if (l->left && (l->width > (int)l->buflen) && l->t != 'n')
 	{
-		list->buf = ft_joinfree((list->buf), (char *)ft_memaset(' ', list->width - list->buflen));
-		list->buflen = (size_t)list->width;
+		l->buf = ft_joinfree((l->buf), (char *)ft_memaset(' ', l->width -
+		l->buflen));
+		l->buflen = (size_t)l->width;
 	}
-	if (list->left && (list->width > (int)list->buflen) && list->t == 'n')
+	if (l->left && (l->width > (int)l->buflen) && l->t == 'n')
 	{
-		list->buf = ft_joinfree((char *)ft_memaset('0', list->width - list->buflen), list->buf);
-		list->buflen = (size_t)list->width;
+		l->buf = ft_joinfree((char *)ft_memaset('0', l->width - l->buflen),
+		l->buf);
+		l->buflen = (size_t)l->width;
 	}
 }

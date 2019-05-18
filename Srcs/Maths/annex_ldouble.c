@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/18 03:07:39 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/18 03:10:59 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ int ft_expldouble(long double a)
 	//ft_printf("%d -- Exp\n", (*b - 127));
 	return ((long long int)(*b) - 16383);
 }
+
+/*
+**Conditions according to the sign of exposant
+*/
 
 t_double	ft_doublesign(t_double dble)
 {
