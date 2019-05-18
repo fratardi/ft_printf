@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/15 20:26:17 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/18 02:54:25 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,25 @@ typedef struct			s_va{
 	t_elem *start;
 	t_printinfo *pstart;
 }						t_va;
+
+typedef struct			s_double{
+	char	*m;
+	int		ex;
+	char	*ent;
+	char	*dec;
+	char	*temp;
+	char	*tempent;
+	char	*tempdec;
+	int		b;
+}						t_double;
+
+typedef struct			s_power5{
+	char	*base;
+	char	*tmp;
+	char	*ret;
+	size_t	p;
+	int		i;
+}						t_power5;
 
 /*
 **Funtions to print Digits
