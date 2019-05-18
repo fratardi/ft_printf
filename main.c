@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/18 02:47:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/18 04:01:10 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,19 @@ int main(void)
 //	 ft_putendl((char *)ft_memaset('b',0));
 	 //printf("%#s\n%c\n%#o\n%#x\n%#X\n%lld\n%f\n%Lf\n%#LF\n", "test", '*', 41, 40, 39, 38, 12.5, 1.3L, 123.456L);
 //	printf("\n%#x\n", 123.456);
-//	printf("%#012x\n",4242);
-//ft_printf("%#012x\n", 4242);
+	printf("%#012x\n",4242);
+ft_printf("%#012x\n", 4242);
 	// ft_debugf();	
+	//    printf("%%%%%%%%%%");
 
-	ft_printf("%f", 3.3);
+	// ft_printf("%%%%%%%%%%");
 
 //   ft_printf("%ju\n", 4999999999);
-//   printf("%ju\n", 4999999999);
+   printf("%ju\n", 4999999999);
 	// ft_printf(">> %d\n", (ft_printf("%5%lld ksdjhf kjsdh fkjsd hf\n", -2147483647)));
 	// printf("%5%\n");
-	//ft_printf("%01s", "123");
-	//ft_printf("%05s", "123");
+	 ft_printf("%01s\n", "123");
+		 printf("%01s\n", "123");
 	//ft_printf("%5%");
 	//tests();
 

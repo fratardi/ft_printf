@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/14 22:52:04 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/18 03:58:15 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,11 @@ size_t ft_putnotsyntax(char *str, char *s1, int *y)
 	return (ret);
 }
 
-size_t	ft_putonlystring(char **tab)
+int		ft_percent(char **tab, int i, size_t *ret)
 {
-	int		i;
-	int		percent;
-	size_t	ret;
-
-	i = 0;
-	ret = 0;
-	percent = 0;
-	while (tab[i] && tab[i][0])
-	{
-		percent = 0;
+	int percent;
+ 
+			percent = 0;
 		if (tab[i][0] != '%')
 		{
 			ft_putstr(tab[i]);
@@ -86,10 +79,24 @@ size_t	ft_putonlystring(char **tab)
 				i++;
 			}
 			i--;
-			// printf("%i", (percent + 1) % 2);
 			ft_putstr(((percent + 1) % 2 == 0) ? tab[i] : "%");
 			ret += ((percent + 1) %2 == 0) ? ft_strlen(tab[i]) : 1;
 		}
+		return (i);
+}
+
+size_t	ft_putonlystring(char **tab)
+{
+	int		i;
+	int		percent;
+	size_t	ret;
+
+	i = 0;
+	ret = 0;
+	percent = 0;
+	while (tab[i] && tab[i][0])
+	{
+		i = ft_percent(tab, i, &ret);
 		if (tab[i])
 			i++;
 	}
@@ -119,7 +126,6 @@ size_t	ft_display(char **tab, t_printinfo *list)
 			temp = ft_rest(tab[i]);
 			ret += ft_strlen(temp);
 			ft_putstr(temp);
-			// free(list->buf);
 			list = list->next;
 		}
 		else

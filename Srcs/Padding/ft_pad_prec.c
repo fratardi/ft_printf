@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/15 19:28:25 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/18 03:44:54 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,10 @@ void ft_mod_pad_prec(int prec, t_printinfo *list)
 		list->buflen += prec;
 }
 
-void ft_pad_prec(t_printinfo *l)
+t_printinfo *ft_precdigits(int prec, int neg, t_printinfo *l)
 {
-	int prec;
-	int neg;
 	char *temp;
-
-	neg = 0;
-	// printf("prec = %d\n", l->prec);
-	if ((l->prec == 0) && (ft_strchr("diuxX", l->t) || (l->t == 'o' && !l->alt)) && l->buflen == 1 && l->buf[0] == '0')
-	{
-		l->buf[0] = 0;
-		l->buflen = 0;
-		return ;
-	}
-	if (l->prec < 0 || l->t == 'f' || l->t == 'c' || l->t == 'p')
-		return;
-	prec = l->prec - l->buflen + ((l->buf[0] == '-' && ft_strchr("di", l->t)) ? 1 : 0);
-	if (ft_strchr("uoxX", l->t) && prec > 0)
-	{
-		l->buf = ft_joinfree(ft_memaset('0', (size_t)prec), l->buf);
-		l->buflen += prec;
-	}
-	l->buf[l->prec] = (l->t == 's' && prec < 0 && l->prec != -2) ? 0 : l->buf[l->prec];
+	
 	if (ft_strchr("di", l->t))
 	{
 		if (prec && l->buf[0] == '-' && (neg = -1))
@@ -53,8 +34,36 @@ void ft_pad_prec(t_printinfo *l)
 			free(l->buf);
 			l->buf = temp;
 		}
-		l->buf = (prec) ? ft_joinfree(ft_memaset('0', (size_t)prec), l->buf) : l->buf;
+		l->buf = (prec) ? ft_joinfree(ft_memaset('0', (size_t)prec), l->buf) :
+		l->buf;
 		l->buf = (neg != 0) ? ft_joinfree(ft_strdup("-"), l->buf) : l->buf;
 	}
+	return (l);
+}
+void ft_pad_prec(t_printinfo *l)
+{
+	int prec;
+	int neg;
+
+	neg = 0;
+	if ((l->prec == 0) && (ft_strchr("diuxX", l->t) || (l->t == 'o' && !l->alt))
+	&& l->buflen == 1 && l->buf[0] == '0')
+	{
+		l->buf[0] = 0;
+		l->buflen = 0;
+		return ;
+	}
+	if (l->prec < 0 || l->t == 'f' || l->t == 'c' || l->t == 'p')
+		return;
+	prec = l->prec - l->buflen + ((l->buf[0] == '-' && ft_strchr("di", l->t))
+	? 1 : 0);
+	if (ft_strchr("uoxX", l->t) && prec > 0)
+	{
+		l->buf = ft_joinfree(ft_memaset('0', (size_t)prec), l->buf);
+		l->buflen += prec;
+	}
+	l->buf[l->prec] = (l->t == 's' && prec < 0 && l->prec != -2) ? 0 :
+	l->buf[l->prec];
+	l = ft_precdigits(prec, neg, l); 
 	ft_mod_pad_prec(prec, l);
 }
