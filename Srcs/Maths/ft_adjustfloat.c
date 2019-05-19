@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/15 19:32:27 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 00:28:18 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,24 +72,33 @@ void	ft_adjustpospo(char **s1, char **s2)
 **Function to display str_long_double with E^
 */
 
-void	ft_floatEdispneg(char *str, int prec)
+char	*ft_floatEdispneg(char *str, int prec)
 {
 	int i;
 	int y;
 	int puiss;
+	char *ret;
 
 	i = 2;
 	y = 0;
 	puiss = 0;
 	if (str[0] != '0')
-		return ;
+		return (str);
 	while (str[i] && str[i] == '0')
 		i++;
 	puiss = i - 1;
-	ft_printf("Nous__%c.", str[i]);
-	while (y++ < prec)
-		ft_putchar(str[i++]);
-	ft_printf("E-%d\n", puiss);
+	ret = ft_memaset(str[i], 1);
+	ret = ft_joinfree(ret, ft_strdup("."));
+	ret = ft_joinfree(ret, ft_strndup(&str[i + 1], (prec) ? prec : 6));
+	ret = ft_joinfree(ret, ft_strdup("E-"));
+	ret = ft_joinfree(ret, ft_itoa(puiss));
+	free(str);
+	prec = 0;
+	// ft_printf("Nous__%c.", str[i]);
+	// while (y++ < prec)
+		// ft_putchar(str[i++]);
+	// ft_printf("E-%d\n", puiss);
+	return (ret);
 }
 
 /*

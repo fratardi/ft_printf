@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/18 04:07:44 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/19 23:26:30 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ t_double	ft_doublesign(t_double dble)
 **Main function to calculate and transform mant&exp to str long double
 */
 
-char *ft_ldouble(long double a, size_t prec)
+char *ft_ldouble(long double a, size_t prec, unsigned int is_ten)
 {
 	t_double dble;
 	int i;
@@ -104,9 +104,12 @@ char *ft_ldouble(long double a, size_t prec)
 		i++;
 	}
 	dble.ent = ((a < 0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
-	dble.dec = ft_rounding(dble.dec, (prec) ? prec : 6);
+	if (!is_ten)
+		dble.dec = ft_rounding(dble.dec, (prec > 0) ? prec : 6);
 	dble.ent = ft_joinfree(dble.ent, ft_strdup("."));
 	dble.ent = ft_joinfree(dble.ent, dble.dec);
 	free(dble.m);
+	if (is_ten)
+		dble.ent = ft_floatEdispneg(dble.ent, (prec > 0) ? prec : 6);
 	return (dble.ent);
 }

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 21:05:06 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/15 19:31:57 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/19 22:21:53 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,4 @@ size_t	digitlen(unsigned long long int i)
 	}
 	return (ret);
 }
+

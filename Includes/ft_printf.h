@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/18 02:54:25 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/19 23:27:43 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct			s_printinfo {
 	unsigned int		is_unsigned;	/* Is an unsigned */
 	unsigned int		is_short;		/* Is Short */
 	unsigned int		is_long;		/* Is Long */
+	unsigned int		is_float_ten;	/* Is 'E' for floats E^x */
 	unsigned int		alt;			/* Is # */
 	unsigned int		space;			/* Is ' ' */
 	unsigned int		left;			/* Is - */
@@ -117,6 +118,7 @@ typedef struct			s_double{
 	char	*m;
 	int		ex;
 	char	*ent;
+	char	*exep;
 	char	*dec;
 	char	*temp;
 	char	*tempent;
@@ -151,11 +153,12 @@ char				*ft_pow5(int pow);
 void 				ft_hexfloat(void *content, size_t n);
 char				*ft_fillbig(char *s1, char *s2);
 char 				*ft_pow2str(int ex);
-void				ft_floatEdisp(char *str, int prec);
+char				*ft_floatEdispneg(char *str, int prec);
 char				*ft_rounding(char *str, size_t prec);
 char				*ft_mantissaldouble(long double d);
 int					ft_expldouble(long double a);
-char				*ft_ldouble(long double a, size_t prec);
+char				*ft_ldouble(long double a, size_t prec, unsigned int is_ten);
+char	*ft_exception(long double a, t_printinfo *list);
 // char				*ft_mantissadouble(double d);
 // unsigned int		ft_get_sig(float d);
 // char 				*ft_decimal(float a);

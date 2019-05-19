@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/15 20:37:20 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/19 23:54:22 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,21 @@
 
 void	ft_fillbuf_float(t_printinfo *list, t_elem *elem)
 {
-	if (list->t == 'f' && !list->is_long_double)
-		list->buf = ft_ldouble(elem->dble, (list->prec < 0) ? 6 : (size_t)list->prec);
-	else if (list->t == 'f' && list->is_long_double)
-		list->buf = ft_ldouble(elem->long_double, (list->prec < 0) ? 6 : (size_t)list->prec);
+	char *exception;
+
+	exception = ft_exception((list->is_long_double) ? elem->long_double : elem->dble, list);
+	if (exception == NULL)
+	{
+		if (list->t == 'f' && !list->is_long_double)
+			list->buf = ft_ldouble(elem->dble, (list->prec < 0) ? 6 : (size_t)list->prec, list->is_float_ten);
+		else if (list->t == 'f' && list->is_long_double)
+			list->buf = ft_ldouble(elem->long_double, (list->prec < 0) ? 6 : (size_t)list->prec, list->is_float_ten);
+	}
+	else
+	{
+		list->buf = exception;
+		// free(exception);
+	}
 }
 
 void	ft_fillbuf_convert(t_printinfo *list, t_elem *elem)
