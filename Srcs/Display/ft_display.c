@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/18 04:09:16 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/19 21:45:55 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ size_t ft_putnotsyntax(char *str, char *s1, int *y)
 	size_t i;
 	int width;
 	char *pad;
-	
+
 	if (!str)
 		return (0);
 	ret = 0;
-	
+
 	// printf("y1 = %d", *y);
 	width = ft_atoi(&str[(str[1] == '-') ? 2 : 1]);
 	width -= (width > 0) ? 1 : 0;
@@ -33,20 +33,20 @@ size_t ft_putnotsyntax(char *str, char *s1, int *y)
 	if (str[1] == '-')
 	{
 		if (str[i] != 0)
-			ft_putchar(str[i]);
+			ret += ft_print_uni_char(&str[i]);
 		if (str[i] == 0 && s1 && (*y += 1))
-			ft_putstr(s1);
-		 ft_putstr(pad);
+			ret += ft_print_uni_str(s1);
+		ret += ft_print_uni_str(pad);
 		if (str[i])
-			ft_putstr(&str[i + 1]);
+			ret += ft_print_uni_str(&str[i + 1]);
 	}
 	else
 	{
-		ft_putstr(pad);
+		ret += ft_print_uni_str(pad);
 		if (str[i])
-			ft_putstr(&str[i]);
+			ret += ft_print_uni_str(&str[i]);
 		else if (s1 && !str[i] && (*y += 1))
-			ft_putstr(s1);
+			ft_print_uni_str(s1);
 	}
 	ret = ft_strlen((str[i]) ? &(str[i]) : s1) + ((pad) ? ft_strlen(pad) : 0);
 	free(pad);
@@ -54,41 +54,41 @@ size_t ft_putnotsyntax(char *str, char *s1, int *y)
 	return (ret);
 }
 
-int		ft_percent(char **tab, int i, size_t *ret)
+int ft_percent(char **tab, int i, size_t *ret)
 {
 	int percent;
- 
-			percent = 0;
-		if (tab[i][0] != '%')
+
+	percent = 0;
+	if (tab[i][0] != '%')
+	{
+		*ret += ft_print_uni_str(tab[i]);
+		// ret += ft_strlen(tab[i]);
+	}
+	if (tab[i][0] == '%' && tab[i][1] != 0)
+	{
+		*ret += ft_putnotsyntax(tab[i], tab[i + 1], &i);
+		if (tab[i][1] == '-' && tab[i + 1])
+			i += 1;
+		percent++;
+	}
+	else if (tab[i][0] == '%' && !tab[i][1])
+	{
+		while (tab[i] && tab[i][0] == '%' && tab[i][1] == 0)
 		{
-			ft_putstr(tab[i]);
-			ret += ft_strlen(tab[i]);
-		}
-		if (tab[i][0] == '%' && tab[i][1] != 0)
-		{
-			ret += ft_putnotsyntax(tab[i], tab[i + 1], &i);
-			if (tab[i][1] == '-' && tab[i + 1])
-				i += 1;
 			percent++;
+			i++;
 		}
-		else if (tab[i][0] == '%' && !tab[i][1])
-		{
-			while (tab[i] && tab[i][0] == '%' && tab[i][1] == 0)
-			{
-				percent++;
-				i++;
-			}
-			i--;
-			ft_putstr(((percent + 1) % 2 == 0) ? tab[i] : "%");
-			ret += ((percent + 1) %2 == 0) ? ft_strlen(tab[i]) : 1;
-		}
-		return (i);
+		i--;
+		ft_putstr(((percent + 1) % 2 == 0) ? tab[i] : "%");
+		*ret += ((percent + 1) % 2 == 0) ? ft_strlen(tab[i]) : 1;
+	}
+	return (i);
 }
 
-size_t	ft_putonlystring(char **tab)
+size_t ft_putonlystring(char **tab)
 {
-	int		i;
-	size_t	ret;
+	int i;
+	size_t ret;
 
 	i = 0;
 	ret = 0;
@@ -102,7 +102,7 @@ size_t	ft_putonlystring(char **tab)
 	return (ret);
 }
 
-size_t	ft_display(char **tab, t_printinfo *list)
+size_t ft_display(char **tab, t_printinfo *list)
 {
 	size_t i;
 	size_t ret;
@@ -112,7 +112,7 @@ size_t	ft_display(char **tab, t_printinfo *list)
 	ret = 0;
 	if (onlystring(tab) == 1)
 		return (ft_putonlystring(tab));
-	while(tab[i])
+	while (tab[i])
 	{
 		if (ft_issyntax(tab[i]) == 1)
 		{

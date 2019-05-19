@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/18 04:05:05 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/19 21:31:55 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void	*ft_memaset(int c,size_t n)
 int main(void)
 {
 	char *str;
+	int c1;
 
-	str = "test";
+	str = "test\n";
 	 //ft_printf("%#s%c\n %o%#x%#X%lld%f%Lf%#Lf", "test", '*', 41, 40, 39, 38, 12.5, 1.3L, 123.456L);
 	   
 //	 ft_putendl((char *)ft_memaset('b',0));
@@ -52,6 +53,8 @@ ft_printf("%#012x\n", 4242);
 	// printf("%5%\n");
 	 ft_printf("%01s\n", "123");
 		 printf("%01s\n", "123");
+	c1 = ft_printf(str);
+	printf("Return = %i\n", c1);
 	//ft_printf("%5%");
 	//tests();
 
