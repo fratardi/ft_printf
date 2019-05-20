@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 04:40:46 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 04:47:03 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int main(void)
 	 int cpt1, cpt2;
 	// long long j = LLONG_MAX;
 
-	cpt2 = printf("{%03c}", 0);
-	cpt1 = ft_printf("{%03c}", 0);
-	ft_printf("__%i %i",cpt1, cpt2);
+	cpt2 = printf("{%05.%}", 0);
+	cpt1 = ft_printf("{%05.%}", 0);
+	ft_printf("__%i %i\n",cpt1, cpt2);
 	// printf(NULL);
 	// ft_printf("%.p, %.0p", str, str);
 	/* 	  ft_printf("{%0-3d}", 12);
