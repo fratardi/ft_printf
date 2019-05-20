@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/20 09:13:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 09:34:01 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void ft_pad_prec(t_printinfo *l)
 {
 	int prec;
 	int neg;
+	char *temp;
 
 	neg = 0;
 	if ((l->prec == 0) && (ft_strchr("diuxX", l->t) || (l->t == 'o' && !l->alt))
@@ -62,12 +63,15 @@ void ft_pad_prec(t_printinfo *l)
 	? 1 : 0);
 	if (ft_strchr("uoxX", l->t) && prec > 0)
 	{
-		l->buf = ft_joinfree(ft_memaset('0', (size_t)prec), l->buf);
+		l->buf = ft_joinfree(ft_memaset('0', (size_t)prec - ((l->t == 'o' && l->alt) ? 1 : 0)), l->buf);
 		l->buflen += prec;
 	}
 	if (l->t == 'p' && l->prec > (int)ft_strlen(l->buf))
 	{
-		l->buf = ft_joinfree(l->buf, ft_memaset('0', l->prec - 1));
+		temp = ft_strdup(&l->buf[2]);
+		free(l->buf);
+		l->buf = ft_joinfree(ft_memaset('0', l->prec - ft_strlen(temp)), temp);
+		l->buf = ft_joinfree(ft_strdup("0x"), l->buf);
 	}
 	l->buf[2] = (l->t == 'p' && l->prec == 0) ? 0 : l->buf[2];
 	l->buf[l->prec] = (l->t == 's' && prec < 0 && l->prec != -2) ? 0 :
