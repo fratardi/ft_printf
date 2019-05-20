@@ -6,16 +6,17 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 08:15:16 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 08:50:23 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-size_t ft_sequence(char *str, int *open)
+size_t ft_sequence(char *str, int *open, char *s1)
 {
 	size_t ret;
 	char *temp;
+	char *pad;
 	int i;
 	t_no_syntax content;
 
@@ -36,17 +37,24 @@ size_t ft_sequence(char *str, int *open)
 	content.width -= (content.width) ? 1 : 0;
 	while (ft_strchr(".1234567890", str[i]) && str[i])
 		i++;
-	temp = ft_strdup(&str[i]);
+	// printf("\ns1 %s str %s\n", s1, &str[i]);
+	if ((s1 && s1[0]) || str[i])
+		temp = (str[i]) ? ft_strdup(&str[i]) : ft_memaset(s1[0], 1);
+	else
+		temp = ft_strdup("");
 	if (!str[i])
 		*open = 0;
+	// printf("temp = %s et left = %d\n", temp, content.left);
+	pad = (content.width) ? ft_memaset((content.extra) ? '0' : ' ', content.width) : ft_strdup("");
 	if (content.left)
-		temp = ft_joinfree(temp, ft_memaset((content.extra) ? '0' : ' ', content.width));
+		temp = ft_joinfree(temp, pad);
 	else
-		temp = ft_joinfree(ft_memaset((content.extra) ? '0' : ' ', content.width), temp);
+		temp = ft_joinfree(pad, temp);
 	if (temp)
 		ret += ft_print_uni_str(temp);
+	if (!str[i] && s1 && s1[0])
+		ret += ft_print_uni_str(&s1[1]);
 	// printf("\n<<%s\n", temp);
-
 	free(temp);
 	return (ret);
 }
@@ -106,11 +114,11 @@ size_t ft_putonlystring(char **tab)
 			open = 0; */
 		if (open == 1)
 		{
-			ret += ft_sequence(tab[i], &open);
+			ret += ft_sequence(tab[i], &open, tab[i + 1]);
 			if (open == 0)
 				i++;
 		}
-		if (open == 0)
+		else if (open == 0)
 			ret += ft_print_uni_str(tab[i]);
 		i++;
 	}
