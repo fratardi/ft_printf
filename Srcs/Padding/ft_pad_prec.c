@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pad_prec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/18 03:44:54 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 03:24:45 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ t_printinfo *ft_precdigits(int prec, int neg, t_printinfo *l)
 			free(l->buf);
 			l->buf = temp;
 		}
-		l->buf = (prec) ? ft_joinfree(ft_memaset('0', (size_t)prec), l->buf) :
+		ft_printf("\n>> %d\n", prec);
+		l->buf = (prec > 0) ? ft_joinfree(ft_memaset('0', (size_t)prec), l->buf) :
 		l->buf;
 		l->buf = (neg != 0) ? ft_joinfree(ft_strdup("-"), l->buf) : l->buf;
 	}
