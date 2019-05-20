@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pad_prec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/20 03:24:45 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/20 04:13:29 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void ft_pad_prec(t_printinfo *l)
 		l->buflen = 0;
 		return ;
 	}
-	if (l->prec < 0 || l->t == 'f' || l->t == 'c' || l->t == 'p')
+	if (l->prec < 0 || l->t == 'f' || l->t == 'c')
 		return;
 	prec = l->prec - l->buflen + ((l->buf[0] == '-' && ft_strchr("di", l->t))
 	? 1 : 0);
@@ -63,6 +63,7 @@ void ft_pad_prec(t_printinfo *l)
 		l->buf = ft_joinfree(ft_memaset('0', (size_t)prec), l->buf);
 		l->buflen += prec;
 	}
+	l->buf[2] = (l->prec == 0) ? 0 : l->buf[2];
 	l->buf[l->prec] = (l->t == 's' && prec < 0 && l->prec != -2) ? 0 :
 	l->buf[l->prec];
 	l = ft_precdigits(prec, neg, l); 

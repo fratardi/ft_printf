@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 03:16:21 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/20 04:14:11 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ void	*ft_memaset(int c,size_t n)
 */
 int main(void)
 {
+	char *str;
+
+	str = "";
 	//	char *str;
 	//	int c1;
 	//   double d = DBL_MAX;
@@ -42,108 +45,8 @@ int main(void)
 	// int cpt1, cpt2;
 	// long long j = LLONG_MAX;
 
-	ft_printf("%15.4d", 42);
-	ft_printf("%.4d", -424242);
-	ft_printf("%.4d", 424242);
-	ft_printf("%.4d", 42);
-	ft_printf("%15.4d", 424242);
-	ft_printf("%8.4d", 424242424);
-	ft_printf("%15.4d", -42);
-	ft_printf("%15.4d", -424242);
-	ft_printf("%8.4d", -424242424);
-	ft_printf("%4.15d", 42);
-	ft_printf("%4.15d", 424242);
-	ft_printf("%4.8d", 424242424);
-	ft_printf("%4.15d", -42);
-	ft_printf("%4.15d", -424242);
-	ft_printf("%4.8d", -424242424);
-	ft_printf("%.d, %.0d", 0, 0);
-	ft_printf("%.4i", 42);
-	ft_printf("%15.4i", 42);
-	ft_printf("%4.15i", 42);
-	ft_printf("%.u, %.0u", 0, 0);
-	ft_printf("%4.8u", 424242424);
-	ft_printf("%4.15u", 424242);
-	ft_printf("%4.15u", 42);
-	ft_printf("%8.4u", 424242424);
-	ft_printf("%15.4u", 424242);
-	ft_printf("%15.4u", 42);
-	ft_printf("%.4u", 424242);
-	ft_printf("%.4u", 42);
-	ft_printf("%.i, %.0i", 0, 0);
-	ft_printf("%4.15i", 42);
-	ft_printf("%15.4i", 42);
-	ft_printf("%.10d", -42);
-	ft_printf("%.d, %.0d", 0, 0);
-
-	ft_printf("%.4d", 42);
-
-
-    ft_printf("%.4d", 424242);
-
-	ft_printf("%.4d", -424242);
-
-	ft_printf("%15.4d", 42);
-
-	ft_printf("%15.4d", 424242);
-
-	ft_printf("%8.4d", 424242424);
-
-	ft_printf("%15.4d", -42);
-
-	ft_printf("%15.4d", -424242);
-
-	ft_printf("%8.4d", -424242424);
-
-	ft_printf("%4.15d", 42);
-
-
-	ft_printf("%4.15d", 424242);
-
-	ft_printf("%4.8d", 424242424);
-
-	ft_printf("%4.15d", -42);
-
-	ft_printf("%4.15d", -424242);
-
-	ft_printf("%4.8d", -424242424);
-
-
-	ft_printf("%.d, %.0d", 0, 0);
-
-	ft_printf("%.10d", -42);
-
-	ft_printf("%.4i", 42);
-
-
-	ft_printf("%15.4i", 42);
-
-
-	ft_printf("%4.15i", 42);
-
-	ft_printf("%.i, %.0i", 0, 0);
-
-
-	ft_printf("%.4u", 42);
-
-
-	ft_printf("%.4u", 424242);
-
-	ft_printf("%15.4u", 42);
-
-
-	ft_printf("%15.4u", 424242);
-
-	ft_printf("%8.4u", 424242424);
-
-	ft_printf("%4.15u", 42);
-
-	ft_printf("%4.15u", 424242);
-
-	ft_printf("%4.8u", 424242424);
-
-	ft_printf("%.u, %.0u", 0, 0);
-
+	ft_printf("%%%%%%%%%%");
+	ft_printf("%.p, %.0p", str, str);
 	/* 	  ft_printf("{%0-3d}", 12);
 	  printf("{%0-3d}", 12); */
 	//ft_printf("%#s%c\n %o%#x%#X%lld%f%Lf%#Lf", "test", '*', 41, 40, 39, 38, 12.5, 1.3L, 123.456L);

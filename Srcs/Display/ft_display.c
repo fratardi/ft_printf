@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/19 21:45:55 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 04:11:31 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ int ft_percent(char **tab, int i, size_t *ret)
 			i++;
 		}
 		i--;
-		ft_putstr(((percent + 1) % 2 == 0) ? tab[i] : "%");
-		*ret += ((percent + 1) % 2 == 0) ? ft_strlen(tab[i]) : 1;
+		ft_putstr(((percent + 1) % 2 == 0) ? tab[i] : ft_memaset('%', (percent + 1) / 2));
+		*ret += ((percent + 1) % 2 == 0) ? ft_strlen(tab[i]) : (percent + 1) / 2;
 	}
 	return (i);
 }
