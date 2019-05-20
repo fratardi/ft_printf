@@ -6,63 +6,118 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 05:23:46 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 08:15:16 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-size_t ft_putnotsyntax(char *str, char *s1, int *y, char *s2)
+size_t ft_sequence(char *str, int *open)
 {
 	size_t ret;
-	size_t i;
-	int width;
-	char *pad;
+	char *temp;
+	int i;
+	t_no_syntax content;
 
-	if (!str)
-		return (0);
 	ret = 0;
-
-	// printf("y1 = %d", *y);
-	width = ft_atoi(&str[(str[1] == '-' || str[1] == '0') ? 2 : 1]);
-	width -= (width > 0) ? 1 : 0;
-	// printf("\nw>> %d\n", width);
-	i = (str[1] == '-' || str[1] == '0') ? 2 : 1;
-	pad = (width) ? ft_memaset((str[1] == '0') ? '0' : ' ', (size_t)width) : NULL;
-	while (str[i] && ft_strchr("0123456789- +#", str[i]))
-		i++;
-	if (str[i] == '.' && s1 && ft_strcmp("%", s1) && !s2)
-		i++;
-	if (str[i] == '.' && str[i + 1] && ft_strchr("0123456789", str[i + 1]))
-		i++;
-	if (str[i - 1] == '.' && str[i])
-		while (ft_strchr("0123456789", str[i]) && str[i])
-			i++;
-	if (str[1] == '-')
+	i = 1;
+	content.extra = 0;
+	content.left = 0;
+	// printf("\nsequence = %s\n", str);
+	while (ft_strchr("-+ 0#", str[i]) && str[i])
 	{
-		if (str[i] != 0)
-			ret += ft_print_uni_char(&str[i]);
-		if (str[i] == 0 && s1 && (*y += 1))
-			ret += ft_print_uni_str(s1);
-		ret += ft_print_uni_str(pad);
-		if (str[i])
-			ret += ft_print_uni_str(&str[i + 1]);
+		if (str[i] == '-')
+			content.left = 1;
+		if (str[i] == '0')
+			content.extra = 1;
+		i++;
 	}
+	content.width = ft_atoi(&str[i]);
+	content.width -= (content.width) ? 1 : 0;
+	while (ft_strchr(".1234567890", str[i]) && str[i])
+		i++;
+	temp = ft_strdup(&str[i]);
+	if (!str[i])
+		*open = 0;
+	if (content.left)
+		temp = ft_joinfree(temp, ft_memaset((content.extra) ? '0' : ' ', content.width));
 	else
+		temp = ft_joinfree(ft_memaset((content.extra) ? '0' : ' ', content.width), temp);
+	if (temp)
+		ret += ft_print_uni_str(temp);
+	// printf("\n<<%s\n", temp);
+
+	free(temp);
+	return (ret);
+}
+/* 
+
+size_t ft_putonlystring(char **tab   ,   int param)
+{
+	size_t ret;
+	ret = 0;
+	while(tab[i])
 	{
-		ret += ft_print_uni_str(pad);
-		if (str[i])
-			ret += ft_print_uni_str(&str[i]);
-		else if (s1 && !str[i] && (*y += 1))
-			ret += ft_print_uni_str(s1);
+		if(param == 1)
+		{
+			ft_sequence(tab[i]);
+		}
+		else
+			ft_print_uni_str(tab[i]);
+		i++;
+		if(param == 1)
+		if(param)
+
+			param = 0;
 	}
-	// ret = ft_strlen((str[i]) ? &(str[i]) : s1) + ((pad) ? ft_strlen(pad) : 0);
-	free(pad);
-	// printf("y = %d", *y);
+	return(ret);
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+size_t ft_putonlystring(char **tab)
+{
+	size_t ret;
+	// size_t temp;
+	int open;
+	int i;
+
+	open = 0;
+	i = 0;
+	ret = 0;
+	if ((tab[i][0] == '%' && !tab[i + 1] && !tab[i][1]))
+		return (0);
+	while (tab[i])
+	{
+		if (tab[i][0] == '%' && open == 0)
+			open = 1;
+/* 		else if (tab[i][0] == '%' && open == 1)
+			open = 0; */
+		if (open == 1)
+		{
+			ret += ft_sequence(tab[i], &open);
+			if (open == 0)
+				i++;
+		}
+		if (open == 0)
+			ret += ft_print_uni_str(tab[i]);
+		i++;
+	}
 	return (ret);
 }
 
-int ft_percent(char **tab, int i, size_t *ret)
+/* int ft_percent(char **tab, int i, size_t *ret)
 {
 	int percent;
 
@@ -93,9 +148,9 @@ int ft_percent(char **tab, int i, size_t *ret)
 		*ret += ((percent + 1) % 2 == 0) ? ft_strlen(tab[i]) : (percent + 1) / 2;
 	}
 	return (i);
-}
+} */
 
-size_t ft_putonlystring(char **tab)
+/* size_t ft_putonlystring(char **tab)
 {
 	int i;
 	size_t ret;
@@ -110,7 +165,7 @@ size_t ft_putonlystring(char **tab)
 	}
 	// printf("ret = %zu\n", ret);
 	return (ret);
-}
+} */
 
 size_t ft_display(char **tab, t_printinfo *list)
 {

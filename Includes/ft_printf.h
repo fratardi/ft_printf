@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/19 23:27:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 06:31:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,16 @@ typedef struct			s_printinfo {
 	enum				e_type type;	/* Type */
 	struct s_printinfo	*next;
 }           			t_printinfo;
+
+/*
+**Not_sytax
+*/
+
+typedef struct			s_no_syntax{
+	char left;
+	char extra;
+	int  width;
+}						t_no_syntax;
 
 /*
 **Content of elypse
