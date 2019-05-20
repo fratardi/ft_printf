@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/20 04:13:29 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 04:28:12 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ t_printinfo *ft_precdigits(int prec, int neg, t_printinfo *l)
 			free(l->buf);
 			l->buf = temp;
 		}
-		ft_printf("\n>> %d\n", prec);
 		l->buf = (prec > 0) ? ft_joinfree(ft_memaset('0', (size_t)prec), l->buf) :
 		l->buf;
 		l->buf = (neg != 0) ? ft_joinfree(ft_strdup("-"), l->buf) : l->buf;
@@ -63,7 +62,7 @@ void ft_pad_prec(t_printinfo *l)
 		l->buf = ft_joinfree(ft_memaset('0', (size_t)prec), l->buf);
 		l->buflen += prec;
 	}
-	l->buf[2] = (l->prec == 0) ? 0 : l->buf[2];
+	l->buf[2] = (l->t == 'p' && l->prec == 0) ? 0 : l->buf[2];
 	l->buf[l->prec] = (l->t == 's' && prec < 0 && l->prec != -2) ? 0 :
 	l->buf[l->prec];
 	l = ft_precdigits(prec, neg, l); 

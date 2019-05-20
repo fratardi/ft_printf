@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 04:14:11 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 04:28:00 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,14 @@ int main(void)
 	//  long double f = LDBL_MAX;
 	//  long double g = LDBL_MIN;
 	//  wchar_t c = L':pleurs_joie:';
-	// int cpt1, cpt2;
+	 int cpt1, cpt2;
 	// long long j = LLONG_MAX;
 
-	ft_printf("%%%%%%%%%%");
-	ft_printf("%.p, %.0p", str, str);
+	cpt2 = printf("%.4d\n", 42);
+	cpt1 = ft_printf("%.4d\n", 42);
+	ft_printf("__%i %i",cpt1, cpt2);
+	// printf(NULL);
+	// ft_printf("%.p, %.0p", str, str);
 	/* 	  ft_printf("{%0-3d}", 12);
 	  printf("{%0-3d}", 12); */
 	//ft_printf("%#s%c\n %o%#x%#X%lld%f%Lf%#Lf", "test", '*', 41, 40, 39, 38, 12.5, 1.3L, 123.456L);
