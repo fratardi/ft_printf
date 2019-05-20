@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/20 04:28:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 05:50:40 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ void ft_mod_pad_prec(int prec, t_printinfo *list)
 {
 	if (prec < 0 && list->t == 's' && list->prec != -2)
 		list->buflen = (size_t)list->prec;
-	if (ft_strchr("ouxX", list->t) && prec > list->width)
-		list->buflen += prec;
-	if (ft_strchr("di", list->t) && prec)
-		list->buflen += prec;
+	if (prec > (int)list->buflen)
+	{
+		if (ft_strchr("ouxX", list->t) && prec > list->width)
+			list->buflen += prec;
+		if (ft_strchr("di", list->t) && prec)
+			list->buflen += prec;
+	}
 }
 
 t_printinfo *ft_precdigits(int prec, int neg, t_printinfo *l)
