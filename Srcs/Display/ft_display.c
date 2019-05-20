@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 04:24:02 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 04:39:46 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ size_t ft_putnotsyntax(char *str, char *s1, int *y)
 		if (str[i])
 			ret += ft_print_uni_str(&str[i]);
 		else if (s1 && !str[i] && (*y += 1))
-			ft_print_uni_str(s1);
+			ret += ft_print_uni_str(s1);
 	}
 	// ret = ft_strlen((str[i]) ? &(str[i]) : s1) + ((pad) ? ft_strlen(pad) : 0);
 	free(pad);
@@ -61,6 +61,8 @@ int ft_percent(char **tab, int i, size_t *ret)
 	int percent;
 
 	percent = 0;
+	if(tab[0][0] == '%' && !tab[1] && !tab[0][1])
+		return (i++);
 	if (tab[i][0] != '%')
 	{
 		*ret += ft_print_uni_str(tab[i]);
