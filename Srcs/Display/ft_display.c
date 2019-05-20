@@ -6,13 +6,13 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 04:53:13 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 05:23:46 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-size_t ft_putnotsyntax(char *str, char *s1, int *y)
+size_t ft_putnotsyntax(char *str, char *s1, int *y, char *s2)
 {
 	size_t ret;
 	size_t i;
@@ -24,16 +24,20 @@ size_t ft_putnotsyntax(char *str, char *s1, int *y)
 	ret = 0;
 
 	// printf("y1 = %d", *y);
-	width = ft_atoi(&str[(str[1] == '-') ? 2 : 1]);
+	width = ft_atoi(&str[(str[1] == '-' || str[1] == '0') ? 2 : 1]);
 	width -= (width > 0) ? 1 : 0;
-	i = (str[1] == '-') ? 2 : 1;
-	pad = (width) ? ft_memaset((str[i] == '0') ? '0' : ' ', (size_t)width) : NULL;
+	// printf("\nw>> %d\n", width);
+	i = (str[1] == '-' || str[1] == '0') ? 2 : 1;
+	pad = (width) ? ft_memaset((str[1] == '0') ? '0' : ' ', (size_t)width) : NULL;
 	while (str[i] && ft_strchr("0123456789- +#", str[i]))
 		i++;
-	if (str[i] == '.' && ft_strcmp("%", s1))
+	if (str[i] == '.' && s1 && ft_strcmp("%", s1) && !s2)
 		i++;
 	if (str[i] == '.' && str[i + 1] && ft_strchr("0123456789", str[i + 1]))
 		i++;
+	if (str[i - 1] == '.' && str[i])
+		while (ft_strchr("0123456789", str[i]) && str[i])
+			i++;
 	if (str[1] == '-')
 	{
 		if (str[i] != 0)
@@ -72,7 +76,7 @@ int ft_percent(char **tab, int i, size_t *ret)
 	}
 	if (tab[i][0] == '%' && tab[i][1] != 0)
 	{
-		*ret += ft_putnotsyntax(tab[i], tab[i + 1], &i);
+		*ret += ft_putnotsyntax(tab[i], tab[i + 1], &i, tab[i + 2]);
 		if (tab[i][1] == '-' && tab[i + 1])
 			i += 1;
 		percent++;
