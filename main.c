@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 09:42:55 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 10:29:37 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,13 @@ int main(void)
 	 int cpt1, cpt2;
 	// long long j = LLONG_MAX;
 
-	cpt2 = printf("%4.8x", 424242424);
-	cpt1 = ft_printf("%4.8x", 424242424);
+	cpt2 = printf("R>> %hU", 4242);
+	printf("\n");
+	cpt1 = ft_printf("Y>> %hU", 4242);
+	printf("\n");
+	ft_printf("R{%i} Y{%i}\n",cpt1, cpt2);
+	cpt2 = printf("R>> %u\n", 4294967296);
+	cpt1 = ft_printf("Y>> %u\n", 4294967296);
 	ft_printf("__%i %i\n",cpt1, cpt2);
 	// printf(NULL);
 	// ft_printf("%.p, %.0p", str, str);

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:40:55 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/19 21:49:59 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 10:10:50 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_issyntax(char *str)
 		i++;
 	while (str[i] && ft_strchr("zjhlLE", str[i]) != NULL)
 		i++;
-	if (str[i] && ft_strchr("diouxXcfsp", str[i]) != NULL)
+	if (str[i] && ft_strchr("diouxXcfspOU", str[i]) != NULL)
 		return (1);
 	return (0);
 }

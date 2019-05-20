@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/19 22:09:09 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 10:14:58 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,12 @@ t_printinfo	*ft_filltype(char *str, t_printinfo *list)
 	int i;
 
 	i = 0;
-	while (str[i] && ft_strchr("diouxXcfsp", str[i]) == NULL)
+	while (str[i] && ft_strchr("diouxXcfspOU", str[i]) == NULL)
 		i++;
-	list->t = (ft_strchr("diouxXcfsp", str[i]) != NULL) ? str[i] : 0;
-	if ((ft_strchr("diouxX", str[i]) != NULL) && list->is_char == 0)
+	list->t = (ft_strchr("diouxXcfspOU", str[i]) != NULL) ? str[i] : 0;
+	if ((ft_strchr("diouxXOU", str[i]) != NULL) && list->is_char == 0)
 		list->type = PA_INT;
-	if (ft_strchr("ouxX", str[i]) != NULL)
+	if (ft_strchr("ouxXOU", str[i]) != NULL)
 		list->is_unsigned = 1;
 	else if (((str[i] == 'd' || str[i] == 'i') && list->is_char == 1)
 	|| str[i] == 'c')
