@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 10:24:05 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/22 15:59:47 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ size_t ft_sequence(char *str, int *open, char *s1)
 	i = 1;
 	content.extra = 0;
 	content.left = 0;
+	
+	
+	
+	pad =NULL;
+	
+	
+	
 	// printf("\nsequence = %s\n", str);
 	while (ft_strchr("-+ 0#", str[i]) && str[i])
 	{
@@ -35,6 +42,7 @@ size_t ft_sequence(char *str, int *open, char *s1)
 	}
 	content.width = ft_atoi(&str[i]);
 	content.width -= (content.width) ? 1 : 0;
+	//ft_putnbr(content.width);
 	while (ft_strchr(".1234567890", str[i]) && str[i])
 		i++;
 	// printf("\ns1 %s str %s\n", s1, &str[i]);
@@ -44,10 +52,22 @@ size_t ft_sequence(char *str, int *open, char *s1)
 		temp = ft_strdup("");
 	if (!str[i])
 		*open = 0;
-	// printf("temp = %s et left = %d\n", temp, content.left);
-	pad = (content.width) ? ft_memaset((content.extra) ? '0' : ' ', content.width) : ft_strdup("");
+	 //printf("temp = %s et left = %d\n", temp, content.left);
+	if (content.width)
+	{
+		pad = ft_memaset((content.extra) ? '0' : ' ', content.width);
+	
+	//	printf("ici");//
+	}	
+	else
+		 pad =ft_strdup("");
 	if (content.left)
-		temp = ft_joinfree(temp, pad);
+	{
+		pad = ft_joinfree(ft_strndup(temp, 1), pad);
+		pad = ft_joinfree(pad, ft_strdup(&temp[1]));
+		free(temp);
+		temp = pad;
+	}
 	else
 		temp = ft_joinfree(pad, temp);
 	if (temp)
@@ -82,18 +102,6 @@ size_t ft_putonlystring(char **tab   ,   int param)
 }
  */
 
-
-
-
-
-
-
-
-
-
-
-
-
 size_t ft_putonlystring(char **tab)
 {
 	size_t ret;
@@ -105,8 +113,8 @@ size_t ft_putonlystring(char **tab)
 	i = 0;
 	ret = 0;
 	if ((tab[i][0] == '%' && !tab[i + 1] && !tab[i][1]))
-		return (0);
-	while (tab[i])
+			return (0);
+		while (tab[i])
 	{
 		if (tab[i][0] == '%' && open == 0)
 			open = 1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:51:03 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 08:17:56 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/22 15:59:51 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,10 @@ size_t	ft_printf(const char *format, ...)
 	t_elem		*elem;
 
 	ret = 0;
+	elem = NULL;
+	list = NULL;
+	tab = NULL;
+	
 	if( !format||!(tab = ft_split_format(format)))
 		return (0);
 	if (onlystring(tab) == 1)

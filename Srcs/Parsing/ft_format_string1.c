@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_string1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/12 04:53:11 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/22 15:59:50 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
 		i++;
 	while (str[i] && str[i] == '.'&& !ft_strchr("cs", str[i]))
 		i++;
-	if (!str[i] || (ft_strchr("cs", str[i]) && str[i - 1] != '.'))
+	if (!str[i] || (ft_strchr("cCsS", str[i]) && str[i - 1] != '.'))
 		return (list);
 /* 	if (str[i] == '0')
 	{

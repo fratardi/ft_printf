@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/19 23:54:22 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/20 11:27:54 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_fillbuf(t_printinfo *list, t_elem *elem)
 	{
 		while(elem->next && elem->pos != list->ndol)
 			elem = elem->next;
-		if (list->t == 's')
+		if (list->t == 's' || list->t =='S')
 			list->buf = ft_strdup((elem->value != NULL) ? (char *)elem->value : "(null)");
 		else if (list->t == 'c')
 		{
