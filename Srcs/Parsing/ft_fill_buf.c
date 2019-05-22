@@ -6,13 +6,13 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 01:12:59 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/22 21:54:45 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void ft_fillbuf_float(t_printinfo *list, t_elem *elem)
+void	ft_fillbuf_float(t_printinfo *list, t_elem *elem)
 {
 	char *exception;
 
@@ -31,7 +31,7 @@ void ft_fillbuf_float(t_printinfo *list, t_elem *elem)
 	}
 }
 
-void ft_fillbuf_convert(t_printinfo *list, t_elem *elem)
+void	ft_fillbuf_convert(t_printinfo *list, t_elem *elem)
 {
 	if (list->t == 'o' && list->is_char)
 		list->buf = ft_convert_o((char)elem->ulli);
@@ -55,7 +55,7 @@ void ft_fillbuf_convert(t_printinfo *list, t_elem *elem)
 		list->buf = ft_convert_p(elem->value);
 }
 
-void ft_fillbuf_digits(t_printinfo *list, t_elem *elem)
+void	ft_fillbuf_digits(t_printinfo *list, t_elem *elem)
 {
 	if (list->is_char && !list->is_unsigned)
 		list->buf = ft_llitoa((char)elem->lli);
@@ -71,28 +71,18 @@ void ft_fillbuf_digits(t_printinfo *list, t_elem *elem)
 		list->buf = ft_ullitoa(elem->ulli);
 }
 
-void ft_fillbuf_bin(t_printinfo *list, t_elem *elem)
-{
-	if (list->t == 'b' && !list->is_long)
-		list->buf = ft_binary(&elem->lli, sizeof(int));
-	else if (list->t == 'b' && list->is_long)
-		list->buf = ft_binary(&elem->lli, sizeof(long int));
-	else if (list->t == 'b' && list->is_long_double)
-		list->buf = ft_binary(&elem->lli, sizeof(long long int));
-}
-
-void ft_fillbuf(t_printinfo *list, t_elem *elem)
+void	ft_fillbuf(t_printinfo *list, t_elem *elem)
 {
 	t_elem *start;
 	char c;
-
+	
 	c = 0;
 	start = elem;
-	while (list->next)
+	while(list->next)
 	{
-		while (elem->next && elem->pos != list->ndol)
+		while(elem->next && elem->pos != list->ndol)
 			elem = elem->next;
-		if (list->t == 's' || list->t == 'S')
+		if (list->t == 's' || list->t =='S')
 			list->buf = ft_strdup((elem->value != NULL) ? (char *)elem->value : "(null)");
 		else if (list->t == 'c')
 		{
@@ -109,8 +99,6 @@ void ft_fillbuf(t_printinfo *list, t_elem *elem)
 			ft_fillbuf_float(list, elem);
 		else if (list->t == 'F')
 			list->buf = ft_of(elem->value);
-		else if (list->t == 'b')
-			ft_fillbuf_bin(list, elem);
 		list->buflen = ft_uni_str_len(list->buf);
 		list = list->next;
 		elem = start;

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 01:15:48 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/22 22:14:51 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,50 @@ void	*ft_memaset(int c,size_t n)
 
 int main(void)
 {
-	long int nb = 2147483648;
+	int nb = 0;
 
-	ft_printf("%b", nb);
+/* 		ft_printf("space% d ", nb);
+	ft_printf("plus:%+d ", nb);
+	ft_printf("precision:%.5d ", nb);
+	ft_printf("space + prec:% .5d ", nb);
+	ft_printf("Plus + prec / grande:%+.5d ", nb);
+	ft_printf("Prec + 0:%0.5d ", nb);
+	ft_printf("Prec + minus:%-.5d ", nb);
+	ft_printf("size:%5d ", nb);
+	ft_printf("size + space:% 5d ", nb);
+	ft_printf("size + plus:%+5d ", nb);
+	ft_printf("size + minus:%-5d ", nb);
+	ft_printf("size + 0:%05d ", nb);
+	ft_printf("size + 0 + plus:%+05d ", nb);
+	ft_printf("size + 0 + plus:%0+5d ", nb);
+	ft_printf("size + 0 + prec:%05.3d ", nb);
+	ft_printf("size + minus + prec:%-5.3d ", nb);
+	ft_printf("size + plus + 0 + prec:%+05.3d ", nb);
+	ft_printf("size + espace + zero + prec:%0 5.3d ", nb);
+	ft_printf("size + espace + zero + prec:% 05.3d ", nb);
+	ft_printf("size + minus + plus + prec:%-+5.3d ", nb); */
+
+	printf("space% d ", nb);
+	printf("plus:%+d ", nb);
+	printf("precision:%.5d ", nb);
+	printf("space + prec:% .5d ", nb);
+	printf("Plus + prec / grande:%+.5d ", nb);
+	printf("Prec + 0:%0.5d ", nb);
+	printf("Prec + minus:%-.5d ", nb);
+	printf("size:%5d ", nb);
+	printf("size + space:% 5d ", nb);
+	printf("size + plus:%+5d ", nb);
+	printf("size + minus:%-5d ", nb);
+	printf("size + 0:%05d ", nb);
+	printf("size + 0 + plus:%+05d ", nb);
+	printf("size + 0 + plus:%0+5d ", nb);
+	printf("size + 0 + prec:%05.3d ", nb);
+	printf("size + minus + prec:%-5.3d ", nb);
+	printf("size + plus + 0 + prec:%+05.3d ", nb);
+	printf("size + espace + zero + prec:%0 5.3d ", nb);
+	printf("size + espace + zero + prec:% 05.3d ", nb);
+	printf("size + minus + plus + prec:%-+5.3d ", nb);
+
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 19:04:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 01:11:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/04/27 16:02:48 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ t_elem	*ft_readfill(t_printinfo *list, va_list va, t_elem *elem)
 		elem->value = va_arg(va, void *);
 	else if (list->type == 4)
 		elem->value = va_arg(va, char *);
-	else if (list->t == 'b')
-		elem = ft_filldi(list, va, elem);
 	if (!(elem->next = (t_elem *)malloc(sizeof(t_elem))))
 		exit(0);
 	elem->next->pos = elem->pos + 1;
