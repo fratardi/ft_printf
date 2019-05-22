@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 10:14:58 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 01:00:37 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ t_printinfo	*ft_filltype(char *str, t_printinfo *list)
 	int i;
 
 	i = 0;
-	while (str[i] && ft_strchr("diouxXcfspOU", str[i]) == NULL)
+	while (str[i] && ft_strchr("diouxXcfFspOUb", str[i]) == NULL)
 		i++;
-	list->t = (ft_strchr("diouxXcfspOU", str[i]) != NULL) ? str[i] : 0;
+	list->t = (ft_strchr("diouxXcfFspOUb", str[i]) != NULL) ? str[i] : 0;
 	if ((ft_strchr("diouxXOU", str[i]) != NULL) && list->is_char == 0)
 		list->type = PA_INT;
 	if (ft_strchr("ouxXOU", str[i]) != NULL)
@@ -97,7 +97,7 @@ t_printinfo	*ft_filltype(char *str, t_printinfo *list)
 		list->type = PA_FLOAT;
 	else if (str[i] == 'p')
 		list->type = PA_POINTER;
-	else if (str[i] == 's')
+	else if (str[i] == 's' || str[i] == 'F')
 		list->type = PA_STRING;
 	return (list);
 }

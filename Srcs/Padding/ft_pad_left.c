@@ -6,13 +6,13 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 20:44:00 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/20 08:48:14 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/22 20:26:34 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void ft_pad_left(t_printinfo *l)
+void	ft_pad_left(t_printinfo *l)
 {
 	int blen;
 

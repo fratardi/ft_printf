@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/19 23:26:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/22 22:02:35 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,26 @@ int ft_expldouble(long double a)
 }
 
 /*
+**If float == 0
+*/
+
+char *ft_float_zero(int prec, unsigned int is_ten)
+{
+	char *ret;
+
+	ret = ft_strdup("0.0000000");
+	if (is_ten && prec > 0)
+		ret = ft_floatEdispneg(ret, prec);
+	if (prec == -2)
+		return(ret);
+	if (prec > 0)
+		ret = ft_rounding(ret, prec + 2);
+	if (prec == 0)
+		ret[2] = 0;
+	return (ret);
+}
+
+/*
 **Conditions according to the sign of exposant
 */
 
@@ -85,12 +105,14 @@ t_double	ft_doublesign(t_double dble)
 **Main function to calculate and transform mant&exp to str long double
 */
 
-char *ft_ldouble(long double a, size_t prec, unsigned int is_ten)
+char *ft_ldouble(long double a, int prec, unsigned int is_ten)
 {
 	t_double dble;
 	int i;
 
 	i = 0;
+	if (a == 0)
+		return(ft_float_zero(prec, is_ten));
 	dble.b = -1;
 	dble.ex = ft_expldouble(a);
 	dble.dec = (dble.ex < 0) ? ft_pow2str(0 + dble.ex) : ft_strdup("0");

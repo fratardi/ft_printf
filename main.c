@@ -6,7 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/05/20 10:29:37 by tpacaud          ###   ########.fr       */
+=======
+/*   Updated: 2019/05/23 01:15:48 by tpacaud          ###   ########.fr       */
+>>>>>>> 7b7a9ee322c505b1f3258d2f50bf9bb094c8ba7f
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +31,14 @@ void	*ft_memaset(int c,size_t n)
 	ret = ft_memset(ret, c, n);
 	return(ret);
 }
+	changer retour de la fonction :	
+	printf("m |%zu|\n", ft_printf("", s));
+	printf("r |%d|\n", printf("%s", s));  	
 
+	ft_printf("m |%%%p|\n", &s);  	
+	printf("r |%%%p|\n", &s);  	
 
+<<<<<<< HEAD
 */
 int main(void)
 {
@@ -58,43 +68,38 @@ int main(void)
 	/* 	  ft_printf("{%0-3d}", 12);
 	  printf("{%0-3d}", 12); */
 	//ft_printf("%#s%c\n %o%#x%#X%lld%f%Lf%#Lf", "test", '*', 41, 40, 39, 38, 12.5, 1.3L, 123.456L);
+=======
+	ft_printf("m |%.p|\n",&s);  	
+	printf("r |%.p|\n", &s);  	
 
-	//	 ft_putendl((char *)ft_memaset('b',0));
-	//printf("%#s\n%c\n%#o\n%#x\n%#X\n%lld\n%f\n%Lf\n%#LF\n", "test", '*', 41, 40, 39, 38, 12.5, 1.3L, 123.456L);
-	//	printf("\n%#x\n", 123.456);
-	// printf("%#012x\n",4242);
-	// ft_printf("%#012x\n", 4242;)
-	// ft_debugf();
-	//    printf("%%%%%%%%%%");
-	// printf("%2.20f\n", 12.3);
-	// ft_printf("%2.20f\n", 12.3);
-	// ft_printf("%%%%%%%%%%");
+	ft_printf("m |%#0.0X|\n", 842);  	
+	printf("r |%#0.0X|\n", 842);  	
 
-	//   ft_printf("%ju\n", 4999999999);
-	//    printf("%ju\n", 4999999999);
-	// ft_printf(">> %d\n", (ft_printf("%5%lld ksdjhf kjsdh fkjsd hf\n", -2147483647)));
-	// printf("%5%\n");
-	/* 	 ft_printf("%01s\n", "123");
-		 printf("%01s\n", "123");
-	c1 = ft_printf(str);
-	printf("Return = %i\n", c1);
-	printf(">> %Ef\n", 123456.5); */
-	//ft_printf("%5%");
-	//tests();
+	ft_printf("m |%# 10b|\n", 8750);  	
+	printf("r |%# 10b|\n", 8750);  	
 
-	//ft_printf("%#s%c\n %o%#x%#X%lld%f%Lf%#Lf", "test", '*', 41, 40, 39, 38, 12.5, 1.3L, 123.456L);
-	/*
-	str = "test\n";
-  printf("original >> %.10000f\n", 2.22507385850720138309023271733240406421921598046233E-308);
-  ft_printf("Nous >>%.50Ef\n", e);
- */
-	//  ft_printf("%Lf\n", f);
-	//   printf("%Lf\n", f);
-	//   ft_printf("%.1500f\n", e);
-	//   printf("%.1500f\n", e);
-	//  cpt2 = ft_printf("%.4000Lf\n", 124.0000545);
-	// cpt2 = printf("%.4000Lf\n", 124.0000545);
-	//  ft_printf("%i || %i\n", cpt1, cpt2);
+*/
+/* int main(void)
+{
+	double nb;
+
+	nb = 0;
+	
+	ft_printf("test basique:\n");
+    ft_printf("Plus + prec / petite:%+.0f\n", nb);
+>>>>>>> 7b7a9ee322c505b1f3258d2f50bf9bb094c8ba7f
+
+	printf("\n\nREAL\n\n");
+    printf("Plus + prec / petite:%+.0f\n", nb);
+	
+	return (0);
+} */
+
+int main(void)
+{
+	long int nb = 2147483648;
+
+	ft_printf("%b", nb);
 
 	return (0);
 }

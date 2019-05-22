@@ -6,7 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/05/20 10:24:05 by tpacaud          ###   ########.fr       */
+=======
+/*   Updated: 2019/05/22 20:16:34 by tpacaud          ###   ########.fr       */
+>>>>>>> 7b7a9ee322c505b1f3258d2f50bf9bb094c8ba7f
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +109,18 @@ size_t ft_putonlystring(char **tab)
 	i = 0;
 	ret = 0;
 	if ((tab[i][0] == '%' && !tab[i + 1] && !tab[i][1]))
+<<<<<<< HEAD
 		return (0);
+=======
+			return (0);
+>>>>>>> 7b7a9ee322c505b1f3258d2f50bf9bb094c8ba7f
 	while (tab[i])
 	{
 		if (tab[i][0] == '%' && open == 0)
 			open = 1;
 /* 		else if (tab[i][0] == '%' && open == 1)
 			open = 0; */
-		if (open == 1)
+		if (open == 1 && tab[i] && tab[i + 1])
 		{
 			ret += ft_sequence(tab[i], &open, tab[i + 1]);
 			if (open == 0)
@@ -120,6 +128,8 @@ size_t ft_putonlystring(char **tab)
 		}
 		else if (open == 0)
 			ret += ft_print_uni_str(tab[i]);
+		else
+			ret += ft_print_uni_str(&tab[i][1]);
 		i++;
 	}
 	return (ret);
