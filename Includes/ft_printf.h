@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/20 06:31:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 01:39:25 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include <stdint.h>
+# include <fcntl.h>
 # include "ft_float.h"
 # include "../libft/libft.h"
 
