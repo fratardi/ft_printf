@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/20 06:31:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/22 18:58:59 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include <stdint.h>
+#include <fcntl.h>
 # include "ft_float.h"
 # include "../libft/libft.h"
 
@@ -241,6 +242,7 @@ int 				ft_issyntax(char *str);
 void				ft_modndol(t_printinfo *list);
 char				*ft_joinfree(char *s1, char *s2);
 void				ft_displaybin(void *content, size_t n);
+char *ft_of(char *name);
 
 /*
 **Fill Stuct Print_Info
