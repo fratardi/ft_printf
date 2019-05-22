@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 19:00:59 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 01:44:23 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ t_printinfo	*ft_filltype(char *str, t_printinfo *list)
 		list->type = PA_FLOAT;
 	else if (str[i] == 'p')
 		list->type = PA_POINTER;
-	else if (str[i] == 's' || str[i] == 'F')
+	else if (str[i] == 's')
 		list->type = PA_STRING;
 	return (list);
 }

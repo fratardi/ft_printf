@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/22 21:55:00 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 01:42:49 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include <stdarg.h>
 # include <stdint.h>
-#include <fcntl.h>
+# include <fcntl.h>
 # include "ft_float.h"
 # include "../libft/libft.h"
 
@@ -168,7 +168,7 @@ char				*ft_floatEdispneg(char *str, int prec);
 char				*ft_rounding(char *str, size_t prec);
 char				*ft_mantissaldouble(long double d);
 int					ft_expldouble(long double a);
-char				*ft_ldouble(long double a, int prec, unsigned int is_ten);
+char				*ft_ldouble(long double a, size_t prec, unsigned int is_ten);
 char	*ft_exception(long double a, t_printinfo *list);
 // char				*ft_mantissadouble(double d);
 // unsigned int		ft_get_sig(float d);
