@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exception.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/19 22:22:21 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 00:16:42 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/22 15:59:52 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_exception(long double a, t_printinfo *list)
 	char *inf;
 
 	ex = ft_expldouble(a);
-	printf("exeption = %i\n", ex);
+	//printf("exeption = %i\n", ex);
 	if (ex >= -16383)
 		return (NULL);
 /* 	// else if (ex >= -1023 && !list->is_long_double)
