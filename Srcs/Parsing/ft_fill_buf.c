@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 19:02:57 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/22 21:54:45 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	ft_fillbuf_float(t_printinfo *list, t_elem *elem)
 	if (exception == NULL)
 	{
 		if (list->t == 'f' && !list->is_long_double)
-			list->buf = ft_ldouble(elem->dble, (list->prec < 0) ? 6 : (size_t)list->prec, list->is_float_ten);
+			list->buf = ft_ldouble(elem->dble, (list->prec < 0) ? 6 : list->prec, list->is_float_ten);
 		else if (list->t == 'f' && list->is_long_double)
-			list->buf = ft_ldouble(elem->long_double, (list->prec < 0) ? 6 : (size_t)list->prec, list->is_float_ten);
+			list->buf = ft_ldouble(elem->long_double, (list->prec < 0) ? 6 : list->prec, list->is_float_ten);
 	}
 	else
 	{
