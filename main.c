@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 19:04:29 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/22 20:13:49 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ int main(void)
 
 	// cpt1 = printf("%F", "./main.c");
 	// printf("\n");
-	cpt2 = ft_printf("%F", "./Makefile");
+	cpt2 = ft_printf("%%%\n", "./Makefile");
+	cpt2 = printf("%%%\n", "./Makefile");
 	// printf("\n");
 /*ft_printf("%llx, %llx", 0, ULLONG_MAX);
 
