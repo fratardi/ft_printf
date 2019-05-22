@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 15:59:39 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/20 10:29:37 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,50 +43,16 @@ int main(void)
 	//  long double g = LDBL_MIN;
 	//  wchar_t c = L':pleurs_joie:';
 	 int cpt1, cpt2;
-	
-	
-
 	// long long j = LLONG_MAX;
-	// wchar_t *value = L"♴";
-	// char *value2 =  (char *)value         /*L"😂"*/;
-	// printf("{%-15Z}", 123);
 
-	cpt1 = printf("%.500F",123.456L);
+	cpt2 = printf("R>> %hU", 4242);
 	printf("\n");
-	cpt2 = ft_printf("%.500F", 123.456L);
+	cpt1 = ft_printf("Y>> %hU", 4242);
 	printf("\n");
-/*ft_printf("%llx, %llx", 0, ULLONG_MAX);
-
-	printf("\n");
-printf("%llx, %llx", 0, ULLONG_MAX);
-*/
-//	printf("\n");
-//	value = (char*)value;
-//	ft_displaybin(value	,64);
-//	printf("\n");
-//	ft_displaybin(value2  , 64);
-
-//	printf("\n");
-//	ft_printf("%.4s" , value2 + 4);	
-
-//	printf("\n");
-
-//	printf("%.4S" , value);	
-
-/*
-	cpt2 = printf("{%05.5S}", value);
-	printf("\n");
-	
-	ft_hexfloat(value, sizeof(unsigned short) + 12);
-		
-	printf("\n");
-	cpt1 = ft_printf("{%05.5s}", value + 5);
-	printf("\n");*/
-	ft_printf("cpt1 = orig {%i}   cpt2 = NousY{%i}\n",cpt1, cpt2);
-/*	cpt2 = printf("R>> %u\n", 4294967296);
+	ft_printf("R{%i} Y{%i}\n",cpt1, cpt2);
+	cpt2 = printf("R>> %u\n", 4294967296);
 	cpt1 = ft_printf("Y>> %u\n", 4294967296);
 	ft_printf("__%i %i\n",cpt1, cpt2);
-*/
 	// printf(NULL);
 	// ft_printf("%.p, %.0p", str, str);
 	/* 	  ft_printf("{%0-3d}", 12);

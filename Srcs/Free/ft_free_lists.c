@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_lists.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 12:01:14 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 15:59:49 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/15 19:39:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@ void	ft_free_elem(t_elem *elem, t_printinfo *list)
 	t_printinfo	*start;
 	t_elem		*temp;
 
-	start =NULL;
-	temp = NULL;
-	if(!list || !elem)
-		return ;
 	start = list;
 	while(list->next)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annex_float.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 21:05:06 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 14:37:23 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/19 22:21:53 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ char	*ft_fillbig(char *s1, char *s2)
 
 void	ft_hexfloat(void *content, size_t n)
 {
-	static char tab[16] = "0123456789abcdef";
+	char *tab;
 	char *str;
 
+	tab = ft_strdup("0123456789abcdef");
 	str = (char *)content;
 	ft_putstr("0x");
 	while (0 < n--)
