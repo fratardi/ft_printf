@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 19:00:59 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 01:00:37 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ t_printinfo	*ft_filltype(char *str, t_printinfo *list)
 	int i;
 
 	i = 0;
-	while (str[i] && ft_strchr("diouxXcfFspOU", str[i]) == NULL)
+	while (str[i] && ft_strchr("diouxXcfFspOUb", str[i]) == NULL)
 		i++;
-	list->t = (ft_strchr("diouxXcfFspOU", str[i]) != NULL) ? str[i] : 0;
+	list->t = (ft_strchr("diouxXcfFspOUb", str[i]) != NULL) ? str[i] : 0;
 	if ((ft_strchr("diouxXOU", str[i]) != NULL) && list->is_char == 0)
 		list->type = PA_INT;
 	if (ft_strchr("ouxXOU", str[i]) != NULL)
