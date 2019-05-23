@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/23 04:40:00 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 05:14:44 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ char				*ft_floatEdispneg(char *str, int prec);
 char				*ft_rounding(char *str, size_t prec);
 char				*ft_mantissaldouble(long double d);
 int					ft_expldouble(long double a);
-char				*ft_ldouble(long double a, size_t prec, unsigned int is_ten);
+char				*ft_ldouble(long double a, int prec, unsigned int is_ten);
 char	*ft_exception(long double a, t_printinfo *list);
 // char				*ft_mantissadouble(double d);
 // unsigned int		ft_get_sig(float d);
