@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pad_prec.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/20 09:34:01 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 04:52:01 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void ft_mod_pad_prec(int prec, t_printinfo *list)
+void			ft_mod_pad_prec(int prec, t_printinfo *list)
 {
 	if (prec < 0 && list->t == 's' && list->prec != -2)
 		list->buflen = (size_t)list->prec;
@@ -25,10 +25,10 @@ void ft_mod_pad_prec(int prec, t_printinfo *list)
 	}
 }
 
-t_printinfo *ft_precdigits(int prec, int neg, t_printinfo *l)
+t_printinfo		*ft_precdigits(int prec, int neg, t_printinfo *l)
 {
 	char *temp;
-	
+
 	if (ft_strchr("di", l->t))
 	{
 		if (prec && l->buf[0] == '-' && (neg = -1))
@@ -43,11 +43,12 @@ t_printinfo *ft_precdigits(int prec, int neg, t_printinfo *l)
 	}
 	return (l);
 }
-void ft_pad_prec(t_printinfo *l)
+
+void			ft_pad_prec(t_printinfo *l)
 {
-	int prec;
-	int neg;
-	char *temp;
+	int		prec;
+	int		neg;
+	char	*temp;
 
 	neg = 0;
 	if ((l->prec == 0) && (ft_strchr("diuxX", l->t) || (l->t == 'o' && !l->alt))
@@ -58,7 +59,7 @@ void ft_pad_prec(t_printinfo *l)
 		return ;
 	}
 	if (l->prec < 0 || l->t == 'f' || l->t == 'c')
-		return;
+		return ;
 	prec = l->prec - l->buflen + ((l->buf[0] == '-' && ft_strchr("di", l->t))
 	? 1 : 0);
 	if (ft_strchr("uoxX", l->t) && prec > 0)
@@ -76,6 +77,6 @@ void ft_pad_prec(t_printinfo *l)
 	l->buf[2] = (l->t == 'p' && l->prec == 0) ? 0 : l->buf[2];
 	l->buf[l->prec] = (l->t == 's' && prec < 0 && l->prec != -2) ? 0 :
 	l->buf[l->prec];
-	l = ft_precdigits(prec, neg, l); 
+	l = ft_precdigits(prec, neg, l);
 	ft_mod_pad_prec(prec, l);
 }
