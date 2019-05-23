@@ -6,11 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/05/22 22:14:51 by tpacaud          ###   ########.fr       */
-=======
-/*   Updated: 2019/05/22 15:59:39 by fratardi         ###   ########.fr       */
->>>>>>> ef0dae13da2b9970d2a58384186fdd9bd6233ebb
+/*   Updated: 2019/05/23 03:21:29 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,157 +27,35 @@ void	*ft_memaset(int c,size_t n)
 	ret = ft_memset(ret, c, n);
 	return(ret);
 }
+	changer retour de la fonction :	
+	printf("m |%zu|\n", ft_printf("", s));
+	printf("r |%d|\n", printf("%s", s));  	
 
+	ft_printf("m |%%%p|\n", &s);  	
+	printf("r |%%%p|\n", &s);  	
 
+	ft_printf("m |%.p|\n",&s);  	
+	printf("r |%.p|\n", &s);  	
+
+	ft_printf("m |%#0.0X|\n", 842);  	
+	printf("r |%#0.0X|\n", 842);  	
+
+	ft_printf("m |%# 10b|\n", 8750);  	
+	printf("r |%# 10b|\n", 8750);  	
+
+		ft_printf("test basique:\n");
+    ft_printf("Plus + prec / petite:%+.0f\n", nb);
+
+	printf("\n\nREAL\n\n");
+    printf("Plus + prec / petite:%+.0f\n", nb);
 */
-int main(void)
-{
-	char *str;
 
-	str = "";
-	//	char *str;
-	//	int c1;
-	//   double d = DBL_MAX;
-	// double e = DBL_MIN;knlmkjml
-	//  long double f = LDBL_MAX;
-	//  long double g = LDBL_MIN;
-	//  wchar_t c = L':pleurs_joie:';
-	 int cpt1, cpt2;
-	
-	
-
-	// long long j = LLONG_MAX;
-	// wchar_t *value = L"♴";
-	// char *value2 =  (char *)value         /*L"😂"*/;
-	// printf("{%-15Z}", 123);
-
-	cpt1 = printf("%.500F",123.456L);
-	printf("\n");
-	cpt2 = ft_printf("%.500F", 123.456L);
-	printf("\n");
-/*ft_printf("%llx, %llx", 0, ULLONG_MAX);
-
-	printf("\n");
-printf("%llx, %llx", 0, ULLONG_MAX);
-*/
-//	printf("\n");
-//	value = (char*)value;
-//	ft_displaybin(value	,64);
-//	printf("\n");
-//	ft_displaybin(value2  , 64);
-
-//	printf("\n");
-//	ft_printf("%.4s" , value2 + 4);	
-
-//	printf("\n");
-
-//	printf("%.4S" , value);	
-
-/*
-	cpt2 = printf("{%05.5S}", value);
-	printf("\n");
-	
-	ft_hexfloat(value, sizeof(unsigned short) + 12);
-		
-	printf("\n");
-	cpt1 = ft_printf("{%05.5s}", value + 5);
-	printf("\n");*/
-	ft_printf("cpt1 = orig {%i}   cpt2 = NousY{%i}\n",cpt1, cpt2);
-/*	cpt2 = printf("R>> %u\n", 4294967296);
-	cpt1 = ft_printf("Y>> %u\n", 4294967296);
-	ft_printf("__%i %i\n",cpt1, cpt2);
-*/
-	// printf(NULL);
-	// ft_printf("%.p, %.0p", str, str);
-	/* 	  ft_printf("{%0-3d}", 12);
-	  printf("{%0-3d}", 12); */
-	//ft_printf("%#s%c\n %o%#x%#X%lld%f%Lf%#Lf", "test", '*', 41, 40, 39, 38, 12.5, 1.3L, 123.456L);
-
-<<<<<<< HEAD
 int main(void)
 {
 	int nb = 0;
 
-/* 		ft_printf("space% d ", nb);
-	ft_printf("plus:%+d ", nb);
-	ft_printf("precision:%.5d ", nb);
-	ft_printf("space + prec:% .5d ", nb);
-	ft_printf("Plus + prec / grande:%+.5d ", nb);
-	ft_printf("Prec + 0:%0.5d ", nb);
-	ft_printf("Prec + minus:%-.5d ", nb);
-	ft_printf("size:%5d ", nb);
-	ft_printf("size + space:% 5d ", nb);
-	ft_printf("size + plus:%+5d ", nb);
-	ft_printf("size + minus:%-5d ", nb);
-	ft_printf("size + 0:%05d ", nb);
-	ft_printf("size + 0 + plus:%+05d ", nb);
-	ft_printf("size + 0 + plus:%0+5d ", nb);
-	ft_printf("size + 0 + prec:%05.3d ", nb);
-	ft_printf("size + minus + prec:%-5.3d ", nb);
-	ft_printf("size + plus + 0 + prec:%+05.3d ", nb);
-	ft_printf("size + espace + zero + prec:%0 5.3d ", nb);
-	ft_printf("size + espace + zero + prec:% 05.3d ", nb);
-	ft_printf("size + minus + plus + prec:%-+5.3d ", nb); */
+	ft_printf("%b", nb);
 
-	printf("space% d ", nb);
-	printf("plus:%+d ", nb);
-	printf("precision:%.5d ", nb);
-	printf("space + prec:% .5d ", nb);
-	printf("Plus + prec / grande:%+.5d ", nb);
-	printf("Prec + 0:%0.5d ", nb);
-	printf("Prec + minus:%-.5d ", nb);
-	printf("size:%5d ", nb);
-	printf("size + space:% 5d ", nb);
-	printf("size + plus:%+5d ", nb);
-	printf("size + minus:%-5d ", nb);
-	printf("size + 0:%05d ", nb);
-	printf("size + 0 + plus:%+05d ", nb);
-	printf("size + 0 + plus:%0+5d ", nb);
-	printf("size + 0 + prec:%05.3d ", nb);
-	printf("size + minus + prec:%-5.3d ", nb);
-	printf("size + plus + 0 + prec:%+05.3d ", nb);
-	printf("size + espace + zero + prec:%0 5.3d ", nb);
-	printf("size + espace + zero + prec:% 05.3d ", nb);
-	printf("size + minus + plus + prec:%-+5.3d ", nb);
-
-=======
-	//	 ft_putendl((char *)ft_memaset('b',0));
-	//printf("%#s\n%c\n%#o\n%#x\n%#X\n%lld\n%f\n%Lf\n%#LF\n", "test", '*', 41, 40, 39, 38, 12.5, 1.3L, 123.456L);
-	//	printf("\n%#x\n", 123.456);
-	// printf("%#012x\n",4242);
-	// ft_printf("%#012x\n", 4242;)
-	// ft_debugf();
-	//    printf("%%%%%%%%%%");
-	// printf("%2.20f\n", 12.3);
-	// ft_printf("%2.20f\n", 12.3);
-	// ft_printf("%%%%%%%%%%");
-
-	//   ft_printf("%ju\n", 4999999999);
-	//    printf("%ju\n", 4999999999);
-	// ft_printf(">> %d\n", (ft_printf("%5%lld ksdjhf kjsdh fkjsd hf\n", -2147483647)));
-	// printf("%5%\n");
-	/* 	 ft_printf("%01s\n", "123");
-		 printf("%01s\n", "123");
-	c1 = ft_printf(str);
-	printf("Return = %i\n", c1);
-	printf(">> %Ef\n", 123456.5); */
-	//ft_printf("%5%");
-	//tests();
-
-	//ft_printf("%#s%c\n %o%#x%#X%lld%f%Lf%#Lf", "test", '*', 41, 40, 39, 38, 12.5, 1.3L, 123.456L);
-	/*
-	str = "test\n";
-  printf("original >> %.10000f\n", 2.22507385850720138309023271733240406421921598046233E-308);
-  ft_printf("Nous >>%.50Ef\n", e);
- */
-	//  ft_printf("%Lf\n", f);
-	//   printf("%Lf\n", f);
-	//   ft_printf("%.1500f\n", e);
-	//   printf("%.1500f\n", e);
-	//  cpt2 = ft_printf("%.4000Lf\n", 124.0000545);
-	// cpt2 = printf("%.4000Lf\n", 124.0000545);
-	//  ft_printf("%i || %i\n", cpt1, cpt2);
->>>>>>> ef0dae13da2b9970d2a58384186fdd9bd6233ebb
 
 	return (0);
 }
