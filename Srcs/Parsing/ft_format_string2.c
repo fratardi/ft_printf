@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 04:43:41 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 06:26:52 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **Init the list
 */
 
-void	ft_fillzerolist(t_printinfo *list)
+void		ft_fillzerolist(t_printinfo *list)
 {
 	list->extra = 0;
 	list->alt = 0;
@@ -27,13 +27,12 @@ void	ft_fillzerolist(t_printinfo *list)
 	list->is_char = 0;
 	list->special = 1;
 	list->is_short = 0;
-	//list->wide = 0;
 	list->group = 0;
 	list->left = 0;
 	list->is_unsigned = 0;
 	list->space = 0;
 	list->bin = 0;
-	list->buflen = 0;	
+	list->buflen = 0;
 }
 
 /*
@@ -75,8 +74,6 @@ t_printinfo	*ft_fillmod(char *str, t_printinfo *list)
 /*
 **Fill Type
 */
-
-// A COMPLETER - CERTAINS TYPES SONT MANQUANTS
 
 t_printinfo	*ft_filltype(char *str, t_printinfo *list)
 {

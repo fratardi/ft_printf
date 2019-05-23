@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 12:01:14 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 15:59:49 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/23 04:32:34 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	ft_free_elem(t_elem *elem, t_printinfo *list)
 	t_printinfo	*start;
 	t_elem		*temp;
 
-	start =NULL;
+	start = NULL;
 	temp = NULL;
-	if(!list || !elem)
+	if (!list || !elem)
 		return ;
 	start = list;
-	while(list->next)
+	while (list->next)
 	{
 		while (list->next && list->ndol != elem->pos)
 			list = list->next;
@@ -32,7 +32,7 @@ void	ft_free_elem(t_elem *elem, t_printinfo *list)
 			free(elem);
 			if (temp == NULL)
 				break ;
-			elem = temp;			
+			elem = temp;
 			list = start;
 		}
 	}
@@ -43,13 +43,12 @@ void	ft_free_printinfo(t_printinfo *list)
 {
 	t_printinfo *temp;
 
-	while(list->next)
+	while (list->next)
 	{
 		temp = list->next;
 		free(list->buf);
 		free(list);
 		list = temp;
 	}
-	// free(list->buf);
 	free(list);
 }

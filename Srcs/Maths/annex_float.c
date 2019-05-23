@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annex_float.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 21:05:06 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 14:37:23 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/23 06:50:21 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_fillbig(char *s1, char *s2)
 void	ft_hexfloat(void *content, size_t n)
 {
 	static char tab[16] = "0123456789abcdef";
-	char *str;
+	char		*str;
 
 	str = (char *)content;
 	ft_putstr("0x");
@@ -31,7 +31,6 @@ void	ft_hexfloat(void *content, size_t n)
 		ft_putchar(tab[((unsigned char)str[n] / 16)]);
 		ft_putchar(tab[((unsigned char)str[n] % 16)]);
 	}
-	free(tab);
 }
 
 size_t	digitlen(unsigned long long int i)
@@ -47,3 +46,43 @@ size_t	digitlen(unsigned long long int i)
 	return (ret);
 }
 
+/*
+**Get binary mantissa from long double
+*/
+
+char	*ft_mantissaldouble(long double d)
+{
+	__uint128_t *temp;
+	char		*f;
+	__uint128_t i;
+	__uint128_t pos;
+	__uint128_t mask;
+
+	i = -1;
+	f = (char *)ft_memalloc(sizeof(char) * 66);
+	mask = 0x8000000000000000;
+	temp = (__uint128_t *)&d;
+	pos = 0;
+	while (++i < 64)
+	{
+		if (i >= 1)
+			f[pos++] = ((*temp / mask) ? '1' : '0');
+		*temp = *temp % mask;
+		mask = mask >> 1;
+	}
+	return (f);
+}
+
+/*
+**Get exp from long double
+*/
+
+int		ft_expldouble(long double a)
+{
+	__uint128_t *b;
+
+	b = (__uint128_t *)&a;
+	*b = *b >> 64;
+	*b = (*b & 0x7fff);
+	return ((long long int)(*b) - 16383);
+}

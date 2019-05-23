@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/20 00:28:18 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 06:42:57 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ void	ft_adjustpospo(char **s1, char **s2)
 **Function to display str_long_double with E^
 */
 
-char	*ft_floatEdispneg(char *str, int prec)
+char	*ft_floatexp(char *str, int prec)
 {
-	int i;
-	int y;
-	int puiss;
-	char *ret;
+	int		i;
+	int		y;
+	int		puiss;
+	char	*ret;
 
 	i = 2;
 	y = 0;
@@ -94,10 +94,6 @@ char	*ft_floatEdispneg(char *str, int prec)
 	ret = ft_joinfree(ret, ft_itoa(puiss));
 	free(str);
 	prec = 0;
-	// ft_printf("Nous__%c.", str[i]);
-	// while (y++ < prec)
-		// ft_putchar(str[i++]);
-	// ft_printf("E-%d\n", puiss);
 	return (ret);
 }
 
@@ -107,8 +103,8 @@ char	*ft_floatEdispneg(char *str, int prec)
 
 char	*ft_rounding(char *str, size_t prec)
 {
-	int i;
-	char *tmp;
+	int		i;
+	char	*tmp;
 
 	i = 0;
 	if (prec > ft_strlen(str))

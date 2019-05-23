@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:51:03 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 15:59:51 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/23 05:10:01 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ size_t	ft_printf(const char *format, ...)
 	elem = NULL;
 	list = NULL;
 	tab = NULL;
-	
-	if( !format||!(tab = ft_split_format(format)))
+	if (!format || !(tab = ft_split_format(format)))
 		return (0);
 	if (onlystring(tab) == 1)
 	{
@@ -86,22 +85,11 @@ size_t	ft_printf(const char *format, ...)
 	va_start(va, format);
 	elem = ft_varead(list, va, tab);
 	va_end(va);
-	/* TOUT A REFAIRE */
 	ft_fillbuf(list, elem);
 	ft_pad(list);
 	ret = ft_display(tab, list);
-/* 	while(list->next)
-	{
-		ft_putendl(list->buf);
-		list = list->next;
-	}
-	ft_putendl(list->buf); */
-	// ft_treatelemtoprintinfo(list, elem);
-	// ft_padbufprintinfo(list);
-	// ret = ft_display(list);
 	ft_free_parsing(tab);
 	ft_free_elem(elem, list);
 	ft_free_printinfo(list);
-	//ft_debugelem(elem);
 	return (ret);
 }

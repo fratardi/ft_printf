@@ -6,40 +6,44 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 20:42:57 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/23 04:41:44 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 07:01:49 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void	ft_pad_space(t_printinfo *list)
+void	ft_mod_space(t_printinfo *l, int width, int blen)
 {
-	int	width;
-	int	blen;
+	if (ft_strchr("aAdeEfFgGiucspb", l->t) && ((width > blen)) && !l->extra)
+	{
+		l->buf = ft_joinfree(ft_memaset(' ', width - blen), l->buf);
+		l->buflen = width;
+	}
+	if (ft_strchr("aAdeEfFgGid", l->t) && l->width == -2 &&
+		l->space && !l->showsign && !l->extra)
+	{
+		l->buf = ft_joinfree(ft_strdup(" "), l->buf);
+		l->buflen += 1;
+	}
+}
 
-	width = list->width;
-	blen = ft_strlen(list->buf);
-	// printf("{%s}{%d}\n", list->buf, list->width);
-	if (list->left || (ft_strchr(list->buf, '-') && width == -2))
+void	ft_pad_space(t_printinfo *l)
+{
+	int width;
+	int blen;
+
+	width = l->width;
+	blen = ft_strlen(l->buf);
+	if (l->left || (ft_strchr(l->buf, '-') && width == -2))
 		return ;
- 	if (ft_strchr("xXo", list->t) && !list->extra && width > blen && (list->buflen = width))
-		list->buf = ft_joinfree(ft_memaset(' ', width - blen), list->buf);
-	if (ft_strchr("aAdeEfFgGiucspb", list->t) && ((width > blen)) && !list->extra)
+	if (ft_strchr("xXo", l->t) && !l->extra && width > blen &&
+		(l->buflen = width))
+		l->buf = ft_joinfree(ft_memaset(' ', width - blen), l->buf);
+	ft_mod_space(l, width, blen);
+	if (ft_strchr("di", l->t) && l->extra && l->prec != -2 &&
+		!l->showsign)
 	{
-		// printf("\n> %s\n", list->buf);
-		list->buf = ft_joinfree(ft_memaset(' ', width - blen), list->buf);
-		// printf("\n> %s\n", list->buf);
-		// printf("\n>> %zu\n", ft_strlen(list->buf));
-		list->buflen = width;
-	}
-	if (ft_strchr("aAdeEfFgGid", list->t) && list->width == -2 && list->space && !list->showsign && !list->extra)
-	{
-		list->buf = ft_joinfree(ft_strdup(" "), list->buf);
-		list->buflen += 1;
-	}
-	if (ft_strchr("di", list->t) && list->extra && list->prec != -2 && !list->showsign)
-	{
-		list->buf = ft_joinfree(ft_memaset(' ', width - blen), list->buf);
-		list->buflen = width;
+		l->buf = ft_joinfree(ft_memaset(' ', width - blen), l->buf);
+		l->buflen = width;
 	}
 }

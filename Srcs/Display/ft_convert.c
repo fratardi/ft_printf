@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:25:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 05:50:16 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 06:32:23 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 char	*ft_convert_o(unsigned long long int to_convert)
 {
-	static char		tab[17] = "012345678";
-	char			*ret;
-	size_t			size;
+	static char	tab[10] = "012345678";
+	char		*ret;
+	size_t		size;
 
 	if (to_convert == 0)
 		return (ft_strdup("0"));
@@ -41,9 +41,9 @@ char	*ft_convert_o(unsigned long long int to_convert)
 
 char	*ft_convert_x(unsigned long long int to_convert)
 {
-	static char		tab[17] = "0123456789abcdef";
-	char			*ret;
-	size_t			size;
+	static char	tab[17] = "0123456789abcdef";
+	char		*ret;
+	size_t		size;
 
 	if (to_convert == 0)
 		return (ft_strdup("0"));
@@ -64,9 +64,9 @@ char	*ft_convert_x(unsigned long long int to_convert)
 
 char	*ft_convert_up_x(unsigned long long int to_convert)
 {
-	static char		tab[17] = "0123456789ABCDEF";
-	char			*ret;
-	size_t			size;
+	static char	tab[17] = "0123456789ABCDEF";
+	char		*ret;
+	size_t		size;
 
 	if (to_convert == 0)
 		return (ft_strdup("0"));

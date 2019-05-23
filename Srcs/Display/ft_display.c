@@ -6,24 +6,25 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 05:54:54 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 06:36:42 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-size_t ft_sequence(char *str, int *open, char *s1)
+size_t		ft_sequence(char *str, int *open, char *s1)
 {
-	size_t ret;
-	char *temp;
-	char *pad;
-	int i;
-	t_no_syntax content;
+	size_t		ret;
+	char		*temp;
+	char		*pad;
+	int			i;
+	t_no_syntax	content;
 
 	ret = 0;
 	i = 1;
 	content.extra = 0;
 	content.left = 0;
+	pad = NULL;
 	while (ft_strchr("-+ 0#", str[i]) && str[i])
 	{
 		if (str[i] == '-')
@@ -42,7 +43,10 @@ size_t ft_sequence(char *str, int *open, char *s1)
 		temp = ft_strdup("");
 	if (!str[i])
 		*open = 0;
-	pad = (content.width) ? ft_memaset((content.extra) ? '0' : ' ', content.width) : ft_strdup("");
+	if (content.width)
+		pad = ft_memaset((content.extra) ? '0' : ' ', content.width);
+	else
+		pad = ft_strdup("");
 	if (content.left)
 		temp = ft_joinfree(temp, pad);
 	else
@@ -55,12 +59,11 @@ size_t ft_sequence(char *str, int *open, char *s1)
 	return (ret);
 }
 
-size_t ft_putonlystring(char **tab)
+size_t		ft_putonlystring(char **tab)
 {
-	size_t ret;
-	size_t temp;
-	int open;
-	int i;
+	size_t	ret;
+	int		open;
+	int		i;
 
 	open = 0;
 	i = 0;
@@ -71,7 +74,6 @@ size_t ft_putonlystring(char **tab)
 	{
 		if (tab[i][0] == '%' && open == 0)
 			open = 1;
-
 		if (open == 1)
 		{
 			ret += ft_sequence(tab[i], &open, tab[i + 1]);
@@ -85,11 +87,11 @@ size_t ft_putonlystring(char **tab)
 	return (ret);
 }
 
-size_t ft_display(char **tab, t_printinfo *list)
+size_t		ft_display(char **tab, t_printinfo *list)
 {
-	size_t i;
-	size_t ret;
-	char *temp;
+	size_t	i;
+	size_t	ret;
+	char	*temp;
 
 	i = 0;
 	ret = 0;
