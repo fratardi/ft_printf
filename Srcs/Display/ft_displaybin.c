@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 18:48:41 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/23 04:41:11 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 06:21:00 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_displaybin(void *content, size_t n)
 	}
 }
 
-char *ft_binary(void *content, size_t n)
+char	*ft_binary(void *content, size_t n)
 {
 	unsigned char	*tmp;
 	unsigned int	mask;
@@ -51,14 +51,13 @@ char *ft_binary(void *content, size_t n)
 	return (str);
 }
 
-char *ft_binary_string(void *content, size_t n)
+char	*ft_binary_string(void *content, size_t n)
 {
 	unsigned char	*tmp;
 	unsigned int	mask;
 	char			*str;
 	unsigned int	i;
 
-	
 	i = 0;
 	str = ft_memaset(0, 1);
 	tmp = (unsigned char *)content + n - 1;

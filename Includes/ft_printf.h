@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/23 05:14:44 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 05:50:31 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,7 +218,7 @@ size_t				ft_size_octal(unsigned long long int to_convert);
 size_t				ft_size_hexa(unsigned long long int to_convert);
 char    			*ft_convert_o(unsigned long long int to_convert);
 char				*ft_convert_x(unsigned long long int to_convert);
-char				*ft_convert_X(unsigned long long int to_convert);
+char				*ft_convert_up_x(unsigned long long int to_convert);
 char				*ft_convert_p(void *to_convert);
 
 /*
