@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 18:36:25 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 18:58:25 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 04:44:35 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char *ft_of(char *name)
 
     ret = NULL;
     if ((fd = open(name, O_RDONLY)) == -1)
-		return (NULL);
+		return (ft_strdup("Not a valid file."));
     ft_bzero(buf, 2048);
     if (read(fd, buf, 2048))
         ret = ft_strdup(buf);

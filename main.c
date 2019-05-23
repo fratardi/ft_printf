@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 03:21:29 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 04:43:59 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int main(void)
 {
 	int nb = 0;
 
-	ft_printf("%b", nb);
+	ft_printf("%b\n", nb);
+	ft_printf("%F\n", "k");
 
 
 	return (0);

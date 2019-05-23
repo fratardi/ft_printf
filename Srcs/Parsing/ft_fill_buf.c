@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 04:00:02 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 04:39:37 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,19 @@ void ft_fillbuf_digits(t_printinfo *list, t_elem *elem)
 
 t_printinfo *ft_fillbuf_bin(t_printinfo *list, t_elem *elem)
 {
-	if (list->is_long)
-		list->buf = ft_binary(&elem->lli, sizeof(long int));
-	else if (list->is_long_double)
-		list->buf = ft_binary(&elem->lli, sizeof(long long int));
-	else
-		list->buf = ft_binary(&elem->lli, sizeof(int));
+	if (list->t == 'b')
+	{
+		if (list->is_long)
+			list->buf = ft_binary(&elem->lli, sizeof(long int));
+		else if (list->is_long_double)
+			list->buf = ft_binary(&elem->lli, sizeof(long long int));
+		else
+			list->buf = ft_binary(&elem->lli, sizeof(int));
+	}
+	else if (list->t == 'B')
+	{
+		list->buf = ft_binary_string(elem->value, sizeof(char) * ft_strlen(elem->value));
+	}
 	return (list);
 }
 
@@ -93,7 +100,7 @@ void ft_fillbuf(t_printinfo *list, t_elem *elem)
 	{
 		while (elem->next && elem->pos != list->ndol)
 			elem = elem->next;
-		if (list->t == 'b')
+		if (list->t == 'b' || list->t == 'B')
 			list = ft_fillbuf_bin(list, elem);
 		if (list->t == 's' || list->t == 'S')
 			list->buf = ft_strdup((elem->value != NULL) ? (char *)elem->value : "(null)");

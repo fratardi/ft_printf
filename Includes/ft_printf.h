@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/23 03:09:13 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 04:40:00 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -244,6 +244,7 @@ char				*ft_joinfree(char *s1, char *s2);
 void				ft_displaybin(void *content, size_t n);
 char *ft_of(char *name);
 char *ft_binary(void *content, size_t n);
+char *ft_binary_string(void *content, size_t n);
 
 /*
 **Fill Stuct Print_Info

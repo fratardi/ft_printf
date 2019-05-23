@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 19:04:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 03:19:22 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 04:43:15 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_elem	*ft_readfill(t_printinfo *list, va_list va, t_elem *elem)
 		elem = ft_fillunsigned(list, va, elem);
 	else if (list->type == 7)
 		elem = ft_fillfloats(list, va, elem);
-	else if (list->type == 6)
+	else if (list->type == 6 || list->t == 'B')
 		elem->value = va_arg(va, void *);
 	else if (list->type == 4)
 		elem->value = va_arg(va, char *);
