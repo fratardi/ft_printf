@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 05:08:51 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 05:50:43 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void ft_fillbuf_convert(t_printinfo *list, t_elem *elem)
 	else if (list->t == 'X' && list->is_short)
 		list->buf = ft_convert_X((short)elem->ulli);
 	else if (list->t == 'X')
-		list->buf = ft_convert_X(elem->ulli);
+		list->buf = ft_convert_up_x(elem->ulli);
 	else if (list->t == 'p')
 		list->buf = ft_convert_p(elem->value);
 }
