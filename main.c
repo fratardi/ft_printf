@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 04:57:52 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 05:11:04 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,14 @@ void	*ft_memaset(int c,size_t n)
 
 int main(void)
 {
+	char *s = "c";
 	int nb = 0;
 
 	ft_printf("%b\n", nb);
 	ft_printf("%F\n", "k");
-
-	ft_printf("m |%#0X|\n", 842);  	
-	printf("r |%#0X|\n", 842);  
+	
+	ft_printf("m |%# 10Q|\n", 8750);  	
+	printf("r |%# 10Q|\n", 8750);  	
 
 	return (0);
 }

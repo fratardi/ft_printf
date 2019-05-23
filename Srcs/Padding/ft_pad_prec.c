@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/20 09:34:01 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 05:10:25 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void ft_pad_prec(t_printinfo *l)
 		l->buf = ft_joinfree(ft_memaset('0', l->prec - ft_strlen(temp)), temp);
 		l->buf = ft_joinfree(ft_strdup("0x"), l->buf);
 	}
-	l->buf[2] = (l->t == 'p' && l->prec == 0) ? 0 : l->buf[2];
+	l->buf[2] = (l->t == 'p' && l->prec == 0 && l->buf[2] == '0') ? 0 : l->buf[2];
 	l->buf[l->prec] = (l->t == 's' && prec < 0 && l->prec != -2) ? 0 :
 	l->buf[l->prec];
 	l = ft_precdigits(prec, neg, l); 
