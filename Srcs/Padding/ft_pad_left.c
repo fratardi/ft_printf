@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pad_left.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 20:44:00 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/20 08:48:14 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 04:58:42 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void ft_pad_left(t_printinfo *l)
+void	ft_pad_left(t_printinfo *l)
 {
 	int blen;
 
