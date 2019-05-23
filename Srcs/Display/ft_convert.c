@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:25:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/15 19:31:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 03:09:34 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 char	*ft_convert_o(unsigned long long int to_convert)
 {
 	static char	tab[17] = "012345678";
-	char	*ret;
-	size_t	size;
+	char		*ret;
+	size_t		size;
 
 	if (to_convert == 0)
 		return (ft_strdup("0"));
@@ -42,8 +42,8 @@ char	*ft_convert_o(unsigned long long int to_convert)
 char	*ft_convert_x(unsigned long long int to_convert)
 {
 	static char	tab[17] = "0123456789abcdef";
-	char	*ret;
-	size_t	size;
+	char		*ret;
+	size_t		size;
 
 	if (to_convert == 0)
 		return (ft_strdup("0"));
@@ -62,11 +62,11 @@ char	*ft_convert_x(unsigned long long int to_convert)
 **Convert to Hexa Uppercase
 */
 
-char *ft_convert_X(unsigned long long int to_convert)
+char	*ft_convert_X(unsigned long long int to_convert)
 {
 	static char	tab[17] = "0123456789ABCDEF";
-	char	*ret;
-	size_t	size;
+	char		*ret;
+	size_t		size;
 
 	if (to_convert == 0)
 		return (ft_strdup("0"));
@@ -81,23 +81,22 @@ char *ft_convert_X(unsigned long long int to_convert)
 	return (ret);
 }
 
-
 /*
 **Print pointer address
 */
 
-char *ft_convert_p(void *to_convert)
+char	*ft_convert_p(void *to_convert)
 {
-	static char tab[17] = "0123456789abcdef";
-	char *ret;
-	unsigned long long int converted;
-	size_t size;
+	static char				tab[17] = "0123456789abcdef";
+	char					*ret;
+	unsigned long long int	converted;
+	size_t					size;
 
 	converted = (unsigned long long int)to_convert;
 	if (to_convert == 0 || to_convert == NULL)
 		return (ft_strdup("0x0"));
 	size = ft_size_hexa((unsigned long long int)to_convert);
-	if(!(ret = (char *)ft_memalloc(sizeof(char) * size)))
+	if (!(ret = (char *)ft_memalloc(sizeof(char) * size)))
 		return (NULL);
 	while (size--)
 	{

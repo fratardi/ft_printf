@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_open_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 18:36:25 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 18:58:25 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 03:22:56 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-char *ft_of(char *name)
+char   *ft_of(char *name)
 {
-    int fd;
+    int         fd;
     static char buf[2049];
-    char *ret;
+    char        *ret;
 
     ret = NULL;
     if ((fd = open(name, O_RDONLY)) == -1)
