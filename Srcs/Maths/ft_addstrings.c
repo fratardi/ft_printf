@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_addstrings.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 14:31:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/15 19:21:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 04:40:53 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ char	*ft_joinfree(char *s1, char *s2)
 	char *ret;
 
 	if (!s1)
-		return((s2) ? s2 : NULL);
+		return ((s2) ? s2 : NULL);
 	if (!s2)
-		return(s1);
+		return (s1);
 	ret = ft_strjoin(s1, s2);
 	free(s1);
 	free(s2);
-	return (ret);	
+	return (ret);
 }
 
 /*

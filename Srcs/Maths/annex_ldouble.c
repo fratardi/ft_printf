@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annex_ldouble.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/19 23:26:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 04:43:46 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 **Get binary mantissa from long double
 */
 
-char *ft_mantissaldouble(long double d)
+char		*ft_mantissaldouble(long double d)
 {
 	__uint128_t *temp;
-	char *f;
+	char		*f;
 	__uint128_t i;
 	__uint128_t pos;
 	__uint128_t mask;
@@ -36,7 +36,6 @@ char *ft_mantissaldouble(long double d)
 		*temp = *temp % mask;
 		mask = mask >> 1;
 	}
-	//printf("ldouble = %s\n", f);
 	return (f);
 }
 
@@ -44,15 +43,13 @@ char *ft_mantissaldouble(long double d)
 **Get exp from long double
 */
 
-int ft_expldouble(long double a)
+int			ft_expldouble(long double a)
 {
 	__uint128_t *b;
 
 	b = (__uint128_t *)&a;
 	*b = *b >> 64;
 	*b = (*b & 0x7fff);
-	/* ft_printf("%x -- Exp\n", *b); */
-	//ft_printf("%d -- Exp\n", (*b - 127));
 	return ((long long int)(*b) - 16383);
 }
 
@@ -85,10 +82,10 @@ t_double	ft_doublesign(t_double dble)
 **Main function to calculate and transform mant&exp to str long double
 */
 
-char *ft_ldouble(long double a, size_t prec, unsigned int is_ten)
+char		*ft_ldouble(long double a, size_t prec, unsigned int is_ten)
 {
-	t_double dble;
-	int i;
+	t_double	dble;
+	int			i;
 
 	i = 0;
 	dble.b = -1;

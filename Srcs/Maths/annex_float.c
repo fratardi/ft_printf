@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 21:05:06 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 14:37:23 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/23 04:36:35 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_fillbig(char *s1, char *s2)
 void	ft_hexfloat(void *content, size_t n)
 {
 	static char tab[16] = "0123456789abcdef";
-	char *str;
+	char		*str;
 
 	str = (char *)content;
 	ft_putstr("0x");
@@ -46,4 +46,3 @@ size_t	digitlen(unsigned long long int i)
 	}
 	return (ret);
 }
-
