@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/22 15:59:50 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/23 05:05:39 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,6 @@ t_printinfo	*ft_fillflag(char *str, t_printinfo *list)
 			list->bin = (str[i] == 'b') ? 1 : 0;
 		i++;
 	}
-	//printf("debug = %d__\n", list->showsign);
-	//if (ft_strchr("0 #'+-", str[i]) == NULL && str[i - 1] == '%')
-	//	ft_fillzerolist(list);
 	return (list);
 }
 
@@ -77,20 +74,10 @@ t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
 	i = 0;
 	while (str[i] && str[i] != '.' && !ft_strchr("cs", str[i]))
 		i++;
-	while (str[i] && str[i] == '.'&& !ft_strchr("cs", str[i]))
+	while (str[i] && str[i] == '.' && !ft_strchr("cs", str[i]))
 		i++;
 	if (!str[i] || (ft_strchr("cCsS", str[i]) && str[i - 1] != '.'))
 		return (list);
-/* 	if (str[i] == '0')
-	{
-		list->prec = -1;
-		return (list);
-	}
-	if (str[i] != '0' && ft_atoi(&str[i]) == 0)
-	{
-		list->prec = -1;
-		return (list);
-	} */
 	list->prec = (str[i] == '*') ? -1 : ft_atoi(&str[i]);
 	return (list);
 }
@@ -109,7 +96,7 @@ t_printinfo	*ft_fillwidth(char *str, t_printinfo *list)
 	if (str[i] != '0' && ft_atoi(&str[i]) == 0)
 	{
 		list->width = -2;
-		return(list);
+		return (list);
 	}
 	list->width = (str[i] == '*') ? -1 : ft_atoi(&str[i]);
 	return (list);

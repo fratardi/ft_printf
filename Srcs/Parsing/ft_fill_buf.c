@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_buf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 01:44:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 05:02:40 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_fillbuf_float(t_printinfo *list, t_elem *elem)
 {
-	char *exception;
+	char	*exception;
 
 	exception = ft_exception((list->is_long_double) ? elem->long_double : elem->dble, list);
 	if (exception == NULL)
@@ -25,10 +25,7 @@ void	ft_fillbuf_float(t_printinfo *list, t_elem *elem)
 			list->buf = ft_ldouble(elem->long_double, (list->prec < 0) ? 6 : (size_t)list->prec, list->is_float_ten);
 	}
 	else
-	{
 		list->buf = exception;
-		// free(exception);
-	}
 }
 
 void	ft_fillbuf_convert(t_printinfo *list, t_elem *elem)
@@ -73,16 +70,16 @@ void	ft_fillbuf_digits(t_printinfo *list, t_elem *elem)
 
 void	ft_fillbuf(t_printinfo *list, t_elem *elem)
 {
-	t_elem *start;
-	char c;
-	
+	t_elem	*start;
+	char	c;
+
 	c = 0;
 	start = elem;
-	while(list->next)
+	while (list->next)
 	{
-		while(elem->next && elem->pos != list->ndol)
+		while (elem->next && elem->pos != list->ndol)
 			elem = elem->next;
-		if (list->t == 's' || list->t =='S')
+		if (list->t == 's' || list->t == 'S')
 			list->buf = ft_strdup((elem->value != NULL) ? (char *)elem->value : "(null)");
 		else if (list->t == 'c')
 		{

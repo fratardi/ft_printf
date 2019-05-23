@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_format.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:36:47 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/20 08:17:18 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 05:06:36 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**ft_split_format(const char *format)
 	char	**ret;
 	int		n;
 
-	if(!format || !format[0])
+	if (!format || !format[0])
 		return (NULL);
 	n = ft_countargs(format);
 	if (!(ret = (char **)malloc(sizeof(char *) * (ft_countargs(format) + 1))))
