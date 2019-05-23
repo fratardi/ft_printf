@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_varead.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 19:04:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/04/27 16:02:48 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 05:08:43 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 /*
 **Count how many Arguments to be read
 */
-
-// FONCTION A MODIFIER Implementer les Wildcard *
 
 int		ft_howmanyva(char **tab)
 {
@@ -116,7 +114,7 @@ t_elem	*ft_varead(t_printinfo *list, va_list va, char **tab)
 			else
 				break ;
 		}
-		varead.elem = (varead.nb_pos == list->ndol) ? 
+		varead.elem = (varead.nb_pos == list->ndol) ?
 		ft_readfill(list, va, varead.elem) : varead.elem;
 		varead.nb_pos += 1;
 	}
