@@ -6,118 +6,84 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 06:32:48 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 07:30:14 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void ft_fillbuf_float(t_printinfo *list, t_elem *elem)
+void		ft_fillbuf_float(t_printinfo *l, t_elem *elem)
 {
 	char	*exception;
 
-	exception = ft_exception((list->is_long_double) ? elem->long_double : elem->dble, list);
+	exception = ft_exception((l->is_long_double)
+	? elem->long_double : elem->dble, l);
 	if (exception == NULL)
 	{
-		if (list->t == 'f' && !list->is_long_double)
-			list->buf = ft_ldouble(elem->dble, (list->prec < 0) ? 6 : (size_t)list->prec, list->is_float_ten);
-		else if (list->t == 'f' && list->is_long_double)
-			list->buf = ft_ldouble(elem->long_double, (list->prec < 0) ? 6 : (size_t)list->prec, list->is_float_ten);
+		if (l->t == 'f' && !l->is_long_double)
+			l->buf = ft_ldouble(elem->dble,
+			(l->prec < 0) ? 6 : (size_t)l->prec, l->is_float_ten);
+		else if (l->t == 'f' && l->is_long_double)
+			l->buf = ft_ldouble(elem->long_double,
+			(l->prec < 0) ? 6 : (size_t)l->prec, l->is_float_ten);
 	}
 	else
-		list->buf = exception;
+		l->buf = exception;
 }
 
-void ft_fillbuf_convert(t_printinfo *list, t_elem *elem)
+void		ft_fillbuf_convert(t_printinfo *l, t_elem *elem)
 {
-	if (list->t == 'o' && list->is_char)
-		list->buf = ft_convert_o((char)elem->ulli);
-	else if (list->t == 'o' && list->is_short)
-		list->buf = ft_convert_o((short)elem->ulli);
-	else if (list->t == 'o')
-		list->buf = ft_convert_o(elem->ulli);
-	else if (list->t == 'x' && list->is_char)
-		list->buf = ft_convert_x((char)elem->ulli);
-	else if (list->t == 'x' && list->is_short)
-		list->buf = ft_convert_x((short)elem->ulli);
-	else if (list->t == 'x')
-		list->buf = ft_convert_x(elem->ulli);
-	else if (list->t == 'X' && list->is_char)
-		list->buf = ft_convert_up_x((char)elem->ulli);
-	else if (list->t == 'X' && list->is_short)
-		list->buf = ft_convert_up_x((short)elem->ulli);
-	else if (list->t == 'X')
-		list->buf = ft_convert_up_x(elem->ulli);
-	else if (list->t == 'p')
-		list->buf = ft_convert_p(elem->value);
+	if (l->t == 'o' && l->is_char)
+		l->buf = ft_convert_o((char)elem->ulli);
+	else if (l->t == 'o' && l->is_short)
+		l->buf = ft_convert_o((short)elem->ulli);
+	else if (l->t == 'o')
+		l->buf = ft_convert_o(elem->ulli);
+	else if (l->t == 'x' && l->is_char)
+		l->buf = ft_convert_x((char)elem->ulli);
+	else if (l->t == 'x' && l->is_short)
+		l->buf = ft_convert_x((short)elem->ulli);
+	else if (l->t == 'x')
+		l->buf = ft_convert_x(elem->ulli);
+	else if (l->t == 'X' && l->is_char)
+		l->buf = ft_convert_up_x((char)elem->ulli);
+	else if (l->t == 'X' && l->is_short)
+		l->buf = ft_convert_up_x((short)elem->ulli);
+	else if (l->t == 'X')
+		l->buf = ft_convert_up_x(elem->ulli);
+	else if (l->t == 'p')
+		l->buf = ft_convert_p(elem->value);
 }
 
-void ft_fillbuf_digits(t_printinfo *list, t_elem *elem)
+void		ft_fillbuf_digits(t_printinfo *l, t_elem *elem)
 {
-	if (list->is_char && !list->is_unsigned)
-		list->buf = ft_llitoa((char)elem->lli);
-	else if (list->is_short && !list->is_unsigned)
-		list->buf = ft_llitoa((short)elem->lli);
-	else if (!list->is_unsigned)
-		list->buf = ft_llitoa(elem->lli);
-	else if (list->is_char && list->is_unsigned)
-		list->buf = ft_ullitoa((char)elem->lli);
-	else if (list->is_short && list->is_unsigned)
-		list->buf = ft_ullitoa((short)elem->lli);
-	else if (list->is_unsigned && list->t == 'u')
-		list->buf = ft_ullitoa(elem->ulli);
+	if (l->is_char && !l->is_unsigned)
+		l->buf = ft_llitoa((char)elem->lli);
+	else if (l->is_short && !l->is_unsigned)
+		l->buf = ft_llitoa((short)elem->lli);
+	else if (!l->is_unsigned)
+		l->buf = ft_llitoa(elem->lli);
+	else if (l->is_char && l->is_unsigned)
+		l->buf = ft_ullitoa((char)elem->lli);
+	else if (l->is_short && l->is_unsigned)
+		l->buf = ft_ullitoa((short)elem->lli);
+	else if (l->is_unsigned && l->t == 'u')
+		l->buf = ft_ullitoa(elem->ulli);
 }
 
-t_printinfo *ft_fillbuf_bin(t_printinfo *list, t_elem *elem)
+t_printinfo	*ft_fillbuf_bin(t_printinfo *l, t_elem *elem)
 {
-	if (list->t == 'b')
+	if (l->t == 'b')
 	{
-		if (list->is_long)
-			list->buf = ft_binary(&elem->lli, sizeof(long int));
-		else if (list->is_long_double)
-			list->buf = ft_binary(&elem->lli, sizeof(long long int));
+		if (l->is_long)
+			l->buf = ft_binary(&elem->lli, sizeof(long int));
+		else if (l->is_long_double)
+			l->buf = ft_binary(&elem->lli, sizeof(long long int));
 		else
-			list->buf = ft_binary(&elem->lli, sizeof(int));
+			l->buf = ft_binary(&elem->lli, sizeof(int));
 	}
-	else if (list->t == 'B')
-	{
-		list->buf = ft_binary_string(elem->value, sizeof(char) * ft_strlen(elem->value));
-	}
-	return (list);
-}
-
-void ft_fillbuf(t_printinfo *list, t_elem *elem)
-{
-	t_elem	*start;
-	char	c;
-
-	c = 0;
-	start = elem;
-	while (list->next)
-	{
-		while (elem->next && elem->pos != list->ndol)
-			elem = elem->next;
-		if (list->t == 'b' || list->t == 'B')
-			list = ft_fillbuf_bin(list, elem);
-		if (list->t == 's' || list->t == 'S')
-			list->buf = ft_strdup((elem->value != NULL) ? (char *)elem->value : "(null)");
-		else if (list->t == 'c')
-		{
-			c = (char)elem->lli;
-			if (c == 0)
-				list->special = 0;
-			list->buf = ft_strndup(&c, 1);
-		}
-		else if (ft_strchr("diu", list->t))
-			ft_fillbuf_digits(list, elem);
-		else if (ft_strchr("oxXp", list->t))
-			ft_fillbuf_convert(list, elem);
-		else if (list->t == 'f')
-			ft_fillbuf_float(list, elem);
-		else if (list->t == 'F')
-			list->buf = ft_of(elem->value);
-		list->buflen = ft_uni_str_len(list->buf);
-		list = list->next;
-		elem = start;
-	}
+	else if (l->t == 'B')
+		l->buf = ft_binary_string(elem->value,
+		sizeof(char) * ft_strlen(elem->value));
+	return (l);
 }

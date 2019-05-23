@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_string2.c                                :+:      :+:    :+:   */
+/*   ft_fill_struct2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 06:26:52 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 07:51:35 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,21 @@ void		ft_fillzerolist(t_printinfo *list)
 **Fill modifier
 */
 
+void		ft_opts_mod(t_printinfo *list, int *i, int *hmod, char *str)
+{
+	list->is_float_ten = (str[*i] == 'E') ? 1 : 0;
+	list->max = (str[*i] == 'j') ? 1 : 0;
+	list->is_long = (str[*i] == 'z') ? 1 : 0;
+	list->is_long_double = (str[*i] == 'L') ? 1 : 0;
+	while (str[*i] && ft_strchr("h", str[*i]) != NULL)
+	{
+		*hmod += 1;
+		*i += 1;
+	}
+	list->is_char = (*hmod % 2 == 0 && *hmod != 0) ? 1 : 0;
+	list->is_short = (*hmod % 2 != 0 && *hmod != 0) ? 1 : 0;
+}
+
 t_printinfo	*ft_fillmod(char *str, t_printinfo *list)
 {
 	int i;
@@ -50,17 +65,7 @@ t_printinfo	*ft_fillmod(char *str, t_printinfo *list)
 	lmod = 0;
 	while (str[i] && ft_strchr("hlLzjE", str[i]) == NULL)
 		i++;
-	list->is_float_ten = (str[i] == 'E') ? 1 : 0;
-	list->max = (str[i] == 'j') ? 1 : 0;
-	list->is_long = (str[i] == 'z') ? 1 : 0;
-	list->is_long_double = (str[i] == 'L') ? 1 : 0;
-	while (str[i] && ft_strchr("h", str[i]) != NULL)
-	{
-		hmod++;
-		i++;
-	}
-	list->is_char = (hmod % 2 == 0 && hmod != 0) ? 1 : 0;
-	list->is_short = (hmod % 2 != 0 && hmod != 0) ? 1 : 0;
+	ft_opts_mod(list, &i, &hmod, str);
 	while (str[i] && ft_strchr("l", str[i]) != NULL)
 	{
 		lmod++;

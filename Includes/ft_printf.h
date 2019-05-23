@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/23 06:44:07 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 08:10:30 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,18 @@ void 				tests(void);
 
 
 
-size_t  			ft_printf(const char *format, ...);
+int  			ft_printf(const char *format, ...);
+
+
+/*
+**Fill Buffer
+*/
+
+void		ft_fillbuf_float(t_printinfo *l, t_elem *elem);
+void		ft_opts_mod(t_printinfo *list, int *i, int *hmod, char *str);
+void		ft_fillbuf_digits(t_printinfo *l, t_elem *elem);
+void		ft_fillbuf_convert(t_printinfo *l, t_elem *elem);
+t_printinfo	*ft_fillbuf_bin(t_printinfo *l, t_elem *elem);
 
 /*
 **Converting Functions
@@ -262,6 +273,7 @@ t_elem				*ft_fillfloats(t_printinfo *list, va_list va, t_elem *elem);
 **Free
 */
 
+void   				 ft_free_printf(char **tab, t_elem *elem, t_printinfo *list);
 void				ft_free_parsing(char **tab);
 void				ft_free_elem(t_elem *elem, t_printinfo *list);
 void				ft_free_printinfo(t_printinfo *list);

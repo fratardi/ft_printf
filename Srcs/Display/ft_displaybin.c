@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 18:48:41 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/23 06:21:00 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 08:32:59 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ char	*ft_binary(void *content, size_t n)
 	{
 		mask = 0x100;
 		while ((mask = mask >> 1))
-		{
 			str = ft_joinfree(str, ft_strdup((*tmp & mask) ? "1" : "0"));
-		}
 		tmp--;
 	}
 	return (str);
@@ -56,22 +54,19 @@ char	*ft_binary_string(void *content, size_t n)
 	unsigned char	*tmp;
 	unsigned int	mask;
 	char			*str;
-	unsigned int	i;
+	int i;
 
 	i = 0;
+
 	str = ft_memaset(0, 1);
 	tmp = (unsigned char *)content + n - 1;
 	while (n--)
 	{
 		mask = 0x100;
 		while ((mask = mask >> 1))
-		{
 			str = ft_joinfree(str, ft_strdup((*tmp & mask) ? "1" : "0"));
-			i++;
-			if (i % 4 == 0 && mask >> 1)
-				str = ft_joinfree(str, ft_strdup(" "));
-		}
 		tmp--;
 	}
+	return (str);
 	return (str);
 }

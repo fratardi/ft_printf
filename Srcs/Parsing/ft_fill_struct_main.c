@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_struct.c                                   :+:      :+:    :+:   */
+/*   ft_fill_struct_main.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:42:47 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 06:26:57 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 08:23:38 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char			*ft_rest(char *str)
 	int i;
 
 	i = 0;
-	while (str[i] && ft_strchr("diouxXcfsCSpUOb", str[i]) == NULL)
+	while (str[i] && ft_strchr("diouxXcfsCSpUObB", str[i]) == NULL)
 		i++;
 	i++;
 	return (&str[i]);

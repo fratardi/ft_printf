@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 18:36:25 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 06:36:11 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 08:15:46 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char*ft_of(char *name)
 	if (read(fd, buf, 2048))
 		ret = ft_strdup(buf);
 	ft_bzero(buf, 2048);
-	while (read(fd, buf, 2048))
+	while (0 < read(fd, buf, 2048))
 	{
 		ret = ft_joinfree(ret, ft_strdup(buf));
 		ft_bzero(buf, 2048);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:51:03 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 05:10:01 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/23 08:11:04 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,15 @@ void	ft_modndol(t_printinfo *list)
 **Main Function
 */
 
-size_t	ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
 	char		**tab;
-	size_t		ret;
+	int			ret;
 	va_list		va;
 	t_printinfo	*list;
 	t_elem		*elem;
 
 	ret = 0;
-	elem = NULL;
-	list = NULL;
-	tab = NULL;
 	if (!format || !(tab = ft_split_format(format)))
 		return (0);
 	if (onlystring(tab) == 1)
@@ -88,8 +85,6 @@ size_t	ft_printf(const char *format, ...)
 	ft_fillbuf(list, elem);
 	ft_pad(list);
 	ret = ft_display(tab, list);
-	ft_free_parsing(tab);
-	ft_free_elem(elem, list);
-	ft_free_printinfo(list);
+	ft_free_printf(tab, elem, list);
 	return (ret);
 }

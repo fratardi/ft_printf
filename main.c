@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 16:07:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 05:12:35 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 08:29:32 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,11 @@ void	*ft_memaset(int c,size_t n)
 int main(void)
 {
 	char *s = "c";
-	int nb = 0;
+	int nb = 2147483;
 
-	ft_printf("%b\n", nb);
-	ft_printf("%F\n", "k");
+	// ft_printf("%b\n", nb);
+	ft_printf("%F\n", "/");
+	ft_printf("%B>>><<<%1$s\n", "test");
 	
 		ft_printf("test basique:\n");
     ft_printf("Plus + prec / petite:%+.0f\n", nb);
