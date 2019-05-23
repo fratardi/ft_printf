@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/23 01:42:49 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/23 05:34:46 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -23,7 +22,7 @@
 # include "../libft/libft.h"
 
 /*
-**Defines for unicodes hexas masks matching  hardware specifcations
+* *Defines for unicodes hexas masks matching  hardware specifcations
 */
 
 # define UNI1  0x80
@@ -52,28 +51,28 @@ enum 					e_type
 */
 
 typedef struct			s_printinfo {
-	int 				prec;			/* Precision */
-	int 				width;			/* Width */
-	unsigned int		ndol;			/* Elem n° */
+	int 				prec;
+	int 				width;
+	unsigned int		ndol;
 	unsigned int		max;
-	unsigned int		is_long_double;	/* Is a Double Long */
-	unsigned int		is_char;		/* Is char */
-	unsigned int		is_unsigned;	/* Is an unsigned */
-	unsigned int		is_short;		/* Is Short */
-	unsigned int		is_long;		/* Is Long */
-	unsigned int		is_float_ten;	/* Is 'E' for floats E^x */
-	unsigned int		alt;			/* Is # */
-	unsigned int		space;			/* Is ' ' */
-	unsigned int		left;			/* Is - */
-	unsigned int		showsign;		/* Is + */
-	unsigned int		group;			/* is \' */
-	unsigned int		extra;			/* Is '0' */
+	unsigned int		is_long_double;
+	unsigned int		is_char;
+	unsigned int		is_unsigned;
+	unsigned int		is_short;
+	unsigned int		is_long;
+	unsigned int		is_float_ten;
+	unsigned int		alt;
+	unsigned int		space;
+	unsigned int		left;
+	unsigned int		showsign;
+	unsigned int		group;
+	unsigned int		extra;
 	unsigned int		bin;
-	char				t;				/* Type */
+	char				t;
 	char				special;
-	char				*buf;			/* Buffer */
-	size_t				buflen;			/*length of buffer*/
-	enum				e_type type;	/* Type */
+	char				*buf;
+	size_t				buflen;;
+	enum				e_type type;
 	struct s_printinfo	*next;
 }           			t_printinfo;
 
@@ -92,13 +91,13 @@ typedef struct			s_no_syntax{
 */
 
 typedef struct			s_elem{
-	void					*value;			/* Value of ptr */
+	void					*value;
 	long long int			lli;
 	unsigned long long int	ulli;
 	double					dble;
 	long double				long_double;
 	int						c;
-	unsigned int			pos;			/* Position of the list-elem */
+	unsigned int			pos;
 	struct s_elem			*previous;
 	struct s_elem			*next;
 }						t_elem;
@@ -169,17 +168,7 @@ char				*ft_rounding(char *str, size_t prec);
 char				*ft_mantissaldouble(long double d);
 int					ft_expldouble(long double a);
 char				*ft_ldouble(long double a, size_t prec, unsigned int is_ten);
-char	*ft_exception(long double a, t_printinfo *list);
-// char				*ft_mantissadouble(double d);
-// unsigned int		ft_get_sig(float d);
-// char 				*ft_decimal(float a);
-// char				*ft_floatt(float a);
-//char   				*ft_add_5(char *str);
-// char 				*ft_mantissabin(float d);
-// int					ft_expfloat(float a);
-// int					ft_expdouble(double a);
-// unsigned int		ft_get_sig_double(double d);
-// char 				*ft_double(double a);
+char				*ft_exception(long double a, t_printinfo *list);
 
 /*
 **Unicode
