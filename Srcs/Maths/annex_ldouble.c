@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/24 07:56:36 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/24 12:32:27 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char		*ft_float_zero(int prec, unsigned int is_ten)
 {
 	char *ret;
 
+	
 	ret = ft_strdup("0.0000000");
 	if (is_ten && prec > 0)
 		ret = ft_floatexp(ret, prec);
@@ -72,7 +73,7 @@ void		init_dble(t_double *dble, long double a)
 
 /*
 **Main function to calculate and transform mant&exp to str long double
-*/
+*/ 
 
 char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 {
@@ -89,7 +90,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 			dble = ft_doublesign(dble);
 		dble.b--;
 	}
-	dble.ent = ((a < 0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
+	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
 	if (!is_ten)
 		dble.dec = ft_rounding(dble.dec, (prec > 0) ? prec : 6);
 	(prec == 0) ? 0 : (dble.ent = ft_joinfree(dble.ent, ft_strdup(".")));
