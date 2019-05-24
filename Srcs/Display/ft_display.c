@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/24 10:24:11 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/24 14:45:55 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,7 @@ size_t		ft_sequence(char *str, int *open, char *s1)
 		pad = ft_memaset((content.extra) ? '0' : ' ', content.width);
 	else
 		pad = ft_strdup("");
-	if (content.left)
-		temp = ft_joinfree(temp, pad);
-	else
-		temp = ft_joinfree(pad, temp);
+	temp = (content.left) ? ft_joinfree(temp, pad) : ft_joinfree(pad, temp);
 	temp ? (ret += ft_print_uni_str(temp)) : 0;
 	(!str[i] && s1 && s1[0]) ? (ret += ft_print_uni_str(&s1[1])) : 0;
 	free(temp);

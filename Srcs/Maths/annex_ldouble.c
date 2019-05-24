@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annex_ldouble.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/24 13:47:22 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/24 14:40:39 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ char		*ft_float_zero(int prec, unsigned int is_ten)
 {
 	char *ret;
 
-	
 	ret = ft_strdup("0.0000000");
 	if (is_ten && prec > 0)
 		ret = ft_floatexp(ret, prec);
@@ -73,7 +72,7 @@ void		init_dble(t_double *dble, long double a)
 
 /*
 **Main function to calculate and transform mant&exp to str long double
-*/ 
+*/
 
 char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 {
