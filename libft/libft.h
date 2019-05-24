@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 18:12:44 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/09 21:40:40 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/24 17:06:03 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack, const char *needle,
 		size_t len);
-unsigned long long int		ft_pow2(unsigned int i);
 long int			ft_pow(int n, int pow);
 char				*ft_llitoa(long long int n);
 int					ft_strcmp(const char *s1, const char *s2);

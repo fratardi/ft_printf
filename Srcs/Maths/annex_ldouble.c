@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/24 14:40:39 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/24 17:11:45 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@
 **If float == 0
 */
 
-char		*ft_float_zero(int prec, unsigned int is_ten)
+char		*ft_float_zero(int prec, unsigned int is_ten, long double a)
 {
 	char *ret;
+	char *bin;
 
-	ret = ft_strdup("0.0000000");
+	bin = ft_binary(&a, sizeof(long double));
+	ret = ft_strdup((ft_strchr(bin, '1')) ? "-0.0000000" : "0.0000000");
+	prec += (ft_strchr(bin, '1') ? 1 : 0);
+	free(bin);
 	if (is_ten && prec > 0)
 		ret = ft_floatexp(ret, prec);
 	if (prec == -2)
@@ -81,9 +85,8 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 
 	i = 0;
 	if (a == 0)
-		return (ft_float_zero(prec, is_ten));
+		return (ft_float_zero(prec, is_ten, a));
 	init_dble(&dble, a);
-	printf("exp = %d et mantissa = %s\n", dble.ex, dble.m);
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')

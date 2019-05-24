@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 02:32:38 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/12 03:33:06 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/24 16:24:55 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ static	int		ft_nblen(long long int nb)
 
 char			*ft_llitoa(long long int n)
 {
-	char			*rez;
-	unsigned long long int temp;
-	long long int	nbl;
-	long long int	i;
+	char					*rez;
+	unsigned long long int	temp;
+	long long int			nbl;
+	long long int			i;
 
 	nbl = n;
 	i = 0;
@@ -49,16 +49,14 @@ char			*ft_llitoa(long long int n)
 	if (nbl < 0)
 	{
 		temp = (unsigned long long int)-nbl;
-		return(ft_strjoinfree(ft_strdup("-"), ft_ullitoa(temp)));
+		return (ft_strjoinfree(ft_strdup("-"), ft_ullitoa(temp)));
 	}
 	rez[i] = '\0';
 	while (i >= 0)
 	{
-		rez[i] = nbl % 10 + '0';
-		i--;
+		rez[i--] = nbl % 10 + '0';
 		nbl = nbl / 10;
 	}
-	if (n < 0)
-		rez[0] = '-';
+	rez[0] = (n < 0) ? '-' : rez[0];
 	return (rez);
 }

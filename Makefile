@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
+#    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/05/24 13:19:33 by fratardi         ###   ########.fr        #
+#    Updated: 2019/05/24 16:47:35 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ FLAGS = -Wall -Wextra -Werror
 
 INC_PATH = ./Includes
 
-INC_NAME = ft_printf.h\
-		   ft_float.h
+INC_NAME = ft_printf.h
 
 C = ./Srcs/Parsing/ft_split_format.c \
 	./Srcs/Parsing/ft_issyntax.c \
@@ -56,7 +55,6 @@ C = ./Srcs/Parsing/ft_split_format.c \
 	./Srcs/Padding/ft_pad_space.c \
 	./Srcs/Padding/ft_pad_left.c \
 	./Srcs/ft_printf.c \
-	./DELETE_BEFORE_FINALPUSH/ft_debugf.c\
 
 C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_freetab.o \
@@ -72,7 +70,7 @@ C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_isspace.o ./libft/ft_llitoa.o\
 		./libft/ft_strequ.o ./libft/ft_strncat.o\
 		./libft/ft_strsplit.o ./libft/ft_atoi.o \
-		./libft/ft_memalloc.o ./libft/ft_pow.c ./libft/ft_strjoinfree.c\
+		./libft/ft_memalloc.o ./libft/ft_pow.o ./libft/ft_strjoinfree.o\
 		./libft/ft_putchar.o ./libft/ft_strcat.o\
 		./libft/ft_striter.o ./libft/ft_strstr.o ./libft/ft_bzero.o\
 		./libft/ft_memccpy.o ./libft/ft_putchar_fd.o ./libft/ft_strchr.o \
@@ -103,9 +101,6 @@ all : $(NAME)
 $(NAME): $(O) $(O_LIB) $(INC)
 	ar rc $(NAME) $(O) $(O_LIB)
 	ranlib $(NAME)
-
-lib :
-	make -C ./libft/
 
 %.o : %.c
 	$(CC) $(FLAGS) -c $< -o $@

@@ -6,13 +6,13 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/24 14:45:55 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/24 17:09:39 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-int		ft_init_sequence(char *str, t_no_syntax *content)
+int			ft_init_sequence(char *str, t_no_syntax *content)
 {
 	int i;
 
