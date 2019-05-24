@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 07:26:18 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/24 17:35:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/25 00:23:43 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void		ft_fillbuf(t_printinfo *l, t_elem *elem)
 	start = elem;
 	while (l->next)
 	{
-		while (elem->next && elem->pos < l->ndol)
+		while (elem->next && elem->pos != l->ndol)
 			elem = elem->next;
 		ft_iterate_buffer(l, elem);
 		l->buflen = ft_uni_str_len(l->buf);

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 19:04:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/24 17:32:40 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/25 00:22:15 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ t_elem	*ft_varead(t_printinfo *list, va_list va, char **tab)
 	varead = ft_initvaread(list, tab);
 	while (varead.nb_pos <= varead.nb_va)
 	{
+		list = varead.pstart;
 		while (list->next && varead.nb_pos <= varead.nb_va)
 		{
 			list = varead.pstart;
@@ -112,6 +113,8 @@ t_elem	*ft_varead(t_printinfo *list, va_list va, char **tab)
 			{
 				va_arg(va, void *);
 				varead.nb_pos += 1;
+				varead.elem->pos += 1;
+				list = varead.pstart;
 			}
 			else
 				break ;

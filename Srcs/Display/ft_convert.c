@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 13:25:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 06:32:23 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/25 00:27:04 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_convert_o(unsigned long long int to_convert)
 	if (to_convert == 0)
 		return (ft_strdup("0"));
 	size = ft_size_octal(to_convert);
-	if (!(ret = (char *)ft_memalloc(sizeof(char) * size)))
+	if (!(ret = (char *)ft_memalloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	while (size--)
 	{
@@ -48,7 +48,7 @@ char	*ft_convert_x(unsigned long long int to_convert)
 	if (to_convert == 0)
 		return (ft_strdup("0"));
 	size = ft_size_hexa(to_convert);
-	if (!(ret = (char *)ft_memalloc(sizeof(char) * size)))
+	if (!(ret = (char *)ft_memalloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	while (size--)
 	{
@@ -71,7 +71,7 @@ char	*ft_convert_up_x(unsigned long long int to_convert)
 	if (to_convert == 0)
 		return (ft_strdup("0"));
 	size = ft_size_hexa(to_convert);
-	if (!(ret = (char *)ft_memalloc(sizeof(char) * size)))
+	if (!(ret = (char *)ft_memalloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	while (size--)
 	{
@@ -96,7 +96,7 @@ char	*ft_convert_p(void *to_convert)
 	if (to_convert == 0 || to_convert == NULL)
 		return (ft_strdup("0x0"));
 	size = ft_size_hexa((unsigned long long int)to_convert);
-	if (!(ret = (char *)ft_memalloc(sizeof(char) * size)))
+	if (!(ret = (char *)ft_memalloc(sizeof(char) * (size + 1))))
 		return (NULL);
 	while (size--)
 	{
