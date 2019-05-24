@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/24 05:41:24 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/24 07:56:36 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ t_double	ft_doublesign(t_double dble)
 }
 
 /*
-**Main function to calculate and transform mant&exp to str long double
+**Function to initialize values
 */
 
-void		ft_init_double(t_double *dble, long double a)
+void		init_dble(t_double *dble, long double a)
 {
 	dble->b = -1;
 	dble->ex = ft_expldouble(a);
@@ -69,6 +69,10 @@ void		ft_init_double(t_double *dble, long double a)
 	dble->ent = (dble->ex >= 0) ? ft_pow2str(0 + dble->ex) : ft_strdup("0");
 	dble->m = ft_mantissaldouble(a);
 }
+
+/*
+**Main function to calculate and transform mant&exp to str long double
+*/
 
 char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 {
@@ -78,7 +82,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 	i = 0;
 	if (a == 0)
 		return (ft_float_zero(prec, is_ten));
-	ft_init_double(&dble, a);
+	init_dble(&dble, a);
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')
@@ -88,8 +92,8 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 	dble.ent = ((a < 0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
 	if (!is_ten)
 		dble.dec = ft_rounding(dble.dec, (prec > 0) ? prec : 6);
-	dble.ent = ft_joinfree(dble.ent, ft_strdup("."));
-	dble.ent = ft_joinfree(dble.ent, dble.dec);
+	(prec == 0) ? 0 : (dble.ent = ft_joinfree(dble.ent, ft_strdup(".")));
+	(prec == 0) ? free(dble.dec) : (dble.ent = ft_joinfree(dble.ent, dble.dec));
 	free(dble.m);
 	if (is_ten)
 		dble.ent = ft_floatexp(dble.ent, (prec > 0) ? prec : 6);
