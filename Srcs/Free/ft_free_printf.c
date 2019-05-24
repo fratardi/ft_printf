@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_lists.c                                    :+:      :+:    :+:   */
+/*   ft_free_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 12:01:14 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 08:09:40 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/24 05:19:48 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_free_parsing(char **tab)
 	free(tab);
 }
 
-void    ft_free_printf(char **tab, t_elem *elem, t_printinfo *list)
+void	ft_free_printf(char **tab, t_elem *elem, t_printinfo *list)
 {
 	ft_free_parsing(tab);
 	ft_free_elem(elem, list);

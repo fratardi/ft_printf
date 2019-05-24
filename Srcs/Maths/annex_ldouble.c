@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annex_ldouble.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 06:57:18 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/24 05:41:24 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,15 @@ t_double	ft_doublesign(t_double dble)
 **Main function to calculate and transform mant&exp to str long double
 */
 
+void		ft_init_double(t_double *dble, long double a)
+{
+	dble->b = -1;
+	dble->ex = ft_expldouble(a);
+	dble->dec = (dble->ex < 0) ? ft_pow2str(0 + dble->ex) : ft_strdup("0");
+	dble->ent = (dble->ex >= 0) ? ft_pow2str(0 + dble->ex) : ft_strdup("0");
+	dble->m = ft_mantissaldouble(a);
+}
+
 char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 {
 	t_double	dble;
@@ -69,11 +78,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 	i = 0;
 	if (a == 0)
 		return (ft_float_zero(prec, is_ten));
-	dble.b = -1;
-	dble.ex = ft_expldouble(a);
-	dble.dec = (dble.ex < 0) ? ft_pow2str(0 + dble.ex) : ft_strdup("0");
-	dble.ent = (dble.ex >= 0) ? ft_pow2str(0 + dble.ex) : ft_strdup("0");
-	dble.m = ft_mantissaldouble(a);
+	ft_init_double(&dble, a);
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')
