@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
+#    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/05/23 08:10:19 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/05/24 04:52:36 by fratardi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,30 +18,49 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-C = ./Srcs/Parsing/ft_split_format.c ./Srcs/Parsing/ft_issyntax.c \
-	./Srcs/Parsing/ft_fill_struct1.c ./Srcs/Parsing/ft_fill_struct2.c \
-	./Srcs/Parsing/ft_fill_struct_main.c ./Srcs/Parsing/ft_fill_buf_main.c\
-	./Srcs/Reader/ft_varead.c ./Srcs/Reader/ft_fillelem.c\
-	./Srcs/Unicodes/ft_print_uni_char.c ./Srcs/Unicodes/ft_print_uni_str.c\
-	./Srcs/Unicodes/ft_uni_char_len.c ./Srcs/Unicodes/ft_uni_str_len.c \
+C = ./Srcs/Parsing/ft_split_format.c \
+	./Srcs/Parsing/ft_issyntax.c \
+	./Srcs/Parsing/ft_fill_struct1.c \
+	./Srcs/Parsing/ft_fill_struct2.c \
+	./Srcs/Parsing/ft_fill_struct_main.c \
+	./Srcs/Parsing/ft_fill_buf_main.c \
+	./Srcs/Reader/ft_varead.c \
+	./Srcs/Reader/ft_fillelem.c \
+	./Srcs/Unicodes/ft_print_uni_char.c \
+	./Srcs/Unicodes/ft_print_uni_str.c \
+	./Srcs/Unicodes/ft_uni_char_len.c \
+	./Srcs/Unicodes/ft_uni_str_len.c \
 	./Srcs/Maths/ft_adjustfloat.c \
-	./Srcs/Display/ft_convert.c ./Srcs/Parsing/ft_fill_buf.c \
-	./Srcs/Display/ft_displaybin.c ./Srcs/Display/ft_display.c\
-	./Srcs/Display/size_convert.c ./Srcs/Display/ft_open_file.c\
-	./Srcs/Maths/annex_float.c ./Srcs/Maths/annex_ldouble.c\
-	./Srcs/Maths/pow_str.c ./Srcs/Maths/ft_addstrings.c \
+	./Srcs/Display/ft_convert.c \
+	./Srcs/Parsing/ft_fill_buf.c \
+	./Srcs/Display/ft_displaybin.c \
+	./Srcs/Display/ft_display.c \
+	./Srcs/Display/size_convert.c \
+	./Srcs/Display/ft_open_file.c \
+	./Srcs/Maths/annex_float.c \
+	./Srcs/Maths/annex_ldouble.c\
+	./Srcs/Maths/pow_str.c \
+	./Srcs/Maths/ft_addstrings.c \
 	./Srcs/Maths/ft_exception.c \
 	./Srcs/Free/ft_free_printf.c \
 	./Srcs/Padding/ft_pad_prec.c \
-	./Srcs/Padding/ft_pad.c ./Srcs/Padding/ft_pad_alt.c \
-	./Srcs/Padding/ft_pad_extra.c ./Srcs/Padding/ft_pad_showsig.c\
-	./Srcs/Padding/ft_pad_space.c ./Srcs/Padding/ft_pad_left.c \
+	./Srcs/Padding/ft_pad.c \
+	./Srcs/Padding/ft_pad_alt.c \
+	./Srcs/Padding/ft_pad_extra.c \
+	./Srcs/Padding/ft_pad_showsig.c\
+	./Srcs/Padding/ft_pad_space.c \
+	./Srcs/Padding/ft_pad_left.c \
 	./Srcs/ft_printf.c \
 	./DELETE_BEFORE_FINALPUSH/ft_debugf.c\
 
-C_LIB = ./libft/ft_itoa.o ./libft/ft_freetab.o ./libft/ft_strnlen.o \
-		./libft/ft_strndup.o ./libft/ft_swap.o\
-		./libft/ft_lstmap.o ./libft/ft_lstiter.o ./libft/ft_lstadd.o \
+C_LIB = ./libft/ft_itoa.o \
+		./libft/ft_freetab.o \
+		./libft/ft_strnlen.o \
+		./libft/ft_strndup.o \
+		./libft/ft_swap.o \
+		./libft/ft_lstmap.o \
+		./libft/ft_lstiter.o \
+		./libft/ft_lstadd.o \
 		./libft/ft_lstdel.o ./libft/ft_lstdelone.o\
 		./libft/ft_lstnew.o ./libft/ft_memset.o \
 		./libft/ft_putstr_fd.o ./libft/ft_print_table.o\
