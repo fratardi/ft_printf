@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/24 12:32:27 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/24 13:47:22 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 	if (a == 0)
 		return (ft_float_zero(prec, is_ten));
 	init_dble(&dble, a);
+	printf("exp = %d et mantissa = %s\n", dble.ex, dble.m);
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')

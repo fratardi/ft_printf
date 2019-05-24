@@ -6,7 +6,7 @@
 #    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/05/24 13:19:33 by fratardi         ###   ########.fr        #
+#    Updated: 2019/05/24 04:52:36 by fratardi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,6 @@ LIB = ./libft/libft.a
 CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
-
-INC_PATH = ./Includes
-
-INC_NAME = ft_printf.h\
-		   ft_float.h
 
 C = ./Srcs/Parsing/ft_split_format.c \
 	./Srcs/Parsing/ft_issyntax.c \
@@ -92,15 +87,13 @@ C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_strdup.o ./libft/ft_strmapi.o ./libft/ft_strrchr.o\
 		./libft/ft_pow2.o ./libft/ft_ullitoa.o ./libft/ft_putnstr.o \
 
-INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
-
 O = $(C:.c=.o)
 
 O_LIB = $(C_LIB:.c=.o)
 
 all : $(NAME)
 
-$(NAME): $(O) $(O_LIB) $(INC)
+$(NAME): $(O) $(O_LIB)
 	ar rc $(NAME) $(O) $(O_LIB)
 	ranlib $(NAME)
 
