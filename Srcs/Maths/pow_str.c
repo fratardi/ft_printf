@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/18 04:13:25 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/26 15:52:14 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,33 @@
 
 char	*ft_pow5(int po)
 {
+	static char *str[1];
+	static int last = 1;
+	int p;
 	t_power5 pow;
 
-	pow.p = (size_t)po;
+	if (po == 0)
+		return (ft_strdup("1"));
+	if (last == 1)
+		str[0] = ft_strdup("5");
+	p = po;
+	while (po > last)
+	{
+		pow.i = 4;
+		pow.base = ft_strdup(str[0]);
+		while (pow.i--)
+			str[0] = ft_addstrings(str[0], pow.base);
+		free(pow.base);
+		po--;
+	}
+	last = p;
+	return(ft_strdup(str[0]));
+}
+
+/* char	*ft_pow5(int po)
+{
+	t_power5 pow;
+
 	if (po == 0)
 		return (ft_strdup("1"));
 	if (po < 0)
@@ -41,7 +65,7 @@ char	*ft_pow5(int po)
 		po--;
 	}
 	return (pow.ret);
-}
+} */
 
 char	*ft_pow2c(int po)
 {

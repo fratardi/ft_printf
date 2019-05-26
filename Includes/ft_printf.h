@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/24 17:06:23 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/26 15:19:49 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,9 +137,13 @@ typedef struct		s_power5{
 	char	*base;
 	char	*tmp;
 	char	*ret;
-	size_t	p;
 	int		i;
 }					t_power5;
+
+typedef struct		s_last_pow{
+	char	*last;
+	int		last_pow;
+}					t_last_pow;
 
 /*
 **Funtions to print Digits
