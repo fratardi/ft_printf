@@ -14,7 +14,6 @@
 
 int main(void)
 {
-	ft_printf("%hhhllld", 75000);
-	printf("\n%hhhllld", 75000);
+	ft_printf("%f", 1E-38);
 	return (0);
 }

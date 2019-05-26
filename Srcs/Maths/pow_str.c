@@ -16,11 +16,12 @@
 **Functions Power 2 and 5 returning a char*
 */
 
-char	*ft_pow5(int po)
+char	*ft_pow5(int po, char end)
 {
 	static char *str[1];
-	static int last = 1;
-	int p;
+	static int	last = 1;
+	char		*temp;
+	int			p;
 	t_power5 pow;
 
 	if (po == 0)
@@ -33,12 +34,19 @@ char	*ft_pow5(int po)
 		pow.i = 4;
 		pow.base = ft_strdup(str[0]);
 		while (pow.i--)
-			str[0] = ft_addstrings(str[0], pow.base);
+		{
+			temp = ft_addstrings(str[0], pow.base);
+			free(str[0]);
+			str[0] = temp;
+		}
 		free(pow.base);
 		po--;
 	}
 	last = p;
-	return(ft_strdup(str[0]));
+	temp = ft_strdup(str[0]);
+	if (end == 1)
+		free(str[0]);
+	return(temp);
 }
 
 /* char	*ft_pow5(int po)
@@ -90,13 +98,13 @@ char	*ft_pow2c(int po)
 	return (ret);
 }
 
-char	*ft_pow2neg(int n)
+char	*ft_pow2neg(int n, char end)
 {
 	char	*ret;
 	char	*fill;
 	size_t	i;
 
-	ret = ft_pow5(n);
+	ret = ft_pow5(n, end);
 	i = n - ft_strlen(ret);
 	if (!(fill = (char *)ft_memalloc((sizeof(char)) * (i + 1))))
 		return (NULL);
@@ -104,9 +112,9 @@ char	*ft_pow2neg(int n)
 	return (ft_joinfree(fill, ret));
 }
 
-char	*ft_pow2str(int ex)
+char	*ft_pow2str(int ex, char end)
 {
 	if (ex == 0)
 		return (ft_strdup("1"));
-	return ((ex > 0) ? ft_pow2c(ex) : ft_pow2neg(-ex));
+	return ((ex > 0) ? ft_pow2c(ex) : ft_pow2neg(-ex, end));
 }

@@ -40,9 +40,9 @@ char		*ft_float_zero(int prec, unsigned int is_ten, long double a)
 **Conditions according to the sign of exposant
 */
 
-t_double	ft_doublesign(t_double dble)
+t_double	ft_doublesign(t_double dble, char end)
 {
-	dble.temp = ft_pow2str(dble.b + dble.ex);
+	dble.temp = ft_pow2str(dble.b + dble.ex, end);
 	if (dble.b + dble.ex >= 0)
 	{
 		ft_adjustpospo(&dble.temp, &dble.ent);
@@ -69,8 +69,8 @@ void		init_dble(t_double *dble, long double a)
 {
 	dble->b = -1;
 	dble->ex = ft_expldouble(a);
-	dble->dec = (dble->ex < 0) ? ft_pow2str(0 + dble->ex) : ft_strdup("0");
-	dble->ent = (dble->ex >= 0) ? ft_pow2str(0 + dble->ex) : ft_strdup("0");
+	dble->dec = (dble->ex < 0) ? ft_pow2str(0 + dble->ex, 0) : ft_strdup("0");
+	dble->ent = (dble->ex >= 0) ? ft_pow2str(0 + dble->ex, 0) : ft_strdup("0");
 	dble->m = ft_mantissaldouble(a);
 }
 
@@ -87,11 +87,12 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 	if (a == 0)
 		return (ft_float_zero(prec, is_ten, a));
 	init_dble(&dble, a);
-	// printf("exp >> %d\n", dble.ex);
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')
-			dble = ft_doublesign(dble);
+			dble = ft_doublesign(dble, 0);
+		if (!dble.m[i])
+			free(ft_pow5(1, 1));
 		dble.b--;
 	}
 	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
