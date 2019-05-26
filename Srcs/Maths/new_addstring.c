@@ -19,7 +19,7 @@ void    ft_addstrings(char *assign, char *base, size_t po_assig, size_t po_base)
 }
 
 
-void	ft_init_base(t_list *base)
+void	ft_init_basex(t_list *base)
 {
 	base->content = ft_strdup("5");
 	base->content_size = 1;
@@ -48,9 +48,13 @@ void	ft_neg_pow_of_two(t_list *base, size_t po)
 
 char	*ft_pow2str(int ex, char end)
 {
-	static t_list base = ft_init_base(&base);
+	// comment initialiser la sequence ???? 
+	static t_list base = ft_init_basex(&base);
 
 	if (ex == 0)
 		return (ft_strdup("1"));
+	
+	
+	//revoir le return
 	return ((ex > 0) ? ft_pow2c(ex) : ft_neg_pow_of_two(&base, (size_t)-ex);
 }
