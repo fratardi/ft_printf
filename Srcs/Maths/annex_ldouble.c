@@ -87,7 +87,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 	if (a == 0)
 		return (ft_float_zero(prec, is_ten, a));
 	init_dble(&dble, a);
-	printf("exp >> %d\n", dble.ex);
+	// printf("exp >> %d\n", dble.ex);
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')
