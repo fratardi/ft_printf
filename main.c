@@ -14,5 +14,7 @@
 
 int main(void)
 {
+	ft_printf("%hhhllld", 75000);
+	printf("\n%hhhllld", 75000);
 	return (0);
 }

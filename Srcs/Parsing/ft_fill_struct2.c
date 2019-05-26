@@ -73,6 +73,11 @@ t_printinfo	*ft_fillmod(char *str, t_printinfo *list)
 	}
 	list->is_long_double += (lmod % 2 == 0 && lmod != 0) ? 1 : 0;
 	list->is_long += (lmod % 2 != 0 && lmod != 0) ? 1 : 0;
+	if (list->is_long || list->is_char)
+	{
+		list->is_char = 0;
+		list->is_short = 0;
+	}
 	return (list);
 }
 
