@@ -53,9 +53,7 @@ t_double	ft_doublesign(t_double dble, char end)
 	else if (dble.b + dble.ex < 0)
 	{
 		ft_adjustnegpo(&dble.temp, &dble.dec);
-		dble.tempdec = ft_addstrings(dble.temp, dble.dec);
-		free(dble.dec);
-		dble.dec = dble.tempdec;
+		dble.dec = ft_new_addstrings(dble.dec, dble.temp);
 	}
 	free(dble.temp);
 	return (dble);

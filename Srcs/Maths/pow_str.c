@@ -113,7 +113,6 @@ char	*ft_pow2c(int po)
 {
 	char	*base;
 	char	*ret;
-	char	*tmp;
 
 	if (!po)
 		return (ft_strdup("0"));
@@ -123,10 +122,7 @@ char	*ft_pow2c(int po)
 	while (po-- > 1)
 	{
 		base = ft_strdup(ret);
-		tmp = ft_addstrings(ret, base);
-		free(ret);
-		ret = ft_strdup(tmp);
-		free(tmp);
+		ret = ft_new_addstrings(ret, base);
 		free(base);
 	}
 	return (ret);
