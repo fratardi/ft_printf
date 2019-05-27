@@ -46,9 +46,7 @@ t_double	ft_doublesign(t_double dble, char end)
 	if (dble.b + dble.ex >= 0)
 	{
 		ft_adjustpospo(&dble.temp, &dble.ent);
-		dble.tempent = ft_addstrings(dble.temp, dble.ent);
-		free(dble.ent);
-		dble.ent = dble.tempent;
+		dble.dec = ft_new_addstrings(dble.dec, dble.temp);
 	}
 	else if (dble.b + dble.ex < 0)
 	{

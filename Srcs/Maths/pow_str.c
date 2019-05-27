@@ -57,6 +57,11 @@ char	*ft_pow_neg(int po, char end)
 	int			p;
 	t_power5 pow;
 
+	if (po < last && last != 1)
+	{
+		free(str[0]);
+		last = 1;
+	}
 	if (po == 0)
 		return (ft_strdup("1"));
 	if (last == 1)

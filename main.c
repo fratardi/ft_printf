@@ -28,7 +28,7 @@ void	bonus(void)
 int main(void)
 {
 	bonus();
-	// ft_printf("<> %Lf\n", 2.0E-4930L);
+	ft_printf("<> %f\n", 2.4);
 	// printf(">> %.5000Lf\n", 2.0E-4930L);
 	return (0);
 }
