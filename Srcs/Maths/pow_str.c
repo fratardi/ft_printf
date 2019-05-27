@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/26 15:52:14 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/27 15:51:23 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,40 @@ char	*ft_pow5(int po, char end)
 	}
 	last = p;
 	temp = ft_strdup(str[0]);
+	if (end == 1)
+		free(str[0]);
+	return(temp);
+}
+
+char	*ft_pow_neg(int po, char end)
+{
+	static char *str[1];
+	static int	last = 1;
+	char		*temp;
+	int			p;
+	t_power5 pow;
+
+	if (po == 0)
+		return (ft_strdup("1"));
+	if (last == 1)
+		str[0] = ft_joinfree(ft_memaset('0', po - 1), ft_strdup("5"));
+	else if (po > last)
+		str[0] = ft_joinfree(ft_memaset('0', po - last), str[0]);
+	p = po;
+	while (po > last)
+	{
+		pow.i = 4;
+		pow.base = ft_strdup(str[0]);
+		while (pow.i--)
+		{
+			str[0] = ft_new_addstrings(str[0], pow.base);
+		}
+		free(pow.base);
+		po--;
+	}
+	last = p;
+	temp = ft_strdup(str[0]);
+	end = 0;
 	if (end == 1)
 		free(str[0]);
 	return(temp);
@@ -104,7 +138,9 @@ char	*ft_pow2neg(int n, char end)
 	char	*fill;
 	size_t	i;
 
+	printf("pow = %d\n", n);
 	ret = ft_pow5(n, end);
+	printf("res = %s\n", ret);
 	i = n - ft_strlen(ret);
 	if (!(fill = (char *)ft_memalloc((sizeof(char)) * (i + 1))))
 		return (NULL);
@@ -116,5 +152,5 @@ char	*ft_pow2str(int ex, char end)
 {
 	if (ex == 0)
 		return (ft_strdup("1"));
-	return ((ex > 0) ? ft_pow2c(ex) : ft_pow2neg(-ex, end));
+	return ((ex > 0) ? ft_pow2c(ex) : ft_pow_neg(-ex, end));
 }

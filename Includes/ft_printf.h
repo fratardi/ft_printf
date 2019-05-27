@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/26 15:19:49 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/27 15:50:35 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,7 @@ void				ft_adjustpospo(char **s1, char **s2);
 void				ft_adjustnegpo(char **s1, char **s2);
 char				ft_addchar(char *s1, char *s2, char *ret, char carry);
 char				*ft_addstrings(char *s1, char *s2);
+char	*ft_new_addstrings(char *s1, char *s2);
 char				*ft_pow5(int pow, char end);
 void				ft_hexfloat(void *content, size_t n);
 char				*ft_fillbig(char *s1, char *s2);

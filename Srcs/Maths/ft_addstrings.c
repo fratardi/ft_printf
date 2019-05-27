@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_addstrings.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 14:31:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 04:40:53 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/27 15:50:38 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,37 @@ char	*ft_addstrings(char *s1, char *s2)
 		&ret[y--], diff);
 	ret = (diff) ? ft_joinfree(ft_strdup("1"), ret) : ret;
 	return (ret);
+}
+
+
+char	*ft_new_addstrings(char *s1, char *s2)
+{
+	int		s1p;
+	int		s2p;
+	int		y;
+	char	diff;
+	char	ret;
+
+	s1p = ft_strlen(s1);
+	s2p = ft_strlen(s2);
+	diff = 0;
+	y = (s1p >= s2p) ? s1p : s2p;
+	while (s1p-- && s2p-- && y--)
+	{
+		diff = ft_addchar(&s1[s1p], &s2[s2p], &ret, diff);
+		s1[s1p] = ret;
+	}
+	s1[s1p] = (y == 0 && diff) ? '1' : '0';
+	if (y == 0)
+		return (s1);
+	s2p--;
+	y -= (s2p) ? 1 : 0;
+	while (s1p >= 0 || s2p >= 0)
+	{
+		diff = ft_addchar("0", (s1p >= 0) ? &s1[s1p] : &s2[s2p--],
+		&ret, diff);
+		s1[s1p--] = ret;
+	}
+	s1[s1p] = (diff) ? '1' : '0';
+	return (s1);
 }
