@@ -50,11 +50,12 @@ char	*ft_pow2str(int ex, char end)
 {
 	// comment initialiser la sequence ???? 
 	static t_list base = ft_init_basex(&base);
-
 	if (ex == 0)
 		return (ft_strdup("1"));
-	
-	
 	//revoir le return
-	return ((ex > 0) ? ft_pow2c(ex) : ft_neg_pow_of_two(&base, (size_t)-ex);
+	if((ex > 0)
+		return (ft_pow2c(ex)); 
+	ft_neg_pow_of_two(&base, (size_t)-ex);
+	return(base->content);
+
 }
