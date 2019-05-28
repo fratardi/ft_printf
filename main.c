@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 23:41:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 22:17:04 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 22:41:23 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int main(void)
 	char		nb;
 	nb = -45;
 
-	ft_printf("space:% d\n", nb);
+	// ft_printf("%-05d", 42);
+	ft_printf("%10.5d", 4242);
+/* 	ft_printf("space:% d\n", nb);
     ft_printf("plus:%+d\n", nb);
     ft_printf("hash:%#d\n", nb);
     ft_printf("precision:%.2d\n", nb);
@@ -51,7 +53,7 @@ int main(void)
     ft_printf("size + espace + zero + prec + hash:%#0 5.0d\n", nb);
     ft_printf("size + minus + plus + prec:%-+5.3d\n", nb);
     ft_printf("size + minus + plus + prec + hash:%-#+5.0d\n", nb);
-
+ */
 /* 	printf("space:% d\n", nb);
     printf("plus:%+d\n", nb);
     printf("hash:%#d\n", nb);

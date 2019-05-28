@@ -32,3 +32,37 @@ size + espace + zero + prec: -045
 size + espace + zero + prec + hash:  -45
 size + minus + plus + prec:-045 
 size + minus + plus + prec + hash:-45  
+width >> -5
+width >> -5
+width >> -5
+width >> -5
+width >> -17
+width >> -5
+width >> -8
+width >> -5
+width >> -5
+width >> -8
+width >> -5
+width >> -5
+width >> -8
+width >> -8
+width >> 2
+width >> 2
+width >> 2
+width >> 2
+width >> 2
+width >> 2
+width >> 0
+width >> 0
+width >> 0
+width >> 1
+width >> 2
+width >> 1
+width >> 2
+width >> 1
+width >> 2
+width >> 1
+width >> 1
+width >> 2
+width >> 1
+width >> 2

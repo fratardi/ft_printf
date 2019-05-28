@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:29 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 22:17:29 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 22:43:07 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,20 @@ void ft_padding_digit(t_printinfo *list)
 		free(list->buf);
 		list->buf = temp;
 	}
-	if (list->extra && list->prec == -2)
+	if (list->extra && list->prec == -2 && !list->left)
 	{
 		tmp = list->width - ft_strlen(list->buf) - (((sign == -1) || (sign == 1 && list->showsign)) ? 1 : 0);
 		if (tmp > 0)
 			list->buf = ft_joinfree(ft_memaset('0', tmp), list->buf);        
 	}
-	if (list->space && !list->showsign && sign == 1)
+	if (list->space && !list->showsign && sign == 1 && !list->is_unsigned)
 		list->buf = ft_joinfree(ft_strdup(" "), list->buf);
-	if (sign == -1)
+	if (sign == -1 && !list->is_unsigned)
 		list->buf = ft_joinfree(ft_strdup("-"), list->buf);
-	if (list->showsign && sign == 1)
+	if (list->showsign && sign == 1 && ! list->is_unsigned)
 		list->buf = ft_joinfree(ft_strdup("+"), list->buf);
 	width = list->width - ft_strlen(list->buf);
-	if (width > 0 && !list->left && ((!list->extra && list->prec == -2) || (list->extra)))
+	if (width > 0 && !list->left && ((!list->extra && list->prec == -2) || (list->extra) || (list->width > list->prec)))
 		list->buf = ft_joinfree(ft_memaset(' ', width), list->buf);
 	if (width > 0 && list->left)
 		list->buf = ft_joinfree(list->buf, ft_memaset(' ', width));
