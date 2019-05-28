@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pow_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/26 15:52:14 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/27 05:26:14 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_pow5(int po, char end)
 	if (po == 0)
 		return (ft_strdup("1"));
 	if (last == 1)
-		str[0] = ft_strdup("5");
+		str[0] = ft_strdup("5\0");
 	p = po;
 	while (po > last)
 	{

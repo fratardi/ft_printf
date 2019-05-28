@@ -2,7 +2,7 @@
 
 void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po_base)
 {
-	printf( "CALL addstring po_assign >>%zu<< po_base >>%zu<<base[pobase]>>%c<<assign[poassign]>>%c<<   \n", po_assig, po_base , base[po_base - 1] , assign[po_assig]);
+	//printf( "CALL addstring po_assign >>%zu<< po_base >>%zu<<base[pobase]>>%c<<assign[poassign]>>%c<<   \n", po_assig, po_base , base[po_base - 1] , assign[po_assig]);
 	/*if(!assign[po_assig]|| !base[po_base])
 		{
 			ft_putendl("return sale ...");
@@ -15,31 +15,24 @@ void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po
 		}
 	if((((assign[po_assig]) - '0' + (base[po_base - 1] - '0'))<= 9))
 	{
-		printf( "NO CARRY before assig    >>%s<<<<   base >>%s<<\n" ,assign, base);
+	//printf( "NO CARRY before assig	>>%s<<	base >>%s<<\n" ,assign, base);
 		assign[po_assig] = assign[po_assig]  + (base[po_base - 1] - '0');
-		printf( "NO CARRY after assign    >>%s<<     base >>%s<<\n", assign , base);
+	//printf( "NO CARRY after assign	>>%s<<	base >>%s<<\n", assign , base);
 		ft_addstrings_stack(assign, base, --po_assig , --po_base);
 	}
 	else
 	{
-		printf( "CARRY before assig    >>%s<<<<   base >>%s<<\n" ,assign, base);
+	//printf( "CARRY before assig	>>%s<<<<   base >>%s<<\n" ,assign, base);
 		 // fix condition below
-		printf("CARRY DIFF diff rez  carry val  >>%zu<< char >>%c<<\n" ,(size_t)(assign[po_assig] + (base[po_base - 1] - 10 - '0')), (assign[po_assig] + (base[po_base - 1] - 10 - '0')));
+	//printf("CARRY DIFF diff rez carry val	>>%zu<< char >>%c<<\n" ,(size_t)(assign[po_assig] + (base[po_base - 1] - 10 - '0')), (assign[po_assig] + (base[po_base - 1] - 10 - '0')));
 		assign[po_assig] = assign[po_assig] + base[po_base - 1] - 10 - '0';
-
 		assign[po_assig - 1]++;
-			printf( "CARRY after assign    >>%s<<     base >>%s<<\n", assign , base);
-		
-	
+	//printf( "CARRY after assign	>>%s<<     base >>%s<<\n", assign , base);
 		///
 		//assign[po_assig - 1]++;
-
-
-
 		ft_addstrings_stack(assign, base, --po_assig , --po_base);
-	
 	}
-	ft_putendl(base);
+	//ft_putendl(base);
 	return ;
 }
 
@@ -59,25 +52,32 @@ void	ft_neg_pow_of_two(t_list *base, size_t po)
 
 	i = base->content_size;
 	ft_init_basex(base);
-	if(!po || po < i || !(assign = /*(char *)*/ft_memaset('0', po )))
+	if(!po || po < i || !(assign = /*(char *)*/ft_memaset('0', po - 1 )))
 	{
-		printf("PASSE ICI ?\n");
+	//	printf("PASSE ICI ?\n");
 		return ;
 	}
 //	base->content_size = po;
      
 	while(i++ < po)
 	{
-		j = 0;
-					printf("assignp assign >>%s<<base >>%s<<", assign, base->content);
-		while (++j <= 5)
+		if(base->content_size > 1)
+			j = 1;
+		else
+			j = 0;
+		
+		while (j++ <= 4)
 			{
+	//			printf("before add string po val %zu   val j>>%zu<<\n", po, j);
+	//			printf("\nassignp assign >>%s<<base >>%s<<\n", assign, base->content);
+				printf("base->content>>%s<<\n", base->content);
 				ft_addstrings_stack(assign ,base->content, ft_strlen(assign) - 1 , ft_strlen(base->content));
 				base->content_size = po;
 			}
 
 			free (base->content);
-				base->content = ft_strdup(assign);
+			base->content = ft_strdup(assign);
+
 	}
 //	free (base->content);
 
