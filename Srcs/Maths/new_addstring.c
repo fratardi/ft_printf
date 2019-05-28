@@ -2,6 +2,8 @@
 
 void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po_base)
 {
+	po_assig -= (assign[po_assig]) ? 1 : 0;
+	po_base -= (base[po_base]) ? 1 : 0;
 	//printf( "CALL addstring po_assign >>%zu<< po_base >>%zu<<base[pobase]>>%c<<assign[poassign]>>%c<<   \n", po_assig, po_base , base[po_base - 1] , assign[po_assig]);
 	/*if(!assign[po_assig]|| !base[po_base])
 		{
@@ -10,13 +12,13 @@ void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po
 		}*/
 	if(!po_assig || !po_base)
 		{
-			printf("finstack\n");
+			// printf("finstack %s\n", assign);
 			return;
 		}
 	if((((assign[po_assig]) - '0' + (base[po_base - 1] - '0'))<= 9))
 	{
-	//printf( "NO CARRY before assig	>>%s<<	base >>%s<<\n" ,assign, base);
-		assign[po_assig] = assign[po_assig]  + (base[po_base - 1] - '0');
+	// printf( "NO CARRY before assig	>>%s<<	base >>%s<<\n" ,assign, base);
+		assign[po_assig] = assign[po_assig]  + (base[po_base] - '0');
 	//printf( "NO CARRY after assign	>>%s<<	base >>%s<<\n", assign , base);
 		ft_addstrings_stack(assign, base, --po_assig , --po_base);
 	}
@@ -24,8 +26,8 @@ void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po
 	{
 	//printf( "CARRY before assig	>>%s<<<<   base >>%s<<\n" ,assign, base);
 		 // fix condition below
-	//printf("CARRY DIFF diff rez carry val	>>%zu<< char >>%c<<\n" ,(size_t)(assign[po_assig] + (base[po_base - 1] - 10 - '0')), (assign[po_assig] + (base[po_base - 1] - 10 - '0')));
-		assign[po_assig] = assign[po_assig] + base[po_base - 1] - 10 - '0';
+	// printf("CARRY DIFF diff rez carry val	>>%zu<< char >>%c<<\n" ,(size_t)(assign[po_assig] + (base[po_base - 1] - 10 - '0')), (assign[po_assig] + (base[po_base - 1] - 10 - '0')));
+		assign[po_assig] = assign[po_assig] + base[po_base] - 10 - '0';
 		assign[po_assig - 1]++;
 	//printf( "CARRY after assign	>>%s<<     base >>%s<<\n", assign , base);
 		///
