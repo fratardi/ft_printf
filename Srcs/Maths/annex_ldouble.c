@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 15:53:18 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 16:23:00 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,7 @@ t_double	ft_doublesign(t_double dble, char end)
 	{
 		dble.temp = ft_pow2str((dble.ex + dble.b), end);
 		ft_adjustnegpo(&dble.temp, &dble.dec);
-		dble.tempdec = ft_addstrings(dble.temp, dble.dec);
-		free(dble.dec);
-		dble.dec = dble.tempdec;
+		ft_addstrings_stack(dble.dec, dble.temp, ft_strlen(dble.dec), ft_strlen(dble.temp));
 	
 		// enlever la partie haute si strstack implementee   (checker l'exposant negatif le plus eleve pour initialiser la variable de la struct .)
 		//fonction a implementer 
