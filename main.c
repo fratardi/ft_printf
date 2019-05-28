@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 23:41:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 22:41:23 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/29 00:22:10 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,79 +14,63 @@
 
 int main(void)
 {
-	char		nb;
-	nb = -45;
+	unsigned char	nb;
+	nb = 255;
+	ft_printf("%hhx\n", nb);
+	ft_printf("test X:%hhx\n", nb);
+	ft_printf("Hash:%#hhx\n", nb);
+	ft_printf("prec / grande:%.5hhx\n", nb);
+	ft_printf("hash + prec / grande:%#.5hhx\n", nb);
+	ft_printf("hash + prec / petite:%#.1hhx\n", nb);
+	ft_printf("prec + 0: %0.5hhx\n", nb);
+	ft_printf("Prec + minus:%-.5hhx\n", nb);
+	ft_printf("size:%5hhx\n", nb);
+	ft_printf("size + prec:%7.3hhx\n", nb);
+	ft_printf("size + mminus:%-5hhx\n", nb);
+	ft_printf("size + 0:%05hhx\n", nb);
+	ft_printf("size + 0 + hash:%#05hhx\n", nb);
+	ft_printf("size + 0 + prec:%05.3hhx\n", nb);
+	ft_printf("size + minus + prec:%-5.3hhx\n", nb);
+	ft_printf("size + hash + 0 + prec:%#05.3hhx\n", nb);
+	ft_printf("size + hash + 0 + prec:%0#5.3hhx\n", nb);
+	ft_printf("size + hash + minus + prec:%-#7.3hhx\n", nb);
 
-	// ft_printf("%-05d", 42);
-	ft_printf("%10.5d", 4242);
-/* 	ft_printf("space:% d\n", nb);
-    ft_printf("plus:%+d\n", nb);
-    ft_printf("hash:%#d\n", nb);
-    ft_printf("precision:%.2d\n", nb);
-    ft_printf("big prec:%.14d\n", nb);
-    ft_printf("precision + hash:%#.0d\n", nb);
-    ft_printf("space + prec:% .5d\n", nb);
-    ft_printf("space + prec + hash:%# .0d\n", nb);
-    ft_printf("space + prec + hash:% #.0d\n", nb);
-    ft_printf("Plus + prec / grande:%+.5d\n", nb);
-    ft_printf("Plus + prec / petite:%+.0d\n", nb);
-    ft_printf("Plus + prec + hash:%#+.0d\n", nb);
-    ft_printf("Prec + 0:%0.5d\n", nb);
-    ft_printf("Prec + minus:%-.5d\n", nb);
-    ft_printf("size:%5d\n", nb);
-    ft_printf("size + space:% 5d\n", nb);
-    ft_printf("size + plus:%+5d\n", nb);
-    ft_printf("size + space:%# 5d\n", nb);
-    ft_printf("size + plus:%#+5d\n", nb);
-    ft_printf("size + minus:%-5d\n", nb);
-    ft_printf("size + 0:%05d\n", nb);
-    ft_printf("size + 0 + plus:%+05d\n", nb);
-    ft_printf("size + 0 + plus:%0+5d\n", nb);
-    ft_printf("size + 0 + prec:%05.3d\n", nb);
-    ft_printf("size + 0 + prec + hash:%0#5.0d\n", nb);
-    ft_printf("size + minus + prec:%-5.3d\n", nb);
-    ft_printf("size + minus + prec + hash:%-#5.0d\n", nb);
-    ft_printf("size + plus + 0 + prec:%+05.3d\n", nb);
-    ft_printf("size + plus + 0 + prec + hash:%0+#5.0d\n", nb);
-    ft_printf("size + espace + zero + prec:%0 5.3d\n", nb);
-    ft_printf("size + espace + zero + prec:% 05.3d\n", nb);
-    ft_printf("size + espace + zero + prec + hash:%#0 5.0d\n", nb);
-    ft_printf("size + minus + plus + prec:%-+5.3d\n", nb);
-    ft_printf("size + minus + plus + prec + hash:%-#+5.0d\n", nb);
- */
-/* 	printf("space:% d\n", nb);
-    printf("plus:%+d\n", nb);
-    printf("hash:%#d\n", nb);
-    printf("precision:%.2d\n", nb);
-    printf("big prec:%.14d\n", nb);
-    printf("precision + hash:%#.0d\n", nb);
-    printf("space + prec:% .5d\n", nb);
-    printf("space + prec + hash:%# .0d\n", nb);
-    printf("space + prec + hash:% #.0d\n", nb);
-    printf("Plus + prec / grande:%+.5d\n", nb);
-    printf("Plus + prec / petite:%+.0d\n", nb);
-    printf("Plus + prec + hash:%#+.0d\n", nb);
-    printf("Prec + 0:%0.5d\n", nb);
-    printf("Prec + minus:%-.5d\n", nb);
-    printf("size:%5d\n", nb);
-    printf("size + space:% 5d\n", nb);
-    printf("size + plus:%+5d\n", nb);
-    printf("size + space:%# 5d\n", nb);
-    printf("size + plus:%#+5d\n", nb);
-    printf("size + minus:%-5d\n", nb);
-    printf("size + 0:%05d\n", nb);
-    printf("size + 0 + plus:%+05d\n", nb);
-    printf("size + 0 + plus:%0+5d\n", nb);
-    printf("size + 0 + prec:%05.3d\n", nb);
-    printf("size + 0 + prec + hash:%0#5.0d\n", nb);
-    printf("size + minus + prec:%-5.3d\n", nb);
-    printf("size + minus + prec + hash:%-#5.0d\n", nb);
-    printf("size + plus + 0 + prec:%+05.3d\n", nb);
-    printf("size + plus + 0 + prec + hash:%0+#5.0d\n", nb);
-    printf("size + espace + zero + prec:%0 5.3d\n", nb);
-    printf("size + espace + zero + prec:% 05.3d\n", nb);
-    printf("size + espace + zero + prec + hash:%#0 5.0d\n", nb);
-    printf("size + minus + plus + prec:%-+5.3d\n", nb);
-    printf("size + minus + plus + prec + hash:%-#+5.0d\n", nb); */
+	printf("%hhx\n", nb);
+	printf("test X:%hhx\n", nb);
+	printf("Hash:%#hhx\n", nb);
+	printf("prec / grande:%.5hhx\n", nb);
+	printf("hash + prec / grande:%#.5hhx\n", nb);
+	printf("hash + prec / petite:%#.1hhx\n", nb);
+	printf("prec + 0: %0.5hhx\n", nb);
+	printf("Prec + minus:%-.5hhx\n", nb);
+	printf("size:%5hhx\n", nb);
+	printf("size + prec:%7.3hhx\n", nb);
+	printf("size + mminus:%-5hhx\n", nb);
+	printf("size + 0:%05hhx\n", nb);
+	printf("size + 0 + hash:%#05hhx\n", nb);
+	printf("size + 0 + prec:%05.3hhx\n", nb);
+	printf("size + minus + prec:%-5.3hhx\n", nb);
+	printf("size + hash + 0 + prec:%#05.3hhx\n", nb);
+	printf("size + hash + 0 + prec:%0#5.3hhx\n", nb);
+	printf("size + hash + minus + prec:%-#7.3hhx\n", nb);
+
+/* 	printf("%hx\n\n", nb);
+	printf("test X:%hx\n\n", nb);
+	printf("Hash:%#hx\n\n", nb);
+	printf("prec / grande:%.5hx\n\n", nb);
+	printf("hash + prec / grande:%#.5hx\n\n", nb);
+	printf("hash + prec / petite:%#.1hx\n\n", nb);
+	printf("prec + 0: %0.5hx\n\n", nb);
+	printf("Prec + minus:%-.5hx\n\n", nb);
+	printf("size:%5hx\n\n", nb);
+	printf("size + prec:%7.3hx\n\n", nb);
+	printf("size + mminus:%-5hx\n\n", nb);
+	printf("size + 0:%05hx\n\n", nb);
+	printf("size + 0 + hash:%#05hx\n\n", nb);
+	printf("size + 0 + prec:%05.3hx\n\n", nb);
+	printf("size + minus + prec:%-5.3hx\n\n", nb);
+	printf("size + hash + 0 + prec:%#05.3hx\n\n", nb);
+	printf("size + hash + 0 + prec:%0#5.3hx\n\n", nb);
+	printf("size + hash + minus + prec:%-#7.3hx\n\n", nb); */
 	return (0);
 }

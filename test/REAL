@@ -1,1 +1,18 @@
-     04242
+310a
+test X:310a
+Hash:0x310a
+prec / grande:0310a
+hash + prec / grande:0x0310a
+hash + prec / petite:0x310a
+prec + 0: 0310a
+Prec + minus:0310a
+size: 310a
+size + prec:   310a
+size + mminus:310a 
+size + 0:0310a
+size + 0 + hash:0x310a
+size + 0 + prec: 310a
+size + minus + prec:310a 
+size + hash + 0 + prec:0x310a
+size + hash + 0 + prec:0x310a
+size + hash + minus + prec:0x310a 
