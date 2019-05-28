@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 16:23:00 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 16:40:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,9 @@ char		*ft_float_zero(int prec, unsigned int is_ten, long double a)
 
 t_double	ft_doublesign(t_double dble, char end)
 {
-	// dble.temp = ft_pow2str(dble.b + dble.ex, end);
+	dble.temp = ft_pow2str(dble.b + dble.ex, end);
 	if (dble.b + dble.ex >= 0)
 	{
-		dble.temp = ft_pow2str(dble.b + dble.ex, end);
 		ft_adjustpospo(&dble.temp, &dble.ent);
 		dble.tempent = ft_addstrings(dble.temp, dble.ent);
 		free(dble.ent);
@@ -53,17 +52,10 @@ t_double	ft_doublesign(t_double dble, char end)
 	}
 	else if (dble.b + dble.ex < 0)
 	{
-		dble.temp = ft_pow2str((dble.ex + dble.b), end);
 		ft_adjustnegpo(&dble.temp, &dble.dec);
 		ft_addstrings_stack(dble.dec, dble.temp, ft_strlen(dble.dec), ft_strlen(dble.temp));
-	
-		// enlever la partie haute si strstack implementee   (checker l'exposant negatif le plus eleve pour initialiser la variable de la struct .)
-		//fonction a implementer 
-		/// func above 
-
-	///
 	}
-	// free(dble.temp);
+	free(dble.temp);
 	return (dble);
 }
 
