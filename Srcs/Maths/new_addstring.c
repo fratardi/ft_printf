@@ -2,8 +2,8 @@
 
 void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po_base)
 {
-	po_assig -= (assign[po_assig]) ? 1 : 0;
-	po_base -= (base[po_base]) ? 1 : 0;
+	po_assig -= (!assign[po_assig]) ? 1 : 0;
+	po_base -= (!base[po_base]) ? 1 : 0;
 	//printf( "CALL addstring po_assign >>%zu<< po_base >>%zu<<base[pobase]>>%c<<assign[poassign]>>%c<<   \n", po_assig, po_base , base[po_base - 1] , assign[po_assig]);
 	/*if(!assign[po_assig]|| !base[po_base])
 		{
@@ -15,7 +15,7 @@ void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po
 			// printf("finstack %s\n", assign);
 			return;
 		}
-	if((((assign[po_assig]) - '0' + (base[po_base - 1] - '0'))<= 9))
+	if((((assign[po_assig]) - '0' + (base[po_base] - '0'))<= 9))
 	{
 	// printf( "NO CARRY before assig	>>%s<<	base >>%s<<\n" ,assign, base);
 		assign[po_assig] = assign[po_assig]  + (base[po_base] - '0');
