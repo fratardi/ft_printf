@@ -131,6 +131,7 @@ typedef struct		s_double{
 	char	*tempent;
 	char	*tempdec;
 	int		b;
+	t_list		basenegpo; 
 }					t_double;
 
 typedef struct		s_power5{
@@ -278,4 +279,12 @@ void				ft_pad_space(t_printinfo *list);
 void				ft_pad_left(t_printinfo *list);
 void				ft_pad_showsig(t_printinfo *list);
 void				ft_pad_extra(t_printinfo *list);
+
+
+/*
+** added funcs
+*/
+
+char	*ft_pow2str_stack(int ex, t_list *base);
+
 #endif
