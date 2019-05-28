@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 15:08:13 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 15:53:18 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,10 @@ t_double	ft_doublesign(t_double dble, char end)
 	}
 	else if (dble.b + dble.ex < 0)
 	{
-		dble.temp = ft_pow2str_stack(-(dble.ex + dble.b) , &dble.basenegpo);
+		dble.temp = ft_pow2str((dble.ex + dble.b), end);
 		ft_adjustnegpo(&dble.temp, &dble.dec);
 		dble.tempdec = ft_addstrings(dble.temp, dble.dec);
-		if (dble.dec)
-			free(dble.dec);
+		free(dble.dec);
 		dble.dec = dble.tempdec;
 	
 		// enlever la partie haute si strstack implementee   (checker l'exposant negatif le plus eleve pour initialiser la variable de la struct .)
@@ -109,7 +108,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 		if (dble.m[i++] == '1')
 			dble = ft_doublesign(dble, 0);
 		if (!dble.m[i])
-			free(ft_pow5(1, 1));
+			free(ft_pow2str(-1, 1));
 		dble.b--;
 		//
 		//	printf("🤔 content endldouble >>%s<<\n", dble.basenegpo.content);

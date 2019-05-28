@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 06:42:57 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 16:04:11 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,10 +114,10 @@ char	*ft_rounding(char *str, size_t prec)
 		return (str);
 	}
 	i += prec;
-	if (str[i] == '5')
+/* 	if (str[i] == '5')
 		while (str[i] && str[i] == '5')
-			i++;
-	if (str[i] == 0 || str[i] > '5')
+			i++; */
+	if (str[i] == 0 || str[i] >= '5')
 	{
 		str[prec] = 0;
 		tmp = ft_strdup("1");

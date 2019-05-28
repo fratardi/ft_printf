@@ -46,9 +46,10 @@ void	ft_init_basex(t_list *base)
 	base->next = NULL;
 }
 
+
 void	ft_neg_pow_of_two(t_list *base, size_t po)
 {
-	char	*assign;
+	char	*assign = NULL;
 	static int last = 1;
 	size_t	i;
 	size_t	j;
@@ -57,20 +58,22 @@ void	ft_neg_pow_of_two(t_list *base, size_t po)
 	if(!po || po < i)
 	{
 		// printf("PASSE ICI ?\n");
+		if (!po)
+			base->content = ft_strdup("0");
 		return ;
 	}
 	if (last == 1)
 	{
 		assign = /*(char *)*/ft_memaset('0', po);
 	}
-	last = (po) ? po : last;
-	// printf("pow == %zu et i == %zu\n", po, i);
-	
-	
+	else
+		assign = ft_joinfree(ft_memaset('0', po - last), assign);
+	printf("pow == %zu et i == %zu\n", po, i);
 //	base->content_size = po;
      
 	while(i++ < po)
 	{
+
 		if(base->content_size > 1)
 			j = 1;
 		else
@@ -81,7 +84,8 @@ void	ft_neg_pow_of_two(t_list *base, size_t po)
 	//			printf("before add string po val %zu   val j>>%zu<<\n", po, j);
 	//			printf("\nassignp assign >>%s<<base >>%s<<\n", assign, base->content);
 				// printf("base->content>>%s<<\n", base->content);
-				ft_addstrings_stack(assign ,base->content, ft_strlen(assign) - 1 , ft_strlen(base->content));
+				ft_addstrings_stack(assign , base->content, ft_strlen(assign) , ft_strlen(base->content));
+				printf("base->content = %s\n", assign);
 				base->content_size = po;
 			}
 
@@ -91,6 +95,7 @@ void	ft_neg_pow_of_two(t_list *base, size_t po)
 	}
 //	free (base->content);
 
+	last = po;
 	return ;
 }
 
@@ -108,7 +113,10 @@ char	*ft_pow2str_stack(int ex, t_list *base)
 	//if((ex > 0))
 	//	return (ft_pow2c(ex)); 
 	last = ex;
-	ft_neg_pow_of_two(base, (size_t)ex);
+	printf("power = %i et exbase = %s\n", ex, base->content);
+	// ft_neg_pow_of_two(base, (size_t)ex);
+	// ft_pow_negativ(ex, ft_strdup(base->content), base);
+	printf("base = %s\n", base->content);
 	return(base->content);
 
 }

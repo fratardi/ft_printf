@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 23:41:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 15:05:52 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 16:04:18 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(void)
 
 	// ft_neg_pow_of_two(list, 10);
 	// printf("%s\n", list->content);
-	ft_printf("res >> %f\n", 1.3);
+	ft_printf("res >> %.40Lf\n", 123.456L);
+	printf("res >> %.40Lf\n", 123.456L);
 	return (0);
 }
