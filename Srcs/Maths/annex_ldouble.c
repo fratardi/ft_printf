@@ -52,22 +52,14 @@ t_double	ft_doublesign(t_double dble, char end)
 	}
 	else if (dble.b + dble.ex < 0)
 	{
-		///
-		///
-		///
-		/*
+
+		//
 		ft_adjustnegpo(&dble.temp, &dble.dec);
 		dble.tempdec = ft_addstrings(dble.temp, dble.dec);
 		free(dble.dec);
 		dble.dec = dble.tempdec;
-	
-		*/
-
-		ft_pow2str_stack((size_t)(dble.ex) , &dble.basenegpo);
-		//ft_putendl(dble.basenegpo.content);
-
-		//
-	
+		// enlever la partie haute si strstack implementee   (checker l'exposant negatif le plus eleve pour initialiser la variable de la struct .)
+		//fonction a implementer ft_pow2str_stack((size_t)(dble.ex) , &dble.basenegpo);
 	}
 	free(dble.temp);
 	return (dble);
@@ -85,9 +77,13 @@ void		init_dble(t_double *dble, long double a)
 	dble->ent = (dble->ex >= 0) ? ft_pow2str(0 + dble->ex, 0) : ft_strdup("0");
 	dble->m = ft_mantissaldouble(a);
 //attention ici a voir
-	dble->basenegpo.content = ft_strdup("\0");
-	dble->basenegpo.content_size = 1;
-// fin attention    
+/*
+	dble->basenegpo.content = ft_strdup("5");
+	dble->basenegpo.content_size = 2;
+	dble->basenegpo.next = NULL;
+*/
+//fin attention    
+
 }
 
 /*
