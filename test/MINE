@@ -1,1 +1,17 @@
-betest X:beHash:0xbeprec / grande:000behash + prec / grande:0x000behash + prec / petite:0xbeprec + 0: 000bePrec + minus:000besize:   besize + prec:    0besize + mminus:be   size + 0:000besize + 0 + hash:0x0besize + 0 + prec:  0besize + minus + prec:0be  size + hash + 0 + prec:0x0besize + hash + 0 + prec:0x0besize + hash + minus + prec:0x0be  
+test o:0
+>>hash:0
+precision / grande:00000
+Prec + hash / grande:00000
+>>Prec + hash / petite:0
+Prec + 0:00000
+Prec + minus:00000
+Size:    0
+size + prec:    000
+size + minus:0    
+size + zero:00000
+size + zero + hash:00000
+size + zero + prec:  000
+size + minus + prec:000  
+size + hash + zero + prec:  000
+size + hash + zero + prec:  000
+size + hash + minus + prec:000    
