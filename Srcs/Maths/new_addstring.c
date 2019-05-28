@@ -71,12 +71,14 @@ void	ft_neg_pow_of_two(t_list *base, size_t po)
 		j = 0;
 		while (++j <= 5)
 			{
-				ft_addstrings_stack(assign ,base->content, ft_strlen(assign) - 1 , ft_strlen(base->content)  );
+				ft_addstrings_stack(assign ,base->content, ft_strlen(assign) - 1 , ft_strlen(base->content));
 				base->content_size = po;
 			}
+			free (base->content);
+				base->content = assign;
 	}
-	free (base->content);
-	base->content = assign;
+//	free (base->content);
+
 	return ;
 }
 
