@@ -13,7 +13,7 @@ void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po
 			printf("finstack\n");
 			return;
 		}
-	if((((assign[po_assig]) - '0' + (base[po_base - 1] - '0'))< 9))
+	if((((assign[po_assig]) - '0' + (base[po_base - 1] - '0'))<= 9))
 	{
 		printf( "NO CARRY before assig    >>%s<<<<   base >>%s<<\n" ,assign, base);
 		assign[po_assig] = assign[po_assig]  + (base[po_base - 1] - '0');
@@ -24,7 +24,7 @@ void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po
 	{
 		printf( "CARRY before assig    >>%s<<<<   base >>%s<<\n" ,assign, base);
 		 // fix condition below
-		printf("diff rez  carry val  >>%zu<< char >>%c<<\n" ,(size_t)(assign[po_assig] + (base[po_base - 1] - 10 - '0')), (assign[po_assig] + (base[po_base - 1] - 10 - '0')));
+		printf("CARRY DIFF diff rez  carry val  >>%zu<< char >>%c<<\n" ,(size_t)(assign[po_assig] + (base[po_base - 1] - 10 - '0')), (assign[po_assig] + (base[po_base - 1] - 10 - '0')));
 		assign[po_assig] = assign[po_assig] + base[po_base - 1] - 10 - '0';
 
 		assign[po_assig - 1]++;
@@ -69,13 +69,15 @@ void	ft_neg_pow_of_two(t_list *base, size_t po)
 	while(i++ < po)
 	{
 		j = 0;
+					printf("assignp assign >>%s<<base >>%s<<", assign, base->content);
 		while (++j <= 5)
 			{
 				ft_addstrings_stack(assign ,base->content, ft_strlen(assign) - 1 , ft_strlen(base->content));
 				base->content_size = po;
 			}
+
 			free (base->content);
-				base->content = assign;
+				base->content = ft_strdup(assign);
 	}
 //	free (base->content);
 
