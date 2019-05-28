@@ -282,9 +282,11 @@ void				ft_pad_extra(t_printinfo *list);
 
 
 /*
-** added funcs
+** added funcs case of between comments 
 */
-
+//
+void	ft_init_basex(t_list *base);
 char	*ft_pow2str_stack(int ex, t_list *base);
 
+//
 #endif

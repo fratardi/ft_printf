@@ -14,7 +14,7 @@ void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po
 			printf("ENDADD\n");
 			return;
 		}
-	printf("\nENTREE ADDSTRING po_base>%zu<< po_assign>>%zu<< assig s>>%s<< base s >>%s<< basec >>%c<< assigc >>%c<<\n", po_base, po_assig, base, assign, base[po_base], assign[po_assig -1 ] );
+	printf("\nENTREE ADDSTRING po_base>%zu<< po_assign>>%zu<< assig s>>%s<< base s >>%s<< basec >>%c<< assigc >>%c<<\n", po_base, po_assig, base, assign, base[0], assign[0] );
 	if((((assign[po_assig-1]) - '0' + (base[po_base-1] - '0'))< 9))
 	{
 	printf("NoCarry before po_base>%zu<< po_assign>>%zu<< assig s>>%s<< base s >>%s<< basec >>%c<< assigc >>%c<<\n", po_base, po_assig, base, assign, base[po_base], assign[po_assig] );
@@ -37,14 +37,14 @@ void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po
 	return ;
 }
 
-/*
+
 void	ft_init_basex(t_list *base)
 {
 	base->content = ft_strdup("5");
 	base->content_size = 1;
 	base->next = NULL;
 }
-*/
+
 
 
 void	ft_neg_pow_of_two(t_list *base, size_t po)
@@ -54,7 +54,7 @@ void	ft_neg_pow_of_two(t_list *base, size_t po)
 	size_t	j;
 
 	i = base->content_size;
-//	ft_init_basex(base);
+	ft_init_basex(base);
 	if(!po || po < i || !(assign = /*(char *)*/ft_memaset('0', po )))
 	{
 		printf("PASSE ICI 1?\n");

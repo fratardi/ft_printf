@@ -52,14 +52,14 @@ t_double	ft_doublesign(t_double dble, char end)
 	}
 	else if (dble.b + dble.ex < 0)
 	{
-
-		//
 		ft_adjustnegpo(&dble.temp, &dble.dec);
 		dble.tempdec = ft_addstrings(dble.temp, dble.dec);
 		free(dble.dec);
 		dble.dec = dble.tempdec;
+		
 		// enlever la partie haute si strstack implementee   (checker l'exposant negatif le plus eleve pour initialiser la variable de la struct .)
-		//fonction a implementer ft_pow2str_stack((size_t)(dble.ex) , &dble.basenegpo);
+		//fonction a implementer 
+		//	ft_pow2str_stack((size_t)(dble.ex) , &dble.basenegpo);
 	}
 	free(dble.temp);
 	return (dble);
@@ -107,6 +107,9 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 		if (!dble.m[i])
 			free(ft_pow5(1, 1));
 		dble.b--;
+		//
+		//	printf("🤔 content endldouble >>%s<<\n", dble.basenegpo.content);
+		//
 	}
 	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
 	if (!is_ten)
