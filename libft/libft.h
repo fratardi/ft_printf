@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 18:12:44 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/24 17:06:03 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 14:46:16 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+
+
 size_t				ft_strnlen(const char *s, size_t maxlen);
 char				*ft_strndup(const char *s1, size_t n);
 void				ft_swap(int *a, int *b);

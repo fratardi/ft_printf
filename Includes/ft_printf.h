@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/28 13:16:34 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 14:41:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,7 +287,9 @@ void				ft_pad_extra(t_printinfo *list);
 //
 void	ft_init_basex(t_list *base);
 char	*ft_pow2str_stack(int ex, t_list *base);
-void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po_base);
+void    ft_addstrings_stack(char *assign, char *base, int po_assig, int po_base);
+char	*ft_new_addstrings(char *s1, char *s2);
+
 
 
 //

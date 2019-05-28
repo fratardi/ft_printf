@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pow_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/27 05:26:14 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/28 14:41:55 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_pow5(int po, char end)
 	if (po == 0)
 		return (ft_strdup("1"));
 	if (last == 1)
-		str[0] = ft_strdup("5\0");
+		str[0] = ft_strdup("5");
 	p = po;
 	while (po > last)
 	{
@@ -35,15 +35,53 @@ char	*ft_pow5(int po, char end)
 		pow.base = ft_strdup(str[0]);
 		while (pow.i--)
 		{
-			temp = ft_addstrings(str[0], pow.base);
-			free(str[0]);
-			str[0] = temp;
+			ft_addstrings_stack(str[0], pow.base, ft_strlen(str[0]), ft_strlen(pow.base));
+			printf("<< %s\n", str[0]);
 		}
 		free(pow.base);
 		po--;
 	}
 	last = p;
 	temp = ft_strdup(str[0]);
+	if (end == 1)
+		free(str[0]);
+	return(temp);
+}
+
+char	*ft_pow_neg(int po, char end)
+{
+	static char *str[1];
+	static int	last = 1;
+	char		*temp;
+	int			p;
+	t_power5 pow;
+
+	if (po < last && last != 1)
+	{
+		free(str[0]);
+		last = 1;
+	}
+	if (po == 0)
+		return (ft_strdup("1"));
+	if (last == 1)
+		str[0] = ft_joinfree(ft_memaset('0', po - 1), ft_strdup("5"));
+	else if (po > last)
+		str[0] = ft_joinfree(ft_memaset('0', po - last), str[0]);
+	p = po;
+	while (po > last)
+	{
+		pow.i = 4;
+		pow.base = ft_strdup(str[0]);
+		while (pow.i--)
+		{
+			ft_addstrings_stack(str[0], pow.base, ft_strlen(str[0]), ft_strlen(pow.base));
+		}
+		free(pow.base);
+		po--;
+	}
+	last = p;
+	temp = ft_strdup(str[0]);
+	end = 0;
 	if (end == 1)
 		free(str[0]);
 	return(temp);
@@ -79,7 +117,6 @@ char	*ft_pow2c(int po)
 {
 	char	*base;
 	char	*ret;
-	char	*tmp;
 
 	if (!po)
 		return (ft_strdup("0"));
@@ -89,10 +126,7 @@ char	*ft_pow2c(int po)
 	while (po-- > 1)
 	{
 		base = ft_strdup(ret);
-		tmp = ft_addstrings(ret, base);
-		free(ret);
-		ret = ft_strdup(tmp);
-		free(tmp);
+		ret = ft_new_addstrings(ret, base);
 		free(base);
 	}
 	return (ret);
@@ -104,7 +138,9 @@ char	*ft_pow2neg(int n, char end)
 	char	*fill;
 	size_t	i;
 
+	printf("pow = %d\n", n);
 	ret = ft_pow5(n, end);
+	printf("res = %s\n", ret);
 	i = n - ft_strlen(ret);
 	if (!(fill = (char *)ft_memalloc((sizeof(char)) * (i + 1))))
 		return (NULL);

@@ -1,6 +1,6 @@
 #include "../../Includes/ft_printf.h"
 
-void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po_base)
+void    ft_addstrings_stack(char *assign, char *base, int po_assig, int po_base)
 {
 	po_assig -= (!assign[po_assig]) ? 1 : 0;
 	po_base -= (!base[po_base]) ? 1 : 0;
@@ -10,7 +10,7 @@ void    ft_addstrings_stack(char *assign, char *base, size_t po_assig, size_t po
 			ft_putendl("return sale ...");
 			return ;
 		}*/
-	if(!po_assig || !po_base)
+	if(po_assig < 0 || po_base < 0)
 		{
 			// printf("finstack %s\n", assign);
 			return;
@@ -49,16 +49,24 @@ void	ft_init_basex(t_list *base)
 void	ft_neg_pow_of_two(t_list *base, size_t po)
 {
 	char	*assign;
+	static int last = 1;
 	size_t	i;
 	size_t	j;
 
 	i = base->content_size;
-	ft_init_basex(base);
-	if(!po || po < i || !(assign = /*(char *)*/ft_memaset('0', po - 1 )))
+	if(!po || po < i)
 	{
-	//	printf("PASSE ICI ?\n");
+		// printf("PASSE ICI ?\n");
 		return ;
 	}
+	if (last == 1)
+	{
+		assign = /*(char *)*/ft_memaset('0', po);
+	}
+	last = (po) ? po : last;
+	// printf("pow == %zu et i == %zu\n", po, i);
+	
+	
 //	base->content_size = po;
      
 	while(i++ < po)
@@ -72,7 +80,7 @@ void	ft_neg_pow_of_two(t_list *base, size_t po)
 			{
 	//			printf("before add string po val %zu   val j>>%zu<<\n", po, j);
 	//			printf("\nassignp assign >>%s<<base >>%s<<\n", assign, base->content);
-				printf("base->content>>%s<<\n", base->content);
+				// printf("base->content>>%s<<\n", base->content);
 				ft_addstrings_stack(assign ,base->content, ft_strlen(assign) - 1 , ft_strlen(base->content));
 				base->content_size = po;
 			}
@@ -88,6 +96,10 @@ void	ft_neg_pow_of_two(t_list *base, size_t po)
 
 char	*ft_pow2str_stack(int ex, t_list *base)
 {
+	static int last = 1;
+
+	if (last == 1)
+		ft_init_basex(base);
 	// comment initialiser la sequence ???? 
 //	static t_list base = ft_init_basex(&base);
 	//if (ex == 0)
@@ -95,6 +107,7 @@ char	*ft_pow2str_stack(int ex, t_list *base)
 	//revoir le return
 	//if((ex > 0))
 	//	return (ft_pow2c(ex)); 
+	last = ex;
 	ft_neg_pow_of_two(base, (size_t)ex);
 	return(base->content);
 
