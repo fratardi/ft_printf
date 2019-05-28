@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pad.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 20:37:18 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/25 00:23:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 17:34:06 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,18 @@ void	ft_pad(t_printinfo *info)
 	tmp_info = info;
 	while (tmp_info->next)
 	{
+	
 		ft_pad_prec(tmp_info);
+	if(ft_strchr("XxoO", tmp_info->t))
 		ft_pad_alt(tmp_info);
+	if(ft_strchr("dif", tmp_info->t))
 		ft_pad_showsig(tmp_info);
+	if(!tmp_info->extra)
 		ft_pad_space(tmp_info);
 		ft_pad_left(tmp_info);
 		ft_pad_extra(tmp_info);
+
 		tmp_info = tmp_info->next;
+	
 	}
 }

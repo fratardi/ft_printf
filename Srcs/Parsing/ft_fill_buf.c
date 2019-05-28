@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_buf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/25 00:25:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 17:36:40 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void		ft_fillbuf_digits(t_printinfo *l, t_elem *elem)
 	else if (!l->is_unsigned)
 		l->buf = ft_llitoa(elem->lli);
 	else if (l->is_char && l->is_unsigned)
-		l->buf = ft_ullitoa((char)elem->lli);
+		l->buf = ft_ullitoa((char)elem->ulli);
 	else if (l->is_short && l->is_unsigned)
-		l->buf = ft_ullitoa((short)elem->lli);
+		l->buf = ft_ullitoa((short)elem->ulli);
 	else if (l->is_unsigned && l->t == 'u')
 		l->buf = ft_ullitoa(elem->ulli);
 }
