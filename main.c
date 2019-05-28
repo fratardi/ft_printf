@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 23:41:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 21:38:28 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 22:17:04 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int main(void)
 {
-	int nb = 56432;
-/* 	ft_printf("space:% d\n", nb);
+	char		nb;
+	nb = -45;
+
+	ft_printf("space:% d\n", nb);
     ft_printf("plus:%+d\n", nb);
     ft_printf("hash:%#d\n", nb);
     ft_printf("precision:%.2d\n", nb);
@@ -48,9 +50,9 @@ int main(void)
     ft_printf("size + espace + zero + prec:% 05.3d\n", nb);
     ft_printf("size + espace + zero + prec + hash:%#0 5.0d\n", nb);
     ft_printf("size + minus + plus + prec:%-+5.3d\n", nb);
-    ft_printf("size + minus + plus + prec + hash:%-#+5.0d\n", nb);  */
-	
-	printf("space:% d\n", nb);
+    ft_printf("size + minus + plus + prec + hash:%-#+5.0d\n", nb);
+
+/* 	printf("space:% d\n", nb);
     printf("plus:%+d\n", nb);
     printf("hash:%#d\n", nb);
     printf("precision:%.2d\n", nb);
@@ -83,6 +85,6 @@ int main(void)
     printf("size + espace + zero + prec:% 05.3d\n", nb);
     printf("size + espace + zero + prec + hash:%#0 5.0d\n", nb);
     printf("size + minus + plus + prec:%-+5.3d\n", nb);
-    printf("size + minus + plus + prec + hash:%-#+5.0d\n", nb);
+    printf("size + minus + plus + prec + hash:%-#+5.0d\n", nb); */
 	return (0);
 }
