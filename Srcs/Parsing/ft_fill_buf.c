@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_buf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 17:36:40 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/28 18:35:43 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,21 @@ void		ft_fillbuf_float(t_printinfo *l, t_elem *elem)
 void		ft_fillbuf_convert(t_printinfo *l, t_elem *elem)
 {
 	if (l->t == 'o' && l->is_char)
-		l->buf = ft_convert_o((char)elem->ulli);
+		l->buf = ft_convert_o((unsigned char)elem->ulli);
 	else if (l->t == 'o' && l->is_short)
-		l->buf = ft_convert_o((short)elem->ulli);
+		l->buf = ft_convert_o((unsigned short)elem->ulli);
 	else if (l->t == 'o')
 		l->buf = ft_convert_o(elem->ulli);
 	else if (l->t == 'x' && l->is_char)
-		l->buf = ft_convert_x((char)elem->ulli);
+		l->buf = ft_convert_x((unsigned char)elem->ulli);
 	else if (l->t == 'x' && l->is_short)
-		l->buf = ft_convert_x((short)elem->ulli);
+		l->buf = ft_convert_x((unsigned short)elem->ulli);
 	else if (l->t == 'x')
 		l->buf = ft_convert_x(elem->ulli);
 	else if (l->t == 'X' && l->is_char)
-		l->buf = ft_convert_up_x((char)elem->ulli);
+		l->buf = ft_convert_up_x((unsigned char)elem->ulli);
 	else if (l->t == 'X' && l->is_short)
-		l->buf = ft_convert_up_x((short)elem->ulli);
+		l->buf = ft_convert_up_x((unsigned short)elem->ulli);
 	else if (l->t == 'X')
 		l->buf = ft_convert_up_x(elem->ulli);
 	else if (l->t == 'p')
@@ -58,15 +58,15 @@ void		ft_fillbuf_convert(t_printinfo *l, t_elem *elem)
 void		ft_fillbuf_digits(t_printinfo *l, t_elem *elem)
 {
 	if (l->is_char && !l->is_unsigned)
-		l->buf = ft_llitoa((char)elem->lli);
+		l->buf = ft_llitoa((signed char)elem->lli);
 	else if (l->is_short && !l->is_unsigned)
-		l->buf = ft_llitoa((short)elem->lli);
+		l->buf = ft_llitoa((signed short)elem->lli);
 	else if (!l->is_unsigned)
 		l->buf = ft_llitoa(elem->lli);
 	else if (l->is_char && l->is_unsigned)
-		l->buf = ft_ullitoa((char)elem->ulli);
+		l->buf = ft_ullitoa((unsigned char)elem->ulli);
 	else if (l->is_short && l->is_unsigned)
-		l->buf = ft_ullitoa((short)elem->ulli);
+		l->buf = ft_ullitoa((unsigned short)elem->ulli);
 	else if (l->is_unsigned && l->t == 'u')
 		l->buf = ft_ullitoa(elem->ulli);
 }

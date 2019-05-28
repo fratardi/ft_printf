@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
+#    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/05/27 05:30:17 by fratardi         ###   ########.fr        #
+#    Updated: 2019/05/28 19:16:33 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,12 +54,9 @@ C = ./Srcs/Parsing/ft_split_format.c \
 	./Srcs/Padding/ft_pad_showsig.c\
 	./Srcs/Padding/ft_pad_space.c \
 	./Srcs/Padding/ft_pad_left.c \
+	./Srcs/Padding/ft_padding.c\
 	./Srcs/ft_printf.c \
-	\
-	\
 	./Srcs/Maths/new_addstring.c \
-	\
-	\
 
 C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_freetab.o \

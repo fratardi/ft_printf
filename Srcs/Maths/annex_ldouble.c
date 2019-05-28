@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annex_ldouble.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 16:41:17 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/28 17:56:28 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,6 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 		if (!dble.m[i])
 			free(ft_pow2str(-1, 1));
 		dble.b--;
-		//
-		//	printf("🤔 content endldouble >>%s<<\n", dble.basenegpo.content);
-		//
 	}
 	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
 	if (!is_ten)

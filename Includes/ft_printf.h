@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/28 14:41:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 19:24:34 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ typedef struct		s_elem{
 	long double				long_double;
 	int						c;
 	unsigned int			pos;
+	signed char				s_c;
 	struct s_elem			*previous;
 	struct s_elem			*next;
 }					t_elem;
@@ -289,7 +290,7 @@ void	ft_init_basex(t_list *base);
 char	*ft_pow2str_stack(int ex, t_list *base);
 void    ft_addstrings_stack(char *assign, char *base, int po_assig, int po_base);
 char	*ft_new_addstrings(char *s1, char *s2);
-
+void	ft_padding(t_printinfo *list);
 
 
 //

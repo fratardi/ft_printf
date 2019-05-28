@@ -1,0 +1,34 @@
+space: 56432
+plus:+56432
+hash:56432
+precision:56432
+big prec:00000000056432
+precision + hash:56432
+space + prec: 56432
+space + prec + hash: 56432
+space + prec + hash: 56432
+Plus + prec / grande:+56432
+Plus + prec / petite:+56432
+Plus + prec + hash:+56432
+Prec + 0:56432
+Prec + minus:56432
+size:56432
+size + space: 56432
+size + plus:+56432
+size + space: 56432
+size + plus:+56432
+size + minus:56432
+size + 0:56432
+size + 0 + plus:+56432
+size + 0 + plus:+56432
+size + 0 + prec:56432
+size + 0 + prec + hash:56432
+size + minus + prec:56432
+size + minus + prec + hash:56432
+size + plus + 0 + prec:+56432
+size + plus + 0 + prec + hash:+56432
+size + espace + zero + prec:56432
+size + espace + zero + prec:56432
+size + espace + zero + prec + hash:56432
+size + minus + plus + prec:+56432
+size + minus + plus + prec + hash:+56432

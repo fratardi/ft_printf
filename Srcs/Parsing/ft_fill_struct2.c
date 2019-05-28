@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/23 07:51:35 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/28 18:10:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_printinfo	*ft_fillmod(char *str, t_printinfo *list)
 	}
 	list->is_long_double += (lmod % 2 == 0 && lmod != 0) ? 1 : 0;
 	list->is_long += (lmod % 2 != 0 && lmod != 0) ? 1 : 0;
-	if (list->is_long || list->is_char)
+	if (list->is_long || list->is_long_double)
 	{
 		list->is_char = 0;
 		list->is_short = 0;
