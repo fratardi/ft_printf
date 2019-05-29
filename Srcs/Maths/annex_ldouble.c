@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annex_ldouble.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/29 15:41:02 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/29 18:57:22 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,6 @@ void		init_dble(t_double *dble, long double a)
 	dble->dec = (dble->ex < 0) ? ft_pow2str(0 + dble->ex, 0) : ft_strdup("0");
 	dble->ent = (dble->ex >= 0) ? ft_pow2str(0 + dble->ex, 0) : ft_strdup("0");
 	dble->m = ft_mantissaldouble(a);
-	dble->basenegpo.content = ft_strdup("5");
-	dble->basenegpo.content_size = 2;
-	dble->basenegpo.next = NULL;
 }
 
 /*
@@ -101,7 +98,9 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
 	if (!is_ten)
 		dble.dec = ft_rounding(dble.dec, (prec > 0) ? prec : 6);
-	(prec == 0) ? 0 : (dble.ent = ft_joinfree(dble.ent, ft_strdup(".")));
+	if (prec == 0 && dble.dec[0] >= 5)
+		ft_addstrings_stack(dble.ent, "1", ft_strlen(dble.ent), 1);
+	dble.ent = ft_joinfree(dble.ent, ft_strdup("."));
 	(prec == 0) ? free(dble.dec) : (dble.ent = ft_joinfree(dble.ent, dble.dec));
 	free(dble.m);
 	if (is_ten)

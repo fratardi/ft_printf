@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:29 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/29 18:35:27 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/29 19:02:54 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,12 @@ void ft_padding(t_printinfo *list)
 		ft_pad_prec(list);
 		if (list->t == 's' || list->t == 'c')
 			ft_padding_str(list);
-		else if (ft_strchr("diu", list->t))
+		else if (ft_strchr("diuf", list->t))
 			ft_padding_digit(list);
 		else if (ft_strchr("xXpo", list->t))
 			ft_padding_convert(list);
+		if (list->t == 'f' && list->prec == 0 && list->showsign && !list->alt && !list->extra)
+			list->buf[ft_strlen(list->buf) - 1] = 0;
 		list = list->next;
 	}
 }
