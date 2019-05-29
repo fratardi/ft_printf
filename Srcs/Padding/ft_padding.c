@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:29 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/29 19:02:54 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/29 19:46:41 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,12 @@ void ft_padding_digit(t_printinfo *list)
 		free(list->buf);
 		list->buf = temp;
 	}
-	if (list->extra && list->prec == -2 && !list->left)
+	if (list->extra && (list->prec == -2 || list->t == 'f') && !list->left)
 	{
 		tmp = list->width - ft_strlen(list->buf) - (((sign == -1) || (sign == 1 && list->showsign)) ? 1 : 0);
-		if (list->space && list->buf[0] == '0')
+		if (list->space && list->buf[0] == '0' && list->t != 'f')
+			tmp--;
+		if (list->t == 'f' && list->space)
 			tmp--;
 		if (tmp > 0)
 			list->buf = ft_joinfree(ft_memaset('0', tmp), list->buf);        
