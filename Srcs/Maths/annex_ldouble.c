@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/29 21:08:02 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 01:35:34 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char		*ft_float_zero(int prec, unsigned int is_ten, long double a)
 	char *ret;
 	char *bin;
 
-	bin = ft_binary(&a, sizeof(long double));
+	bin = ft_binary(&a, 10);
+	// printf(">>%lu\n", sizeof(long double));	
 	ret = ft_strdup((ft_strchr(bin, '1')) ? "-0.0000000" : "0.0000000");
 	prec += (ft_strchr(bin, '1') ? 1 : 0);
 	free(bin);
@@ -96,16 +97,17 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 		dble.b--;
 	}
 	i = 0;
-	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
-	if (!is_ten)
-		dble.dec = ft_rounding(dble.dec, (prec > 0) ? prec : 6);
-	if (prec == 0 && dble.dec[0] >= '5' && dble.dec[0] != '0' && dble.ent[0] != '0')
+
+	if (dble.dec[0] != '0' && dble.ent[0] != '0' && prec == 0 && dble.dec[0] >= '5')
 	{
 		while (dble.dec[i] && dble.dec[i] >= '5')
 			i++;
 		if (dble.dec[i] > 5)
 			ft_addstrings_stack(dble.ent, "1", ft_strlen(dble.ent), 1);
 	}
+	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
+	if (!is_ten)
+		dble.dec = ft_rounding(dble.dec, (prec > 0) ? prec : 6);
 	dble.ent = ft_joinfree(dble.ent, ft_strdup("."));
 	(prec == 0) ? free(dble.dec) : (dble.ent = ft_joinfree(dble.ent, dble.dec));
 	free(dble.m);
