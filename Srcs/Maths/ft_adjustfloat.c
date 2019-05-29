@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 16:42:22 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/29 15:42:07 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,9 +114,6 @@ char	*ft_rounding(char *str, size_t prec)
 		return (str);
 	}
 	i += prec;
-/* 	if (str[i] == '5')
-		while (str[i] && str[i] == '5')
-			i++; */
 	if (str[i] == 0 || str[i] >= '5')
 	{
 		str[prec] = 0;

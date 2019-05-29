@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_addstrings.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 14:31:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/27 16:32:31 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/29 15:46:59 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ char	*ft_addstrings(char *s1, char *s2)
 	ret = (diff) ? ft_joinfree(ft_strdup("1"), ret) : ret;
 	return (ret);
 }
-
 
 char	*ft_new_addstrings(char *s1, char *s2)
 {

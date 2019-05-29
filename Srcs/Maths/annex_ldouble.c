@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annex_ldouble.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/28 17:56:28 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/29 15:41:02 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ t_double	ft_doublesign(t_double dble, char end)
 	else if (dble.b + dble.ex < 0)
 	{
 		ft_adjustnegpo(&dble.temp, &dble.dec);
-		ft_addstrings_stack(dble.dec, dble.temp, ft_strlen(dble.dec), ft_strlen(dble.temp));
+		ft_addstrings_stack(dble.dec, dble.temp, ft_strlen(dble.dec),
+			ft_strlen(dble.temp));
 	}
 	free(dble.temp);
 	return (dble);
@@ -70,13 +71,9 @@ void		init_dble(t_double *dble, long double a)
 	dble->dec = (dble->ex < 0) ? ft_pow2str(0 + dble->ex, 0) : ft_strdup("0");
 	dble->ent = (dble->ex >= 0) ? ft_pow2str(0 + dble->ex, 0) : ft_strdup("0");
 	dble->m = ft_mantissaldouble(a);
-//attention ici a voir
-
 	dble->basenegpo.content = ft_strdup("5");
 	dble->basenegpo.content_size = 2;
 	dble->basenegpo.next = NULL;
-//fin attention    
-
 }
 
 /*
