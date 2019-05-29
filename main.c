@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/24 23:41:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/29 01:09:10 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/29 18:39:25 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int main(void)
 {
 	int	nb = 0;
-	ft_printf("test o:%o\n", nb);
+	
+	ft_printf("%05.s\n", 42);
+	// printf("%05.s\n", 42);
+/* 	ft_printf("test o:%o\n", nb);
 	ft_printf(">>hash:%#o\n", nb);
 	ft_printf("precision / grande:%.5o\n", nb);
 	ft_printf("Prec + hash / grande:%#.5o\n", nb);
@@ -32,7 +35,7 @@ int main(void)
 	ft_printf("size + hash + zero + prec:%#05.3o\n", nb);
 	ft_printf("size + hash + zero + prec:%0#5.3o\n", nb);
 	ft_printf("size + hash + minus + prec:%-#7.3o\n", nb);
-	
+ */	
 /* 	printf("test o:%o\n", nb);
 	printf(">>hash:%#o\n", nb);
 	printf("precision / grande:%.5o\n", nb);

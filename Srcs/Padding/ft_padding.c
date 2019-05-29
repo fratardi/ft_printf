@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:29 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/29 01:43:36 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/29 18:35:27 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void ft_padding_str(t_printinfo *list)
 
 	width = list->width - ft_strlen(list->buf) - ((list->special == 0) ? 1 : 0);    
 	if (width > 0 && !list->left)
-		list->buf = ft_joinfree(ft_memaset(' ', width), list->buf);
+		list->buf = ft_joinfree(ft_memaset(((list->t == 'c' || list->buf[0] == 0) && list->extra) ? '0' : ' ', width), list->buf);
 	if (width > 0 && list->left)
 		list->buf = ft_joinfree(list->buf, ft_memaset(' ', width));      
 }
@@ -78,6 +78,8 @@ void ft_padding_digit(t_printinfo *list)
 	if (list->extra && list->prec == -2 && !list->left)
 	{
 		tmp = list->width - ft_strlen(list->buf) - (((sign == -1) || (sign == 1 && list->showsign)) ? 1 : 0);
+		if (list->space && list->buf[0] == '0')
+			tmp--;
 		if (tmp > 0)
 			list->buf = ft_joinfree(ft_memaset('0', tmp), list->buf);        
 	}
