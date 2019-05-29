@@ -1,34 +1,34 @@
-test basique:space: 0.000000
-plus:+0.000000
-hash:0.000000
-precision:0.00
-big prec:0.00000000000000
-precision + hash:0.
-space + prec: 0.00000
-space + prec + hash: 0.
-space + prec + hash: 0.
-Plus + prec / grande:+0.00000
-Plus + prec / petite:+0
-Plus + prec + hash:+0.
-Prec + 0:0.00000
-Prec + minus:0.00000
-size:0.000000
-size + space: 0.000000
-size + plus:+0.000000
-size + space: 0.000000
-size + plus:+0.000000
-size + minus:0.000000
-size + 0:0.000000
-size + 0 + plus:+0.000000
-size + 0 + plus:+0.000000
-size + 0 + prec:0.000
-size + 0 + prec + hash:0000.
-size + minus + prec:0.000
-size + minus + prec + hash:0.   
-size + plus + 0 + prec:+0.000
-size + plus + 0 + prec + hash:+000.
-size + espace + zero + prec: 0.000
-size + espace + zero + prec: 0.000
-size + espace + zero + prec + hash: 000.
-size + minus + plus + prec:+0.000
-size + minus + plus + prec + hash:+0.  
+test basique:space:-0.000000
+plus:-0.000000
+hash:-0.000000
+precision:-0.00
+big prec:-0.00000000000000
+precision + hash:-0.
+space + prec:-0.00000
+space + prec + hash:-0.
+space + prec + hash:-0.
+Plus + prec / grande:-0.00000
+Plus + prec / petite:-0
+Plus + prec + hash:-0.
+Prec + 0:-0.00000
+Prec + minus:-0.00000
+size:-0.000000
+size + space:-0.000000
+size + plus:-0.000000
+size + space:-0.000000
+size + plus:-0.000000
+size + minus:-0.000000
+size + 0:-0.000000
+size + 0 + plus:-0.000000
+size + 0 + plus:-0.000000
+size + 0 + prec:-0.000
+size + 0 + prec + hash:-000.
+size + minus + prec:-0.000
+size + minus + prec + hash:-0.  
+size + plus + 0 + prec:-0.000
+size + plus + 0 + prec + hash:-000.
+size + espace + zero + prec:-0.000
+size + espace + zero + prec:-0.000
+size + espace + zero + prec + hash: -00.
+size + minus + plus + prec:-0.000
+size + minus + plus + prec + hash:-0.  
