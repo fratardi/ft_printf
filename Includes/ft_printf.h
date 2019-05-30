@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/30 06:28:23 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 06:34:06 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,13 +126,10 @@ typedef struct		s_double{
 	char	*m;
 	int		ex;
 	char	*ent;
-	char	*exep;
 	char	*dec;
 	char	*temp;
 	char	*tempent;
-	char	*tempdec;
 	int		b;
-	t_list		basenegpo; 
 }					t_double;
 
 typedef struct		s_power5{
