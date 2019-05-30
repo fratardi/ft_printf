@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 02:50:00 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 03:38:40 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,9 @@ size_t		ft_putonlystring(char **tab)
 		tab[i][0] == '%' && open == 0 ? (open = 1) : 0;
 		if (open == 1 && tab[i + 1])
 		{
-			//printf("entree sequence \n");
 			ret += ft_sequence(tab[i], &open, tab[i + 1]);
 			if (open == 0)
 				i++;
-			//printf("ici ok ?");
 		}
 		else if (open == 0)
 			ret += ft_print_uni_str(tab[i]);

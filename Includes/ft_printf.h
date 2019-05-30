@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/28 19:24:34 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 03:38:29 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,6 @@ typedef struct		s_power5{
 
 typedef struct		s_last_pow{
 	char	*last;
-	int		last_pow;
 }					t_last_pow;
 
 /*
