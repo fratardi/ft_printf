@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 03:38:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 03:47:25 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,24 @@
 **Functions Power 2 and 5 returning a char*
 */
 
-char	*ft_pow_neg(int po, char end, t_last_pow *lcalc)
+void	ft_initpow(int *last, t_last_pow *lcalc, int po)
+{
+	if (*last == 0)
+	{
+		*last += 1;
+		lcalc->last = ft_memaset('0', po);
+		lcalc->last[po - 1] = '5';
+	}
+	else
+		lcalc->last = ft_joinfree(ft_memaset('0', po - *last), lcalc->last);
+}
+
+char	*ft_pow_neg(int po, t_last_pow *lcalc)
 {
 	static int	last = 0;
 	int			p;
 	t_power5	pow;
 
-	if (end == 1)
-	{
-		free(lcalc->last);
-		return(ft_strdup("0"));
-	}
-	end = 0;
 	if (po < last && last != 1)
 	{
 		free(lcalc->last);
@@ -35,14 +41,7 @@ char	*ft_pow_neg(int po, char end, t_last_pow *lcalc)
 	}
 	if (po == 0)
 		return (ft_strdup("1"));
-	if (last == 0)
-	{
-		last++;
-		lcalc->last = ft_memaset('0', po);
-		lcalc->last[po - 1] = '5';
-	}
-	else
-		lcalc->last = ft_joinfree(ft_memaset('0', po - last), lcalc->last);
+	ft_initpow(&last, lcalc, po);
 	p = po;
 	while (po > last)
 	{
@@ -84,9 +83,9 @@ char	*ft_pow2str(int ex, char end)
 	if (end == 1)
 	{
 		free(pow.last);
-		return(ft_strdup("end"));
+		return (ft_strdup("end"));
 	}
 	if (ex == 0)
 		return (ft_strdup("1"));
-	return ((ex > 0) ? ft_pow2c(ex) : ft_pow_neg(-ex, end, &pow));
+	return ((ex > 0) ? ft_pow2c(ex) : ft_pow_neg(-ex, &pow));
 }
