@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 04:56:33 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 06:29:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,47 +16,49 @@
 **Functions Power 2 and 5 returning a char*
 */
 
-char	*ft_pow_neg(int po, char end)
+char		*init_pow(int po, int *last, char *str)
 {
-	static char	*str[1];
-	static int	last = 0;
-	char		*temp;
-	int			p;
-	t_power5	pow;
-
-	if (po < last && last != 0)
+	if (po < *last && *last != 0)
 	{
-		free(str[0]);
-		last = 0;
+		free(str);
+		*last = 0;
 	}
-	if (last == 0)
+	if (*last == 0)
 	{
-		str[0] = ft_memaset('0', po);
-		str[0][po - 1] = '5';
-		last = 1;
+		str = ft_memaset('0', po);
+		str[po - 1] = '5';
+		*last = 1;
 	}
 	else
-		str[0] = ft_joinfree(ft_memaset('0', po - last), str[0]);
-	p = po;
+		str = ft_joinfree(ft_memaset('0', po - *last), str);
+	return (str);
+}
+
+char		*ft_pow_neg(int po)
+{
+	static char	*str;
+	static int	last = 0;
+	char		*temp;
+	t_power5	pow;
+
+	str = init_pow(po, &last, str);
+	pow.p = po;
 	while (po > last)
 	{
 		pow.i = 4;
-		pow.base = ft_strdup(str[0]);
+		pow.base = ft_strdup(str);
 		while (pow.i--)
-			ft_addstrings_stack(str[0], pow.base,
-				ft_strlen(str[0]), ft_strlen(pow.base));
+			ft_addstrings_stack(str, pow.base,
+				ft_strlen(str), ft_strlen(pow.base));
 		free(pow.base);
 		po--;
 	}
-	last = p;
-	temp = ft_strdup(str[0]);
-	end = 0;
-	if (end == 1)
-		free(str[0]);
+	last = pow.p;
+	temp = ft_strdup(str);
 	return (temp);
 }
 
-char	*ft_pow2c(int po)
+char		*ft_pow2c(int po)
 {
 	char	*base;
 	char	*ret;
@@ -75,9 +77,10 @@ char	*ft_pow2c(int po)
 	return (ret);
 }
 
-char	*ft_pow2str(int ex, char end)
+char		*ft_pow2str(int ex, char end)
 {
+	end = 0;
 	if (ex == 0)
 		return (ft_strdup("1"));
-	return ((ex > 0) ? ft_pow2c(ex) : ft_pow_neg(-ex, end));
+	return ((ex > 0) ? ft_pow2c(ex) : ft_pow_neg(-ex));
 }

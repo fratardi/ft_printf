@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 20:42:57 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/28 19:53:00 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 05:56:53 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_pad_space(t_printinfo *l)
 		l->buf = ft_joinfree(ft_memaset(' ', width - blen), l->buf);
 		l->buflen = width;
 	}
-	if (ft_strchr("di", l->t) && l->space && width - blen < 0 && width > 0/*  && l->prec >= 0 */)
+	if (ft_strchr("di", l->t) && l->space && width - blen < 0 && width > 0)
 	{
 		l->buf = ft_strjoinfree(ft_strdup(" "), l->buf);
 		l->buflen++;
