@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 03:20:18 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 03:41:18 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char		*ft_float_zero(int prec, unsigned int is_ten, long double a)
 	char *bin;
 
 	bin = ft_binary(&a, 10);
-	// printf(">>%lu\n", sizeof(long double));	
 	ret = ft_strdup((ft_strchr(bin, '1')) ? "-0.0000000" : "0.0000000");
 	prec += (ft_strchr(bin, '1') ? 1 : 0);
 	free(bin);
@@ -93,10 +92,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 		if (dble.m[i++] == '1')
 			dble = ft_doublesign(dble, 0);
 		if (!dble.m[i])
-		{
-			printf("free ?");
 			free(ft_pow2str(-1, 1));
-		}
 		dble.b--;
 	}
 	i = 0;
