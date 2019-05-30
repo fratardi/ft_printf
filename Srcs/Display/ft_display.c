@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 04:26:16 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 05:10:32 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,26 @@ size_t		ft_putonlystring(char **tab)
 	return (ret);
 }
 
+size_t		fill_syntax(t_printinfo *l, char **tab, int i)
+{
+	char	*temp;
+	size_t	ret;
+
+	ret = 0;
+	l->special == 0 && l->buflen != 0 ? (l->buf[l->buflen - 1] = 0) : 0;
+	ret += ft_print_n_uni_str(l->buf, ft_strlen(l->buf));
+	(l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;
+	temp = ft_rest(tab[i]);
+	ret += ft_strlen(temp);
+	ft_print_uni_str(temp);
+	return (ret);
+}
+
 size_t		ft_display(char **tab, t_printinfo *l)
 {
 	size_t	i;
-	int open;
+	int		open;
 	size_t	ret;
-	char	*temp;
 
 	i = 0;
 	open = 0;
@@ -99,17 +113,10 @@ size_t		ft_display(char **tab, t_printinfo *l)
 		return (ft_putonlystring(tab));
 	while (tab[i])
 	{
-		if (ft_issyntax(tab[i]) == 1)
-		{
-			l->special == 0 && l->buflen != 0 ? (l->buf[l->buflen - 1] = 0) : 0;
-			ret += ft_print_n_uni_str(l->buf, ft_strlen(l->buf));
-			(l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;
-			temp = ft_rest(tab[i]);
-			ret += ft_strlen(temp);
-			ft_print_uni_str(temp);
+		if (ft_issyntax(tab[i]) == 1 && (ret += fill_syntax(l, tab, i)))
 			l = l->next;
-		}
-		else if (ft_issyntax(tab[i]) != 1 && tab[i + 1] && ft_issyntax(tab[i + 1]) != 1)
+		else if (ft_issyntax(tab[i]) != 1 && tab[i + 1] &&
+		ft_issyntax(tab[i + 1]) != 1)
 		{
 			ret += ft_sequence(tab[i], &open, tab[i + 1]);
 			i++;
