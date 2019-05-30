@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/30 06:34:06 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 06:42:29 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,9 @@ void				ft_adjustpospo(char **s1, char **s2);
 void				ft_adjustnegpo(char **s1, char **s2);
 char				ft_addchar(char *s1, char *s2, char *ret, char carry);
 char				*ft_addstrings(char *s1, char *s2);
+void				ft_addstrings_stack(char *assign, char *base, int po_assig,
+	int po_base);
+char				*ft_new_addstrings(char *s1, char *s2);
 char				*ft_pow5(int pow, char end);
 void				ft_hexfloat(void *content, size_t n);
 char				*ft_fillbig(char *s1, char *s2);
@@ -266,19 +269,10 @@ void				ft_free_printinfo(t_printinfo *list);
 **Padding
 */
 
+void				ft_padding(t_printinfo *list);
 void				ft_padding_digit(t_printinfo *l);
 void				ft_padding_convert(t_printinfo *l);
 void				ft_padding_str(t_printinfo *l);
 void				ft_pad_prec(t_printinfo *l);
-
-/*
-** added funcs case of between comments 
-*/
-
-void	ft_init_basex(t_list *base);
-char	*ft_pow2str_stack(int ex, t_list *base);
-void    ft_addstrings_stack(char *assign, char *base, int po_assig, int po_base);
-char	*ft_new_addstrings(char *s1, char *s2);
-void	ft_padding(t_printinfo *list);
 
 #endif
