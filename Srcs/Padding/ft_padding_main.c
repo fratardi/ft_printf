@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_padding_main.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 05:26:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 19:52:16 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 20:49:45 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void		ft_padding(t_printinfo *l)
 	while (l->next)
 	{
 		ft_pad_prec(l);
-		if (l->t == 'f' && (!ft_strcmp("nan", l->buf) || !ft_strcmp("inf", l->buf) || !ft_strcmp("-inf", l->buf)))
+		if (l->t == 'f' && (!ft_strcmp("nan", l->buf)
+		|| !ft_strcmp("inf", l->buf) || !ft_strcmp("-inf", l->buf)))
 			ft_padding_str(l);
 		else if (l->t == 's' || l->t == 'c')
 			ft_padding_str(l);
