@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 05:10:32 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 21:49:24 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,11 @@ size_t		ft_display(char **tab, t_printinfo *l)
 		return (ft_putonlystring(tab));
 	while (tab[i])
 	{
-		if (ft_issyntax(tab[i]) == 1 && (ret += fill_syntax(l, tab, i)))
+		if (ft_issyntax(tab[i]) == 1)
+		{
+			ret += fill_syntax(l, tab, i);
 			l = l->next;
+		}
 		else if (ft_issyntax(tab[i]) != 1 && tab[i + 1] &&
 		ft_issyntax(tab[i + 1]) != 1)
 		{
