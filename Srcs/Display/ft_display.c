@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 21:49:24 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 22:47:46 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,14 +100,10 @@ size_t		fill_syntax(t_printinfo *l, char **tab, int i)
 	return (ret);
 }
 
-size_t		ft_display(char **tab, t_printinfo *l)
+size_t		ft_display(char **tab, t_printinfo *l, size_t i, int open)
 {
-	size_t	i;
-	int		open;
 	size_t	ret;
 
-	i = 0;
-	open = 0;
 	ret = 0;
 	if (onlystring(tab) == 1)
 		return (ft_putonlystring(tab));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_buf_main.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 07:26:18 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/25 00:23:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 22:59:21 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void		ft_iterate_buffer(t_printinfo *l, t_elem *elem)
 		ft_fillbuf_convert(l, elem);
 	else if (l->t == 'f')
 		ft_fillbuf_float(l, elem);
-	else if (l->t == 'F')
-		l->buf = ft_of(elem->value);
 }
 
 void		ft_fillbuf(t_printinfo *l, t_elem *elem)

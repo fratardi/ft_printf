@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_issyntax.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:40:55 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 21:43:37 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 23:21:31 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ int		ft_issyntax(char *str)
 			i++;
 	while (str[i] && ft_strchr("# 0'-+", str[i]) != NULL)
 		i++;
-	while (str[i] && (ft_isdigit(str[i]) == 1 /* || str[i] == '*' */))
+	while (str[i] && (ft_isdigit(str[i]) == 1))
 		i++;
 	while (str[i] && str[i] == '.')
 		i++;
-	while (str[i] && (ft_isdigit(str[i]) == 1 /* || str[i] == '*' */))
+	while (str[i] && (ft_isdigit(str[i]) == 1))
 		i++;
 	while (str[i] && ft_strchr("zjhlLE", str[i]) != NULL)
 		i++;
-	if (str[i] && ft_strchr("diouxXcfFspOUBb", str[i]) != NULL)
+	if (str[i] && ft_strchr("diouxXcfspOUBb", str[i]) != NULL)
 		return (1);
 	return (0);
 }

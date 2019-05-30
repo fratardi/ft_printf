@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
+#    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/05/30 05:29:06 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/05/30 22:57:22 by fratardi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,6 @@ C = ./Srcs/Parsing/ft_split_format.c \
 	./Srcs/Display/ft_displaybin.c \
 	./Srcs/Display/ft_display.c \
 	./Srcs/Display/size_convert.c \
-	./Srcs/Display/ft_open_file.c \
 	./Srcs/Maths/annex_float.c \
 	./Srcs/Maths/annex_ldouble.c\
 	./Srcs/Maths/pow_str.c \
