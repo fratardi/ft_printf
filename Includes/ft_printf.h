@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/30 04:50:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 05:29:45 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -273,13 +273,12 @@ void				ft_free_printinfo(t_printinfo *list);
 /*
 **Padding
 */
-void				ft_pad_prec(t_printinfo *list);
-void				ft_pad(t_printinfo *info);
-void				ft_pad_alt(t_printinfo *list);
-void				ft_pad_space(t_printinfo *list);
-void				ft_pad_left(t_printinfo *list);
-void				ft_pad_showsig(t_printinfo *list);
-void				ft_pad_extra(t_printinfo *list);
+
+void		ft_padding_digit(t_printinfo *l);
+void		ft_padding_convert(t_printinfo *l);
+void		ft_padding_str(t_printinfo *l);
+void		ft_pad_prec(t_printinfo *l);
+
 
 
 /*

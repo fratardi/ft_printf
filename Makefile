@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/05/28 19:16:33 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/05/30 05:29:06 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,13 +47,8 @@ C = ./Srcs/Parsing/ft_split_format.c \
 	./Srcs/Maths/ft_addstrings.c \
 	./Srcs/Maths/ft_exception.c \
 	./Srcs/Free/ft_free_printf.c \
-	./Srcs/Padding/ft_pad_prec.c \
-	./Srcs/Padding/ft_pad.c \
-	./Srcs/Padding/ft_pad_alt.c \
-	./Srcs/Padding/ft_pad_extra.c \
-	./Srcs/Padding/ft_pad_showsig.c\
-	./Srcs/Padding/ft_pad_space.c \
-	./Srcs/Padding/ft_pad_left.c \
+	./Srcs/Padding/ft_padding_main.c \
+	./Srcs/Padding/ft_pad_prec.c\
 	./Srcs/Padding/ft_padding.c\
 	./Srcs/ft_printf.c \
 	./Srcs/Maths/new_addstring.c \

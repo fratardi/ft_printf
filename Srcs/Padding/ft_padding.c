@@ -6,111 +6,109 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:29 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 02:53:24 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 05:26:20 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-void ft_padding_str(t_printinfo *list)
+void		ft_padding_str(t_printinfo *l)
 {
 	int width;
 
-	width = list->width - ft_strlen(list->buf) - ((list->special == 0) ? 1 : 0);    
-	if (width > 0 && !list->left)
-		list->buf = ft_joinfree(ft_memaset(((list->t == 'c' || list->buf[0] == 0 || list->t == 's') && list->extra) ? '0' : ' ', width), list->buf);
-	if (width > 0 && list->left)
-		list->buf = ft_joinfree(list->buf, ft_memaset(' ', width));      
+	width = l->width - ft_strlen(l->buf) - ((l->special == 0) ? 1 : 0);
+	if (width > 0 && !l->left)
+		l->buf = ft_joinfree(ft_memaset(((l->t == 'c' || l->buf[0] == 0 ||
+		l->t == 's') && l->extra) ? '0' : ' ', width), l->buf);
+	if (width > 0 && l->left)
+		l->buf = ft_joinfree(l->buf, ft_memaset(' ', width));
 }
 
-void ft_padding_convert(t_printinfo *list)
+void		padding_hash_convert(t_printinfo *l)
 {
-	int width;
 	char *temp;
-	
-	width = list->width - ft_strlen(list->buf) - ((ft_strchr("xX", list->t) && list->alt) ? 2 : 0);	
-	if (list->extra && list->prec == -2 && list->t != 'p' && width > 0 && !list->left)
+
+	if (l->alt && ft_strchr("xX", l->t) && l->buf[0] != 0)
 	{
-		if (ft_strchr("oO", list->t) && list->alt)
-			width--;
-		list->buf = ft_joinfree(ft_memaset('0', width), list->buf);
-		width = list->width - ft_strlen(list->buf);			
-	}
-	/* else if (list->alt && list->extra && width > 2 && ft_strchr("xX", list->t))
-		list->buf[1] = list->t; */
-	if (list->alt && ft_strchr("xX", list->t) && list->buf[0] != 0)
-	{
-		list->buf = ft_joinfree(ft_strdup((list->t == 'x') ? "0x" : "0X"), list->buf);
-		if (!ft_strcmp("0x0", list->buf) || !ft_strcmp("0X0", list->buf))
+		l->buf = ft_joinfree(ft_strdup((l->t == 'x') ? "0x" : "0X"), l->buf);
+		if (!ft_strcmp("0x0", l->buf) || !ft_strcmp("0X0", l->buf))
 		{
 			temp = ft_strdup("0");
-			free(list->buf);
-			list->buf = temp;
+			free(l->buf);
+			l->buf = temp;
 		}
 	}
-	else if (list->alt && ft_strchr("oO", list->t)/*  && !list->extra */)
+	else if (l->alt && ft_strchr("oO", l->t))
 	{
-		if ((!list->extra && ((list->prec >= -2 && list->buf[0] != '0') || (list->prec > (int)ft_strlen(list->buf) && list->buf[0] == '0'))) || list->extra)
-			list->buf = ft_joinfree(ft_strdup("0"), list->buf);
+		if ((!l->extra && ((l->prec >= -2 && l->buf[0] != '0') ||
+		(l->prec > (int)ft_strlen(l->buf) && l->buf[0] == '0'))) || l->extra)
+			l->buf = ft_joinfree(ft_strdup("0"), l->buf);
 	}
-	width = list->width - ft_strlen(list->buf);		
-	if (width > 0 && !list->left && ((!list->extra && list->prec == -2) || (list->extra) || (list->width > list->prec)))
-		list->buf = ft_joinfree(ft_memaset(' ', width), list->buf);
-	if (width > 0 && list->left && ((!list->extra && list->prec == -2) || (list->extra) || (list->width > list->prec)))
-		list->buf = ft_joinfree(list->buf, ft_memaset(' ', width));
-
 }
 
-void ft_padding_digit(t_printinfo *list)
+void		ft_padding_convert(t_printinfo *l)
 {
-	int sign;
 	int width;
-	int tmp;
-	char *temp;
 
-	sign = (list->buf[0] == '-') ? -1 : 1;
-	if (list->buf[0] == '-')
+	width = l->width - ft_strlen(l->buf) - ((ft_strchr("xX", l->t) && l->alt) ?
+	2 : 0);
+	if (l->extra && l->prec == -2 && l->t != 'p' && width > 0 && !l->left)
 	{
-		temp = ft_strdup(&list->buf[1]);
-		free(list->buf);
-		list->buf = temp;
+		if (ft_strchr("oO", l->t) && l->alt)
+			width--;
+		l->buf = ft_joinfree(ft_memaset('0', width), l->buf);
 	}
-	if (list->extra && (list->prec == -2 || list->t == 'f') && !list->left)
+	padding_hash_convert(l);
+	width = l->width - ft_strlen(l->buf);
+	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) || (l->extra) ||
+	(l->width > l->prec)))
+		l->buf = ft_joinfree(ft_memaset(' ', width), l->buf);
+	if (width > 0 && l->left && ((!l->extra && l->prec == -2) || (l->extra) ||
+	(l->width > l->prec)))
+		l->buf = ft_joinfree(l->buf, ft_memaset(' ', width));
+}
+
+void		padding_extra_digit(t_printinfo *l, int sign)
+{
+	int tmp;
+
+	if (l->extra && (l->prec == -2 || l->t == 'f') && !l->left)
 	{
-		tmp = list->width - ft_strlen(list->buf) - (((sign == -1) || (sign == 1 && list->showsign)) ? 1 : 0);
-		if (list->space && list->buf[0] == '0' && list->t != 'f' && sign == 1)
+		tmp = l->width - ft_strlen(l->buf) - (((sign == -1) ||
+		(sign == 1 && l->showsign)) ? 1 : 0);
+		if (l->space && l->buf[0] == '0' && l->t != 'f' && sign == 1)
 			tmp--;
-		if (list->t == 'f' && list->space && sign == 1)
+		if (l->t == 'f' && l->space && sign == 1)
 			tmp--;
 		if (tmp > 0)
-			list->buf = ft_joinfree(ft_memaset('0', tmp), list->buf);        
+			l->buf = ft_joinfree(ft_memaset('0', tmp), l->buf);
 	}
-	if (list->space && !list->showsign && sign == 1 && !list->is_unsigned)
-		list->buf = ft_joinfree(ft_strdup(" "), list->buf);
-	if (sign == -1 && !list->is_unsigned)
-		list->buf = ft_joinfree(ft_strdup("-"), list->buf);
-	if (list->showsign && sign == 1 && ! list->is_unsigned)
-		list->buf = ft_joinfree(ft_strdup("+"), list->buf);
-	width = list->width - ft_strlen(list->buf);
-	if (width > 0 && !list->left && ((!list->extra && list->prec == -2) || (list->extra) || (list->width > list->prec)))
-		list->buf = ft_joinfree(ft_memaset(' ', width), list->buf);
-	if (width > 0 && list->left)
-		list->buf = ft_joinfree(list->buf, ft_memaset(' ', width));
 }
 
-void ft_padding(t_printinfo *list)
+void		ft_padding_digit(t_printinfo *l)
 {
-	while (list->next)
+	int		sign;
+	int		width;
+	char	*temp;
+
+	sign = (l->buf[0] == '-') ? -1 : 1;
+	if (l->buf[0] == '-')
 	{
-		ft_pad_prec(list);
-		if (list->t == 's' || list->t == 'c')
-			ft_padding_str(list);
-		else if (ft_strchr("diuf", list->t))
-			ft_padding_digit(list);
-		else if (ft_strchr("xXpo", list->t))
-			ft_padding_convert(list);
-		if (list->t == 'f' && list->prec == 0 && list->showsign && !list->alt && !list->extra)
-			list->buf[ft_strlen(list->buf) - 1] = 0;
-		list = list->next;
+		temp = ft_strdup(&l->buf[1]);
+		free(l->buf);
+		l->buf = temp;
 	}
+	padding_extra_digit(l, sign);
+	if (l->space && !l->showsign && sign == 1 && !l->is_unsigned)
+		l->buf = ft_joinfree(ft_strdup(" "), l->buf);
+	if (sign == -1 && !l->is_unsigned)
+		l->buf = ft_joinfree(ft_strdup("-"), l->buf);
+	if (l->showsign && sign == 1 && !l->is_unsigned)
+		l->buf = ft_joinfree(ft_strdup("+"), l->buf);
+	width = l->width - ft_strlen(l->buf);
+	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) || (l->extra) ||
+	(l->width > l->prec)))
+		l->buf = ft_joinfree(ft_memaset(' ', width), l->buf);
+	if (width > 0 && l->left)
+		l->buf = ft_joinfree(l->buf, ft_memaset(' ', width));
 }
