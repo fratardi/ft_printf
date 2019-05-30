@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 03:47:25 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 04:56:33 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,45 +16,44 @@
 **Functions Power 2 and 5 returning a char*
 */
 
-void	ft_initpow(int *last, t_last_pow *lcalc, int po)
+char	*ft_pow_neg(int po, char end)
 {
-	if (*last == 0)
-	{
-		*last += 1;
-		lcalc->last = ft_memaset('0', po);
-		lcalc->last[po - 1] = '5';
-	}
-	else
-		lcalc->last = ft_joinfree(ft_memaset('0', po - *last), lcalc->last);
-}
-
-char	*ft_pow_neg(int po, t_last_pow *lcalc)
-{
+	static char	*str[1];
 	static int	last = 0;
+	char		*temp;
 	int			p;
 	t_power5	pow;
 
-	if (po < last && last != 1)
+	if (po < last && last != 0)
 	{
-		free(lcalc->last);
+		free(str[0]);
+		last = 0;
+	}
+	if (last == 0)
+	{
+		str[0] = ft_memaset('0', po);
+		str[0][po - 1] = '5';
 		last = 1;
 	}
-	if (po == 0)
-		return (ft_strdup("1"));
-	ft_initpow(&last, lcalc, po);
+	else
+		str[0] = ft_joinfree(ft_memaset('0', po - last), str[0]);
 	p = po;
 	while (po > last)
 	{
 		pow.i = 4;
-		pow.base = ft_strdup(lcalc->last);
+		pow.base = ft_strdup(str[0]);
 		while (pow.i--)
-			ft_addstrings_stack(lcalc->last, pow.base,
-				ft_strlen(lcalc->last), ft_strlen(pow.base));
+			ft_addstrings_stack(str[0], pow.base,
+				ft_strlen(str[0]), ft_strlen(pow.base));
 		free(pow.base);
 		po--;
 	}
 	last = p;
-	return (ft_strdup(lcalc->last));
+	temp = ft_strdup(str[0]);
+	end = 0;
+	if (end == 1)
+		free(str[0]);
+	return (temp);
 }
 
 char	*ft_pow2c(int po)
@@ -78,14 +77,7 @@ char	*ft_pow2c(int po)
 
 char	*ft_pow2str(int ex, char end)
 {
-	static t_last_pow pow;
-
-	if (end == 1)
-	{
-		free(pow.last);
-		return (ft_strdup("end"));
-	}
 	if (ex == 0)
 		return (ft_strdup("1"));
-	return ((ex > 0) ? ft_pow2c(ex) : ft_pow_neg(-ex, &pow));
+	return ((ex > 0) ? ft_pow2c(ex) : ft_pow_neg(-ex, end));
 }

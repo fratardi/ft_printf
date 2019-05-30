@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 04:14:44 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 04:30:45 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,31 +77,6 @@ void		init_dble(t_double *dble, long double a)
 **Main function to calculate and transform mant&exp to str long double
 */
 
-t_double	fill_double(t_double dble, int prec)
-{
-	int i;
-
-	i = 0;
-	while (dble.m[i])
-	{
-		if (dble.m[i++] == '1')
-			dble = ft_doublesign(dble, 0);
-		if (!dble.m[i])
-			free(ft_pow2str(-1, 1));
-		dble.b--;
-	}
-	i = 0;
-	if (dble.dec[0] != '0' && dble.ent[0] != '0' && prec == 0 &&
-	dble.dec[0] >= '5')
-	{
-		while (dble.dec[i] && dble.dec[i] >= '5')
-			i++;
-		if (dble.dec[i] > 5)
-			ft_addstrings_stack(dble.ent, "1", ft_strlen(dble.ent), 1);
-	}
-	return (dble);
-}
-
 char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 {
 	t_double	dble;
@@ -111,7 +86,15 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 	if (a == 0)
 		return (ft_float_zero(prec, is_ten, a));
 	init_dble(&dble, a);
-	dble = fill_double(dble, a);
+	while (dble.m[i])
+	{
+		if (dble.m[i++] == '1')
+			dble = ft_doublesign(dble, 0);
+		if (!dble.m[i])
+			free(ft_pow2str(-1, 1));
+		dble.b--;
+	}
+	dble = ft_rounding_ent(dble, prec);
 	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
 	if (!is_ten)
 		dble.dec = ft_rounding(dble.dec, (prec > 0) ? prec : 6);

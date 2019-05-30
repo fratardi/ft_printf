@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_adjustfloat.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/29 15:42:07 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/05/30 04:33:14 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **Functions to adjust str_numbers for addstrings
 */
 
-void	ft_adjustnegpo(char **s1, char **s2)
+void		ft_adjustnegpo(char **s1, char **s2)
 {
 	size_t	i1;
 	size_t	i2;
@@ -42,7 +42,7 @@ void	ft_adjustnegpo(char **s1, char **s2)
 	}
 }
 
-void	ft_adjustpospo(char **s1, char **s2)
+void		ft_adjustpospo(char **s1, char **s2)
 {
 	size_t	i1;
 	size_t	i2;
@@ -72,7 +72,7 @@ void	ft_adjustpospo(char **s1, char **s2)
 **Function to display str_long_double with E^
 */
 
-char	*ft_floatexp(char *str, int prec)
+char		*ft_floatexp(char *str, int prec)
 {
 	int		i;
 	int		y;
@@ -101,7 +101,7 @@ char	*ft_floatexp(char *str, int prec)
 **Function to round decimal part
 */
 
-char	*ft_rounding(char *str, size_t prec)
+char		*ft_rounding(char *str, size_t prec)
 {
 	int		i;
 	char	*tmp;
@@ -123,4 +123,24 @@ char	*ft_rounding(char *str, size_t prec)
 	}
 	str[prec] = 0;
 	return (str);
+}
+
+/*
+**Rounding ent. part if prec == 0
+*/
+
+t_double	ft_rounding_ent(t_double dble, int prec)
+{
+	int	i;
+
+	i = 0;
+	if (dble.dec[0] != '0' && dble.ent[0] != '0' && prec == 0 &&
+	dble.dec[0] >= '5')
+	{
+		while (dble.dec[i] && dble.dec[i] >= '5')
+			i++;
+		if (dble.dec[i] > 5)
+			ft_addstrings_stack(dble.ent, "1", ft_strlen(dble.ent), 1);
+	}
+	return (dble);
 }
