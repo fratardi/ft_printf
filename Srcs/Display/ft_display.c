@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 02:25:05 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 02:50:00 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ size_t		ft_putonlystring(char **tab)
 	while (tab[i])
 	{
 		tab[i][0] == '%' && open == 0 ? (open = 1) : 0;
-		if (open == 1 && tab[i+1])
+		if (open == 1 && tab[i + 1])
 		{
 			//printf("entree sequence \n");
 			ret += ft_sequence(tab[i], &open, tab[i + 1]);
@@ -90,10 +90,12 @@ size_t		ft_putonlystring(char **tab)
 size_t		ft_display(char **tab, t_printinfo *l)
 {
 	size_t	i;
+	int open;
 	size_t	ret;
 	char	*temp;
 
 	i = 0;
+	open = 0;
 	ret = 0;
 	if (onlystring(tab) == 1)
 		return (ft_putonlystring(tab));
@@ -108,6 +110,11 @@ size_t		ft_display(char **tab, t_printinfo *l)
 			ret += ft_strlen(temp);
 			ft_print_uni_str(temp);
 			l = l->next;
+		}
+		else if (ft_issyntax(tab[i]) != 1 && tab[i + 1] && ft_issyntax(tab[i + 1]) != 1)
+		{
+			ret += ft_sequence(tab[i], &open, tab[i + 1]);
+			i++;
 		}
 		else
 			ret += ft_print_n_uni_str(tab[i], ft_strlen(tab[i]));
