@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_buf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 19:40:00 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 20:51:28 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void		ft_fillbuf_float(t_printinfo *l, t_elem *elem)
 
 	exception = ft_exception((l->is_long_double) ?
 	(elem->long_double) : (elem->dble), l);
-	// printf(">> %s\n", exception);
 	if (exception == NULL)
 	{
 		if (l->t == 'f' && !l->is_long_double)
