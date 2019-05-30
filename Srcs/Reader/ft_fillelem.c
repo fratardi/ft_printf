@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:00:51 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/29 00:24:17 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 02:17:40 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 
 t_elem	*ft_filldi(t_printinfo *list, va_list va, t_elem *elem)
 {
-	if (list->is_long_double || list->max)
+	if (list->is_long_double)
 		elem->lli = va_arg(va, long long int);
 	else if (list->is_long)
 		elem->lli = va_arg(va, long int);
 	else
+	{
 		elem->lli = va_arg(va, int);
+	}
 	return (elem);
 }
 
