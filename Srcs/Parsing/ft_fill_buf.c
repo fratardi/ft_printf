@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 01:51:33 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/05/30 19:40:00 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void		ft_fillbuf_float(t_printinfo *l, t_elem *elem)
 {
 	char	*exception;
 
-	exception = ft_exception((l->is_long_double)
-	? elem->long_double : elem->dble, l);
+	exception = ft_exception((l->is_long_double) ?
+	(elem->long_double) : (elem->dble), l);
+	// printf(">> %s\n", exception);
 	if (exception == NULL)
 	{
 		if (l->t == 'f' && !l->is_long_double)
