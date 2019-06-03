@@ -1,32 +1,72 @@
 #include "./Includes/ft_printf.h"
 
+int ft_orig(char *format)
+{
+    int i = printf(format);
+    return(i);
+}
+
+int ft_copy(char *format)
+{
+    int i = ft_printf(format);
+    return(i);
+}   
+int     ft_compare(char *format, int nb)
+{
+    	printf("\n\nstring to assert %s\n" , format);
+    int i = ft_orig(format);
+
+    int j = ft_copy(format);
+	ft_putchar('\n');
+    if( i != j)
+    {
+        printf("\nFAIL test no %d orig  = %05d  copy = %05d", nb , i , j);	
+        return(1);
+    }
+        printf("\nSuccess test no %d orig  = %05d  copy = %05d", nb , i , j);
+
+    return(0);
+}
+
+void	ft_classictests()
+{
+
+	int nb = 12;
+	int i = 0;
+	int k;
+	k = 0;
+	char *tab[125];
+
+	tab[0] = "%";
+	tab[1] = "%%";
+	tab[2] = "%res";
+	tab[3] = "%res%res";
+	tab[4] = "%res%%res";
+	tab[5] = "%%res%res";
+	tab[6] = "%%res%%res";
+	tab[7] = "%%%";
+	tab[8] = "%%%%";
+	tab[9] = "%5%truc";
+	tab[10] = "%%5truc";
+	tab[11] = "truc%%5";
+	tab[12] = "5%5%5";
+	tab[13] = "%5%5%5	";
+
+
+	while(i <= nb )
+	 {
+		if( ft_compare(tab[i] , i))
+			k++;
+			i++;
+	}
+		printf(  "%d  failed tests out of %d\n",k, i    );
+}
+
 int main(void)
 {
-    long double		nb;
+	//ft_printf("%s", "bonjour" );
 
-	ft_printf("n$ - inverse = %2$s %1$s\n", "1st_String", "2nd_String");
-	ft_printf("Scientific = %Ef\n", 1.234567E-100);
-	ft_printf("Binary (int) = %b\n", 1);
-	ft_printf("Binary (str){hello} = %B\n", "hello");
-	ft_printf("Octal Upper = %O\n", 42);
-	ft_printf("Unsigned Upper = %U\n", 42);
-	ft_printf("size_t = %zu\n", (size_t)42);
-	ft_printf("Unicodes = 𝟜𝟚 et %s\n", "😀");
-    ft_printf("\nFloats_excepion >> Real After\n\n");
-	nb = 1.0L/0.0L;
-	ft_printf("%5.9Lf\n", nb);
-	printf("%5.9Lf\n", nb);
-    nb = -1.0/0.0;
-	ft_printf("%-12Lf\n", nb);
-	printf("%-12Lf\n", nb);
-	nb = 0.0L/0.0L;
-	ft_printf("%12Lf\n", nb);
-	printf("%12Lf\n", nb);
-	nb = -0.0L;
-	ft_printf("%Lf\n", nb);
-	printf("%Lf", nb);
-	ft_printf("\n\nFLOATS\n");
-	ft_printf("YOUR >> %.200f\n", 1.3E-140);
-	printf("REAL >> %.200f\n", 1.3E-140);
+
+ft_classictests();
     return(0);
 }
