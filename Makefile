@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/06/03 03:53:04 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/06/03 04:45:51 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,15 +94,21 @@ O_LIB = $(C_LIB:.c=.o)
 
 all : $(NAME)
 
-$(NAME): $(O) $(O_LIB) $(INC)
-	@ar rc $(NAME) $(O) $(O_LIB)
-	@echo "Ar Rc Done"
-	@ranlib $(NAME)
-	@echo "Ranlib OK"
+newline :
+	@echo ""
 
-%.o : %.c
+$(NAME): $(O) $(O_LIB) $(INC)
+	@echo ""
+	@ar rc $(NAME) $(O) $(O_LIB)
+	@echo "ar rc of" $(NAME) "is done"
+	@ranlib $(NAME)
+	@echo "Ranlib of" $(NAME) "is done"
+
+%.o : %.c	
 	@$(CC) $(FLAGS) -c $< -o $@
-	@echo "making" $@
+	$(if $(findstring Srcs,$@),@echo "Making" $<)
+	$(if $(findstring libft/ft_itoa.o,$@), @echo "")
+	$(if $(findstring libft/ft_itoa.o,$@), @echo ">>> Making LIBFT ...")
 
 clean :
 	@rm -rf $(O)
@@ -111,10 +117,10 @@ clean :
 
 fclean : clean
 	@rm -rf $(NAME)
-	@echo "libftprintf.a Removed"
+	@echo $(NAME) " Removed"
 	@rm -rf $(LIB)
-	@echo "libft.a Removed"	
+	@echo "libft.a Removed"
 
-re : fclean all
+re : fclean newline all
 
 .PHONY : all lib clean flean re
