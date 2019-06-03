@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/06/03 03:52:22 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/06/03 03:53:04 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,11 +102,6 @@ $(NAME): $(O) $(O_LIB) $(INC)
 
 %.o : %.c
 	@$(CC) $(FLAGS) -c $< -o $@
-	ifneq (,$(findstring ./libft, $@)
-	
-	else
-    # Not found
-	endif
 	@echo "making" $@
 
 clean :
