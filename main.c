@@ -2,12 +2,14 @@
 
 int ft_orig(char *format)
 {
+	printf("orig>");
     int i = printf(format);
     return(i);
 }
 
 int ft_copy(char *format)
 {
+	ft_putstr("copy>");
     int i = ft_printf(format);
     return(i);
 }   
@@ -31,7 +33,7 @@ int     ft_compare(char *format, int nb)
 void	ft_classictests()
 {
 
-	int nb = 12;
+	int nb = 14;
 	int i = 0;
 	int k;
 	k = 0;
@@ -51,6 +53,7 @@ void	ft_classictests()
 	tab[11] = "truc%%5";
 	tab[12] = "5%5%5";
 	tab[13] = "%5%5%5	";
+	tab[14] = "%";
 
 
 	while(i <= nb )
@@ -65,8 +68,7 @@ void	ft_classictests()
 int main(void)
 {
 	//ft_printf("%s", "bonjour" );
-
-
-ft_classictests();
-    return(0);
+ ft_classictests();
+    // ft_compare("%", 1);
+	return(0);
 }

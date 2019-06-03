@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/31 00:10:40 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/03 02:42:11 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,8 +210,7 @@ char				*ft_convert_p(void *to_convert);
 **Display Functions
 */
 
-size_t				ft_display(char **tab, t_printinfo *list, size_t i,
-	int open);
+size_t				ft_display(char **tab, t_printinfo *list);
 size_t				ft_dispnoh(t_printinfo *list, t_elem *elem);
 size_t				ft_disphmodchar(t_printinfo *list, t_elem *elem);
 size_t				ft_disphmodshort(t_printinfo *list, t_elem *elem);

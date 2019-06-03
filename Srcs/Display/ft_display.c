@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 22:47:46 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/03 03:24:17 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,101 +27,132 @@ int			ft_init_sequence(char *str, t_no_syntax *content)
 	}
 	content->width = ft_atoi((str + i));
 	content->width -= (content->width) ? 1 : 0;
+	while(str[i] && (ft_isdigit(str[i]) || str[i] == '.'))
+		i++;
 	return (i);
 }
 
-size_t		ft_sequence(char *str, int *open, char *s1)
+size_t		ft_endseq(char *s1)
+{
+	int i;
+	size_t ret;
+	char *temp;
+	t_no_syntax	content;
+
+	ret = 0;
+	i = ft_init_sequence(s1, &content);
+	if (s1[i] == 0)
+		return(0);
+	if (content.left)
+	{
+		ft_putchar(s1[i]);
+		ret++;
+	}
+	if (content.width > 0)
+	{
+		temp = ft_memaset((content.extra == 1) ? '0' : ' ', content.width);
+		ret += ft_print_uni_str(temp);
+		free(temp);
+	}
+	ret += ft_print_uni_str(&s1[i + ((content.left) ? 1 : 0)]);
+	return (ret);
+}
+
+size_t		ft_sequence(char *s1, char *s2, int *open)
 {
 	size_t		ret;
 	char		*temp;
-	char		*pad;
 	int			i;
 	t_no_syntax	content;
 
 	ret = 0;
-	i = ft_init_sequence(str, &content);
-	while (ft_strchr(".1234567890", str[i]) && str[i])
-		i++;
-	if ((s1 && s1[0]) || str[i])
-		temp = (str[i]) ? ft_strdup(&str[i]) : ft_memaset(s1[0], 1);
+	if (s2 == NULL)
+		return (0);
+	i = ft_init_sequence(s1, &content);
+	if (content.left)
+	{
+		if (s1[i] == 0)
+			ft_putchar(s2[0]);
+		else
+			ft_putchar(s1[i]);
+		ret++;
+	}
+	if (content.width > 0)
+	{
+		temp = ft_memaset((content.extra == 1) ? '0' : ' ', content.width);
+		ret += ft_print_uni_str(temp);
+		free(temp);
+	}
+	if (s1[i])
+	{
+		ret += ft_print_uni_str(&s1[i + ((content.left) ? 1 : 0)]);
+		*open = 1;
+	}
 	else
-		temp = ft_strdup("");
-	!str[i] ? (*open = 0) : 0;
-	if (content.width)
-		pad = ft_memaset((content.extra) ? '0' : ' ', content.width);
-	else
-		pad = ft_strdup("");
-	temp = (content.left) ? ft_joinfree(temp, pad) : ft_joinfree(pad, temp);
-	temp ? (ret += ft_print_uni_str(temp)) : 0;
-	(!str[i] && s1 && s1[0]) ? (ret += ft_print_uni_str(&s1[1])) : 0;
-	free(temp);
+	{
+		ret += ft_print_uni_str((content.left) ? &s2[1] : s2);
+		*open = 0;
+	}
 	return (ret);
 }
 
 size_t		ft_putonlystring(char **tab)
 {
 	size_t	ret;
-	int		open;
-	int		i;
+	size_t	i;
+	int open;
 
-	open = 0;
-	i = 0;
 	ret = 0;
-	if ((tab[i][0] == '%' && !tab[i + 1] && !tab[i][1]))
-		return (0);
+	i = 0;
+	open = 1;
 	while (tab[i])
 	{
-		tab[i][0] == '%' && open == 0 ? (open = 1) : 0;
-		if (open == 1 && tab[i + 1])
+		if (tab[i][0] == '%' && tab[i + 1])
 		{
-			ret += ft_sequence(tab[i], &open, tab[i + 1]);
+			ret += ft_sequence(tab[i], tab[i + 1], &open);
 			if (open == 0)
-				i++;
+				i += 1;
 		}
-		else if (open == 0)
+		else if (tab[i][0] == '%' && tab[i][1])
+			ret += ft_endseq(tab[i]);
+		else if (tab[i][0] != '%')
 			ret += ft_print_uni_str(tab[i]);
 		i++;
 	}
 	return (ret);
 }
 
-size_t		fill_syntax(t_printinfo *l, char **tab, int i)
-{
-	char	*temp;
-	size_t	ret;
-
-	ret = 0;
-	l->special == 0 && l->buflen != 0 ? (l->buf[l->buflen - 1] = 0) : 0;
-	ret += ft_print_n_uni_str(l->buf, ft_strlen(l->buf));
-	(l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;
-	temp = ft_rest(tab[i]);
-	ret += ft_strlen(temp);
-	ft_print_uni_str(temp);
-	return (ret);
-}
-
-size_t		ft_display(char **tab, t_printinfo *l, size_t i, int open)
+size_t		ft_display(char **tab, t_printinfo *l)
 {
 	size_t	ret;
+	size_t	i;
+	int open;
 
 	ret = 0;
+	i = 0;
 	if (onlystring(tab) == 1)
 		return (ft_putonlystring(tab));
 	while (tab[i])
 	{
-		if (ft_issyntax(tab[i]) == 1)
+		if (ft_issyntax(tab[i]) == 0 && tab[i][0] == '%' && tab[i + 1])
 		{
-			ret += fill_syntax(l, tab, i);
+			ret += ft_sequence(tab[i], tab[i + 1], &open);
+			if (ft_issyntax(tab[i + 1]) == 1)
+				l = l->next;
+			if (open == 0)
+				i += 1;
+		}
+		else if (ft_issyntax(tab[i]) == 0 && tab[i][0] == '%' && !tab[i + 1] && tab[i][1])
+			ret += ft_endseq(tab[i]);
+		else if (ft_issyntax(tab[i]) == 1)
+		{
+			ret += ft_print_uni_str(l->buf);
+			(l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;
+			ret += ft_print_uni_str(ft_rest(tab[i]));
 			l = l->next;
 		}
-		else if (ft_issyntax(tab[i]) != 1 && tab[i + 1] &&
-		ft_issyntax(tab[i + 1]) != 1)
-		{
-			ret += ft_sequence(tab[i], &open, tab[i + 1]);
-			i++;
-		}
-		else
-			ret += ft_print_n_uni_str(tab[i], ft_strlen(tab[i]));
+		else if (tab[i][0] != '%')
+			ret += ft_print_uni_str(tab[i]);
 		i++;
 	}
 	return (ret);

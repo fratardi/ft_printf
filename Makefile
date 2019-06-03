@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
+#    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/05/30 22:57:22 by fratardi         ###   ########.fr        #
+#    Updated: 2019/06/03 03:38:07 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,19 +95,28 @@ O_LIB = $(C_LIB:.c=.o)
 all : $(NAME)
 
 $(NAME): $(O) $(O_LIB) $(INC)
-	ar rc $(NAME) $(O) $(O_LIB)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(O) $(O_LIB)
+	@echo "Ar Rc Done"
+	@ranlib $(NAME)
+	@echo "Ranlib OK"
+
+making :
+	@echo "Making_Srcs"
 
 %.o : %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
+	@echo "making" $@
 
 clean :
-	rm -rf $(O)
-	make clean -C ./libft/
+	@rm -rf $(O)
+	@rm -rf $(O_LIB)
+	@echo "Cleaning Done (Removed .o)"
 
 fclean : clean
-	rm -rf $(NAME)
-	rm -rf $(LIB)
+	@rm -rf $(NAME)
+	@echo "libftprintf.a Removed"
+	@rm -rf $(LIB)
+	@echo "libft.a Removed"	
 
 re : fclean all
 
