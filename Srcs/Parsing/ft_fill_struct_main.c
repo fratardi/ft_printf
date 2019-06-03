@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:42:47 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 02:13:36 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/03 06:31:12 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ char			*ft_rest(char *str)
 	int i;
 
 	i = 0;
-	while (str[i] && ft_strchr("diouxXcfsCSpUObB", str[i]) == NULL)
+	while (str[i] && ft_strchr("diouxXcfspUObB", str[i]) == NULL)
 		i++;
-	i++;
+	if (str[i] != 0)
+		i++;
 	return (&str[i]);
 }
 

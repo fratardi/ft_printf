@@ -6,11 +6,26 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 02:32:38 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/24 16:24:55 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/03 05:44:02 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
+
+char	*ft_join_free(char *s1, char *s2)
+{
+	char *ret;
+
+	if (!s1)
+		return ((s2) ? s2 : NULL);
+	if (!s2)
+		return (s1);
+	ret = ft_strjoin(s1, s2);
+	free(s1);
+	free(s2);
+	return (ret);
+}
 
 static	int		ft_nblen(long long int nb)
 {
@@ -43,14 +58,14 @@ char			*ft_llitoa(long long int n)
 	i = 0;
 	if (nbl == 0)
 		return (ft_strdup("0"));
-	if (!(rez = (char*)ft_memalloc((sizeof(char) * ft_nblen(nbl) + 1))))
-		return (NULL);
 	i = ft_nblen(nbl) - 1;
 	if (nbl < 0)
 	{
 		temp = (unsigned long long int)-nbl;
-		return (ft_strjoinfree(ft_strdup("-"), ft_ullitoa(temp)));
+		return (ft_join_free(ft_strdup("-"), ft_ullitoa(temp)));
 	}
+	if (!(rez = (char*)ft_memalloc((sizeof(char) * ft_nblen(nbl) + 1))))
+		return (NULL);
 	rez[i] = '\0';
 	while (i >= 0)
 	{

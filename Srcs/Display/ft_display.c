@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/03 03:24:17 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/03 07:07:40 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,12 +146,14 @@ size_t		ft_display(char **tab, t_printinfo *l)
 			ret += ft_endseq(tab[i]);
 		else if (ft_issyntax(tab[i]) == 1)
 		{
-			ret += ft_print_uni_str(l->buf);
-			(l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;
+			(l->left && l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;			
+			if (l->special || (!l->special && l->width > 1))
+				ret += ft_print_uni_str(l->buf);
+			(!l->left && l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;
 			ret += ft_print_uni_str(ft_rest(tab[i]));
 			l = l->next;
 		}
-		else if (tab[i][0] != '%')
+		else if (tab[i][0] != '%' && tab[i])
 			ret += ft_print_uni_str(tab[i]);
 		i++;
 	}

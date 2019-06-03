@@ -65,10 +65,36 @@ void	ft_classictests()
 		printf(  "%d  failed tests out of %d\n",k, i    );
 }
 
+int        ft_testleaks(void)
+{
+
+/*     ft_printf("%5.1d\n", -52);
+    ft_printf("%5.1d\n", -52);
+
+    ft_printf("%#02x\n", 0);
+    ft_printf("%#02x\n", 0);
+
+    ft_printf("%d\n",-1);
+    ft_printf("%d\n",-1);
+
+    ft_printf("#02o\n", 5);
+    ft_printf("#02o\n", 5);
+    ft_printf("\n");
+    ft_printf("Ycc%#.4X et %#0012x %#04X !!\n", 0xaef, 0xe, (unsigned short)0);
+    printf("Occ%#.4X et %#0012x %#05X !!\n", 0xaef, 0xe, (unsigned short)0);
+ */
+	ft_printf(">>%-+-12.7Dt%i %04.2% et %lc titi\n", 124, 124, 256);
+	// printf(">>%-+-12.7Dt%i %04.2% et %lc titi\n", 124, 124, 256);
+
+	// while(1);
+    return(0);
+}
+
 int main(void)
 {
 	//ft_printf("%s", "bonjour" );
- ft_classictests();
+//  ft_classictests();
     // ft_compare("%", 1);
+	ft_testleaks();
 	return(0);
 }

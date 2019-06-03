@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:29 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 19:53:14 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/03 07:06:44 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		padding_hash_convert(t_printinfo *l)
 {
 	char *temp;
 
-	if (l->alt && ft_strchr("xX", l->t) && l->buf[0] != 0)
+	if (l->alt && ft_strchr("xX", l->t) && l->buf[0] && l->buf[ft_strlen(l->buf) - 1] != '0')
 	{
 		l->buf = ft_joinfree(ft_strdup((l->t == 'x') ? "0x" : "0X"), l->buf);
 		if (!ft_strcmp("0x0", l->buf) || !ft_strcmp("0X0", l->buf))
@@ -60,7 +60,9 @@ void		ft_padding_convert(t_printinfo *l)
 	}
 	padding_hash_convert(l);
 	width = l->width - ft_strlen(l->buf);
-	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) || (l->extra) ||
+	if (width > 0 && !l->left && l->extra && l->buf[ft_strlen(l->buf) - 1] == '0' && l->alt)
+		l->buf = ft_joinfree(ft_memaset('0', width), l->buf);
+	else if (width > 0 && !l->left && ((!l->extra && l->prec == -2) || (l->extra) ||
 	(l->width > l->prec)))
 		l->buf = ft_joinfree(ft_memaset(' ', width), l->buf);
 	if (width > 0 && l->left && ((!l->extra && l->prec == -2) || (l->extra) ||
