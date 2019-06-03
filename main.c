@@ -83,8 +83,10 @@ int        ft_testleaks(void)
     ft_printf("Ycc%#.4X et %#0012x %#04X !!\n", 0xaef, 0xe, (unsigned short)0);
     printf("Occ%#.4X et %#0012x %#05X !!\n", 0xaef, 0xe, (unsigned short)0);
  */
-	ft_printf(">>%-+-12.7Dt%i %04.2% et %lc titi\n", 124, 124, 256);
+	// ft_printf("%+-0# 12.5d", 13, "", L"〻");
+	// printf("test %-7C %007d%-10.2ls!!", 0xd777, "", L"〻");
 	// printf(">>%-+-12.7Dt%i %04.2% et %lc titi\n", 124, 124, 256);
+	ft_printf(">>%-+-12.7Dt%0 4i %04.2% et %lc titi\n", 124, 124, 256);
 
 	// while(1);
     return(0);
