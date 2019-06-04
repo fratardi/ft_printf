@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:29 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/03 07:06:44 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/04 21:10:16 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void		padding_extra_digit(t_printinfo *l, int sign)
 		if (l->space && l->buf[0] == '0' && l->t != 'f' && sign == 1)
 			tmp--;
 		if (l->t == 'f' && l->space && sign == 1)
+			tmp--;
+		if (ft_strchr("di", l->t) && sign == 1 && l->space && l->buf[0] != '0')
 			tmp--;
 		if (tmp > 0)
 			l->buf = ft_joinfree(ft_memaset('0', tmp), l->buf);

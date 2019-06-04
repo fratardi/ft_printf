@@ -97,6 +97,10 @@ int main(void)
 	//ft_printf("%s", "bonjour" );
 //  ft_classictests();
     // ft_compare("%", 1);
-	ft_testleaks();
+	// ft_testleaks();
+	long double a = 1566370688.000000L;
+	ft_printf("\\!/%30.15lf\\!/\n", a);
+	printf("\\!/%30.15lf\\!/\n", a);
+	// printf("!% 012zd!\n", 0);
 	return(0);
 }
