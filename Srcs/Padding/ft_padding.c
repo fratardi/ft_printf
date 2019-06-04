@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:29 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/04 21:44:04 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/04 21:54:33 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ void		ft_padding_str(t_printinfo *l)
 void		padding_hash_convert(t_printinfo *l, int zero)
 {
 	char *temp;
+	int		octal;
 
+	octal = (l->prec > (int)ft_strlen(l->buf)) ? 1 : 0;
 	if (l->alt && ft_strchr("xX", l->t) && l->buf[0] && !zero)
 	{
 		l->buf = ft_joinfree(ft_strdup((l->t == 'x') ? "0x" : "0X"), l->buf);
@@ -40,8 +42,8 @@ void		padding_hash_convert(t_printinfo *l, int zero)
 	}
 	else if (l->alt && ft_strchr("oO", l->t))
 	{
-		if ((!l->extra && ((l->prec >= -2 && l->buf[0] != '0') ||
-		(l->prec > (int)ft_strlen(l->buf) && l->buf[0] == '0'))) || l->extra)
+		if ((!l->extra && ((l->prec >= -2 && !zero) ||
+			(octal && zero))) || (l->extra && (!zero || octal)))
 			l->buf = ft_joinfree(ft_strdup("0"), l->buf);
 	}
 }
@@ -52,6 +54,7 @@ void		ft_padding_convert(t_printinfo *l, int zero)
 
 	width = l->width - ft_strlen(l->buf) - ((ft_strchr("xX", l->t) && l->alt) ?
 	2 : 0);
+	// printf(">> %s\n", l->buf);
 	if (l->extra && l->prec == -2 && l->t != 'p' && width > 0 && !l->left)
 	{
 		if (ft_strchr("oO", l->t) && l->alt)

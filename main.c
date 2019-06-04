@@ -98,9 +98,8 @@ int main(void)
 //  ft_classictests();
     // ft_compare("%", 1);
 	// ft_testleaks();
-	long double a = 1566370688.000000L;
-	ft_printf("\\!/%30.15lf\\!/\n", a);
-	printf("\\!/%30.15lf\\!/\n", a);
+	ft_printf("\\!/%0#28.2zo\\!/", 0);
+	printf("\\!/%0#28.2zo\\!/", 0);
 	// printf("!% 012zd!\n", 0);
 	return(0);
 }
