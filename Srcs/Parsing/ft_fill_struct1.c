@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/04 20:56:47 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/04 22:11:10 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
 	int i;
 
 	i = 0;
-	while (str[i] && str[i] != '.' && !ft_strchr("diouxXcfpsbB", str[i]))
+	while (str[i] && str[i] != '.' && !ft_strchr("diouxXcfpsbBOU", str[i]))
 		i++;
-	while (str[i] && str[i] == '.' && !ft_strchr("diouxXcfpsbB", str[i]))
+	while (str[i] && str[i] == '.' && !ft_strchr("diouxXcfpsbBOU", str[i]))
 		i++;
-	if (!str[i] || (ft_strchr("diouxXcfpsbB", str[i]) && str[i - 1] != '.'))
+	if (!str[i] || (ft_strchr("diouxXcfpsbBOU", str[i]) && str[i - 1] != '.'))
 		return (list);
 	list->prec = (str[i] == '*') ? -1 : ft_atoi(&str[i]);
 	return (list);

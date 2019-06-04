@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/23 07:06:42 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/04 22:07:34 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		ft_mod_pad_prec(int prec, t_printinfo *list)
 		list->buflen = (size_t)list->prec;
 	if (prec > (int)list->buflen)
 	{
-		if (ft_strchr("ouxX", list->t) && prec > list->width)
+		if (ft_strchr("oOUuxX", list->t) && prec > list->width)
 			list->buflen += prec;
 		if (ft_strchr("di", list->t) && prec)
 			list->buflen += prec;
@@ -51,7 +51,7 @@ void		ft_prec_uns_ptr(t_printinfo *l, int prec)
 	if (ft_strchr("uoxX", l->t) && prec > 0)
 	{
 		l->buf = ft_joinfree(ft_memaset('0',
-		(size_t)prec - ((l->t == 'o' && l->alt) ? 1 : 0)), l->buf);
+		(size_t)prec - ((ft_strchr("oO", l->t) && l->alt) ? 1 : 0)), l->buf);
 		l->buflen += prec;
 	}
 	if (l->t == 'p' && l->prec > (int)ft_strlen(l->buf))
@@ -70,7 +70,7 @@ void		ft_pad_prec(t_printinfo *l)
 
 	neg = 0;
 	if ((l->prec == 0) && (ft_strchr("diuxX", l->t) ||
-	(l->t == 'o' && !l->alt)) && l->buflen == 1 && l->buf[0] == '0')
+	(ft_strchr("oO", l->t) && !l->alt)) && l->buflen == 1 && l->buf[0] == '0')
 	{
 		l->buf[0] = 0;
 		l->buflen = 0;
