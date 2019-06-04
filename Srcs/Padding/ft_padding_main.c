@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 05:26:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/04 22:11:24 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/05 01:54:47 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		ft_padding(t_printinfo *l)
 
 	while (l->next)
 	{
-		zero = (l->buf[0] == '0' && !l->buf[1]) ? 1 : 0; 
+		zero = (l->buf[0] == '0' && !l->buf[1]) ? 1 : 0;
 		ft_pad_prec(l);
 		if (l->t == 'f' && (!ft_strcmp("nan", l->buf)
 		|| !ft_strcmp("inf", l->buf) || !ft_strcmp("-inf", l->buf)))
