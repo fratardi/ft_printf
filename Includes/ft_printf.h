@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/04 21:41:10 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/05 02:12:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct		s_printinfo {
 */
 
 typedef struct		s_no_syntax{
+	size_t	ret;
 	char	left;
 	char	extra;
 	int		width;
@@ -216,6 +217,10 @@ size_t				ft_disphmodchar(t_printinfo *list, t_elem *elem);
 size_t				ft_disphmodshort(t_printinfo *list, t_elem *elem);
 int					onlystring(char **tab);
 size_t				ft_putonlystring(char **tab);
+size_t				ft_sequence(char *s1, char *s2, int *open);
+size_t				ft_endseq(char *s1);
+
+
 
 /*
 **Annex Functions

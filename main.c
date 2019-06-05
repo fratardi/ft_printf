@@ -98,8 +98,8 @@ int main(void)
 //  ft_classictests();
     // ft_compare("%", 1);
 	// ft_testleaks();
-	ft_printf("^.^/%26hhO^.^/\n", 0);
-	printf("^.^/%26hhO^.^/\n", 0);
+	ft_printf("!%+2.36f!\n", 4.0f);
+	printf("!%+2.36f!\n", 4.0f);
 	// printf("!% 012zd!\n", 0);
 	return(0);
 }
