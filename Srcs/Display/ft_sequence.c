@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 02:07:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/05 02:12:20 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/05 02:16:22 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,22 @@ int			ft_init_sequence(char *str, t_no_syntax *content)
 	}
 	content->width = ft_atoi((str + i));
 	content->width -= (content->width) ? 1 : 0;
-	while(str[i] && (ft_isdigit(str[i]) || str[i] == '.'))
+	while (str[i] && (ft_isdigit(str[i]) || str[i] == '.'))
 		i++;
 	return (i);
 }
 
 size_t		ft_endseq(char *s1)
 {
-	int i;
-	size_t ret;
-	char *temp;
+	int			i;
+	size_t		ret;
+	char		*temp;
 	t_no_syntax	content;
 
 	ret = 0;
 	i = ft_init_sequence(s1, &content);
 	if (s1[i] == 0)
-		return(0);
+		return (0);
 	if (content.left)
 	{
 		ft_putchar(s1[i]);

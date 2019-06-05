@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/05 02:07:00 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/05 02:17:47 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t		ft_putonlystring(char **tab)
 {
 	size_t	ret;
 	size_t	i;
-	int open;
+	int		open;
 
 	ret = 0;
 	i = 0;
@@ -38,7 +38,7 @@ size_t		ft_putonlystring(char **tab)
 	return (ret);
 }
 
-int		ft_print_not_syntax(t_printinfo *l, char **tab, int i, size_t *ret)
+int			ft_print_not_syntax(t_printinfo *l, char **tab, int i, size_t *ret)
 {
 	int open;
 
@@ -49,7 +49,8 @@ int		ft_print_not_syntax(t_printinfo *l, char **tab, int i, size_t *ret)
 		l = (ft_issyntax(tab[i + 1]) == 1) ? l->next : l;
 		i += (open == 0) ? 1 : 0;
 	}
-	else if (ft_issyntax(tab[i]) == 0 && tab[i][0] == '%' && !tab[i + 1] && tab[i][1])
+	else if (ft_issyntax(tab[i]) == 0 && tab[i][0] == '%' && !tab[i + 1] &&
+		tab[i][1])
 		*ret += ft_endseq(tab[i]);
 	return (i);
 }
@@ -69,7 +70,7 @@ size_t		ft_display(char **tab, t_printinfo *l)
 			i = ft_print_not_syntax(l, tab, i, &ret);
 		else if (ft_issyntax(tab[i]) == 1)
 		{
-			(l->left && l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;			
+			(l->left && l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;
 			if (l->special == 1 || (l->special == 0 && l->width > 1))
 				ret += ft_print_uni_str(l->buf);
 			(!l->left && l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;
