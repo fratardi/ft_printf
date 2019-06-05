@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_llitoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 02:32:38 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/03 05:44:02 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/05 02:00:57 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_join_free(char *s1, char *s2)
+char			*ft_join_free(char *s1, char *s2)
 {
 	char *ret;
 
