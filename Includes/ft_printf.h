@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/05 02:12:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/08 00:51:58 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # include <fcntl.h>
 # include "../libft/libft.h"
 
+
+
+
+#define BUFF_SIZE  2014
 /*
 **Defines for unicodes hexas masks matching  hardware specifcations
 */
@@ -273,7 +277,7 @@ void				ft_free_printinfo(t_printinfo *list);
 /*
 **Padding
 */
-
+int					ft_print_preset_buf(unsigned char c, int n);
 void				ft_padding(t_printinfo *list);
 void				ft_padding_digit(t_printinfo *l);
 void				ft_padding_convert(t_printinfo *l, int zero);

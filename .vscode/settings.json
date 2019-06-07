@@ -1,0 +1,6 @@
+{
+    "vim.autoindent": false,
+    "vim.autoSwitchInputMethod.obtainIMCmd": "",
+    "vim.debug.loggingLevelForAlert": "",
+    "vim.easymotionMarkerHeight": null
+}
