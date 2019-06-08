@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_addstring.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 04:27:12 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/30 06:44:03 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/08 06:28:38 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_addstrings_stack(char *assign, char *base, int po_assig, int po_base)
 {
-	po_assig -= (!assign[po_assig]) ? 1 : 0;
-	po_base -= (!base[po_base]) ? 1 : 0;
 	if (po_assig < 0 || po_base < 0)
 		return ;
+		po_assig -= (!assign[po_assig]) ? 1 : 0;
+		po_base -= (!base[po_base]) ? 1 : 0;
 	if ((((assign[po_assig]) - '0' + (base[po_base] - '0')) <= 9))
 	{
 		assign[po_assig] = assign[po_assig] + (base[po_base] - '0');
