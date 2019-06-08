@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/08 05:01:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/08 05:20:23 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,12 @@ void		padding_hash_convert(t_printinfo *l, int zero)
 	}
 	else if (l->alt && ft_strchr("oO", l->t))
 	{
+
 		if ((!l->extra && ((l->prec >= -2 && !zero) ||
 			(octal && zero))) || (l->extra && (!zero || octal)))
+		{
 			l->buf = ft_joinfree(ft_strdup("0"), l->buf);
+		}
 	}
 }
 

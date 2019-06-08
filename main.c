@@ -109,8 +109,8 @@ int main(void)
 	//printf("!%+2.36f!\n", 4.0f);
 	// printf("!% 012zd!\n", 0);
 	// ft_printf("%#0+- 200.0s %#0+- 200.8d %#0+- 200.8X %#0+- 200.8x %#0+- 200.8o %#0+- 200.8f %#0+- 200.8p\n", "test", 12, 12, 12, 12, 12.2, "test");
-	ft_printf("Y> %032d\n", 42);
-	printf("R> %032d\n", 42);
+	ft_printf("\\!/%#48.11zO\\!/\n", 0);
+	printf("\\!/%#48.11zO\\!/\n", 0);
 		// ft_print_preset_buf( '0' , 51255 );
 	return(0);
 }
