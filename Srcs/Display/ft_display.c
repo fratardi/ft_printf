@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/08 03:18:20 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/08 03:23:34 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ size_t		ft_display(char **tab, t_printinfo *l)
 			i = ft_print_not_syntax(l, tab, i, &ret);
 		else if (ft_issyntax(tab[i]) == 1)
 		{
+			ft_pad_prec(l);
 			ret += ft_padding_display(l);
 /* 			(l->left && l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;
 			if (l->special == 1 || (l->special == 0 && l->width > 1))

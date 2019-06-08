@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/08 03:16:38 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/08 03:25:26 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ int      ft_pad_char_type(t_printinfo *l)
 		ret += ft_print_preset_buf(((l->t == 'c' || l->buf[0] == 0 ||
 		l->t == 's') && l->extra) ? '0' : ' ', width);
 	}
+	else
+		ret += ft_print_uni_str(l->buf);
 	return (ret);
 }
