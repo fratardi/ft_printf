@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/08 03:17:03 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/08 03:34:27 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -282,7 +282,7 @@ int      ft_pad_char_type(t_printinfo *l);
 int         ft_padding_display(t_printinfo *l);
 int					ft_print_preset_buf(unsigned char c, int n);
 void				ft_padding(t_printinfo *list);
-void				ft_padding_digit(t_printinfo *l);
+int				ft_pad_di(t_printinfo *l);
 void				ft_padding_convert(t_printinfo *l, int zero);
 void				ft_padding_str(t_printinfo *l);
 void				ft_pad_prec(t_printinfo *l);
