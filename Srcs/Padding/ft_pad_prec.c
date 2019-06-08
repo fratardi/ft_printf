@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/04 22:07:34 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/08 02:09:38 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,13 @@ void		ft_pad_prec(t_printinfo *l)
 	}
 	if (l->prec < 0 || l->t == 'f' || l->t == 'c')
 		return ;
-	prec = l->prec - l->buflen + ((l->buf[0] == '-' &&
+	prec = l->prec - ft_strlen(l->buf) + ((l->buf[0] == '-' &&
 	ft_strchr("di", l->t)) ? 1 : 0);
 	ft_prec_uns_ptr(l, prec);
 	l->buf[2] = (l->t == 'p' && l->prec == 0 && l->buf[2] == '0')
 	? 0 : l->buf[2];
-	l->buf[l->prec] = (l->t == 's' && prec < 0 && l->prec != -2)
-	? 0 : l->buf[l->prec];
+	if (l->t == 's' && prec < 0 && l->prec >= 0)
+		l->buf[l->prec] = 0;
 	l = ft_precdigits(prec, neg, l);
 	ft_mod_pad_prec(prec, l);
 }

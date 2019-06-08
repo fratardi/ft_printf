@@ -87,8 +87,7 @@ int        ft_testleaks(void)
 	 //printf("test %-7C %007d%-10.2ls!!", 0xd777, "", L"〻");
 	 //printf(">>%-+-12.7Dt%i %04.2% et %lc titi\n", 124, 124, 256);
 	ft_printf(">>%-+-12.7Dt%0 4i %04.2% et %lc titi\n", 124, 124, 256);
-
-	// while(1);
+		// while(1);
     return(0);
 }
 
@@ -98,6 +97,10 @@ int        ft_testleaks(void)
 
 int main(void)
 {
+	wchar_t l = L'😃';
+
+	// ft_printf("%s\n", ft_binary(&l, sizeof(wchar_t)));
+	// ft_printf("%s\n", ft_binary("😃", 4));
 	//ft_printf("%s", "bonjour" );
 	 //ft_classictests();
    // ft_compare("%", 1);
@@ -105,7 +108,7 @@ int main(void)
 //	ft_printf("!%+2.36f!\n", 4.0f);
 	//printf("!%+2.36f!\n", 4.0f);
 	// printf("!% 012zd!\n", 0);
-	
-		ft_print_preset_buf( '0' , 51255 );
+	ft_printf("%#0+- 200.0s %#0+- 200.8d %#0+- 200.8X %#0+- 200.8x %#0+- 200.8o %#0+- 200.8f %#0+- 200.8p\n", "test", 12, 12, 12, 12, 12.2, "test");
+		// ft_print_preset_buf( '0' , 51255 );
 	return(0);
 }
