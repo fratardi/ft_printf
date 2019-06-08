@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_preset_buf.c                              :+:      :+:    :+:   */
+/*   ft_padding_display.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/08 03:07:36 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/08 03:08:53 by tpacaud          ###   ########.fr       */
+/*   Created: 2019/06/08 03:12:49 by tpacaud           #+#    #+#             */
+/*   Updated: 2019/06/08 03:16:28 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-int    ft_print_preset_buf(unsigned char c, int n)
+int         ft_padding_display(t_printinfo *l)
 {
-    static char     lign[BUFF_SIZE];
-    int          i;
-
-    i = 0;
-	if(n == 0)
-		return(0);
-    ft_memset(lign, c, BUFF_SIZE);
-    while(i < n)
-    {
-        if((n - i) > BUFF_SIZE)
-        {
-			i += (int)write( 1, lign, BUFF_SIZE);
-			// i += BUFF_SIZE; 
-		}
-        if((n - i)  <=  BUFF_SIZE)
-        {
-			i += (int)write(1,  lign, n - i );
-			// i += (n - i);
-        }
-    }
-return(i);
+	// if(ft_strchr("diouUf", l->t))
+		// return(ft_pad_di(l));
+	// if(t_strchr("xXoO", l->t))
+		// return(ft_pad_xo(l));
+	if(l->t == 'c' || l->t == 's')
+		return(ft_pad_char_type(l));
+	// if(l->t == 'f' )
+		// return(ft_pad_float(l));
+	return(0);        
 }

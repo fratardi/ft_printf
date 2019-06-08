@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
+#    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/06/08 00:52:55 by fratardi         ###   ########.fr        #
+#    Updated: 2019/06/08 03:19:46 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,13 +46,17 @@ C = ./Srcs/Parsing/ft_split_format.c \
 	./Srcs/Maths/ft_addstrings.c \
 	./Srcs/Maths/ft_exception.c \
 	./Srcs/Free/ft_free_printf.c \
-	./Srcs/Padding/ft_padding_main.c \
 	./Srcs/Padding/ft_pad_prec.c\
-	./Srcs/Padding/ft_padding.c\
 	./Srcs/ft_printf.c \
 	./Srcs/Maths/new_addstring.c \
 	./Srcs/Display/ft_sequence.c \
 	./Srcs/Padding/ft_print_preset_buf.c \
+	./Srcs/Padding/ft_print_pad.c\
+	./Srcs/Padding/ft_padding_display.c\
+
+	#	./Srcs/Padding/ft_padding.c\
+	./Srcs/Padding/ft_padding_main.c \
+
 
 C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_freetab.o \

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 19:14:29 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/05 01:54:15 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/08 03:02:07 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ void		ft_padding_str(t_printinfo *l)
 
 	width = l->width - ft_strlen(l->buf) - ((l->special == 0) ? 1 : 0);
 	if (width > 0 && !l->left)
-		l->buf = ft_joinfree(ft_memaset(((l->t == 'c' || l->buf[0] == 0 ||
-		l->t == 's') && l->extra) ? '0' : ' ', width), l->buf);
+		l->buf = ft_joinfree(ft_memaset(), l->buf);
 	if (width > 0 && l->left)
 		l->buf = ft_joinfree(l->buf, ft_memaset(' ', width));
 }
