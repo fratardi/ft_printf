@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_padding_digits.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/08 04:24:38 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/08 04:56:50 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,7 @@ void padding_extra_digit(t_printinfo *l, int sign)
 		if (ft_strchr("di", l->t) && sign == 1 && l->space && l->buf[0] != '0')
 			tmp--;
 		if (tmp > 0)
-		{
-				
 			l->buf = ft_joinfree(ft_memaset('0', tmp), l->buf);
-		/*
-			ret += ft_print_preset_buf('0',tmp);				
-			return( ret += ft_print_uni_str(l->buf));
-		*/
-		}
 	}
 }
 
@@ -55,41 +48,24 @@ int ft_pad_di(t_printinfo *l)
 		l->buf = temp;
 	}
 	padding_extra_digit(l, sign);
-	width = l->width - ft_strlen(l->buf);
 	if (l->space && !l->showsign && sign == 1 && !l->is_unsigned)
-	{
-		//		l->buf = ft_joinfree(ft_strdup(" "), l->buf);
-		ret += (int)write(1, " ", 1);
-		width--;
-	}
+				l->buf = ft_joinfree(ft_strdup(" "), l->buf);
 	if (sign == -1 && !l->is_unsigned)
-	{
-		//l->buf = ft_joinfree(ft_strdup("-"), l->buf);
-		ret += (int)write( 1, "-", 1);	
-		width--;
-	}
+		l->buf = ft_joinfree(ft_strdup("-"), l->buf);
 	if (l->showsign && sign == 1 && !l->is_unsigned)
-	{
-		//l->buf = ft_joinfree(ft_strdup("+"), l->buf);
-		ret += (int)write( 1, "+", 1);
-		width--;
-	}
+		l->buf = ft_joinfree(ft_strdup("+"), l->buf);
+	width = l->width - ft_strlen(l->buf);
 	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) || (l->extra) || (l->width > l->prec)))
 	{
 		ret += ft_print_preset_buf(' ',width);
 		ret += ft_print_uni_str(l->buf);
-		//l->buf = ft_joinfree(ft_memaset(' ', width), l->buf);
 	}
 	else if (width > 0 && l->left)
 	{	
-		//l->buf = ft_joinfree(l->buf, ft_memaset(' ', width));	
 		ret += ft_print_uni_str(l->buf);
 		ret += ft_print_preset_buf(' ',width);
 	}
 	else
-	{
 		ret += ft_print_uni_str(l->buf);
-	}
-	
 	return(ret);
 }
