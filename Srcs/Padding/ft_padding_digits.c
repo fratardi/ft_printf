@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/08 04:21:49 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/08 04:24:38 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,19 @@ int ft_pad_di(t_printinfo *l)
 	{
 		//		l->buf = ft_joinfree(ft_strdup(" "), l->buf);
 		ret += (int)write(1, " ", 1);
+		width--;
 	}
 	if (sign == -1 && !l->is_unsigned)
 	{
 		//l->buf = ft_joinfree(ft_strdup("-"), l->buf);
-		ret += (int)write( 1, "-", 1);
+		ret += (int)write( 1, "-", 1);	
+		width--;
 	}
 	if (l->showsign && sign == 1 && !l->is_unsigned)
 	{
 		//l->buf = ft_joinfree(ft_strdup("+"), l->buf);
 		ret += (int)write( 1, "+", 1);
+		width--;
 	}
 	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) || (l->extra) || (l->width > l->prec)))
 	{
