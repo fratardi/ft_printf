@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/10 20:01:00 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/10 20:16:43 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int			ft_pad_xo(t_printinfo *l, int zero)
 		ret += ft_print_preset_buf(' ', width);
 		ret += ft_print_uni_str(l->buf);
 	}
-	else if (width > 0 && l->left && ((!l->extra && l->prec == -2) || (l->extra) ||
-	(l->width > l->prec)))
+	else if (width > 0 && l->left && ((!l->extra && l->prec == -2) ||
+		(l->extra) || (l->width > l->prec)))
 	{
 		ret += ft_print_uni_str(l->buf);
 		ret += ft_print_preset_buf(' ', width);

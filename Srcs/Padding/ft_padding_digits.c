@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/10 20:04:55 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/10 20:16:17 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	padding_extra_digit(t_printinfo *l, int sign)
 	ret = 0;
 	if (l->extra && (l->prec == -2 || l->t == 'f') && !l->left)
 	{
-		tmp = l->width - ft_strlen(l->buf) - (((sign == -1) || (sign == 1 && l->showsign)) ? 1 : 0);
+		tmp = l->width - ft_strlen(l->buf) - (((sign == -1) ||
+			(sign == 1 && l->showsign)) ? 1 : 0);
 		if (l->space && l->buf[0] == '0' && l->t != 'f' && sign == 1)
 			tmp--;
 		if (l->t == 'f' && l->space && sign == 1)
@@ -55,7 +56,8 @@ int		ft_pad_di(t_printinfo *l)
 	if (l->showsign && sign == 1 && !l->is_unsigned)
 		l->buf = ft_joinfree(ft_strdup("+"), l->buf);
 	width = l->width - ft_strlen(l->buf);
-	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) || (l->extra) || (l->width > l->prec)))
+	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) ||
+		(l->extra) || (l->width > l->prec)))
 	{
 		ret += ft_print_preset_buf(' ', width);
 		ret += ft_print_uni_str(l->buf);
