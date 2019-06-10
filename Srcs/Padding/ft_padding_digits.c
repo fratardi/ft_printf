@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/10 20:16:17 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/10 22:11:15 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,33 @@ void	padding_extra_digit(t_printinfo *l, int sign)
 	}
 }
 
+int		ft_print_pad_dig(t_printinfo *l, int width)
+{
+	int ret;
+
+	ret = 0;
+	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) ||
+		(l->extra) || (l->width > l->prec)))
+	{
+		ret += ft_print_preset_buf(' ', width);
+		ret += ft_print_uni_str(l->buf);
+	}
+	else if (width > 0 && l->left)
+	{
+		ret += ft_print_uni_str(l->buf);
+		ret += ft_print_preset_buf(' ', width);
+	}
+	else
+		ret += ft_print_uni_str(l->buf);
+	return (ret);
+}
+
 int		ft_pad_di(t_printinfo *l)
 {
-	int		ret;
 	int		sign;
 	int		width;
 	char	*temp;
 
-	ret = 0;
 	sign = (l->buf[0] == '-') ? -1 : 1;
 	if (l->buf[0] == '-')
 	{
@@ -56,18 +75,5 @@ int		ft_pad_di(t_printinfo *l)
 	if (l->showsign && sign == 1 && !l->is_unsigned)
 		l->buf = ft_joinfree(ft_strdup("+"), l->buf);
 	width = l->width - ft_strlen(l->buf);
-	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) ||
-		(l->extra) || (l->width > l->prec)))
-	{
-		ret += ft_print_preset_buf(' ', width);
-		ret += ft_print_uni_str(l->buf);
-	}
-	else if (width > 0 && l->left)
-	{
-		ret += ft_print_uni_str(l->buf);
-		ret += ft_print_preset_buf(' ', width);
-	}
-	else
-		ret += ft_print_uni_str(l->buf);
-	return (ret);
+	return (ft_print_pad_dig(l, width));
 }

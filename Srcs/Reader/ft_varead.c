@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_varead.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 19:04:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 05:12:54 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/10 21:17:12 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_elem	*ft_readfill(t_printinfo *list, va_list va, t_elem *elem)
 		elem = ft_fillfloats(list, va, elem);
 	else if (list->type == 6 || list->t == 'B')
 		elem->value = va_arg(va, void *);
-	else if (list->type == 4)
+	else if (list->type == 4 && !list->is_long)
 		elem->value = va_arg(va, char *);
 	else if (list->t == 'b')
 		elem->lli = va_arg(va, long long int);
