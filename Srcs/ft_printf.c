@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/24 18:51:03 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/08 03:20:13 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/10 20:10:04 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int		ft_printf(const char *format, ...)
 	elem = ft_varead(list, va, tab);
 	va_end(va);
 	ft_fillbuf(list, elem);
-	// ft_padding(list);
 	ret = ft_display(tab, list);
 	ft_free_printf(tab, elem, list);
 	return (ret);

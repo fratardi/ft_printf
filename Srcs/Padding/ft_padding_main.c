@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_padding_main.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 05:26:31 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/08 05:08:15 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/10 19:58:07 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void		ft_padding(t_printinfo *l)
 			ft_padding_digit(l);
 		else if (ft_strchr("xXpo", l->t))
 			ft_padding_convert(l, zero);
-
 		l = l->next;
 	}
 }

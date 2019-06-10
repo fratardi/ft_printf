@@ -112,7 +112,7 @@ int main(void)
 	// ft_printf("\\!/%#48.11zO\\!/\n", 0);
 	// printf("\\!/%#48.11zO\\!/\n", 0);
 	ft_printf("%.0f", 12.6);
-	printf("%.0f", 12.6);
+//	printf("%.0f", 12.6);
 		// ft_print_preset_buf( '0' , 51255 );
 	return(0);
 }

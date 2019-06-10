@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_pad.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/08 05:20:23 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/10 20:01:00 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
 
-int      ft_pad_char_type(t_printinfo *l)
+int			ft_pad_char_type(t_printinfo *l)
 {
-	int width;
-	int ret;
-	
+	int	width;
+	int	ret;
+
 	ret = 0;
 	width = l->width - ft_strlen(l->buf) - ((l->special == 0) ? 1 : 0);
 	if (width > 0 && !l->left)
@@ -54,7 +54,6 @@ void		padding_hash_convert(t_printinfo *l, int zero)
 	}
 	else if (l->alt && ft_strchr("oO", l->t))
 	{
-
 		if ((!l->extra && ((l->prec >= -2 && !zero) ||
 			(octal && zero))) || (l->extra && (!zero || octal)))
 		{
@@ -63,7 +62,7 @@ void		padding_hash_convert(t_printinfo *l, int zero)
 	}
 }
 
-int		ft_pad_xo(t_printinfo *l, int zero)
+int			ft_pad_xo(t_printinfo *l, int zero)
 {
 	int ret;
 	int width;
@@ -99,5 +98,5 @@ int		ft_pad_xo(t_printinfo *l, int zero)
 	}
 	else
 		ret += ft_print_uni_str(l->buf);
-	return (ret);	
+	return (ret);
 }

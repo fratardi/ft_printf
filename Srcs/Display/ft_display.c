@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/08 06:32:14 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/10 19:53:07 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ size_t		ft_display(char **tab, t_printinfo *l)
 		else if (ft_issyntax(tab[i]) == 1)
 		{
 			(l->left && l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;
-			if (l->special == 1 || (l->special == 0 && l->width > 1))	
+			if (l->special == 1 || (l->special == 0 && l->width > 1))
 				ret += ft_padding_display(l);
 			(!l->left && l->special == 0 && (ret += 1)) ? ft_putchar('\0') : 0;
 			ret += ft_print_uni_str(ft_rest(tab[i]));
