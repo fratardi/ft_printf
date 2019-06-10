@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/10 20:16:43 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/10 20:28:55 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,11 @@ void		padding_hash_convert(t_printinfo *l, int zero)
 	}
 }
 
-int			ft_pad_xo(t_printinfo *l, int zero)
+int			ft_display_pad_xo(t_printinfo *l, int zero, int width)
 {
 	int ret;
-	int width;
 
 	ret = 0;
-	width = l->width - ft_strlen(l->buf) - ((ft_strchr("xX", l->t) && l->alt) ?
-		2 : 0);
-	if (l->extra && l->prec == -2 && l->t != 'p' && width > 0 && !l->left)
-	{
-		if (ft_strchr("oO", l->t) && l->alt)
-			width--;
-		l->buf = ft_joinfree(ft_memaset('0', width), l->buf);
-	}
-	padding_hash_convert(l, zero);
-	width = l->width - ft_strlen(l->buf);
 	if (width > 0 && !l->left && l->extra && zero && l->prec == -2 && l->alt)
 	{
 		ret += ft_print_preset_buf('0', width);
@@ -99,4 +88,21 @@ int			ft_pad_xo(t_printinfo *l, int zero)
 	else
 		ret += ft_print_uni_str(l->buf);
 	return (ret);
+}
+
+int			ft_pad_xo(t_printinfo *l, int zero)
+{
+	int width;
+
+	width = l->width - ft_strlen(l->buf) - ((ft_strchr("xX", l->t) && l->alt) ?
+		2 : 0);
+	if (l->extra && l->prec == -2 && l->t != 'p' && width > 0 && !l->left)
+	{
+		if (ft_strchr("oO", l->t) && l->alt)
+			width--;
+		l->buf = ft_joinfree(ft_memaset('0', width), l->buf);
+	}
+	padding_hash_convert(l, zero);
+	width = l->width - ft_strlen(l->buf);
+	return (ft_display_pad_xo(l, zero, width));
 }
