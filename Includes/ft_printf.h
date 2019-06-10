@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/08 04:27:09 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/10 20:13:33 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@
 # include <fcntl.h>
 # include "../libft/libft.h"
 
+/*
+**Defines for the static padding buffer
+*/
 
+# define BUFF_SIZE  2014
 
-
-#define BUFF_SIZE  2014
 /*
 **Defines for unicodes hexas masks matching  hardware specifcations
 */
@@ -224,8 +226,6 @@ size_t				ft_putonlystring(char **tab);
 size_t				ft_sequence(char *s1, char *s2, int *open);
 size_t				ft_endseq(char *s1);
 
-
-
 /*
 **Annex Functions
 */
@@ -278,12 +278,12 @@ void				ft_free_printinfo(t_printinfo *list);
 **Padding
 */
 
-int      ft_pad_char_type(t_printinfo *l);
-int         ft_padding_display(t_printinfo *l);
-int		ft_pad_xo(t_printinfo *l, int zero);
+int					ft_pad_char_type(t_printinfo *l);
+int					ft_padding_display(t_printinfo *l);
+int					ft_pad_xo(t_printinfo *l, int zero);
 int					ft_print_preset_buf(unsigned char c, int n);
 void				ft_padding(t_printinfo *list);
-int				ft_pad_di(t_printinfo *l);
+int					ft_pad_di(t_printinfo *l);
 void				ft_padding_convert(t_printinfo *l, int zero);
 void				ft_padding_str(t_printinfo *l);
 void				ft_pad_prec(t_printinfo *l);
