@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/11 04:13:52 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/11 04:28:34 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ char		*ft_pow_neg(int po, int end)
 {
 	static char	*str;
 	static int	last = 0;
-	char		*temp;
 	t_power5	pow;
 
 	if (end == 1 && last != 0)
@@ -60,8 +59,7 @@ char		*ft_pow_neg(int po, int end)
 		po--;
 	}
 	last = pow.p;
-	temp = ft_strdup(str);
-	return (temp);
+	return (ft_strdup(str));
 }
 
 char		*ft_pow2c(int po)
