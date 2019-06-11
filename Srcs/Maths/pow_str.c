@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pow_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 06:29:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/11 03:03:39 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char		*init_pow(int po, int *last, char *str)
 	}
 	if (*last == 0)
 	{
+		printf("%d\n", po);
 		str = ft_memaset('0', po);
 		str[po - 1] = '5';
 		*last = 1;
@@ -34,13 +35,19 @@ char		*init_pow(int po, int *last, char *str)
 	return (str);
 }
 
-char		*ft_pow_neg(int po)
+char		*ft_pow_neg(int po, int end)
 {
 	static char	*str;
 	static int	last = 0;
 	char		*temp;
 	t_power5	pow;
 
+	if (end == 1 && str)
+	{
+		free(str);
+		last = 0;
+		return(ft_strdup("0"));
+	}
 	str = init_pow(po, &last, str);
 	pow.p = po;
 	while (po > last)
@@ -79,8 +86,8 @@ char		*ft_pow2c(int po)
 
 char		*ft_pow2str(int ex, char end)
 {
-	end = 0;
+	//(void)end;
 	if (ex == 0)
 		return (ft_strdup("1"));
-	return ((ex > 0) ? ft_pow2c(ex) : ft_pow_neg(-ex));
+	return ((ex > 0) ? ft_pow2c(ex) : ft_pow_neg(-ex, end));
 }
