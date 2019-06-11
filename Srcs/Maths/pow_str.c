@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/11 03:03:39 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/11 03:48:07 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char		*init_pow(int po, int *last, char *str)
 	}
 	if (*last == 0)
 	{
-		printf("%d\n", po);
+		// printf("%d\n", po);
 		str = ft_memaset('0', po);
 		str[po - 1] = '5';
 		*last = 1;
@@ -42,7 +42,7 @@ char		*ft_pow_neg(int po, int end)
 	char		*temp;
 	t_power5	pow;
 
-	if (end == 1 && str)
+	if (end == 1 && last != 0)
 	{
 		free(str);
 		last = 0;
