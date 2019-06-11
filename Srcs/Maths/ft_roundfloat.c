@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 23:49:09 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/11 04:23:07 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/11 04:24:56 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,8 @@ char		*ft_round_dec(char *str, int prec, int *round_ent)
 		}
 	}
 	i = prec;
-	if (str[i] == '5' && ((str[i - 1] - 48) % 2 != 0 || str[i + 1] > '5'))
-	{
-		str[i] = 0;
-		tmp = ft_strdup("1");
-		str = ft_new_addstrings(str, tmp);
-		free(tmp);
-	}
-	else if (str[i] >= '5' && (str[i + 1]))
+	if ((str[i] == '5' && ((str[i - 1] - 48) % 2 != 0 || str[i + 1] > '5')) ||
+			(str[i] >= '5' && (str[i + 1])))
 	{
 		str[i] = 0;
 		tmp = ft_strdup("1");
