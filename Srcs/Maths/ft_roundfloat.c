@@ -6,13 +6,11 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 23:49:09 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/11 02:44:21 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/11 03:52:04 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
-
-
 
 char     *ft_round_ent(char *str)
 {
@@ -32,8 +30,6 @@ char     *ft_round_dec(char *str, int prec, int *round_ent)
 		*round_ent = 0;
         return (str);
 	}
-	// if (prec == 0)
-		// return(ft_prec_zero_float(str));
     if (str[i] == '9' && str[i + 1] >= '5' && str[0] == '9')
     {
         while(i > 0 && str[i] == '9')
