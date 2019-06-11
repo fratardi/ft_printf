@@ -124,12 +124,31 @@ int main(void)
 // printf("R>%.2f\n", 3.043);
 // ft_printf("Y>%.2f\n", 3.015);
 // printf("R>%.2f\n", 3.015);
-ft_printf( "y> % .41lf\n", 2473.0941289810748457966838032007217407226562);
+/* ft_printf( "y> % .41lf\n", 2473.0941289810748457966838032007217407226562);
 printf( "r> % .41lf\n", 2473.0941289810748457966838032007217407226562);
 ft_printf("y >> %.31f\n", 3053.8087224051541852531954646111);
 printf("r >> %.31f\n", 3053.8087224051541852531954646111);
 ft_printf("y >> %.0f\n", 123.4);
 printf("r >> %.0f\n", 123.4);
+ */
+
+	float		nb;
+	nb = 0;
+	ft_printf("null prec : %+.0f\n", nb);
+	printf("null prec : %+.0f\n", nb);
+	nb = 12.5;
+	ft_printf("null prec : %+.0f\n", nb);
+	printf("null prec : %+.0f\n", nb);
+	nb = -25632.2541;
+	ft_printf("null prec : %+.0f\n", nb);
+	printf("null prec : %+.0f\n", nb);
+	nb = -1.0123;
+	ft_printf("null prec : %+.0f\n", nb);
+	printf("null prec : %+.0f\n", nb);
+	nb = 12354.569874;
+	ft_printf("null prec : %+.0f\n", nb);
+	printf("null prec : %+.0f\n", nb);
+
 // ft_printf("r> %2.40f\n", 3051.2916572286617338249925523996353149414062);
 // printf("r> %2.40f\n", 3051.2916572286617338249925523996353149414062);
 //	printf("%.0f", 12.6);

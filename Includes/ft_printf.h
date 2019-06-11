@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/11 01:15:26 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/11 05:35:45 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ t_double ft_rounding_float(t_double dble, int prec);
 char     *ft_round_dec(char *str, int prec, int *round_ent);
 char				*ft_mantissaldouble(long double d);
 int					ft_expldouble(long double a);
-char				*ft_ldouble(long double a, int prec, unsigned int is_ten);
+char				*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign);
 char				*ft_exception(long double a, t_printinfo *list);
 
 /*

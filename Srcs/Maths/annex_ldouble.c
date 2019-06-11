@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annex_ldouble.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/11 04:22:47 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/11 05:50:30 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **If float == 0
 */
 
-char		*ft_float_zero(int prec, unsigned int is_ten, long double a)
+char		*ft_float_zero(int prec, unsigned int is_ten, long double a, int s)
 {
 	char	*ret;
 	int		temp;
@@ -29,13 +29,14 @@ char		*ft_float_zero(int prec, unsigned int is_ten, long double a)
 	i = prec;
 	free(bin);
 	if (is_ten && prec > 0)
-		ret = ft_floatexp(ret, prec);
+		ret = ft_floatexp(ret, prec + ((ret[0] == '-') ? 3 : 2));
 	if (prec == -2)
 		return (ret);
 	if (prec > 0)
-		ret = ft_round_dec(ret, prec, &temp);
+		ret = ft_round_dec(ret, prec + ((ret[0] == '-') ? 3 : 2), &temp);
+	s = (s == 0) ? 1 : 0;
 	if (i == 0)
-		ret[(ret[0] == '-') ? 2 : 1] = 0;
+		ret[s + ((ret[0] == '-') ? 2 : 1)] = 0;
 	return (ret);
 }
 
@@ -80,14 +81,14 @@ void		init_dble(t_double *dble, long double a)
 **Main function to calculate and transform mant&exp to str long double
 */
 
-char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
+char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 {
 	t_double	dble;
 	int			i;
 
 	i = 0;
 	if (a == 0)
-		return (ft_float_zero(prec, is_ten, a));
+		return (ft_float_zero(prec, is_ten, a, sign));
 	init_dble(&dble, a);
 	while (dble.m[i])
 	{
@@ -100,7 +101,8 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 	if (!is_ten)
 		dble = ft_rounding_float(dble, prec);
 	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
-	(prec != 0) ? dble.ent = ft_joinfree(dble.ent, ft_strdup(".")) : 0;
+	if (prec != 0 || !sign)
+		dble.ent = ft_joinfree(dble.ent, ft_strdup("."));
 	dble.ent = ft_joinfree(dble.ent, dble.dec);
 	free(dble.m);
 	if (is_ten)

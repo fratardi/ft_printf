@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_buf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 20:51:28 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/11 05:43:43 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ void		ft_fillbuf_float(t_printinfo *l, t_elem *elem)
 	if (exception == NULL)
 	{
 		if (l->t == 'f' && !l->is_long_double)
-			l->buf = ft_ldouble(elem->dble,
-			(l->prec < 0) ? 6 : (size_t)l->prec, l->is_float_ten);
+			l->buf = ft_ldouble(elem->dble, (l->prec < 0) ? 6 :
+				(size_t)l->prec, l->is_float_ten, (l->showsign && !l->alt) ? 1 : 0);
 		else if (l->t == 'f' && l->is_long_double)
 			l->buf = ft_ldouble(elem->long_double,
-			(l->prec < 0) ? 6 : (size_t)l->prec, l->is_float_ten);
+			(l->prec < 0) ? 6 :
+				(size_t)l->prec, l->is_float_ten, (l->showsign && !l->alt) ? 1 : 0);
 	}
 	else
 		l->buf = exception;

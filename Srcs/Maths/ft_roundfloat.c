@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 23:49:09 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/11 04:42:54 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/11 05:57:54 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ char		*ft_iterate_dec(char *str, int prec, int *round_ent)
 		str = ft_new_addstrings(str, tmp);
 		free(tmp);
 	}
-	str[prec] = 0;
 	*round_ent = 0;
 	return (str);
 }
@@ -40,7 +39,7 @@ char		*ft_round_dec(char *str, int prec, int *round_ent)
 {
 	int		i;
 
-	i = prec - 1;
+	i = prec - ((prec != 0) ? 1 : 0);
 	if (prec > (int)ft_strlen(str))
 	{
 		while (prec > (int)ft_strlen(str))
@@ -60,7 +59,12 @@ char		*ft_round_dec(char *str, int prec, int *round_ent)
 			return (str);
 		}
 	}
-	return (ft_iterate_dec(str, prec, round_ent));
+	if (prec == 0 && str[0] >= '5' && str[1])
+		*round_ent = 1;
+	else
+		str = ft_iterate_dec(str, prec, round_ent);
+	str[prec] = 0;
+	return (str);
 }
 
 t_double	ft_rounding_float(t_double dble, int prec)
