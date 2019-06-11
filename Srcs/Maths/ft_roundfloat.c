@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_roundfloat.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 23:49:09 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/11 04:24:56 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/11 04:42:54 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,28 @@ char		*ft_round_ent(char *str)
 	return (ft_new_addstrings(str, "1"));
 }
 
-char		*ft_round_dec(char *str, int prec, int *round_ent)
+char		*ft_iterate_dec(char *str, int prec, int *round_ent)
 {
 	int		i;
 	char	*tmp;
+
+	i = prec;
+	if ((str[i] == '5' && ((str[i - 1] - 48) % 2 != 0 || str[i + 1] > '5')) ||
+			(str[i] >= '5' && (str[i + 1])))
+	{
+		str[i] = 0;
+		tmp = ft_strdup("1");
+		str = ft_new_addstrings(str, tmp);
+		free(tmp);
+	}
+	str[prec] = 0;
+	*round_ent = 0;
+	return (str);
+}
+
+char		*ft_round_dec(char *str, int prec, int *round_ent)
+{
+	int		i;
 
 	i = prec - 1;
 	if (prec > (int)ft_strlen(str))
@@ -42,18 +60,7 @@ char		*ft_round_dec(char *str, int prec, int *round_ent)
 			return (str);
 		}
 	}
-	i = prec;
-	if ((str[i] == '5' && ((str[i - 1] - 48) % 2 != 0 || str[i + 1] > '5')) ||
-			(str[i] >= '5' && (str[i + 1])))
-	{
-		str[i] = 0;
-		tmp = ft_strdup("1");
-		str = ft_new_addstrings(str, tmp);
-		free(tmp);
-	}
-	str[prec] = 0;
-	*round_ent = 0;
-	return (str);
+	return (ft_iterate_dec(str, prec, round_ent));
 }
 
 t_double	ft_rounding_float(t_double dble, int prec)
