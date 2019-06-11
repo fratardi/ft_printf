@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 23:53:59 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 23:57:28 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/10 22:04:27 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int main(void)
 	ft_printf("Unicodes = 𝟜𝟚 et %s\n", "😀");
     ft_printf("\nFloats_excepion >> Real After\n\n");
 	nb = 1.0L/0.0L;
-	ft_printf("%5.9Lf\n", nb);
-	printf("%5.9Lf\n", nb);
+	ft_printf("%5.15Lf\n", nb);
+	printf("%5.15Lf\n", nb);
     nb = -1.0/0.0;
 	ft_printf("%-12Lf\n", nb);
 	printf("%-12Lf\n", nb);

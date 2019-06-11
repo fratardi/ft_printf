@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annex_ldouble.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/08 06:14:44 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/11 01:17:40 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 char		*ft_float_zero(int prec, unsigned int is_ten, long double a)
 {
 	char *ret;
+	int temp;
 	char *bin;
 
+	temp = 0;
 	bin = ft_binary(&a, 10);
 	ret = ft_strdup((ft_strchr(bin, '1')) ? "-0.0000000" : "0.0000000");
 	prec += (ft_strchr(bin, '1') ? 1 : 0);
@@ -30,7 +32,7 @@ char		*ft_float_zero(int prec, unsigned int is_ten, long double a)
 	if (prec == -2)
 		return (ret);
 	if (prec > 0)
-		ret = ft_rounding(ret, prec + 2);
+		ret = ft_round_dec(ret, prec, &temp);
 	if (prec == 0)
 		ret[2] = 0;
 	return (ret);
@@ -94,12 +96,11 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten)
 			free(ft_pow2str(-1, 1));
 		dble.b--;
 	}
-	dble = ft_rounding_ent(dble, prec);
-	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
 	if (!is_ten)
-		dble.dec = ft_rounding(dble.dec, (prec > 0) ? prec : 6);
+		dble = ft_rounding_float(dble, prec);
+	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
 	(prec != 0) ? dble.ent = ft_joinfree(dble.ent, ft_strdup(".")) : 0;
-	(prec == 0) ? free(dble.dec) : (dble.ent = ft_joinfree(dble.ent, dble.dec));
+	dble.ent = ft_joinfree(dble.ent, dble.dec);
 	free(dble.m);
 	if (is_ten)
 		dble.ent = ft_floatexp(dble.ent, (prec > 0) ? prec : 6);

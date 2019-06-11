@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/10 20:13:33 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/11 01:15:26 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,8 +168,8 @@ void				ft_hexfloat(void *content, size_t n);
 char				*ft_fillbig(char *s1, char *s2);
 char				*ft_pow2str(int ex, char end);
 char				*ft_floatexp(char *str, int prec);
-char				*ft_rounding(char *str, size_t prec);
-t_double			ft_rounding_ent(t_double dble, int prec);
+t_double ft_rounding_float(t_double dble, int prec);
+char     *ft_round_dec(char *str, int prec, int *round_ent);
 char				*ft_mantissaldouble(long double d);
 int					ft_expldouble(long double a);
 char				*ft_ldouble(long double a, int prec, unsigned int is_ten);
@@ -287,5 +287,6 @@ int					ft_pad_di(t_printinfo *l);
 void				ft_padding_convert(t_printinfo *l, int zero);
 void				ft_padding_str(t_printinfo *l);
 void				ft_pad_prec(t_printinfo *l);
+int					ft_pad_float(t_printinfo *l);
 
 #endif

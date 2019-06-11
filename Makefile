@@ -6,7 +6,7 @@
 #    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/06/08 04:10:38 by fratardi         ###   ########.fr        #
+#    Updated: 2019/06/11 00:06:33 by fratardi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ C = ./Srcs/Parsing/ft_split_format.c \
 	./Srcs/Padding/ft_print_preset_buf.c \
 	./Srcs/Padding/ft_print_pad.c\
 	./Srcs/Padding/ft_padding_display.c\
+	./Srcs/Maths/ft_roundfloat.c\
 	./Srcs/Padding/ft_padding_digits.c \
 	#./Srcs/Padding/ft_padding.c\
 	#./Srcs/Padding/ft_padding_main.c \
