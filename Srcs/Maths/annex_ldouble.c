@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/11 05:50:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/12 08:57:15 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,16 @@ t_double	ft_doublesign(t_double dble, char end)
 **Function to initialize values
 */
 
-void		init_dble(t_double *dble, long double a)
+t_double		init_dble(long double a)
 {
-	dble->b = -1;
-	dble->ex = ft_expldouble(a);
-	dble->dec = (dble->ex < 0) ? ft_pow2str(0 + dble->ex, 0) : ft_strdup("0");
-	dble->ent = (dble->ex >= 0) ? ft_pow2str(0 + dble->ex, 0) : ft_strdup("0");
-	dble->m = ft_mantissaldouble(a);
+	t_double dble;
+
+	dble.b = -1;
+	dble.ex = ft_expldouble(a);
+	dble.dec = (dble.ex < 0) ? ft_pow2str(0 + dble.ex, 0) : ft_strdup("0");
+	dble.ent = (dble.ex >= 0) ? ft_pow2str(0 + dble.ex, 0) : ft_strdup("0");
+	dble.m = ft_mantissaldouble(a);
+	return (dble);
 }
 
 /*
@@ -89,7 +92,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 	i = 0;
 	if (a == 0)
 		return (ft_float_zero(prec, is_ten, a, sign));
-	init_dble(&dble, a);
+	dble = init_dble(a);
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')

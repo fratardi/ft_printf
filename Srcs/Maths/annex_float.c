@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annex_float.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 21:05:06 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/24 12:16:39 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/12 08:58:36 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,16 +52,16 @@ size_t	digitlen(unsigned long long int i)
 
 char	*ft_mantissaldouble(long double d)
 {
-	__uint128_t *temp;
+	__int128_t *temp;
 	char		*f;
-	__uint128_t i;
-	__uint128_t pos;
-	__uint128_t mask;
+	__int128_t i;
+	__int128_t pos;
+	__int128_t mask;
 
 	i = -1;
 	f = (char *)ft_memalloc(sizeof(char) * 66);
 	mask = 0x8000000000000000;
-	temp = (__uint128_t *)&d;
+	temp = (__int128_t *)&d;
 	pos = 0;
 	while (++i < 64)
 	{
@@ -79,10 +79,10 @@ char	*ft_mantissaldouble(long double d)
 
 int		ft_expldouble(long double a)
 {
-	__uint128_t *b;
+	__int128_t *b;
 
-	b = (__uint128_t *)&a;
+	b = (__int128_t *)&a;
 	*b = *b >> 64;
 	*b = (*b & 0x7fff);
-	return ((long long int)(*b) - 16383);
+	return ((int)(*b) - 16383);
 }
