@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/12 08:09:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/13 12:23:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void		ft_prec_uns_ptr(t_printinfo *l, int prec)
 	{
 		temp = ft_strdup(&l->buf[2]);
 		free(l->buf);
-		l->buf = ft_joinfree(pad, temp);
 		pad = ft_memaset('0', l->prec - ft_strlen(temp));
+		l->buf = ft_joinfree(pad, temp);
 		l->buf = ft_joinfree(ft_strdup("0x"), l->buf);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_adjustfloat.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/11 04:21:05 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/12 13:52:57 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,10 @@ void		ft_adjustpospo(char **s1, char **s2)
 char		*ft_floatexp(char *str, int prec)
 {
 	int		i;
-	int		y;
 	int		puiss;
 	char	*ret;
 
 	i = 2;
-	y = 0;
 	puiss = 0;
 	if (str[0] != '0')
 		return (str);

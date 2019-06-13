@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_displaybin.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 18:48:41 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/24 05:21:51 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/12 13:54:20 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,7 @@ char	*ft_binary_string(void *content, size_t n)
 	unsigned char	*tmp;
 	unsigned int	mask;
 	char			*str;
-	int				i;
 
-	i = 0;
 	str = ft_memaset(0, 1);
 	tmp = (unsigned char *)content + n - 1;
 	while (n--)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_padding_digits.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/10 22:28:29 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/12 13:54:33 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	padding_extra_digit(t_printinfo *l, int sign)
 {
 	int tmp;
-	int ret;
 
-	ret = 0;
 	if (l->extra && (l->prec == -2 || l->t == 'f') && !l->left)
 	{
 		tmp = l->width - ft_strlen(l->buf) - (((sign == -1) ||
