@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/12 15:06:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/13 14:57:56 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,8 @@ int			ft_pad_xo(t_printinfo *l, int zero)
 			width--;
 		l->buf = ft_joinfree(ft_memaset('0', width), l->buf);
 	}
-	if (l->t == 'p' && (l->showsign || l->space))
-		l->buf = ft_joinfree(ft_strdup((l->space) ? " " : "+"), l->buf);
+	// if (l->t == 'p' && (l->showsign || l->space))
+		// l->buf = ft_joinfree(ft_strdup((l->space) ? " " : "+"), l->buf);
 	padding_hash_convert(l, zero);
 	width = l->width - ft_strlen(l->buf);
 	return (ft_display_pad_xo(l, zero, width));
