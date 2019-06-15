@@ -1,4 +1,5 @@
-int main(void)
+
+void	ft_teststo(void)
 {
 	int ret[2];
 	char *str = "astek";
@@ -84,6 +85,19 @@ int main(void)
 	printf("23) Test de pile [c c] : {%c} {%c}\n", 0x4142434444434241);
 	ft_printf("=>  Test de pile [c c] : {%c} {%c}\n", 0x4142434444434241);
 
-	ft_printf("Segmentation fault ;)\n");
+//	ft_printf("Segmentation fault ;)\n");
+
+}
+
+
+int main(void)
+{
+	//		ft_teststo();
+char *str = 0x0;
+
+ft_printf("%-5.5p\n", str);
+
+printf("%-5.5p\n", str);
+
 	return (0);
 }
