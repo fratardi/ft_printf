@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/12 15:05:07 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 00:59:35 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 void		ft_fillbuf_float(t_printinfo *l, t_elem *elem)
 {
 	char	*exception;
+	int		i;
 
+	i = (!l->alt) ? 1 : 0;
 	exception = ft_exception((l->is_long_double) ?
 	(elem->long_double) : (elem->dble), l);
 	if (exception == NULL)
 	{
 		if (l->t == 'f' && !l->is_long_double)
 			l->buf = ft_ldouble(elem->dble, (l->prec < 0) ? 6 :
-				l->prec, l->is_float_ten, (l->showsign && !l->alt) ? 1 : 0);
+				l->prec, l->is_float_ten, i);
 		else if (l->t == 'f' && l->is_long_double)
 			l->buf = ft_ldouble(elem->long_double,
-			(l->prec < 0) ? 6 :
-				l->prec, l->is_float_ten, (l->showsign && !l->alt) ? 1 : 0);
+			(l->prec < 0) ? 6 : l->prec, l->is_float_ten, i);
 	}
 	else
 		l->buf = exception;

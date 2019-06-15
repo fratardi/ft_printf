@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/16 00:35:55 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 00:58:13 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 	if (!is_ten)
 		dble = ft_rounding_float(dble, prec);
 	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);
-	if (prec != 0 || !sign)
+	if (prec != 0 || (!sign))
 		dble.ent = ft_joinfree(dble.ent, ft_strdup("."));
 	dble.ent = ft_joinfree(dble.ent, dble.dec);
 	free(dble.m);
