@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/12 08:57:15 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 00:35:55 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_double	ft_doublesign(t_double dble, char end)
 **Function to initialize values
 */
 
-t_double		init_dble(long double a)
+t_double	init_dble(long double a)
 {
 	t_double dble;
 

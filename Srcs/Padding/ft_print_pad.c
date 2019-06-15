@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/16 00:26:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 00:34:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ int			ft_display_pad_xo(t_printinfo *l, int zero, int width)
 	int ret;
 
 	ret = 0;
-	if (width > 0 && !l->left && l->extra && zero && l->prec == -2 && (l->alt || l->t == 'p'))
+	if (width > 0 && !l->left && l->extra && zero && l->prec == -2 && (l->alt
+				|| l->t == 'p'))
 	{
 		ret += (l->t == 'p' && zero) ? ft_print_uni_str("0x") : 0;
 		ret += ft_print_preset_buf('0', width);
@@ -126,8 +127,6 @@ int			ft_pad_xo(t_printinfo *l, int zero)
 			width--;
 		l->buf = ft_joinfree(ft_memaset('0', width), l->buf);
 	}
-	// if (l->t == 'p' && (l->showsign || l->space))
-		// l->buf = ft_joinfree(ft_strdup((l->space) ? " " : "+"), l->buf);
 	padding_hash_convert(l, zero);
 	width = l->width - ft_strlen(l->buf);
 	return (ft_display_pad_xo(l, zero, width));

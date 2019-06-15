@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 21:05:06 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/15 23:45:14 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 00:33:30 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ size_t	digitlen(unsigned long long int i)
 
 char	*ft_mantissaldouble(long double d)
 {
-	__int128_t *temp;
+	__int128_t	*temp;
 	char		*f;
-	__int128_t i;
-	__int128_t pos;
-	__int128_t mask;
+	__int128_t	i;
+	__int128_t	pos;
+	__int128_t	mask;
 
 	i = -1;
 	if (!(f = (char *)ft_memalloc(sizeof(char) * 66)))
