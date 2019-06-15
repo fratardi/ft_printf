@@ -6,11 +6,12 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/12 13:54:33 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 00:26:35 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
+#include <stdlib.h>
 
 void	padding_extra_digit(t_printinfo *l, int sign)
 {

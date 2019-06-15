@@ -6,11 +6,12 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/13 12:23:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 00:25:39 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
+#include <stdlib.h>
 
 void		ft_mod_pad_prec(int prec, t_printinfo *list)
 {
@@ -56,7 +57,7 @@ void		ft_prec_uns_ptr(t_printinfo *l, int prec)
 		l->buf = ft_joinfree(pad, l->buf);
 		l->buflen += prec;
 	}
-	if (l->t == 'p' && l->prec > (int)ft_strlen(l->buf))
+	if (l->t == 'p' && l->prec > (int)ft_strlen(l->buf) - 2)
 	{
 		temp = ft_strdup(&l->buf[2]);
 		free(l->buf);

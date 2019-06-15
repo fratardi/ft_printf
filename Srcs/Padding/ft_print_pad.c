@@ -6,11 +6,12 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/13 14:57:56 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 00:26:12 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
+#include <stdlib.h>
 
 int			ft_pad_char_type(t_printinfo *l)
 {
@@ -89,20 +90,21 @@ int			ft_display_pad_xo(t_printinfo *l, int zero, int width)
 	int ret;
 
 	ret = 0;
-	if (width > 0 && !l->left && l->extra && zero && l->prec == -2 && l->alt)
+	if (width > 0 && !l->left && l->extra && zero && l->prec == -2 && (l->alt || l->t == 'p'))
 	{
+		ret += (l->t == 'p' && zero) ? ft_print_uni_str("0x") : 0;
 		ret += ft_print_preset_buf('0', width);
-		ret += ft_print_uni_str(l->buf);
+		ret += ft_print_uni_str((l->t == 'p' && zero) ? &l->buf[2] : l->buf);
 	}
 	else if (width > 0 && !l->left &&
-		((!l->extra && l->prec == -2) || (l->extra) ||
-	(l->width > l->prec)))
+			((!l->extra && l->prec == -2) || (l->extra)
+			|| (l->width > l->prec)))
 	{
 		ret += ft_print_preset_buf(' ', width);
 		ret += ft_print_uni_str(l->buf);
 	}
-	else if (width > 0 && l->left && ((!l->extra && l->prec == -2) ||
-		(l->extra) || (l->width > l->prec)))
+	else if (width > 0 && l->left && ((!l->extra && l->prec == -2)
+			|| (l->extra) || (l->width > l->prec)))
 	{
 		ret += ft_print_uni_str(l->buf);
 		ret += ft_print_preset_buf(' ', width);
