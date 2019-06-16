@@ -6,12 +6,11 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 19:04:15 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/10 21:17:12 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/16 18:54:31 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
-#include <stdio.h>
 
 /*
 **Count how many Arguments to be read
