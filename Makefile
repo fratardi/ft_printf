@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
+#    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/06/11 00:06:33 by fratardi         ###   ########.fr        #
+#    Updated: 2019/06/16 18:53:05 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,6 @@ C = ./Srcs/Parsing/ft_split_format.c \
 	./Srcs/Padding/ft_padding_display.c\
 	./Srcs/Maths/ft_roundfloat.c\
 	./Srcs/Padding/ft_padding_digits.c \
-	#./Srcs/Padding/ft_padding.c\
-	#./Srcs/Padding/ft_padding_main.c \
 
 
 C_LIB = ./libft/ft_itoa.o \
@@ -92,6 +90,7 @@ C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_memmove.o ./libft/ft_putstr.o\
 		./libft/ft_strdup.o ./libft/ft_strmapi.o ./libft/ft_strrchr.o\
 		./libft/ft_pow2.o ./libft/ft_ullitoa.o ./libft/ft_putnstr.o \
+		./libft/joinfree.o\
 
 INC = $(addprefix $(INC_PATH)/,$(INC_NAME))
 

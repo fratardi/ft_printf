@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/16 00:34:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 18:45:32 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,8 @@ void		padding_hash_convert(t_printinfo *l, int zero)
 	}
 }
 
-int			ft_display_pad_xo(t_printinfo *l, int zero, int width)
+int			ft_display_pad_xo(t_printinfo *l, int zero, int width, int ret)
 {
-	int ret;
-
-	ret = 0;
 	if (width > 0 && !l->left && l->extra && zero && l->prec == -2 && (l->alt
 				|| l->t == 'p'))
 	{
@@ -129,5 +126,5 @@ int			ft_pad_xo(t_printinfo *l, int zero)
 	}
 	padding_hash_convert(l, zero);
 	width = l->width - ft_strlen(l->buf);
-	return (ft_display_pad_xo(l, zero, width));
+	return (ft_display_pad_xo(l, zero, width, 0));
 }

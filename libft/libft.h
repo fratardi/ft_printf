@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 18:12:44 by fratardi          #+#    #+#             */
-/*   Updated: 2019/05/30 20:53:52 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/16 18:49:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,7 @@ char				*ft_ullitoa(unsigned long long int n);
 t_list				*ft_lstmap(t_list *list, t_list *(*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
 int					ft_putnstr(char const *s, int size);
+char				*ft_joinfree(char *s1, char *s2);
+
 
 #endif
