@@ -6,11 +6,12 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:42:47 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/03 06:31:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 19:03:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
+#include <stdlib.h>
 
 /*
 **Funtion to properly join two string

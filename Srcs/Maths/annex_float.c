@@ -6,11 +6,12 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 21:05:06 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/16 00:33:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 19:03:41 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/ft_printf.h"
+#include <stdlib.h>
 
 char	*ft_fillbig(char *s1, char *s2)
 {
