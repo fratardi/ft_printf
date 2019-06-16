@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:12:49 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/16 00:10:10 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 17:53:14 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_padding_display(t_printinfo *l)
 		return (ft_pad_di(l));
 	if (ft_strchr("xXoOp", l->t))
 		return (ft_pad_xo(l, zero));
-	if (l->t == 'c' || l->t == 's')
+	if (l->t == 'c' || l->t == 's' || ft_strchr("Bb", l->t))
 		return (ft_pad_char_type(l));
 	if (l->t == 'f' && l->prec == 0 && l->showsign && !l->alt && !l->extra)
 		l->buf[ft_strlen(l->buf) - 1] = 0;
