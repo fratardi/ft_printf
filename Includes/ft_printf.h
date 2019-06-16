@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/16 18:50:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/16 18:55:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <stdarg.h>
 # include <stdint.h>
 # include <fcntl.h>
