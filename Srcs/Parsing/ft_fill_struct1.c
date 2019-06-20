@@ -6,11 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/04 22:11:10 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/20 18:18:34 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 /*
 **Fill ndol

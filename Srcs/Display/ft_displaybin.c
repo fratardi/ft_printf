@@ -6,11 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 18:48:41 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/12 13:54:20 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/20 18:17:21 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 /*
 **Display Binary Content

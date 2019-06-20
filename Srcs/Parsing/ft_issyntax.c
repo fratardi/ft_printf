@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_issyntax.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:40:55 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/05/30 23:21:31 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/20 18:18:40 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 /*
 **Verify if str contain a good syntax

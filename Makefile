@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/06/16 18:53:05 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/06/20 18:21:21 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,43 +18,43 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-INC_PATH = ./Includes
+INC_PATH = ./includes
 
 INC_NAME = ft_printf.h
 
-C = ./Srcs/Parsing/ft_split_format.c \
-	./Srcs/Parsing/ft_issyntax.c \
-	./Srcs/Parsing/ft_fill_struct1.c \
-	./Srcs/Parsing/ft_fill_struct2.c \
-	./Srcs/Parsing/ft_fill_struct_main.c \
-	./Srcs/Parsing/ft_fill_buf_main.c \
-	./Srcs/Reader/ft_varead.c \
-	./Srcs/Reader/ft_fillelem.c \
-	./Srcs/Unicodes/ft_print_uni_char.c \
-	./Srcs/Unicodes/ft_print_uni_str.c \
-	./Srcs/Unicodes/ft_uni_char_len.c \
-	./Srcs/Unicodes/ft_uni_str_len.c \
-	./Srcs/Maths/ft_adjustfloat.c \
-	./Srcs/Display/ft_convert.c \
-	./Srcs/Parsing/ft_fill_buf.c \
-	./Srcs/Display/ft_displaybin.c \
-	./Srcs/Display/ft_display.c \
-	./Srcs/Display/size_convert.c \
-	./Srcs/Maths/annex_float.c \
-	./Srcs/Maths/annex_ldouble.c\
-	./Srcs/Maths/pow_str.c \
-	./Srcs/Maths/ft_addstrings.c \
-	./Srcs/Maths/ft_exception.c \
-	./Srcs/Free/ft_free_printf.c \
-	./Srcs/Padding/ft_pad_prec.c\
-	./Srcs/ft_printf.c \
-	./Srcs/Maths/new_addstring.c \
-	./Srcs/Display/ft_sequence.c \
-	./Srcs/Padding/ft_print_preset_buf.c \
-	./Srcs/Padding/ft_print_pad.c\
-	./Srcs/Padding/ft_padding_display.c\
-	./Srcs/Maths/ft_roundfloat.c\
-	./Srcs/Padding/ft_padding_digits.c \
+C = ./srcs/parsing/ft_split_format.c \
+	./srcs/parsing/ft_issyntax.c \
+	./srcs/parsing/ft_fill_struct1.c \
+	./srcs/parsing/ft_fill_struct2.c \
+	./srcs/parsing/ft_fill_struct_main.c \
+	./srcs/parsing/ft_fill_buf_main.c \
+	./srcs/reader/ft_varead.c \
+	./srcs/reader/ft_fillelem.c \
+	./srcs/unicodes/ft_print_uni_char.c \
+	./srcs/unicodes/ft_print_uni_str.c \
+	./srcs/unicodes/ft_uni_char_len.c \
+	./srcs/unicodes/ft_uni_str_len.c \
+	./srcs/maths/ft_adjustfloat.c \
+	./srcs/display/ft_convert.c \
+	./srcs/parsing/ft_fill_buf.c \
+	./srcs/display/ft_displaybin.c \
+	./srcs/display/ft_display.c \
+	./srcs/display/size_convert.c \
+	./srcs/maths/annex_float.c \
+	./srcs/maths/annex_ldouble.c\
+	./srcs/maths/pow_str.c \
+	./srcs/maths/ft_addstrings.c \
+	./srcs/maths/ft_exception.c \
+	./srcs/free/ft_free_printf.c \
+	./srcs/padding/ft_pad_prec.c\
+	./srcs/ft_printf.c \
+	./srcs/maths/new_addstring.c \
+	./srcs/display/ft_sequence.c \
+	./srcs/padding/ft_print_preset_buf.c \
+	./srcs/padding/ft_print_pad.c\
+	./srcs/padding/ft_padding_display.c\
+	./srcs/maths/ft_roundfloat.c\
+	./srcs/padding/ft_padding_digits.c \
 
 
 C_LIB = ./libft/ft_itoa.o \
@@ -112,7 +112,7 @@ $(NAME): $(O) $(O_LIB) $(INC)
 
 %.o : %.c	
 	@$(CC) $(FLAGS) -c $< -o $@
-	$(if $(findstring Srcs,$@),@echo "Making" $<)
+	$(if $(findstring srcs,$@),@echo "Making" $<)
 	$(if $(findstring libft/ft_itoa.o,$@), @echo "")
 	$(if $(findstring libft/ft_itoa.o,$@), @echo ">>> Making LIBFT ...")
 

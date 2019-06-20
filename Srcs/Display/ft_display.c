@@ -6,11 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:50:13 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/12 14:53:56 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/20 18:17:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 size_t		ft_putonlystring(char **tab)
 {

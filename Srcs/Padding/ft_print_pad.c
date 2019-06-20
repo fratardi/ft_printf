@@ -6,11 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/16 18:45:32 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/20 18:18:18 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 #include <stdlib.h>
 
 int			ft_pad_char_type(t_printinfo *l)

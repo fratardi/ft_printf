@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   new_addstring.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/30 04:27:12 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/10 19:54:25 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/20 18:18:00 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 void	ft_addstrings_stack(char *assign, char *base, int po_assig, int po_base)
 {

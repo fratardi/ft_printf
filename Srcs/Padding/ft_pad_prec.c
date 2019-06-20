@@ -6,11 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/16 00:35:22 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/20 18:18:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 #include <stdlib.h>
 
 void		ft_mod_pad_prec(int prec, t_printinfo *list)

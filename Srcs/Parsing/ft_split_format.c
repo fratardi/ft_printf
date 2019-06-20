@@ -6,11 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 12:36:47 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/16 19:03:02 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/20 18:18:43 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 #include <stdlib.h>
 
 /*

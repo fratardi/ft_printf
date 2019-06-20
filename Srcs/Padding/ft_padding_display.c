@@ -6,11 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:12:49 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/16 17:53:14 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/20 18:18:15 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 int		ft_padding_display(t_printinfo *l)
 {

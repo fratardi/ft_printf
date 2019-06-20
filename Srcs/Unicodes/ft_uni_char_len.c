@@ -6,11 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 17:59:00 by fratardi          #+#    #+#             */
-/*   Updated: 2019/04/27 16:05:46 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/20 18:19:00 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 size_t	ft_uni_char_len(char *str)
 {

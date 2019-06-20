@@ -6,11 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 23:49:09 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/16 19:04:27 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/20 18:17:56 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 #include <stdlib.h>
 
 char		*ft_round_ent(char *str)
