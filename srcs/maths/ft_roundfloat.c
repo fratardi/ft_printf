@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 23:49:09 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/20 18:17:56 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/24 05:26:57 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*ft_iterate_dec(char *str, int prec, int *round_ent)
 		str[i] = 0;
 		tmp = ft_strdup("1");
 		str = ft_new_addstrings(str, tmp);
-		free(tmp);
+		ft_strdel(&tmp);
 	}
 	*round_ent = 0;
 	return (str);
@@ -64,7 +64,7 @@ char		*ft_round_dec(char *str, int prec, int *round_ent)
 			i--;
 		if (i == 0)
 		{
-			free(str);
+			ft_strdel(&str);
 			str = ft_memaset('0', prec);
 			*round_ent = 1;
 			return (str);

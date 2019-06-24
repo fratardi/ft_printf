@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 12:01:14 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/24 04:40:03 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/06/24 05:21:59 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_free_printinfo(t_printinfo *list)
 	while (list->next)
 	{
 		temp = list->next;
-		free(list->buf);
+		ft_strdel(&(list->buf));
 		free(list);
 		list = temp;
 	}

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/20 18:17:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/24 05:23:56 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char		*ft_float_zero(int prec, unsigned int is_ten, long double a, int s)
 	bin = ft_binary(&a, 10);
 	ret = ft_strdup((ft_strchr(bin, '1')) ? "-0.0000000" : "0.0000000");
 	i = prec;
-	free(bin);
+	ft_strdel(&bin);
 	if (is_ten && prec > 0)
 		ret = ft_floatexp(ret, prec + ((ret[0] == '-') ? 3 : 2));
 	if (prec == -2)
@@ -52,7 +52,7 @@ t_double	ft_doublesign(t_double dble, char end)
 	{
 		ft_adjustpospo(&dble.temp, &dble.ent);
 		dble.tempent = ft_addstrings(dble.temp, dble.ent);
-		free(dble.ent);
+		ft_strdel(&dble.ent);
 		dble.ent = dble.tempent;
 	}
 	else if (dble.b + dble.ex < 0)
@@ -61,7 +61,7 @@ t_double	ft_doublesign(t_double dble, char end)
 		ft_addstrings_stack(dble.dec, dble.temp, ft_strlen(dble.dec),
 			ft_strlen(dble.temp));
 	}
-	free(dble.temp);
+	ft_strdel(&dble.temp);
 	return (dble);
 }
 
@@ -108,7 +108,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 	if (prec != 0 || (!sign))
 		dble.ent = ft_joinfree(dble.ent, ft_strdup("."));
 	dble.ent = ft_joinfree(dble.ent, dble.dec);
-	free(dble.m);
+	ft_strdel(&dble.m);
 	if (is_ten)
 		dble.ent = ft_floatexp(dble.ent, (prec > 0) ? prec : 6);
 	return (dble.ent);

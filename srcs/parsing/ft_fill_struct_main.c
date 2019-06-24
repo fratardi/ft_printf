@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:42:47 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/20 18:18:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/24 05:29:40 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ char			*ft_join(char *s1, char *s2)
 	if (s1)
 	{
 		temp = ft_strdup(s1);
-		free(s1);
+		ft_strdel(&s1);
 		s1 = ft_strjoin(temp, s2);
-		free(temp);
+		ft_strdel(&temp);
 	}
 	else
 		s1 = ft_strdup(s2);

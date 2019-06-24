@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/27 00:03:20 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/20 18:17:49 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/24 05:25:28 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char		*ft_floatexp(char *str, int prec)
 	ret = ft_joinfree(ret, ft_strndup(&str[i + 1], (prec) ? prec : 6));
 	ret = ft_joinfree(ret, ft_strdup("E-"));
 	ret = ft_joinfree(ret, ft_itoa(puiss));
-	free(str);
+	ft_strdel(&str);
 	prec = 0;
 	return (ret);
 }

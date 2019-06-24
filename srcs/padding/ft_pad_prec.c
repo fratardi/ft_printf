@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/20 18:18:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/24 05:27:50 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_printinfo	*ft_precdigits(int prec, int neg, t_printinfo *l)
 		if (prec && l->buf[0] == '-' && (neg = -1))
 		{
 			temp = ft_strdup(&l->buf[1]);
-			free(l->buf);
+			ft_strdel(&(l->buf));
 			l->buf = temp;
 		}
 		l->buf = (prec > 0) ? ft_joinfree(ft_memaset('0', (size_t)prec),
@@ -60,7 +60,7 @@ void		ft_prec_uns_ptr(t_printinfo *l, int prec)
 	if (l->t == 'p' && l->prec > (int)ft_strlen(l->buf) - 2)
 	{
 		temp = ft_strdup(&l->buf[2]);
-		free(l->buf);
+		ft_strdel(&(l->buf));
 		pad = ft_memaset('0', l->prec - ft_strlen(temp));
 		l->buf = ft_joinfree(pad, temp);
 		l->buf = ft_joinfree(ft_strdup("0x"), l->buf);
