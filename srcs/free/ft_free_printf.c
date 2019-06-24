@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_printf.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 12:01:14 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/20 18:17:33 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/24 04:40:03 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	ft_free_parsing(char **tab)
 
 	i = 0;
 	while (tab[i])
-		free(tab[i++]);
-	free(tab[i]);
+		ft_strdel(&tab[i++]);
+	ft_strdel(&tab[i]);
 	free(tab);
 }
 

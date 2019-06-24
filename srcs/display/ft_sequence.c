@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sequence.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 02:07:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/20 18:17:04 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/24 04:41:20 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ size_t		ft_endseq(char *s1)
 	{
 		temp = ft_memaset((content.extra == 1) ? '0' : ' ', content.width);
 		ret += ft_print_uni_str(temp);
-		free(temp);
+		ft_strdel(&temp);
 	}
 	ret += ft_print_uni_str(&s1[i + ((content.left) ? 1 : 0)]);
 	return (ret);
@@ -78,7 +78,7 @@ size_t		ft_sequence(char *s1, char *s2, int *open)
 	{
 		temp = ft_memaset((content.extra == 1) ? '0' : ' ', content.width);
 		content.ret += ft_print_uni_str(temp);
-		free(temp);
+		ft_strdel(&temp);
 	}
 	if (s1[i])
 		content.ret += ft_print_uni_str(&s1[i + ((content.left) ? 1 : 0)]);
