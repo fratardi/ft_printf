@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 23:49:09 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/25 12:25:28 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/25 15:37:22 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ char		*ft_round_dec(char *str, int prec, int *round_ent)
 	i = prec - ((prec != 0) ? 1 : 0);
 	if (prec > (int)ft_strlen(str))
 	{
-		if (prec - ft_strlen(str) > 0)
+/* 		if (prec - ft_strlen(str) > 0)
 			str = ft_joinfree(str, ft_memaset('0', prec - (int)ft_strlen(str)));
-		*round_ent = 0;
+		*round_ent = 0; */
 		return (str);
 	}
 	if (str[i] == '9' && str[i + 1] >= '5' && str[0] == '9')

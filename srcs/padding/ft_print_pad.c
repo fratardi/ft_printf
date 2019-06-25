@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/24 05:28:58 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/25 15:34:05 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int			ft_pad_float(t_printinfo *l)
 
 	ret = 0;
 	width = l->width - ft_strlen(l->buf) - ((l->special == 0) ? 1 : 0);
+
 	if (width > 0 && !l->left)
 	{
 		ret += ft_print_preset_buf(' ', width);

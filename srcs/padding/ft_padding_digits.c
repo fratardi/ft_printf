@@ -6,12 +6,23 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/24 05:28:29 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/25 15:34:34 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
+
+size_t			ft_declen(char *str)
+{
+	size_t pos;
+
+	pos = 0;
+	while(str[pos] && str[pos] != '.')
+		pos++;
+	pos++;
+	return(ft_strlen(&str[pos]));
+}
 
 void	padding_extra_digit(t_printinfo *l, int sign)
 {
@@ -37,19 +48,28 @@ int		ft_print_pad_dig(t_printinfo *l, int width)
 	int ret;
 
 	ret = 0;
+	l->prec = (l->t == 'f' && l->prec == -2) ? 6 : l->prec;
 	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) ||
 		(l->extra) || (l->width > l->prec)))
 	{
 		ret += ft_print_preset_buf(' ', width);
 		ret += ft_print_uni_str(l->buf);
+		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(l->buf))
+			ret += ft_print_preset_buf('0', l->prec - ft_declen(l->buf));
 	}
 	else if (width > 0 && l->left)
 	{
 		ret += ft_print_uni_str(l->buf);
 		ret += ft_print_preset_buf(' ', width);
+		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(l->buf))
+			ret += ft_print_preset_buf('0', l->prec - ft_declen(l->buf));
 	}
 	else
+	{
 		ret += ft_print_uni_str(l->buf);
+		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(l->buf))
+			ret += ft_print_preset_buf('0', l->prec - ft_declen(l->buf));
+	}
 	return (ret);
 }
 

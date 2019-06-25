@@ -3,8 +3,7 @@
 
 int main(void)
 {
-	ft_printf("Y> %.5000Lf\n", LDBL_MIN);
-	printf("R> %.5000Lf\n", LDBL_MIN);
+	ft_printf("R> %.2147483646Lf\n", 3.75L);
 	// ft_printf("%.2147483647Ef\n", 3.75);
 	// long double b = 3.75L;
 	// ft_displaybin(&b, 10);
