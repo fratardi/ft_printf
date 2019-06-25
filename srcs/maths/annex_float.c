@@ -6,12 +6,13 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 21:05:06 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/20 18:17:38 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/06/25 14:42:05 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 char	*ft_fillbig(char *s1, char *s2)
 {
@@ -53,13 +54,23 @@ size_t	digitlen(unsigned long long int i)
 
 char	*ft_mantissaldouble(long double d)
 {
-	__int128_t	*temp;
+	char	*temp;
+	char	*f;
+
+	temp = ft_binary(&d, 10);
+	f = ft_strdup(&temp[17]);
+	free(temp);
+	return (f);
+}
+
+/* 	__int128_t	*temp;
 	char		*f;
 	__int128_t	i;
 	__int128_t	pos;
 	__int128_t	mask;
 
 	i = -1;
+	temp = NULL;
 	if (!(f = (char *)ft_memalloc(sizeof(char) * 66)))
 		return (NULL);
 	mask = 0x8000000000000000;
@@ -71,9 +82,7 @@ char	*ft_mantissaldouble(long double d)
 			f[pos++] = ((*temp / mask) ? '1' : '0');
 		*temp = *temp % mask;
 		mask = mask >> 1;
-	}
-	return (f);
-}
+	} */
 
 /*
 **Get exp from long double
