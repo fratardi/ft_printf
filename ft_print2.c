@@ -73,11 +73,15 @@ t_rep 	ft_print_seg(const char *format, t_rep rep)
 	rep.syntaxlen = 0;
 	if (ft_issyntax(seg))
 	{
-		printf("syntax_a_traiter");
 		rep.syntaxlen = ft_syntaxlen(&format[rep.strpos]);
+		ft_putstr("syntax_a_traiter{");
+		ft_putnstr(seg, rep.syntaxlen);
+		ft_putstr("}");
 		info = seg_to_print_info(seg, rep);
 		//ft_display(info, rep);
 	}
+	else if (seg[0] == '%')
+		ft_putstr("not_good_syntax");
 	ft_print_rest(&seg[rep.syntaxlen], rep.seglen - rep.syntaxlen);
 	// free(seg);
 	rep.strpos += rep.seglen;

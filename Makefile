@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/07/31 15:25:43 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/07/31 15:43:42 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ O_LIB = $(C_LIB:.c=.o)
 all : temp
 
 temp :
-	gcc ft_print2.c libft/libft.a srcs/*/*.c _ex_srcs/parsing/ft_fill_struct1.c _ex_srcs/parsing/ft_fill_struct2.c _ex_srcs/parsing/ft_issyntax.c main.c
+	gcc ft_print2.c libft/libft.a srcs/*/*.c main.c
 
 newline :
 	@echo ""

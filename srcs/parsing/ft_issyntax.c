@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:40:55 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/20 18:18:40 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/07/31 15:39:46 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int		ft_issyntax(char *str)
 			i++;
 	while (str[i] && ft_strchr("# 0'-+", str[i]) != NULL)
 		i++;
-	while (str[i] && (ft_isdigit(str[i]) == 1))
+	while (str[i] && ((ft_isdigit(str[i]) == 1) || str[i] == '*'))
 		i++;
 	while (str[i] && str[i] == '.')
 		i++;
-	while (str[i] && (ft_isdigit(str[i]) == 1))
+	while (str[i] && ((ft_isdigit(str[i]) == 1) || str[i] == '*'))
 		i++;
 	while (str[i] && ft_strchr("zjhlLE", str[i]) != NULL)
 		i++;
