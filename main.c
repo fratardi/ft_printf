@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_va.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/31 12:11:07 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/07/31 13:48:14 by tpacaud          ###   ########.fr       */
+/*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
+/*   Updated: 2019/07/31 14:05:00 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
-#include <stdarg.h>
+#include "./includes/ft_printf.h"
 
-t_rep	ft_star_search(t_rep rep, const char *fmt, t_printinfo *info)
+int main(void)
 {
-	if (info->width == -1)
-	{
-		info->width = va_arg(rep.current, int);
-		rep.vapos++;
-	}
-	return (rep);
+    ft_printf("test %s", "test");
+    return (0);
 }
-
-/* va_list	ft_arg_search(t_rep rep, const char *format)
-{
-	if ()
-} */
-

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/07/31 12:57:41 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/07/31 14:02:24 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,14 @@ typedef struct		s_printinfo {
 **Variable position struct
 */
 
-typedef struct	s_rep
-{
+typedef struct	s_rep {
 	int ret;
 	int seglen;
 	int syntaxlen;
 	int strpos;
 	int	vapos;
-	va_list start;
 	va_list current;
+	va_list start;
 }				t_rep;
 
 /*

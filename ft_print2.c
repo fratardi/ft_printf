@@ -2,20 +2,23 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-void	ft_init_rep(t_rep rep)
+t_rep	ft_init_rep(t_rep rep)
 {
 	rep.ret = 0;
 	rep.seglen = 0;
 	rep.syntaxlen = 0;
-	rep.pos = 0;
-	rep.start = NULL;
-	rep.current = rep.start;
+	rep.strpos = 0;
+	rep.vapos = 0;
+	// rep.start = NULL;
+	// rep.current = rep.start;
+	return (rep);
 }
 
 
 void		ft_print_rest(char *seg, int size)
 {
-	ft_putstr(&seg[size]);
+	if (size > 0)
+		ft_putstr(&seg[size]);
 }
 
 //cut segment
@@ -58,25 +61,23 @@ t_printinfo  seg_to_print_info(char *seg, t_rep rep)
 //print the data according to it's printinfo
 t_rep 	ft_print_seg(const char *format, t_rep rep)
 {
-		char *seg;
-		t_printinfo info;
+	char *seg;
+	t_printinfo info;
 
-
-
-		seg = &format[rep.pos];
-		rep.seglen = ft_sequence(seg);
-		if (ft_issyntax(seg))
-		{
-			rep.syntaxlen = ft_segment(&format[rep.pos]);
-			info = seg_to_print_info(seg, rep);
-			ft_display(info, rep);
-		}
-		printrest(&seg[rep.syntaxlen], rep.seglen - rep.syntaxlen);
-		free(seg);
-		rep.strpos += rep.seglen;
+	seg = (char *)&format[rep.strpos];
+	rep.seglen = ft_sequencelen(seg);
+	rep.syntaxlen = 0;
+	if (ft_issyntax(seg))
+	{
+		rep.syntaxlen = ft_syntaxlen(&format[rep.strpos]);
+		info = seg_to_print_info(seg, rep);
+		//ft_display(info, rep);
+	}
+	ft_print_rest(&seg[rep.syntaxlen], rep.seglen - rep.syntaxlen);
+	// free(seg);
+	rep.strpos += rep.seglen;
+	return (rep);
 }
-
-char	*ft_rest
 
 int     ft_printf(const char *format , ...)
 {
@@ -84,11 +85,16 @@ int     ft_printf(const char *format , ...)
 	int ret;
 
 	ret = 0;
-	rep = NULL;
-	ft_init_rep(rep);
+	rep = ft_init_rep(rep);
+	va_start(rep.start, format);
+	va_copy(rep.current, rep.start);
 	while(format[rep.strpos])
-			rep = ft_printseg(format, rep);	
+	{
+		rep = ft_print_seg(format, rep);
+		printf("->%d\n", rep.strpos);
+	}
 	ret = rep.ret;
-	ft_free_rep(rep);
+	va_end(rep.start);
+	//ft_free_rep(rep);
 	return(ret);
 }

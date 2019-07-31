@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/07/31 12:53:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/07/31 13:56:10 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void		ft_fillzerolist(t_printinfo *list)
 	list->is_unsigned = 0;
 	list->space = 0;
 	list->bin = 0;
-	list->buflen = 0;
 }
 
 /*
@@ -95,7 +94,7 @@ t_printinfo	*ft_filltype(char *str, t_printinfo *list)
 	while (str[i] && ft_strchr("diouxXcfFspOUbB", str[i]) == NULL)
 		i++;
 	list->t = (ft_strchr("diouxXcfFspOUbB", str[i]) != NULL) ? str[i] : 0;
-	if ((ft_strchr("diouxXOU", str[i]) != NULL))
+/* 	if ((ft_strchr("diouxXOU", str[i]) != NULL))
 		list->type = PA_INT;
 	if (ft_strchr("ouxXOU", str[i]) != NULL)
 		list->is_unsigned = 1;
@@ -107,6 +106,6 @@ t_printinfo	*ft_filltype(char *str, t_printinfo *list)
 	else if (str[i] == 'p')
 		list->type = PA_POINTER;
 	else if (str[i] == 's' || str[i] == 'F')
-		list->type = PA_STRING;
+		list->type = PA_STRING; */
 	return (list);
 }
