@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
+#    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/06/24 04:50:33 by fratardi         ###   ########.fr        #
+#    Updated: 2019/07/31 15:25:43 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,39 +22,7 @@ INC_PATH = ./includes
 
 INC_NAME = ft_printf.h
 
-C = ./srcs/parsing/ft_split_format.c \
-	./srcs/parsing/ft_issyntax.c \
-	./srcs/parsing/ft_fill_struct1.c \
-	./srcs/parsing/ft_fill_struct2.c \
-	./srcs/parsing/ft_fill_struct_main.c \
-	./srcs/parsing/ft_fill_buf_main.c \
-	./srcs/parsing/ft_fill_buf.c \
-	./srcs/reader/ft_varead.c \
-	./srcs/reader/ft_fillelem.c \
-	./srcs/unicodes/ft_print_uni_char.c \
-	./srcs/unicodes/ft_print_uni_str.c \
-	./srcs/unicodes/ft_uni_char_len.c \
-	./srcs/unicodes/ft_uni_str_len.c \
-	./srcs/display/ft_convert.c \
-	./srcs/display/ft_displaybin.c \
-	./srcs/display/ft_display.c \
-	./srcs/display/ft_sequence.c \
-	./srcs/display/size_convert.c \
-	./srcs/maths/annex_float.c \
-	./srcs/maths/annex_ldouble.c\
-	./srcs/maths/pow_str.c \
-	./srcs/maths/ft_addstrings.c \
-	./srcs/maths/ft_exception.c \
-	./srcs/maths/ft_roundfloat.c\
-	./srcs/maths/ft_adjustfloat.c \
-	./srcs/maths/new_addstring.c \
-	./srcs/padding/ft_pad_prec.c\
-	./srcs/padding/ft_print_preset_buf.c \
-	./srcs/padding/ft_print_pad.c\
-	./srcs/padding/ft_padding_display.c\
-	./srcs/padding/ft_padding_digits.c \
-	./srcs/free/ft_free_printf.c \
-	./srcs/ft_printf.c \
+C =	./
 
 C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_freetab.o \
@@ -97,7 +65,10 @@ O = $(C:.c=.o)
 
 O_LIB = $(C_LIB:.c=.o)
 
-all : $(NAME)
+all : temp
+
+temp :
+	gcc ft_print2.c libft/libft.a srcs/*/*.c _ex_srcs/parsing/ft_fill_struct1.c _ex_srcs/parsing/ft_fill_struct2.c _ex_srcs/parsing/ft_issyntax.c main.c
 
 newline :
 	@echo ""
