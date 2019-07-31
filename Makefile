@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/07/31 15:43:42 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/07/31 15:46:36 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,9 @@ O_LIB = $(C_LIB:.c=.o)
 all : temp
 
 temp :
+	make -C ./libft
 	gcc ft_print2.c libft/libft.a srcs/*/*.c main.c
+	make fclean -C ./libft
 
 newline :
 	@echo ""
