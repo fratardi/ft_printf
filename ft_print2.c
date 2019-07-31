@@ -18,7 +18,7 @@ t_rep	ft_init_rep(t_rep rep)
 void		ft_print_rest(char *seg, int size)
 {
 	if (size > 0)
-		ft_putstr(&seg[size]);
+		ft_putnstr(seg, size);
 }
 
 //cut segment
@@ -26,8 +26,10 @@ int			ft_syntaxlen(const char *format)
 {
 	int i;
 
-	i = 0;
+	i = 1;
 	while (format[i] && ft_strchr("diouxXcfspUObB", format[i]) == NULL)
+		i++;
+	if (ft_strchr("diouxXcfspUObB", format[i]) != NULL)
 		i++;
 	return (i);
 }
@@ -37,6 +39,8 @@ int			ft_sequencelen(const char *format)
 	int i;
 
 	i = 0;
+	if (format[0])
+		i++;
 	while (format[i] && ft_strchr("\n%", format[i]) == NULL)
 		i++;
 	return (i);
@@ -69,6 +73,7 @@ t_rep 	ft_print_seg(const char *format, t_rep rep)
 	rep.syntaxlen = 0;
 	if (ft_issyntax(seg))
 	{
+		printf("syntax_a_traiter");
 		rep.syntaxlen = ft_syntaxlen(&format[rep.strpos]);
 		info = seg_to_print_info(seg, rep);
 		//ft_display(info, rep);
@@ -89,10 +94,7 @@ int     ft_printf(const char *format , ...)
 	va_start(rep.start, format);
 	va_copy(rep.current, rep.start);
 	while(format[rep.strpos])
-	{
 		rep = ft_print_seg(format, rep);
-		printf("->%d\n", rep.strpos);
-	}
 	ret = rep.ret;
 	va_end(rep.start);
 	//ft_free_rep(rep);
