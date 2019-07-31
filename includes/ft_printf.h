@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/06/16 19:02:33 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/07/31 12:57:41 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,22 @@ typedef struct		s_printinfo {
 	unsigned int		bin;
 	char				t;
 	char				special;
-	char				*buf;
-	size_t				buflen;
-	enum e_type			type;
-	struct s_printinfo	*next;
 }					t_printinfo;
+
+/*
+**Variable position struct
+*/
+
+typedef struct	s_rep
+{
+	int ret;
+	int seglen;
+	int syntaxlen;
+	int strpos;
+	int	vapos;
+	va_list start;
+	va_list current;
+}				t_rep;
 
 /*
 **Not_sytax
@@ -100,8 +111,6 @@ typedef struct		s_elem{
 	int						c;
 	unsigned int			pos;
 	signed char				s_c;
-	struct s_elem			*previous;
-	struct s_elem			*next;
 }					t_elem;
 
 /*

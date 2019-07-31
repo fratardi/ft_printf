@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/20 18:18:28 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/07/31 12:19:14 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void		ft_fillbuf_float(t_printinfo *l, t_elem *elem)
 		l->buf = exception;
 }
 
-void		ft_fillbuf_convert(t_printinfo *l, t_elem *elem)
+void		ft_fillbuf_convert(t_printinfo *l, t_elem *elem, va_list curent)
 {
 	if (l->t == 'o' && l->is_char)
 		l->buf = ft_convert_o((unsigned char)elem->ulli);
 	else if (l->t == 'o' && l->is_short)
-		l->buf = ft_convert_o((unsigned short)elem->ulli);
+		l->buf = ft_convert_o(VA_ARG(CURENT, short));
 	else if (l->t == 'o')
 		l->buf = ft_convert_o(elem->ulli);
 	else if (l->t == 'x' && l->is_char)

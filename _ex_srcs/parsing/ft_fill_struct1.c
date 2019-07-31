@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/20 18:18:34 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/07/31 12:54:56 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ t_printinfo	*ft_fillndol(char *str, t_printinfo *list)
 	while (str[i] && str[i] != '$')
 		i++;
 	if (str[i] == 0)
-	{
-		list->ndol = 0;
 		return (list);
-	}
 	i = 1;
 	list->ndol = ft_atoi(&str[i]);
 	return (list);
