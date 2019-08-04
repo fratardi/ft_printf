@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/07/31 14:02:24 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/04 21:18:34 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,12 +200,11 @@ int					ft_printf(const char *format, ...);
 **Fill Buffer
 */
 
-void				ft_fillbuf_float(t_printinfo *l, t_elem *elem);
-void				ft_opts_mod(t_printinfo *list, int *i, int *hmod,
-	char *str);
-void				ft_fillbuf_digits(t_printinfo *l, t_elem *elem);
-void				ft_fillbuf_convert(t_printinfo *l, t_elem *elem);
-t_printinfo			*ft_fillbuf_bin(t_printinfo *l, t_elem *elem);
+char		*ft_fillbuf_float(t_printinfo *l, t_rep *rep);
+char		*ft_fillbuf_convert(t_printinfo *l, t_rep *rep);
+char			*ft_fillbuf_digits(t_printinfo *l, t_rep *rep);
+char		*ft_fillbuf_bin(t_printinfo *l, t_rep *rep);
+
 
 /*
 **Converting Functions
@@ -248,7 +247,7 @@ char				*ft_binary_string(void *content, size_t n);
 **Fill Stuct Print_Info
 */
 
-void				ft_fillbuf(t_printinfo *list, t_elem *elem);
+char				*ft_fillbuf(t_printinfo *list, t_rep *rep);
 void				ft_fillzerolist(t_printinfo *list);
 t_printinfo			*ft_fillstruct(char **tab);
 t_printinfo			*ft_fillflag(char *str, t_printinfo *list);
@@ -262,12 +261,12 @@ t_printinfo			*ft_filltype(char *str, t_printinfo *list);
 **Fill Elems from va_arg
 */
 
-void				ft_initelem(t_elem *elem);
-t_elem				*ft_varead(t_printinfo *list, va_list va, char **tab);
-t_elem				*ft_filldi(t_printinfo *list, va_list va, t_elem *elem);
-t_elem				*ft_fillunsigned(t_printinfo *list, va_list va,
-	t_elem *elem);
-t_elem				*ft_fillfloats(t_printinfo *list, va_list va, t_elem *elem);
+void					ft_initelem(t_elem *elem);
+t_elem					*ft_varead(t_printinfo *list, va_list va, char **tab);
+t_elem					*ft_fillfloats(t_printinfo *list, va_list va, t_elem *elem);
+long long int			ft_filldi(t_printinfo *list, t_rep *rep);
+unsigned long long int	ft_fillunsigned(t_printinfo *list, t_rep *rep);
+
 
 /*
 **Free

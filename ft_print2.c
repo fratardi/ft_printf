@@ -74,10 +74,9 @@ t_rep 	ft_print_seg(const char *format, t_rep rep)
 	if (ft_issyntax(seg))
 	{
 		rep.syntaxlen = ft_syntaxlen(&format[rep.strpos]);
-		ft_putstr("syntax_a_traiter{");
-		ft_putnstr(seg, rep.syntaxlen);
-		ft_putstr("}");
 		info = seg_to_print_info(seg, rep);
+		ft_putstr("{PADDING}");
+		ft_putstr(ft_fillbuf(&info, &rep));
 		//ft_display(info, rep);
 	}
 	else if (seg[0] == '%')
