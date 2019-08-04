@@ -79,7 +79,7 @@ t_rep 	ft_print_seg(const char *format, t_rep rep)
 		syntax = ft_fillbuf(&info, &rep);
 		ft_putstr("{PADDING}");
 		ft_putstr(syntax);
-		free(syntax);
+		// free(syntax);
 		//ft_display(info, rep);
 	}
 	else if (seg[0] == '%')
