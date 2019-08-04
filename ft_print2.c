@@ -66,6 +66,7 @@ t_printinfo  seg_to_print_info(char *seg, t_rep rep)
 t_rep 	ft_print_seg(const char *format, t_rep rep)
 {
 	char *seg;
+	char *syntax;
 	t_printinfo info;
 
 	seg = (char *)&format[rep.strpos];
@@ -75,8 +76,10 @@ t_rep 	ft_print_seg(const char *format, t_rep rep)
 	{
 		rep.syntaxlen = ft_syntaxlen(&format[rep.strpos]);
 		info = seg_to_print_info(seg, rep);
+		syntax = ft_fillbuf(&info, &rep);
 		ft_putstr("{PADDING}");
-		ft_putstr(ft_fillbuf(&info, &rep));
+		ft_putstr(syntax);
+		free(syntax);
 		//ft_display(info, rep);
 	}
 	else if (seg[0] == '%')
