@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/04 21:18:34 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/05 04:23:01 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,7 +227,7 @@ size_t				ft_disphmodchar(t_printinfo *list, t_elem *elem);
 size_t				ft_disphmodshort(t_printinfo *list, t_elem *elem);
 int					onlystring(char **tab);
 size_t				ft_putonlystring(char **tab);
-size_t				ft_sequence(char *s1, char *s2, int *open);
+size_t				ft_sequence(char *s, int len);
 size_t				ft_endseq(char *s1);
 
 /*
@@ -236,7 +236,7 @@ size_t				ft_endseq(char *s1);
 
 char				**ft_split_format(const char *format);
 char				*ft_rest(char *str);
-int					ft_issyntax(char *str);
+int					ft_issyntax(char *s, size_t len);
 void				ft_modndol(t_printinfo *list);
 void				ft_displaybin(void *content, size_t n);
 char				*ft_of(char *name);
@@ -285,11 +285,14 @@ int					ft_pad_char_type(t_printinfo *l);
 int					ft_padding_display(t_printinfo *l);
 int					ft_pad_xo(t_printinfo *l, int zero);
 int					ft_print_preset_buf(unsigned char c, int n);
-void				ft_padding(t_printinfo *list);
-int					ft_pad_di(t_printinfo *l);
+int					ft_pad_di(t_printinfo *l, char *buf);
 void				ft_padding_convert(t_printinfo *l, int zero);
 void				ft_padding_str(t_printinfo *l);
-void				ft_pad_prec(t_printinfo *l);
+char				*ft_pad_prec(t_printinfo *l, char *buf);
 int					ft_pad_float(t_printinfo *l);
+
+
+/* MORE */
+int			ft_sequencelen(const char *format);
 
 #endif

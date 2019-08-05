@@ -41,7 +41,7 @@ int			ft_sequencelen(const char *format)
 	i = 0;
 	if (format[0])
 		i++;
-	while (format[i] && ft_strchr("\n%", format[i]) == NULL)
+	while (format[i] && ft_strchr("%", format[i]) == NULL)
 		i++;
 	return (i);
 }
@@ -50,15 +50,19 @@ int			ft_sequencelen(const char *format)
 t_printinfo  seg_to_print_info(char *seg, t_rep rep)
 {
 	t_printinfo list;
+	char *temp;
 
+	temp = ft_strndup(seg, rep.syntaxlen);
+	// printf("syn={%s}\n", temp);
 	ft_fillzerolist(&list);
-	ft_fillndol(seg, &list);
+	ft_fillndol(temp, &list);
 	//ndol selon precedant ou ndol soit precise
-	ft_fillprec(seg, &list);
-	ft_fillflag(seg, &list);
-	ft_fillwidth(seg, &list);
-	ft_fillmod(seg, &list);
-	ft_filltype(seg, &list);
+	ft_fillprec(temp, &list);
+	ft_fillflag(temp, &list);
+	ft_fillwidth(temp, &list);
+	ft_fillmod(temp, &list);
+	ft_filltype(temp, &list);
+	// ft_strdel(temp);
 	return (list);
 }
 
@@ -72,19 +76,29 @@ t_rep 	ft_print_seg(const char *format, t_rep rep)
 	seg = (char *)&format[rep.strpos];
 	rep.seglen = ft_sequencelen(seg);
 	rep.syntaxlen = 0;
-	if (ft_issyntax(seg))
+	if (ft_issyntax(seg, rep.seglen))
 	{
 		rep.syntaxlen = ft_syntaxlen(&format[rep.strpos]);
 		info = seg_to_print_info(seg, rep);
 		syntax = ft_fillbuf(&info, &rep);
-		ft_putstr("{PADDING}");
-		ft_putstr(syntax);
+		syntax = ft_pad_prec(&info, syntax);
+		if (ft_strchr("fdi", info.t))
+			ft_pad_di(&info, syntax);
+		else
+			ft_putstr(syntax);
 		// free(syntax);
+		ft_print_rest(&seg[rep.syntaxlen], rep.seglen - rep.syntaxlen);
 		//ft_display(info, rep);
 	}
 	else if (seg[0] == '%')
-		ft_putstr("not_good_syntax");
-	ft_print_rest(&seg[rep.syntaxlen], rep.seglen - rep.syntaxlen);
+	{
+		ft_sequence(seg, rep.seglen);
+		rep.seglen += ft_sequencelen(&seg[rep.seglen]);
+		// ft_printf("{%s}", seg);
+		/* ft_putstr("not_good_syntax"); */
+	}
+	else
+		ft_print_rest(&seg[rep.syntaxlen], rep.seglen - rep.syntaxlen);
 	// free(seg);
 	rep.strpos += rep.seglen;
 	return (rep);
