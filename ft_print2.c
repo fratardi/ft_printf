@@ -82,10 +82,11 @@ t_rep 	ft_print_seg(const char *format, t_rep rep)
 		info = seg_to_print_info(seg, rep);
 		syntax = ft_fillbuf(&info, &rep);
 		syntax = ft_pad_prec(&info, syntax);
-		if (ft_strchr("fdi", info.t))
+		ft_padding_display(&info, syntax);
+/* 		if (ft_strchr("fdi", info.t))
 			ft_pad_di(&info, syntax);
 		else
-			ft_putstr(syntax);
+			ft_putstr(syntax); */
 		// free(syntax);
 		ft_print_rest(&seg[rep.syntaxlen], rep.seglen - rep.syntaxlen);
 		//ft_display(info, rep);
@@ -93,7 +94,8 @@ t_rep 	ft_print_seg(const char *format, t_rep rep)
 	else if (seg[0] == '%')
 	{
 		ft_sequence(seg, rep.seglen);
-		rep.seglen += ft_sequencelen(&seg[rep.seglen]);
+		if (seg[rep.seglen] == '%' && seg[rep.seglen] && !ft_issyntax(&seg[rep.seglen], ft_sequencelen(&seg[rep.seglen])))
+			rep.seglen += ft_sequencelen(&seg[rep.seglen]);
 		// ft_printf("{%s}", seg);
 		/* ft_putstr("not_good_syntax"); */
 	}
@@ -114,7 +116,10 @@ int     ft_printf(const char *format , ...)
 	va_start(rep.start, format);
 	va_copy(rep.current, rep.start);
 	while(format[rep.strpos])
+	{
 		rep = ft_print_seg(format, rep);
+		// printf(">>{%s}\n", &format[rep.strpos]);
+	}
 	ret = rep.ret;
 	va_end(rep.start);
 	//ft_free_rep(rep);

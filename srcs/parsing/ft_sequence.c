@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 02:07:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/05 04:24:18 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/05 23:27:27 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,10 @@ size_t		ft_sequence(char *s, int len)
 	t_no_syntax	content;
 
 	content.ret = 0;
-	rest_size = ft_sequencelen(&s[len]) - 1;
-	i = ft_init_sequence(s, &content, len);
+	rest_size = ft_sequencelen(&s[len]);
+	// printf("|%s|", s);
+;	i = ft_init_sequence(s, &content, len);
+	// printf(">>%d_%d_%d_%d<<", rest_size, i, len, len - i);
 	if (content.left)
 	{
 		ft_putchar((s[i] == 0) ? s[len] : s[i]);
@@ -81,7 +83,12 @@ size_t		ft_sequence(char *s, int len)
 		ft_strdel(&temp);
 	}
 	if (i <= len)
-		content.ret  += ft_print_n_uni_str(&s[i + ((content.left) ? 1 : 0)], len + rest_size);
+	{
+		if (s[i + ((content.left) ? 1 : 0)] == '%')
+			content.ret  += ft_print_n_uni_str(&s[i + ((content.left) ? 1 : 0)], rest_size);
+		else
+			content.ret  += ft_print_n_uni_str(&s[i + ((content.left) ? 1 : 0)], len - i);
+	}
 	else if (s[len] != 0)
 		content.ret += ft_print_uni_str((content.left) ? &s[len + 1] : &s[len]);
 	return (content.ret);
