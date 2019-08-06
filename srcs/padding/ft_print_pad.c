@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/06 19:25:48 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/06 19:29:14 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int			ft_pad_float(t_printinfo *l, char *buf)
 	return (ret);
 }
 
-void		padding_hash_convert(t_printinfo *l, int zero, char *buf)
+char		*padding_hash_convert(t_printinfo *l, int zero, char *buf)
 {
 	char	*temp;
 	int		octal;
@@ -86,6 +86,7 @@ void		padding_hash_convert(t_printinfo *l, int zero, char *buf)
 			buf = ft_joinfree(ft_strdup("0"), buf);
 		}
 	}
+	return (buf);
 }
 
 int			ft_display_pad_xo(t_printinfo *l, int zero, int width, int ret, char *buf)
@@ -127,7 +128,7 @@ int			ft_pad_xo(t_printinfo *l, int zero, char *buf)
 			width--;
 		buf = ft_joinfree(ft_memaset('0', width), buf);
 	}
-	padding_hash_convert(l, zero, buf);
+	buf = padding_hash_convert(l, zero, buf);
 	width = l->width - ft_strlen(buf);
 	return (ft_display_pad_xo(l, zero, width, 0, buf));
 }
