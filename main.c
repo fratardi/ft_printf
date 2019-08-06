@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/05 23:29:29 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/06 17:32:59 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int main(void)
 {
-    ft_printf("%17.9d et %% et %0$u %20s et %12y %1.4f", 42, "string",1.2f);
-    printf("\n%17.9d et %% et %0$u %20s et %12y %1.4f", 42, "string", 1.2f);
+    ft_printf("%17.9d et %% et %0$u %20s et %12y %1.4f %O %U", 42, "string",1.2f, 42, 42);
+    printf("\n%17.9d et %% et %0$u %20s et %12y %1.4f %O %U", 42, "string", 1.2f, 42, 42);
 /*     ft_printf("test %s %s %s modifs\n", "1", "2", "3");
     ft_printf("test %2$*.*s modifs\n", "test");
     ft_printf("test %2$.15s modifs\n", "test");

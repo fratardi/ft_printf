@@ -1,3 +1,4 @@
+#include "../includes/ft_printf.h"
 
 void	ft_teststo(void)
 {
@@ -92,12 +93,7 @@ void	ft_teststo(void)
 
 int main(void)
 {
-	//		ft_teststo();
-char *str = 0x0;
-
-ft_printf("%-5.5p\n", str);
-
-printf("%-5.5p\n", str);
+			ft_teststo();
 
 	return (0);
 }

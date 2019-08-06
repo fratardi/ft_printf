@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 22:39:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/07/31 13:56:10 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/06 17:33:38 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,10 @@ t_printinfo	*ft_filltype(char *str, t_printinfo *list)
 	while (str[i] && ft_strchr("diouxXcfFspOUbB", str[i]) == NULL)
 		i++;
 	list->t = (ft_strchr("diouxXcfFspOUbB", str[i]) != NULL) ? str[i] : 0;
+	if (ft_strchr("ouOUxX", list->t))
+		list->is_unsigned = 1;
+	if (list->t == 'O' || list->t == 'U')
+		list->t = ((list->t == 'O') ? 'o' : 'u');
 /* 	if ((ft_strchr("diouxXOU", str[i]) != NULL))
 		list->type = PA_INT;
 	if (ft_strchr("ouxXOU", str[i]) != NULL)
