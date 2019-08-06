@@ -17,10 +17,11 @@ t_rep	ft_init_rep(void)
 }
 
 
-void		ft_print_rest(char *seg, int size)
+int		ft_print_rest(char *seg, int size)
 {
 	if (size > 0)
 		ft_putnstr(seg, size);
+	return (size);
 }
 
 //cut segment
@@ -49,12 +50,12 @@ int			ft_sequencelen(const char *format)
 }
 
 //tanslate segment given by ft_segment to printinfo data type
-t_printinfo  seg_to_print_info(char *seg, t_rep rep)
+t_printinfo  seg_to_print_info(char *seg, t_rep *rep)
 {
 	t_printinfo list;
 	char *temp;
 
-	temp = ft_strndup(seg, rep.syntaxlen);
+	temp = ft_strndup(seg, rep->syntaxlen);
 	// printf("syn={%s}\n", temp);
 	ft_fillzerolist(&list);
 	ft_fillndol(temp, &list);
@@ -69,43 +70,45 @@ t_printinfo  seg_to_print_info(char *seg, t_rep rep)
 }
 
 //print the data according to it's printinfo
-t_rep 	ft_print_seg(const char *format, t_rep rep)
+size_t		ft_print_seg(const char *format, t_rep *rep)
 {
 	char *seg;
 	char *syntax;
 	t_printinfo info;
+	size_t ret;
 
-	seg = (char *)&format[rep.strpos];
-	rep.seglen = ft_sequencelen(seg);
-	rep.syntaxlen = 0;
-	if (ft_issyntax(seg, rep.seglen))
+	ret = 0;
+	seg = (char *)&format[rep->strpos];
+	rep->seglen = ft_sequencelen(seg);
+	rep->syntaxlen = 0;
+	if (ft_issyntax(seg, rep->seglen))
 	{
-		rep.syntaxlen = ft_syntaxlen(&format[rep.strpos]);
+		rep->syntaxlen = ft_syntaxlen(&format[rep->strpos]);
 		info = seg_to_print_info(seg, rep);
-		syntax = ft_fillbuf(&info, &rep);
+		syntax = ft_fillbuf(&info, rep);
 		syntax = ft_pad_prec(&info, syntax);
-		ft_padding_display(&info, syntax);
+		ret += ft_padding_display(&info, syntax);
 /* 		if (ft_strchr("fdi", info.t))
 			ft_pad_di(&info, syntax);
 		else
 			ft_putstr(syntax); */
 		// free(syntax);
-		ft_print_rest(&seg[rep.syntaxlen], rep.seglen - rep.syntaxlen);
+		ret += ft_print_rest(&seg[rep->syntaxlen], rep->seglen - rep->syntaxlen);
 		//ft_display(info, rep);
 	}
 	else if (seg[0] == '%')
 	{
-		ft_sequence(seg, rep.seglen);
-		if (seg[rep.seglen] == '%' && seg[rep.seglen] && !ft_issyntax(&seg[rep.seglen], ft_sequencelen(&seg[rep.seglen])))
-			rep.seglen += ft_sequencelen(&seg[rep.seglen]);
+		ret += ft_sequence(seg, rep->seglen);
+		if (seg[rep->seglen] == '%' && seg[rep->seglen] && !ft_issyntax(&seg[rep->seglen], ft_sequencelen(&seg[rep->seglen])))
+			rep->seglen += ft_sequencelen(&seg[rep->seglen]);
 		// ft_printf("{%s}", seg);
 		/* ft_putstr("not_good_syntax"); */
 	}
 	else
-		ft_print_rest(&seg[rep.syntaxlen], rep.seglen - rep.syntaxlen);
+		ret += ft_print_rest(&seg[rep->syntaxlen], rep->seglen - rep->syntaxlen);
 	// free(seg);
-	rep.strpos += rep.seglen;
-	return (rep);
+	rep->strpos += rep->seglen;
+	return (ret);
 }
 
 int     ft_printf(const char *format , ...)
@@ -121,10 +124,10 @@ int     ft_printf(const char *format , ...)
 	va_copy(rep.current, rep.start);
 	while(format[rep.strpos])
 	{
-		rep = ft_print_seg(format, rep);
+		ret += ft_print_seg(format, &rep);
 		// printf(">>{%s}\n", &format[rep.strpos]);
 	}
-	ret = rep.ret;
+	// ret = rep.ret;
 	va_end(rep.start);
 	//ft_free_rep(rep);
 	return(ret);
