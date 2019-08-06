@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/05 23:14:53 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/05 23:44:47 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -295,5 +295,6 @@ int					ft_pad_float(t_printinfo *l, char *buf);
 /* MORE */
 int			ft_sequencelen(const char *format);
 int			ft_syntaxlen(const char *format);
+size_t  ft_display_char_content(void *content, size_t len);
 
 #endif

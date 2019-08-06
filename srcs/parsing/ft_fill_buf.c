@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/05 01:47:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/06 01:49:57 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,7 @@ char		*ft_fillbuf_bin(t_printinfo *l, t_rep *rep)
 char		*ft_fillbuf(t_printinfo *l, t_rep *rep)
 {
 	char *ret;
+	char c;
 
 	if (l->t == 'd' || l->t == 'i' || l->t == 'u')
 		ret = ft_fillbuf_digits(l, rep);
@@ -169,6 +170,11 @@ char		*ft_fillbuf(t_printinfo *l, t_rep *rep)
 	else if (l->t == 'f')
 		ret = ft_fillbuf_float(l, rep);
 	else if (l->t == 's')
-		ret = va_arg(rep->current, char *);
+		ret = ft_strdup(va_arg(rep->current, char *));
+	else if (l->t == 'c')
+	{
+		c = va_arg(rep->current, char);
+		ret = ft_strndup(&c, 1);
+	}
 	return (ret);
 }

@@ -2,8 +2,10 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
-t_rep	ft_init_rep(t_rep rep)
+t_rep	ft_init_rep(void)
 {
+	t_rep rep;
+
 	rep.ret = 0;
 	rep.seglen = 0;
 	rep.syntaxlen = 0;
@@ -112,7 +114,9 @@ int     ft_printf(const char *format , ...)
 	int ret;
 
 	ret = 0;
-	rep = ft_init_rep(rep);
+	if (format == NULL)
+		return (0);
+	rep = ft_init_rep();
 	va_start(rep.start, format);
 	va_copy(rep.current, rep.start);
 	while(format[rep.strpos])

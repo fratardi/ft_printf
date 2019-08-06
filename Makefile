@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/07/31 15:46:36 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/08/05 23:47:04 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,40 @@ LIB = ./libft/libft.a
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = #-Wall -Wextra -Werror
 
 INC_PATH = ./includes
 
 INC_NAME = ft_printf.h
 
-C =	./
+C = ft_print2.c\
+	srcs/convert/ft_convert.c \
+	srcs/convert/ft_displaybin.c\
+	srcs/convert/size_convert.c\
+	srcs/display/disp_content_char.c\
+	srcs/maths/annex_float.c\
+	srcs/maths/annex_ldouble.c\
+	srcs/maths/ft_addstrings.c\
+	srcs/maths/ft_adjustfloat.c\
+	srcs/maths/ft_exception.c\
+	srcs/maths/ft_roundfloat.c\
+	srcs/maths/new_addstring.c\
+	srcs/maths/pow_str.c\
+	srcs/padding/ft_pad_prec.c\
+	srcs/padding/ft_padding_digits.c\
+	srcs/padding/ft_padding_display.c\
+	srcs/padding/ft_print_pad.c\
+	srcs/padding/ft_print_preset_buf.c\
+	srcs/parsing/ft_fill_buf.c\
+	srcs/parsing/ft_fill_struct1.c\
+	srcs/parsing/ft_fill_struct2.c\
+	srcs/parsing/ft_issyntax.c\
+	srcs/parsing/ft_sequence.c\
+	srcs/parsing/ft_va.c\
+	srcs/unicodes/ft_print_uni_char.c\
+	srcs/unicodes/ft_print_uni_str.c\
+	srcs/unicodes/ft_uni_char_len.c\
+	srcs/unicodes/ft_uni_str_len.c\
 
 C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_freetab.o \
@@ -65,7 +92,7 @@ O = $(C:.c=.o)
 
 O_LIB = $(C_LIB:.c=.o)
 
-all : temp
+all : $(NAME)
 
 temp :
 	make -C ./libft

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/05 03:22:08 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/06 02:00:03 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ size_t			ft_declen(char *str)
 	return(ft_strlen(&str[pos]));
 }
 
-void	padding_extra_digit(t_printinfo *l, int sign, char *buf)
+char	*padding_extra_digit(t_printinfo *l, int sign, char *buf)
 {
 	int tmp;
 
+	// printf(">>%s\n", buf);
 	if (l->extra && (l->prec == -2 || l->t == 'f') && !l->left)
 	{
 		tmp = l->width - ft_strlen(buf) - (((sign == -1) ||
@@ -39,8 +40,9 @@ void	padding_extra_digit(t_printinfo *l, int sign, char *buf)
 		if (ft_strchr("di", l->t) && sign == 1 && l->space && buf[0] != '0')
 			tmp--;
 		if (tmp > 0)
-			buf = ft_joinfree(ft_memaset('0', tmp), buf);
+			return(ft_memaset('0', tmp));
 	}
+	return (NULL);
 }
 
 int		ft_print_pad_dig(t_printinfo *l, int width, char *buf)
@@ -48,25 +50,27 @@ int		ft_print_pad_dig(t_printinfo *l, int width, char *buf)
 	int ret;
 
 	ret = 0;
+	if (buf == NULL)
+		return (0);
 	l->prec = (l->t == 'f' && l->prec == -2) ? 6 : l->prec;
 	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) ||
 		(l->extra) || (l->width > l->prec)))
 	{
 		ret += ft_print_preset_buf(' ', width);
-		ret += ft_display_char_content(buf, ft_uni_str_len(buf));
+		ret += ft_display_char_content(buf, ft_strlen(buf));
 		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(buf))
 			ret += ft_print_preset_buf('0', l->prec - ft_declen(buf));
 	}
 	else if (width > 0 && l->left)
 	{
-		ret += ft_display_char_content(buf), ft_uni_str_len(buf);
+		ret += ft_display_char_content(buf, ft_strlen(buf));
 		ret += ft_print_preset_buf(' ', width);
 		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(buf))
 			ret += ft_print_preset_buf('0', l->prec - ft_declen(buf));
 	}
 	else
 	{
-		ret += ft_display_char_content(buf, ft_uni_str_len(buf));
+		ret += ft_display_char_content(buf, ft_strlen(buf));
 		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(buf))
 			ret += ft_print_preset_buf('0', l->prec - ft_declen(buf));
 	}
@@ -78,21 +82,19 @@ int		ft_pad_di(t_printinfo *l, char *buf)
 	int		sign;
 	int		width;
 	char	*temp;
-
+	
 	sign = (buf[0] == '-') ? -1 : 1;
 	if (buf[0] == '-')
-	{
 		temp = ft_strdup(&buf[1]);
-		ft_strdel(&(buf));
-		buf = temp;
-	}
-	padding_extra_digit(l, sign, buf);
+	else
+		temp = ft_strdup(buf);
+	temp = ft_joinfree(padding_extra_digit(l, sign, temp), temp);
 	if (l->space && !l->showsign && sign == 1 && !l->is_unsigned)
-		buf = ft_joinfree(ft_strdup(" "), buf);
+		temp = ft_joinfree(ft_strdup(" "), temp);
 	if (sign == -1 && !l->is_unsigned)
-		buf = ft_joinfree(ft_strdup("-"), buf);
+		temp = ft_joinfree(ft_strdup("-"), temp);
 	if (l->showsign && sign == 1 && !l->is_unsigned)
-		buf = ft_joinfree(ft_strdup("+"), buf);
-	width = l->width - ft_strlen(buf);
-	return (ft_print_pad_dig(l, width, buf));
+		temp = ft_joinfree(ft_strdup("+"), temp);
+	width = l->width - ft_strlen(temp);
+	return (ft_print_pad_dig(l, width, temp));
 }
