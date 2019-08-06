@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/06 19:25:34 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/06 19:43:11 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char		*ft_fillbuf_float(t_printinfo *l, t_rep *rep)
 	i = (!l->alt) ? 1 : 0;
 	flts = (l->is_long_double) ?
 	(va_arg(rep->current, long double)) : (va_arg(rep->current, double));
+	rep->vapos++;
 	exception = ft_exception(flts, l);
 	if (exception == NULL)
 	{
@@ -49,6 +50,7 @@ long long int			ft_filldi(t_printinfo *list, t_rep *rep)
 		ret = va_arg(rep->current, long int);
 	else
 		ret = va_arg(rep->current, int);
+	rep->vapos++;
 	return (ret);
 }
 
@@ -71,6 +73,7 @@ unsigned long long int	ft_fillunsigned(t_printinfo *list, t_rep *rep)
 		list->is_char = 0;
 		list->is_short = 0;
 	}
+	rep->vapos++;
 	return (ret);
 }
 
@@ -150,6 +153,7 @@ char		*ft_fillbuf_bin(t_printinfo *l, t_rep *rep)
 	else if (l->t == 'B')
 	{
 		value = va_arg(rep->current, void *);
+		rep->vapos++;
 		buf = ft_binary_string(value,
 		sizeof(char) * ft_strlen(value));
 	}
@@ -173,6 +177,7 @@ char		*ft_fillbuf(t_printinfo *l, t_rep *rep)
 	{
 		ret = va_arg(rep->current, char *);
 		ret = ft_strdup((ret == NULL) ? "(null)" : ret);
+		rep->vapos++;
 	}
 	else if (l->t == 'c')
 	{
@@ -181,6 +186,7 @@ char		*ft_fillbuf(t_printinfo *l, t_rep *rep)
 			l->special = 0;
 		/* l->width -= ((l->width > 0) ? 1 : 0); */
 		ret = ft_strndup(&c, 1);
+		rep->vapos++;
 	}
 	return (ret);
 }
