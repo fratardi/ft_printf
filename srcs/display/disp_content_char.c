@@ -20,6 +20,7 @@ size_t  ft_display_char_content(void *content, size_t len)
 
    tmp = (unsigned char *)content;
    ret = (int)len;
+   //how to handle cases with emojis larger than buffer size 
    while(ret > 0 )
    {
        write(1, tmp, (ret <  BUFF_SIZE) ? ret : BUFF_SIZE);

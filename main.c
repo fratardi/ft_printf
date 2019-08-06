@@ -16,7 +16,8 @@
 int main(void)
 {
 		// printf("aa%%bb\n");
-		ft_printf("%*s\n", 10, "string");
+		ft_printf("%*.*d || % $0$d\n", 15, 2, 4,5,6);
+		//printf("%*.*f\n");
     // printf("_%d_", ft_prin \tf("%17.9d et %% et %0$u %20s et %12y %1.4f %O %U", 42, "string",1.2f, 42, 42));
     // printf("_%d_", printf("\n%17.9d et %% et %0$u %20s et %12y %1.4f %O %U", 42, "string", 1.2f, 42, 42));
 /*     ft_printf("test %s %s %s modifs\n", "1", "2", "3");

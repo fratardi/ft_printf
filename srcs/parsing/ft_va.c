@@ -27,8 +27,20 @@ void	ft_star_search(t_rep *rep, t_printinfo *info)
 	}
 }
 
-/* va_list	ft_arg_search(t_rep rep, const char *format)
+void	ft_arg_search(t_rep *rep, t_printinfo *info)
 {
-	if ()
-} */
+	if(!info->ndol || rep->vapos == 0)
+		return ;
+	if(info->ndol != 0 && info->ndol != rep->vapos)
+	{
+		if(info->ndol < rep->vapos)
+		{
+			va_end(rep->current);
+			va_copy(rep->current ,rep->start);
+			rep->vapos = 0;
+		}
+		while(rep->vapos++ < info->ndol)
+			va_arg(rep->current, int);
+	}
+} 
 

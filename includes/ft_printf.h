@@ -20,7 +20,7 @@
 **Defines for the static padding buffer
 */
 
-# define BUFF_SIZE  2014
+# define BUFF_SIZE  100
 
 /*
 **Defines for unicodes hexas masks matching  hardware specifcations
@@ -297,5 +297,6 @@ int			ft_sequencelen(const char *format);
 int			ft_syntaxlen(const char *format);
 size_t  ft_display_char_content(void *content, size_t len);
 void	ft_star_search(t_rep *rep, t_printinfo *info);
+void	ft_arg_search(t_rep *rep, t_printinfo *info);
 
 #endif

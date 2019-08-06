@@ -65,6 +65,7 @@ t_printinfo  seg_to_print_info(char *seg, t_rep *rep)
 	ft_fillwidth(temp, &list);
 	ft_fillmod(temp, &list);
 	ft_filltype(temp, &list);
+	ft_arg_search(rep, &list);
 	ft_star_search(rep, &list);
 	// ft_strdel(temp);
 	return (list);
