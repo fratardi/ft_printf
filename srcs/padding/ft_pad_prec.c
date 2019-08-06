@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/05 01:32:28 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/06 18:06:27 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ char			*ft_pad_prec(t_printinfo *l, char *buf)
 	int neg;
 
 	neg = 0;
-/* 	if ((l->prec == 0) && (ft_strchr("diuxX", l->t) || (ft_strchr("oO", l->t)
-				&& !l->alt)) &&  == 1 && buf[0] == '0')
+	if ((l->prec == 0) && (ft_strchr("diuxX", l->t) || (ft_strchr("oO", l->t)
+				&& !l->alt)) && ft_strlen(buf) == 1 && buf[0] == '0')
 	{
 		buf[0] = 0;
-		return ;
-	} */
+		return (buf);
+	}
 	if (l->prec < 0 || l->t == 'f' || l->t == 'c')
 		return (buf);
 	prec = l->prec - ft_strlen(buf) + ((buf[0] == '-' &&
