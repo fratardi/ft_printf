@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/06 17:31:36 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/06 19:25:34 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,9 @@ char		*ft_fillbuf(t_printinfo *l, t_rep *rep)
 	else if (l->t == 'c')
 	{
 		c = va_arg(rep->current, char);
+		if (c == 0)
+			l->special = 0;
+		/* l->width -= ((l->width > 0) ? 1 : 0); */
 		ret = ft_strndup(&c, 1);
 	}
 	return (ret);
