@@ -101,7 +101,7 @@ size_t		ft_print_seg(const char *format, t_rep *rep)
 	else if (seg[0] == '%')
 	{
 		ret += ft_sequence(seg, rep->seglen);
-		if (seg[rep->seglen] == '%' && seg[rep->seglen] /* && !ft_issyntax(&seg[rep->seglen], ft_sequencelen(&seg[rep->seglen])) */)
+		if (seg[rep->seglen] == '%' && seg[rep->seglen] && !ft_issyntax(&seg[rep->seglen], ft_sequencelen(&seg[rep->seglen])))
 			rep->seglen += ft_sequencelen(&seg[rep->seglen]);
 		// ft_printf("{%s}", seg);
 		/* ft_putstr("not_good_syntax"); */
@@ -126,6 +126,7 @@ int     ft_printf(const char *format , ...)
 	va_copy(rep.current, rep.start);
 	while(format[rep.strpos])
 	{
+		// printf(">");
 		ret += ft_print_seg(format, &rep);
 		// printf(">>{%s}\n", &format[rep.strpos]);
 	}
