@@ -10,7 +10,7 @@ t_rep	ft_init_rep(void)
 	rep.seglen = 0;
 	rep.syntaxlen = 0;
 	rep.strpos = 0;
-	rep.vapos = 0;
+	rep.vapos = 1;
 	// rep.start = NULL;
 	// rep.current = rep.start;
 	return (rep);

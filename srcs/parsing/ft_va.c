@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 12:11:07 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/06 19:48:03 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/09 15:59:13 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,9 @@ void	ft_arg_search(t_rep *rep, t_printinfo *info)
 		{
 			va_end(rep->current);
 			va_copy(rep->current ,rep->start);
-			rep->vapos = 0;
+			rep->vapos = 1;
 		}
 		while(rep->vapos++ < info->ndol)
 			va_arg(rep->current, int);
 	}
 } 
-
