@@ -126,9 +126,8 @@ int     ft_printf(const char *format , ...)
 	va_copy(rep.current, rep.start);
 	while(format[rep.strpos])
 	{
-		// printf(">");
-		ret += ft_print_seg(format, &rep);
 		// printf(">>{%s}\n", &format[rep.strpos]);
+		ret += ft_print_seg(format, &rep);
 	}
 	// ret = rep.ret;
 	va_end(rep.start);
