@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:40:55 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/06 17:27:50 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/11 22:34:56 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 int		ft_issyntax(char *s, size_t len)
 {
-	int i;
-	char *str;
+	int		i;
+	char	*str;
 
 	i = 1;
 	if (s[0] != '%' || (s[0] == '%' && s[1] == '%'))

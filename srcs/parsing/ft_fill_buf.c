@@ -6,19 +6,19 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/06 19:43:11 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/11 22:42:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 #include <stdarg.h>
 
-char		*ft_fillbuf_float(t_printinfo *l, t_rep *rep)
+char					*ft_fillbuf_float(t_printinfo *l, t_rep *rep)
 {
-	long double flts;
-	char	*buf;
-	char	*exception;
-	int		i;
+	long double	flts;
+	char		*buf;
+	char		*exception;
+	int			i;
 
 	i = (!l->alt) ? 1 : 0;
 	flts = (l->is_long_double) ?
@@ -77,10 +77,10 @@ unsigned long long int	ft_fillunsigned(t_printinfo *list, t_rep *rep)
 	return (ret);
 }
 
-char		*ft_fillbuf_convert(t_printinfo *l, t_rep *rep)
+char					*ft_fillbuf_convert(t_printinfo *l, t_rep *rep)
 {
-	char	*buf;
-	unsigned long long int temp;
+	char					*buf;
+	unsigned long long int	temp;
 
 	buf = NULL;
 	if (l->t == 'p')
@@ -107,11 +107,11 @@ char		*ft_fillbuf_convert(t_printinfo *l, t_rep *rep)
 	return (buf);
 }
 
-char			*ft_fillbuf_digits(t_printinfo *l, t_rep *rep)
+char					*ft_fillbuf_digits(t_printinfo *l, t_rep *rep)
 {
-	char *buf;
-	long long int temp;
-	unsigned long long int ullitemp;
+	char					*buf;
+	long long int			temp;
+	unsigned long long int	ullitemp;
 
 	buf = NULL;
 	if (!l->is_unsigned)
@@ -133,11 +133,11 @@ char			*ft_fillbuf_digits(t_printinfo *l, t_rep *rep)
 	return (buf);
 }
 
-char		*ft_fillbuf_bin(t_printinfo *l, t_rep *rep)
+char					*ft_fillbuf_bin(t_printinfo *l, t_rep *rep)
 {
-	char *buf;
-	long long int temp;
-	void *value;
+	char			*buf;
+	long long int	temp;
+	void			*value;
 
 	buf = NULL;
 	if (l->t == 'b')
@@ -160,10 +160,10 @@ char		*ft_fillbuf_bin(t_printinfo *l, t_rep *rep)
 	return (buf);
 }
 
-char		*ft_fillbuf(t_printinfo *l, t_rep *rep)
+char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 {
-	char *ret;
-	char c;
+	char	*ret;
+	char	c;
 
 	if (l->t == 'd' || l->t == 'i' || l->t == 'u')
 		ret = ft_fillbuf_digits(l, rep);
@@ -184,7 +184,6 @@ char		*ft_fillbuf(t_printinfo *l, t_rep *rep)
 		c = va_arg(rep->current, char);
 		if (c == 0)
 			l->special = 0;
-		/* l->width -= ((l->width > 0) ? 1 : 0); */
 		ret = ft_strndup(&c, 1);
 		rep->vapos++;
 	}
