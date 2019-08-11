@@ -67,7 +67,7 @@ t_printinfo  seg_to_print_info(char *seg, t_rep *rep)
 	ft_filltype(temp, &list);
 	ft_arg_search(rep, &list);
 	ft_star_search(rep, &list);
-	// ft_strdel(temp);
+	ft_strdel(&temp);
 	return (list);
 }
 
@@ -89,13 +89,17 @@ size_t		ft_print_seg(const char *format, t_rep *rep)
 		info = seg_to_print_info(seg, rep);
 		syntax = ft_fillbuf(&info, rep);
 		syntax = ft_pad_prec(&info, syntax);
-		ret += ft_padding_display(&info, syntax);
+		ret += ft_padding_display(&info, &syntax);
 /* 		if (ft_strchr("fdi", info.t))
 			ft_pad_di(&info, syntax);
 		else
 			ft_putstr(syntax); */
-		// free(syntax);
+		free(syntax);
 		ret += ft_print_rest(&seg[rep->syntaxlen], rep->seglen - rep->syntaxlen);
+		if (syntax)
+		{
+			printf("{%s}\n", syntax);
+		}
 		//ft_display(info, rep);
 	}
 	else if (seg[0] == '%')
@@ -108,7 +112,6 @@ size_t		ft_print_seg(const char *format, t_rep *rep)
 	}
 	else
 		ret += ft_print_rest(&seg[rep->syntaxlen], rep->seglen - rep->syntaxlen);
-	// free(seg);
 	rep->strpos += rep->seglen;
 	return (ret);
 }

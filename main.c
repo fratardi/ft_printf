@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/09 17:52:39 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/11 21:49:02 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int main(void)
     ft_printf("test %0$u error\n", 42);
     ft_printf("test %% mod\n", 42);
     ft_printf("%10d\n", 15); */
+    // while(1);
     return (0);
 }

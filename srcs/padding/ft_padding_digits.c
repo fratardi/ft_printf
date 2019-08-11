@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/06 17:24:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/11 21:41:47 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ int		ft_print_pad_dig(t_printinfo *l, int width, char *buf)
 	int ret;
 
 	ret = 0;
-	if (buf == NULL)
-		return (0);
 	l->prec = (l->t == 'f' && l->prec == -2) ? 6 : l->prec;
 	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) ||
 		(l->extra) || (l->width > l->prec)))
@@ -74,6 +72,7 @@ int		ft_print_pad_dig(t_printinfo *l, int width, char *buf)
 		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(buf))
 			ret += ft_print_preset_buf('0', l->prec - ft_declen(buf));
 	}
+	ft_strdel(&buf);
 	return (ret);
 }
 
@@ -83,6 +82,8 @@ int		ft_pad_di(t_printinfo *l, char *buf)
 	int		width;
 	char	*temp;
 	
+	if (buf == NULL)
+		return (0);
 	sign = (buf[0] == '-') ? -1 : 1;
 	if (buf[0] == '-')
 		temp = ft_strdup(&buf[1]);
