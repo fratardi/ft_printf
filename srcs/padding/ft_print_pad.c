@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/11 22:12:45 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/11 22:32:23 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int			ft_pad_float(t_printinfo *l, char **buf)
 
 	ret = 0;
 	width = l->width - ft_strlen(*buf) - ((l->special == 0) ? 1 : 0);
-
 	if (width > 0 && !l->left)
 	{
 		ret += ft_print_preset_buf(' ', width);
@@ -91,8 +90,11 @@ char		*padding_hash_convert(t_printinfo *l, int zero, char **buf)
 	return (*buf);
 }
 
-int			ft_display_pad_xo(t_printinfo *l, int zero, int width, int ret, char **buf)
+int			ft_display_pad_xo(t_printinfo *l, int zero, int ret, char **buf)
 {
+	int width;
+
+	width = l->width - ft_strlen(*buf);
 	if (width > 0 && !l->left && l->extra && zero && l->prec == -2 && (l->alt
 				|| l->t == 'p'))
 	{
@@ -132,6 +134,5 @@ int			ft_pad_xo(t_printinfo *l, int zero, char **buf)
 		*buf = ft_joinfree(ft_memaset('0', width), *buf);
 	}
 	*buf = padding_hash_convert(l, zero, buf);
-	width = l->width - ft_strlen(*buf);
-	return (ft_display_pad_xo(l, zero, width, 0, buf));
+	return (ft_display_pad_xo(l, zero, 0, buf));
 }

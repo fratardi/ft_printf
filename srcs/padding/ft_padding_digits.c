@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/11 22:16:23 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/11 22:30:12 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,16 @@ size_t			ft_declen(char *str)
 	size_t pos;
 
 	pos = 0;
-	while(str[pos] && str[pos] != '.')
+	while (str[pos] && str[pos] != '.')
 		pos++;
 	pos++;
-	return(ft_strlen(&str[pos]));
+	return (ft_strlen(&str[pos]));
 }
 
 char	*padding_extra_digit(t_printinfo *l, int sign, char *buf)
 {
 	int tmp;
 
-	// printf(">>%s\n", buf);
 	if (l->extra && (l->prec == -2 || l->t == 'f') && !l->left)
 	{
 		tmp = l->width - ft_strlen(buf) - (((sign == -1) ||
@@ -40,7 +39,7 @@ char	*padding_extra_digit(t_printinfo *l, int sign, char *buf)
 		if (ft_strchr("di", l->t) && sign == 1 && l->space && buf[0] != '0')
 			tmp--;
 		if (tmp > 0)
-			return(ft_memaset('0', tmp));
+			return (ft_memaset('0', tmp));
 	}
 	return (NULL);
 }
@@ -81,7 +80,7 @@ int		ft_pad_di(t_printinfo *l, char **buf)
 	int		sign;
 	int		width;
 	char	*temp;
-	
+
 	if (*buf == NULL)
 		return (0);
 	sign = (*buf[0] == '-') ? -1 : 1;
