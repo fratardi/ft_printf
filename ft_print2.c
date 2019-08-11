@@ -94,12 +94,8 @@ size_t		ft_print_seg(const char *format, t_rep *rep)
 			ft_pad_di(&info, syntax);
 		else
 			ft_putstr(syntax); */
-		free(syntax);
+		// free(syntax);
 		ret += ft_print_rest(&seg[rep->syntaxlen], rep->seglen - rep->syntaxlen);
-		if (syntax)
-		{
-			printf("{%s}\n", syntax);
-		}
 		//ft_display(info, rep);
 	}
 	else if (seg[0] == '%')

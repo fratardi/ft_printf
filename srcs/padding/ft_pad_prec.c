@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/06 18:06:27 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/11 22:04:03 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char		*ft_prec_uns_ptr(t_printinfo *l, int prec, char *buf)
 	return (buf);
 }
 
-char			*ft_pad_prec(t_printinfo *l, char *buf)
+char		*ft_pad_prec(t_printinfo *l, char *buf)
 {
 	int prec;
 	int neg;
@@ -76,6 +76,5 @@ char			*ft_pad_prec(t_printinfo *l, char *buf)
 	if (l->t == 's' && prec < 0 && l->prec >= 0)
 		buf[l->prec] = 0;
 	buf = ft_precdigits(prec, neg, l, buf);
-	// ft_mod_pad_prec(prec, l);
 	return (buf);
 }

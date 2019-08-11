@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/11 21:41:16 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/11 22:14:15 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -281,15 +281,15 @@ void				ft_free_printinfo(t_printinfo *list);
 **Padding
 */
 
-int					ft_pad_char_type(t_printinfo *l, char *buf);
+int					ft_pad_char_type(t_printinfo *l, char **buf);
 int					ft_padding_display(t_printinfo *l, char **buf);
-int					ft_pad_xo(t_printinfo *l, int zero, char *buf);
+int					ft_pad_xo(t_printinfo *l, int zero, char **buf);
 int					ft_print_preset_buf(unsigned char c, int n);
-int					ft_pad_di(t_printinfo *l, char *buf);
+int					ft_pad_di(t_printinfo *l, char **buf);
 void				ft_padding_convert(t_printinfo *l, int zero);
 void				ft_padding_str(t_printinfo *l);
 char				*ft_pad_prec(t_printinfo *l, char *buf);
-int					ft_pad_float(t_printinfo *l, char *buf);
+int					ft_pad_float(t_printinfo *l, char **buf);
 
 
 /* MORE */
