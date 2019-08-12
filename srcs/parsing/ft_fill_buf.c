@@ -77,6 +77,57 @@ unsigned long long int	ft_fillunsigned(t_printinfo *list, t_rep *rep)
 	return (ret);
 }
 
+
+
+
+
+char	*ft_fillbuff_convert_o(t_printinfo *l, unsigned long long int temp)
+{
+	char *buf;
+
+	buf = NULL;
+	if (l->t == 'o' && l->is_char)
+		buf = ft_convert_o((unsigned char)temp);
+	else if (l->t == 'o' && l->is_short)
+		buf = ft_convert_o((unsigned short)temp);
+	else if (l->t == 'o')
+		buf = ft_convert_o(temp);
+	return(buf);
+}
+
+
+char *ft_fillbuff_convert_low_x(t_printinfo *l,unsigned long long int  temp)
+{
+	char *buf;
+
+	buf = NULL;
+	if (l->t == 'x' && l->is_char)
+		buf = ft_convert_x((unsigned char)temp);
+	else if (l->t == 'x' && l->is_short)
+		buf = ft_convert_x((unsigned short)temp);
+	else if (l->t == 'x')
+		buf = ft_convert_x(temp);
+	return(buf);
+}
+
+char *ft_fillbuff_convert_up_x(t_printinfo *l,unsigned long long int  temp)
+{
+	char *buf;
+
+	buf = NULL;
+	if (l->t == 'X' && l->is_char)
+		buf = ft_convert_up_x((unsigned char)temp);
+	else if (l->t == 'X' && l->is_short)
+		buf = ft_convert_up_x((unsigned short)temp);
+	else if (l->t == 'X')
+		buf = ft_convert_up_x(temp);
+	return(buf);
+}
+
+
+
+
+
 char					*ft_fillbuf_convert(t_printinfo *l, t_rep *rep)
 {
 	char					*buf;
@@ -86,24 +137,42 @@ char					*ft_fillbuf_convert(t_printinfo *l, t_rep *rep)
 	if (l->t == 'p')
 		return (ft_convert_p(va_arg(rep->current, void *)));
 	temp = ft_fillunsigned(l, rep);
+
+	if(l->t  == 'o')
+		buf = ft_fillbuff_convert_o(l, temp);
+	/*
 	if (l->t == 'o' && l->is_char)
 		buf = ft_convert_o((unsigned char)temp);
 	else if (l->t == 'o' && l->is_short)
 		buf = ft_convert_o((unsigned short)temp);
 	else if (l->t == 'o')
 		buf = ft_convert_o(temp);
+	*/
+
+	if(l->t  == 'x')
+		buf = ft_fillbuff_convert_low_x(l, temp);
+
+	/*
 	else if (l->t == 'x' && l->is_char)
 		buf = ft_convert_x((unsigned char)temp);
 	else if (l->t == 'x' && l->is_short)
 		buf = ft_convert_x((unsigned short)temp);
 	else if (l->t == 'x')
 		buf = ft_convert_x(temp);
+	*/
+	else if(l->t == 'X')
+		buf = ft_fillbuff_convert_up_x(l, temp);
+	/*
 	else if (l->t == 'X' && l->is_char)
 		buf = ft_convert_up_x((unsigned char)temp);
 	else if (l->t == 'X' && l->is_short)
 		buf = ft_convert_up_x((unsigned short)temp);
 	else if (l->t == 'X')
 		buf = ft_convert_up_x(temp);
+	*/
+	
+	
+	
 	return (buf);
 }
 
@@ -179,13 +248,12 @@ char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 		ret = ft_strdup((ret == NULL) ? "(null)" : ret);
 		rep->vapos++;
 	}
-	else if (l->t == 'c')
+	else if (l->t == 'c' && (rep->vapos += 1))
 	{
-		c = va_arg(rep->current, char);
+		c = va_arg(rep->current, int);
 		if (c == 0)
 			l->special = 0;
 		ret = ft_strndup(&c, 1);
-		rep->vapos++;
 	}
 	return (ret);
 }
