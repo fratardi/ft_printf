@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/08/12 05:48:23 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/08/12 05:53:04 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ C = ft_print2.c\
 	srcs/maths/new_addstring.c\
 	srcs/maths/pow_str.c\
 	srcs/padding/ft_pad_prec.c\
-	srcs/padding/ft_padding_convert.c
+	srcs/padding/ft_padding_convert.c\
 	srcs/padding/ft_padding_digits.c\
 	srcs/padding/ft_padding_display.c\
 	srcs/padding/ft_padding_float_char.c\

@@ -6,11 +6,11 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 05:46:33 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/12 05:49:06 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/12 05:53:29 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 char		*padding_hash_convert(t_printinfo *l, int zero, char **buf)
 {
