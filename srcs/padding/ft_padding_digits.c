@@ -13,6 +13,8 @@
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
 
+
+
 size_t			ft_declen(char *str)
 {
 	size_t pos;
@@ -44,6 +46,17 @@ char	*padding_extra_digit(t_printinfo *l, int sign, char *buf)
 	return (NULL);
 }
 
+int		ft_case_buf(t_printinfo *l, char *buf)
+{
+	int ret;
+
+	ret = 0;
+	if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(buf))
+			ret += ft_print_preset_buf('0', l->prec - ft_declen(buf));
+	return(ret);
+}
+
+
 int		ft_print_pad_dig(t_printinfo *l, int width, char **buf)
 {
 	int ret;
@@ -55,21 +68,32 @@ int		ft_print_pad_dig(t_printinfo *l, int width, char **buf)
 	{
 		ret += ft_print_preset_buf(' ', width);
 		ret += ft_display_char_content(*buf, ft_strlen(*buf));
-		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
+		ret += ft_case_buf(l , *buf);
+
+	/*	if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
 			ret += ft_print_preset_buf('0', l->prec - ft_declen(*buf));
+*/
 	}
 	else if (width > 0 && l->left)
 	{
 		ret += ft_display_char_content(*buf, ft_strlen(*buf));
 		ret += ft_print_preset_buf(' ', width);
-		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
+		ret += ft_case_buf(l , *buf);
+
+
+
+
+/*		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
 			ret += ft_print_preset_buf('0', l->prec - ft_declen(*buf));
+*/	
 	}
 	else
 	{
 		ret += ft_display_char_content(*buf, ft_strlen(*buf));
-		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
+	/*	if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
 			ret += ft_print_preset_buf('0', l->prec - ft_declen(*buf));
+	*/	
+		ret += ft_case_buf(l , *buf);
 	}
 	ft_strdel(buf);
 	return (ret);

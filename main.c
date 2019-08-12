@@ -21,8 +21,19 @@ int main(void)
 		// ft_printf("%10s %15d", "test", 1);
 		    // ft_printf("%10s %15d %2$*.*o %X %2$o %5$2.*f %u %p\n", "test", 0x1, 2, 3, 4, 12.54f, 19, "test");
 		    // printf("%10s %15d %2$*.*o %X %2$o %5$.*f %u %p", "test", 0x1, 2, 3, 4, 12.54f, 19, "test");
-		ft_printf("{%*c}\n", 15, 0);
-		printf("{%*c}\n", 15, 0);
+/*
+ft_printf("{%*3d%2$d}\n", 5, 0);
+printf("{%*3d%2$d}\n", 5, 0);
+*/
+
+ft_printf("%.17f\n",3.75f);
+printf("%.17f\n",3.75f);
+
+
+
+
+
+
         // ft_printf("%2$d %3$*.")
 		//printf("%*.*f\n");
     // printf("_%d_", ft_prin \tf("%17.9d et %% et %0$u %20s et %12y %1.4f %O %U", 42, "string",1.2f, 42, 42));
