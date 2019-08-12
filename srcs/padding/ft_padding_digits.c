@@ -6,16 +6,14 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/12 03:30:05 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/12 05:37:04 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
 
-
-
-size_t			ft_declen(char *str)
+size_t	ft_declen(char *str)
 {
 	size_t pos;
 
@@ -52,10 +50,9 @@ int		ft_case_buf(t_printinfo *l, char *buf)
 
 	ret = 0;
 	if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(buf))
-			ret += ft_print_preset_buf('0', l->prec - ft_declen(buf));
-	return(ret);
+		ret += ft_print_preset_buf('0', l->prec - ft_declen(buf));
+	return (ret);
 }
-
 
 int		ft_print_pad_dig(t_printinfo *l, int width, char **buf)
 {
@@ -68,32 +65,18 @@ int		ft_print_pad_dig(t_printinfo *l, int width, char **buf)
 	{
 		ret += ft_print_preset_buf(' ', width);
 		ret += ft_display_char_content(*buf, ft_strlen(*buf));
-		ret += ft_case_buf(l , *buf);
-
-	/*	if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
-			ret += ft_print_preset_buf('0', l->prec - ft_declen(*buf));
-*/
+		ret += ft_case_buf(l, *buf);
 	}
 	else if (width > 0 && l->left)
 	{
 		ret += ft_display_char_content(*buf, ft_strlen(*buf));
 		ret += ft_print_preset_buf(' ', width);
-		ret += ft_case_buf(l , *buf);
-
-
-
-
-/*		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
-			ret += ft_print_preset_buf('0', l->prec - ft_declen(*buf));
-*/	
+		ret += ft_case_buf(l, *buf);
 	}
 	else
 	{
 		ret += ft_display_char_content(*buf, ft_strlen(*buf));
-	/*	if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
-			ret += ft_print_preset_buf('0', l->prec - ft_declen(*buf));
-	*/	
-		ret += ft_case_buf(l , *buf);
+		ret += ft_case_buf(l, *buf);
 	}
 	ft_strdel(buf);
 	return (ret);
