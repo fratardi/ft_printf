@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 12:11:07 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/12 03:44:39 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 01:42:47 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_star_search(t_rep *rep, t_printinfo *info)
 	{
 		info->prec = va_arg(rep->current, int);
 		rep->vapos++;
+		if (info->prec < 0)
+			info->prec = -2;
 	}
 }
 
