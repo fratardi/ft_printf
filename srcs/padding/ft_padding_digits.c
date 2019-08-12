@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/11 22:30:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/12 03:30:05 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,15 @@ int		ft_pad_di(t_printinfo *l, char **buf)
 {
 	int		sign;
 	int		width;
+	char	*cpy;
 	char	*temp;
 
 	if (*buf == NULL)
 		return (0);
 	sign = (*buf[0] == '-') ? -1 : 1;
+	cpy = *buf;
 	if (*buf[0] == '-')
-		temp = ft_strdup(*&buf[1]);
+		temp = ft_strdup(&cpy[1]);
 	else
 		temp = ft_strdup(*buf);
 	temp = ft_joinfree(padding_extra_digit(l, sign, temp), temp);
