@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 02:07:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/11 22:42:50 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/12 06:08:05 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,27 @@ size_t		ft_sequence(char *s, int len)
 {
 	char		*temp;
 	int			i;
-	int			rest_size;
-	t_no_syntax	content;
+	int			rest;
+	t_no_syntax	sy;
 
-	content.ret = 0;
-	rest_size = ft_sequencelen(&s[len]);
-	i = ft_init_sequence(s, &content, len);
-	if (content.left)
+	sy.ret = 0;
+	rest = ft_sequencelen(&s[len]);
+	i = ft_init_sequence(s, &sy, len);
+	if (sy.left)
 	{
 		ft_putchar((s[i] == 0) ? s[len] : s[i]);
-		content.ret++;
+		sy.ret++;
 	}
-	if (content.width > 0)
-	{
-		temp = ft_memaset((content.extra == 1) ? '0' : ' ', content.width);
-		content.ret += ft_print_uni_str(temp);
-		ft_strdel(&temp);
-	}
+	if (sy.width > 0)
+		sy.ret += ft_print_preset_buf((sy.extra == 1) ? '0' : ' ', sy.width);
 	if (i <= len)
 	{
-		if (s[i + ((content.left) ? 1 : 0)] == '%')
-			content.ret += ft_print_n_uni_str(&s[i + ((content.left) ? 1 : 0)], rest_size);
+		if (s[i + ((sy.left) ? 1 : 0)] == '%')
+			sy.ret += ft_print_n_uni_str(&s[i + ((sy.left) ? 1 : 0)], rest);
 		else
-			content.ret += ft_print_n_uni_str(&s[i + ((content.left) ? 1 : 0)], len - i);
+			sy.ret += ft_print_n_uni_str(&s[i + ((sy.left) ? 1 : 0)], len - i);
 	}
 	else if (s[len] != 0)
-		content.ret += ft_print_uni_str((content.left) ? &s[len + 1] : &s[len]);
-	return (content.ret);
+		sy.ret += ft_print_uni_str((sy.left) ? &s[len + 1] : &s[len]);
+	return (sy.ret);
 }
