@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 22:49:38 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/12 06:40:05 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 01:33:26 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_printinfo	seg_to_print_info(char *seg, t_rep *rep)
 	ft_fillndol(temp, &list);
 	ft_fillprec(temp, &list);
 	ft_fillflag(temp, &list);
-	ft_fillwidth(temp, &list);
+	ft_fillwidth(temp, &list, rep);
 	ft_fillmod(temp, &list);
 	ft_filltype(temp, &list);
 	ft_arg_search(rep, &list);

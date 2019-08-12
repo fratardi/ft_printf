@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/11 22:14:15 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 01:33:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,7 +254,7 @@ t_printinfo			*ft_fillflag(char *str, t_printinfo *list);
 t_printinfo			*ft_fillmod(char *str, t_printinfo *list);
 t_printinfo			*ft_fillprec(char *str, t_printinfo *list);
 t_printinfo			*ft_fillndol(char *str, t_printinfo *list);
-t_printinfo			*ft_fillwidth(char *str, t_printinfo *list);
+t_printinfo			*ft_fillwidth(char *str, t_printinfo *list, t_rep *rep);
 t_printinfo			*ft_filltype(char *str, t_printinfo *list);
 
 /*

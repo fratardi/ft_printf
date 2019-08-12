@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/12 03:43:27 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 01:32:33 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
 **Fill width
 */
 
-t_printinfo	*ft_fillwidth(char *str, t_printinfo *list)
+t_printinfo	*ft_fillwidth(char *str, t_printinfo *list, t_rep *rep)
 {
 	int i;
 
@@ -99,5 +99,11 @@ t_printinfo	*ft_fillwidth(char *str, t_printinfo *list)
 		return (list);
 	}
 	list->width = (str[i] == '*') ? -1 : ft_atoi(&str[i]);
+	if (ft_isdigit(str[i + 1]) && list->width == -1)
+	{
+		va_arg(rep->current, int);
+		rep->vapos++;
+		list->width = ft_atoi(&str[i + 1]);
+	}
 	return (list);
 }
