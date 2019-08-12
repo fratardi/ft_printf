@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/12 03:51:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/12 03:56:05 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int			ft_pad_char_type(t_printinfo *l, char **buf)
 
 	ret = 0;
 	width = l->width - ft_strlen(*buf) - ((l->special == 0) ? 1 : 0);
+	if (l->t == 'c' && l->special == 0 && (ret += 1) && l->left)
+		ft_putchar(0);
 	if (width > 0 && !l->left)
 	{
 		ret += ft_print_preset_buf(((l->t == 'c' || *buf[0] == 0 ||
@@ -34,7 +36,7 @@ int			ft_pad_char_type(t_printinfo *l, char **buf)
 	}
 	else
 		ret += ft_print_uni_str(*buf);
-	if (l->t == 'c' && l->special == 0 && (ret += 1))
+	if (l->t == 'c' && l->special == 0 && (ret += 1) && !l->left)
 		ft_putchar(0);
 	ft_strdel(buf);
 	return (ret);
