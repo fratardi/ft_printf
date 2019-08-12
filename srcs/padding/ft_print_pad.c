@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 02:56:44 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/11 22:32:23 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/12 03:31:31 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,16 @@ char		*padding_hash_convert(t_printinfo *l, int zero, char **buf)
 int			ft_display_pad_xo(t_printinfo *l, int zero, int ret, char **buf)
 {
 	int width;
+	char *cpy;
 
 	width = l->width - ft_strlen(*buf);
+	cpy = *buf;
 	if (width > 0 && !l->left && l->extra && zero && l->prec == -2 && (l->alt
 				|| l->t == 'p'))
 	{
 		ret += (l->t == 'p' && zero) ? ft_print_uni_str("0x") : 0;
 		ret += ft_print_preset_buf('0', width);
-		ret += ft_print_uni_str((l->t == 'p' && zero) ? *&buf[2] : *buf);
+		ret += ft_print_uni_str((l->t == 'p' && zero) ? &cpy[2] : *buf);
 	}
 	else if (width > 0 && !l->left &&
 			((!l->extra && l->prec == -2) || (l->extra)
