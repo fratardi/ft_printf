@@ -130,34 +130,10 @@ char					*ft_fillbuf_convert(t_printinfo *l, t_rep *rep)
 	temp = ft_fillunsigned(l, rep);
 	if (l->t == 'o')
 		buf = ft_fillbuff_convert_o(l, temp);
-	/*
-	if (l->t == 'o' && l->is_char)
-		buf = ft_convert_o((unsigned char)temp);
-	else if (l->t == 'o' && l->is_short)
-		buf = ft_convert_o((unsigned short)temp);
-	else if (l->t == 'o')
-		buf = ft_convert_o(temp);
-	*/
 	if (l->t == 'x')
 		buf = ft_fillbuff_convert_low_x(l, temp);
-	/*
-	else if (l->t == 'x' && l->is_char)
-		buf = ft_convert_x((unsigned char)temp);
-	else if (l->t == 'x' && l->is_short)
-		buf = ft_convert_x((unsigned short)temp);
-	else if (l->t == 'x')
-		buf = ft_convert_x(temp);
-	*/
 	else if (l->t == 'X')
 		buf = ft_fillbuff_convert_up_x(l, temp);
-	/*
-	else if (l->t == 'X' && l->is_char)
-		buf = ft_convert_up_x((unsigned char)temp);
-	else if (l->t == 'X' && l->is_short)
-		buf = ft_convert_up_x((unsigned short)temp);
-	else if (l->t == 'X')
-		buf = ft_convert_up_x(temp);
-	*/
 	return (buf);
 }
 

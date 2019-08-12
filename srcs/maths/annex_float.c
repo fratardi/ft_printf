@@ -63,27 +63,6 @@ char	*ft_mantissaldouble(long double d)
 	return (f);
 }
 
-/* 	__int128_t	*temp;
-	char		*f;
-	__int128_t	i;
-	__int128_t	pos;
-	__int128_t	mask;
-
-	i = -1;
-	temp = NULL;
-	if (!(f = (char *)ft_memalloc(sizeof(char) * 66)))
-		return (NULL);
-	mask = 0x8000000000000000;
-	temp = (__int128_t *)&d;
-	pos = 0;
-	while (++i < 64)
-	{
-		if (i >= 1)
-			f[pos++] = ((*temp / mask) ? '1' : '0');
-		*temp = *temp % mask;
-		mask = mask >> 1;
-	} */
-
 /*
 **Get exp from long double
 */

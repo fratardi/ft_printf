@@ -52,12 +52,7 @@ char		*ft_round_dec(char *str, int prec, int *round_ent)
 
 	i = prec - ((prec != 0) ? 1 : 0);
 	if (prec > (int)ft_strlen(str))
-	{
-/* 		if (prec - ft_strlen(str) > 0)
-			str = ft_joinfree(str, ft_memaset('0', prec - (int)ft_strlen(str)));
-		*round_ent = 0; */
 		return (str);
-	}
 	if (str[i] == '9' && str[i + 1] >= '5' && str[0] == '9')
 	{
 		while (i > 0 && str[i] == '9')
