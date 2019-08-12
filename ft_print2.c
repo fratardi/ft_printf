@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 22:49:38 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/11 22:51:28 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/12 06:40:05 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ size_t		ft_print_seg(const char *format, t_rep *rep)
 	else if (seg[0] == '%')
 	{
 		ret += ft_sequence(seg, rep->seglen);
-		if (seg[rep->seglen] == '%' && seg[rep->seglen] && !ft_issyntax(&seg[rep->seglen], ft_sequencelen(&seg[rep->seglen])))
+		if (seg[rep->seglen] == '%' && seg[rep->seglen] /* && !ft_issyntax(&seg[rep->seglen], ft_sequencelen(&seg[rep->seglen])) */)
 			rep->seglen += ft_sequencelen(&seg[rep->seglen]);
 	}
 	else
