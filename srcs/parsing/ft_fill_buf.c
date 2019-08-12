@@ -158,9 +158,6 @@ char					*ft_fillbuf_convert(t_printinfo *l, t_rep *rep)
 	else if (l->t == 'X')
 		buf = ft_convert_up_x(temp);
 	*/
-	
-	
-	
 	return (buf);
 }
 
