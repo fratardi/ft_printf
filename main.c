@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/13 03:19:59 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 04:17:15 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,14 @@ printf("{%*3d%2$d}\n", 5, 0);
 */
     // ft_printf("{%05.*d}\n", -15, 42);
     // printf("{%05.*d}\n", -15, 42);
-    ft_printf("%$5d\n", 1);
-    printf("%$5d\n", 1);
+/*     ft_printf(">------------<%#42.2zo>------------<\n", 0);
+    printf(">------------<%#42.2zo>------------<\n", 0);
+    ft_printf("@moulitest: %#.o %#.0o\n", 0, 0);
+    printf("@moulitest: %#.o %#.0o\n", 0, 0);
+    ft_printf("%#040.2o\n", 0);
+    printf("%#040.2o\n", 0); */
+    ft_printf("%0#ho\n", 0);
+    printf("%0#ho\n", 0);
         // ft_printf("%2$d %3$*.")
 		//printf("%*.*f\n");
     // printf("_%d_", ft_prin \tf("%17.9d et %% et %0$u %20s et %12y %1.4f %O %U", 42, "string",1.2f, 42, 42));

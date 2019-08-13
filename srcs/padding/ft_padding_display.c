@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:12:49 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/11 22:28:42 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 04:23:22 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_padding_display(t_printinfo *l, char **buf)
 {
 	int zero;
 
-	zero = (*buf[0] == '0' && !*buf[1]) ? 1 : 0;
+	zero = (!ft_strcmp("0", *buf)) ? 1 : 0;
 	if (l->t == 'p' && !ft_strcmp("0x0", *buf))
 		zero = 1;
 	if (l->t == 'f' && (!ft_strcmp(*buf, "nan") || !ft_strcmp(*buf, "inf")
