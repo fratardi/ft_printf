@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 22:49:38 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/13 01:33:26 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 02:12:30 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,19 @@ t_printinfo	seg_to_print_info(char *seg, t_rep *rep)
 ** print the data according to it's printinfo
 */
 
+size_t		ft_treat_syntax(t_printinfo *info, t_rep *rep, char *seg)
+{
+	char		*syntax;
+	size_t		ret;
+
+	ret = 0;
+	syntax = ft_fillbuf(info, rep);
+	syntax = ft_pad_prec(info, syntax);
+	ret += ft_padding_display(info, &syntax);
+	ret += ft_print_rest(&seg[rep->syntaxlen], rep->seglen - rep->syntaxlen);
+	return (ret);
+}
+
 size_t		ft_print_seg(const char *format, t_rep *rep)
 {
 	char		*seg;
@@ -103,15 +116,12 @@ size_t		ft_print_seg(const char *format, t_rep *rep)
 	{
 		rep->syntaxlen = ft_syntaxlen(&format[rep->strpos]);
 		info = seg_to_print_info(seg, rep);
-		syntax = ft_fillbuf(&info, rep);
-		syntax = ft_pad_prec(&info, syntax);
-		ret += ft_padding_display(&info, &syntax);
-		ret += ft_print_rest(&seg[rep->syntaxlen], rep->seglen - rep->syntaxlen);
+		ret += ft_treat_syntax(&info, rep, seg);
 	}
 	else if (seg[0] == '%')
 	{
 		ret += ft_sequence(seg, rep->seglen);
-		if (seg[rep->seglen] == '%' && seg[rep->seglen] /* && !ft_issyntax(&seg[rep->seglen], ft_sequencelen(&seg[rep->seglen])) */)
+		if (seg[rep->seglen] == '%' && seg[rep->seglen])
 			rep->seglen += ft_sequencelen(&seg[rep->seglen]);
 	}
 	else
