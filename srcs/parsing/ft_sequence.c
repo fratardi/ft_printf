@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 02:07:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/13 05:09:33 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 06:05:55 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,15 @@ int			ft_init_sequence(char *str, t_no_syntax *content, size_t len)
 
 size_t		ft_sequence(char *s, int len)
 {
-	char		*temp;
 	int			i;
 	int			rest;
 	t_no_syntax	sy;
 
-	sy.ret = 0;
 	rest = ft_sequencelen(&s[len]);
 	i = ft_init_sequence(s, &sy, len);
+	sy.ret = (sy.left) ? 1 : 0;
 	if (sy.left)
-	{
 		ft_putchar((s[i] == 0) ? s[len] : s[i]);
-		sy.ret++;
-	}
 	if (sy.width > 0)
 		sy.ret += ft_print_preset_buf((sy.extra == 1) ? '0' : ' ', sy.width);
 	if (i <= len)
@@ -56,8 +52,8 @@ size_t		ft_sequence(char *s, int len)
 			sy.ret += ft_print_n_uni_str(&s[i + ((sy.left) ? 1 : 0)], rest);
 		else if (len - i)
 			sy.ret += ft_print_n_uni_str(&s[i + ((sy.left) ? 1 : 0)], len - i);
-		else if (rest - 1 > 0)
-			sy.ret += ft_print_n_uni_str(&s[i + ((sy.left) ? 1 : 0)], rest - 1);	
+		else if (rest-- > 0)
+			sy.ret += ft_print_n_uni_str(&s[i + ((sy.left) ? 1 : 0)], rest);
 	}
 	else if (s[len] != 0)
 		sy.ret += ft_print_uni_str((sy.left) ? &s[len + 1] : &s[len]);
