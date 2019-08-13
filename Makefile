@@ -26,7 +26,6 @@ C = ft_print2.c\
 	srcs/convert/ft_convert.c \
 	srcs/convert/ft_displaybin.c\
 	srcs/convert/size_convert.c\
-	srcs/display/disp_content_char.c\
 	srcs/maths/annex_float.c\
 	srcs/maths/annex_ldouble.c\
 	srcs/maths/ft_addstrings.c\
@@ -41,7 +40,8 @@ C = ft_print2.c\
 	srcs/padding/ft_padding_display.c\
 	srcs/padding/ft_padding_float_char.c\
 	srcs/padding/ft_print_preset_buf.c\
-	srcs/parsing/ft_fill_buf.c\
+	srcs/buffer/ft_fill_buffer_ouxf.c\
+	srcs/buffer/ft_fill_buffer.c\
 	srcs/parsing/ft_fill_struct1.c\
 	srcs/parsing/ft_fill_struct2.c\
 	srcs/parsing/ft_issyntax.c\
@@ -51,6 +51,7 @@ C = ft_print2.c\
 	srcs/unicodes/ft_print_uni_str.c\
 	srcs/unicodes/ft_uni_char_len.c\
 	srcs/unicodes/ft_uni_str_len.c\
+	srcs/display/disp_content_char.c\
 
 C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_freetab.o \

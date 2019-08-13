@@ -44,6 +44,10 @@ int		ft_iterate_syntax(char *str, int i)
 	return (i);
 }
 
+/*
+**		check if current segment is a syntax
+*/
+
 int		ft_issyntax(char *s, size_t len)
 {
 	int		i;

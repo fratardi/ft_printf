@@ -13,47 +13,6 @@
 #include "../../includes/ft_printf.h"
 #include <stdarg.h>
 
-char					*ft_fillbuf_float(t_printinfo *l, t_rep *rep)
-{
-	long double	flts;
-	char		*buf;
-	char		*exception;
-	int			i;
-
-	i = (!l->alt) ? 1 : 0;
-	flts = (l->is_long_double) ?
-	(va_arg(rep->current, long double)) : (va_arg(rep->current, double));
-	rep->vapos++;
-	exception = ft_exception(flts, l);
-	if (exception == NULL)
-	{
-		if (l->t == 'f' && !l->is_long_double)
-			buf = ft_ldouble(flts, (l->prec < 0) ? 6 :
-				l->prec, l->is_float_ten, i);
-		else if (l->t == 'f' && l->is_long_double)
-			buf = ft_ldouble(flts,
-			(l->prec < 0) ? 6 : l->prec, l->is_float_ten, i);
-	}
-	else
-		buf = exception;
-	return (buf);
-}
-
-long long int			ft_filldi(t_printinfo *list, t_rep *rep)
-{
-	long long int ret;
-
-	ret = 0;
-	if (list->is_long_double || list->max)
-		ret = va_arg(rep->current, long long int);
-	else if (list->is_long)
-		ret = va_arg(rep->current, long int);
-	else
-		ret = va_arg(rep->current, int);
-	rep->vapos++;
-	return (ret);
-}
-
 unsigned long long int	ft_fillunsigned(t_printinfo *list, t_rep *rep)
 {
 	unsigned long long int ret;
@@ -77,64 +36,19 @@ unsigned long long int	ft_fillunsigned(t_printinfo *list, t_rep *rep)
 	return (ret);
 }
 
-char	*ft_fillbuff_convert_o(t_printinfo *l, unsigned long long int temp)
+long long int			ft_filldi(t_printinfo *list, t_rep *rep)
 {
-	char *buf;
+	long long int ret;
 
-	buf = NULL;
-	if (l->t == 'o' && l->is_char)
-		buf = ft_convert_o((unsigned char)temp);
-	else if (l->t == 'o' && l->is_short)
-		buf = ft_convert_o((unsigned short)temp);
-	else if (l->t == 'o')
-		buf = ft_convert_o(temp);
-	return (buf);
-}
-
-char	*ft_fillbuff_convert_low_x(t_printinfo *l, unsigned long long int temp)
-{
-	char *buf;
-
-	buf = NULL;
-	if (l->t == 'x' && l->is_char)
-		buf = ft_convert_x((unsigned char)temp);
-	else if (l->t == 'x' && l->is_short)
-		buf = ft_convert_x((unsigned short)temp);
-	else if (l->t == 'x')
-		buf = ft_convert_x(temp);
-	return (buf);
-}
-
-char	*ft_fillbuff_convert_up_x(t_printinfo *l, unsigned long long int temp)
-{
-	char *buf;
-
-	buf = NULL;
-	if (l->t == 'X' && l->is_char)
-		buf = ft_convert_up_x((unsigned char)temp);
-	else if (l->t == 'X' && l->is_short)
-		buf = ft_convert_up_x((unsigned short)temp);
-	else if (l->t == 'X')
-		buf = ft_convert_up_x(temp);
-	return (buf);
-}
-
-char					*ft_fillbuf_convert(t_printinfo *l, t_rep *rep)
-{
-	char					*buf;
-	unsigned long long int	temp;
-
-	buf = NULL;
-	if (l->t == 'p')
-		return (ft_convert_p(va_arg(rep->current, void *)));
-	temp = ft_fillunsigned(l, rep);
-	if (l->t == 'o')
-		buf = ft_fillbuff_convert_o(l, temp);
-	if (l->t == 'x')
-		buf = ft_fillbuff_convert_low_x(l, temp);
-	else if (l->t == 'X')
-		buf = ft_fillbuff_convert_up_x(l, temp);
-	return (buf);
+	ret = 0;
+	if (list->is_long_double || list->max)
+		ret = va_arg(rep->current, long long int);
+	else if (list->is_long)
+		ret = va_arg(rep->current, long int);
+	else
+		ret = va_arg(rep->current, int);
+	rep->vapos++;
+	return (ret);
 }
 
 char					*ft_fillbuf_digits(t_printinfo *l, t_rep *rep)
