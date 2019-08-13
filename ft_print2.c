@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 22:49:38 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/13 04:32:58 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 06:02:30 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ size_t		ft_treat_syntax(t_printinfo *info, t_rep *rep, char *seg)
 	int			zero;
 
 	ret = 0;
+	*info = seg_to_print_info(seg, rep);
 	syntax = ft_fillbuf(info, rep);
 	zero = (!ft_strcmp("0", syntax)) ? 1 : 0;	
 	syntax = ft_pad_prec(info, syntax);
@@ -117,7 +118,6 @@ size_t		ft_print_seg(const char *format, t_rep *rep)
 	if (ft_issyntax(seg, rep->seglen))
 	{
 		rep->syntaxlen = ft_syntaxlen(&format[rep->strpos]);
-		info = seg_to_print_info(seg, rep);
 		ret += ft_treat_syntax(&info, rep, seg);
 	}
 	else if (seg[0] == '%')
@@ -127,7 +127,8 @@ size_t		ft_print_seg(const char *format, t_rep *rep)
 			rep->seglen += ft_sequencelen(&seg[rep->seglen]);
 	}
 	else
-		ret += ft_print_rest(&seg[rep->syntaxlen], rep->seglen - rep->syntaxlen);
+		ret += ft_print_rest(&seg[rep->syntaxlen],
+			rep->seglen - rep->syntaxlen);
 	rep->strpos += rep->seglen;
 	return (ret);
 }
