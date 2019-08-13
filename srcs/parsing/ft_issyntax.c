@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:40:55 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/12 05:52:29 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 03:22:33 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 /*
 **Verify if str contain a good syntax
 */
+
+int		ft_freestr_return_no(char **str)
+{
+	ft_strdel(str);
+	return (0);
+}
 
 int		ft_iterate_syntax(char *str, int i)
 {
@@ -49,17 +55,15 @@ int		ft_issyntax(char *s, size_t len)
 	str = ft_strndup(s, len);
 	while (str[i] && str[i] != '$')
 		i++;
+	if (str[i] == '$' && str[i - 1] == '%')
+		return (ft_freestr_return_no(&str));
 	if (i != 0 && str[i - 1] == '0')
-	{
-		free(str);
-		return (0);
-	}
+		return (ft_freestr_return_no(&str));
 	i = ft_iterate_syntax(str, i);
 	if (str[i] && ft_strchr("diouxXcfspOUBb", str[i]) != NULL)
 	{
 		free(str);
 		return (1);
 	}
-	free(str);
-	return (0);
+	return (ft_freestr_return_no(&str));
 }
