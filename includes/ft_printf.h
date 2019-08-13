@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/13 01:33:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 06:19:50 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -297,5 +297,8 @@ int						ft_syntaxlen(const char *format);
 size_t					ft_display_char_content(void *content, size_t len);
 void					ft_star_search(t_rep *rep, t_printinfo *info);
 void					ft_arg_search(t_rep *rep, t_printinfo *info);
+int						ft_syntaxlen(const char *format);
+int						ft_sequencelen(const char *format);
+int						ft_print_rest(char *seg, int size);
 
 #endif

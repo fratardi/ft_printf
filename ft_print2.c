@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 22:49:38 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/13 06:02:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 06:21:03 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,41 +24,6 @@ t_rep		ft_init_rep(void)
 	rep.strpos = 0;
 	rep.vapos = 1;
 	return (rep);
-}
-
-int			ft_print_rest(char *seg, int size)
-{
-	if (size > 0)
-		ft_putnstr(seg, size);
-	return (size);
-}
-
-/*
-**cut segment
-*/
-
-int			ft_syntaxlen(const char *format)
-{
-	int i;
-
-	i = 1;
-	while (format[i] && ft_strchr("diouxXcfspUObB", format[i]) == NULL)
-		i++;
-	if (ft_strchr("diouxXcfspUObB", format[i]) != NULL)
-		i++;
-	return (i);
-}
-
-int			ft_sequencelen(const char *format)
-{
-	int i;
-
-	i = 0;
-	if (format[0])
-		i++;
-	while (format[i] && ft_strchr("%", format[i]) == NULL)
-		i++;
-	return (i);
 }
 
 /*
@@ -97,7 +62,7 @@ size_t		ft_treat_syntax(t_printinfo *info, t_rep *rep, char *seg)
 	ret = 0;
 	*info = seg_to_print_info(seg, rep);
 	syntax = ft_fillbuf(info, rep);
-	zero = (!ft_strcmp("0", syntax)) ? 1 : 0;	
+	zero = (!ft_strcmp("0", syntax)) ? 1 : 0;
 	syntax = ft_pad_prec(info, syntax);
 	ret += ft_padding_display(info, &syntax, zero);
 	ret += ft_print_rest(&seg[rep->syntaxlen], rep->seglen - rep->syntaxlen);
