@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/13 01:33:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 04:33:33 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -282,7 +282,7 @@ void				ft_free_printinfo(t_printinfo *list);
 */
 
 int					ft_pad_char_type(t_printinfo *l, char **buf);
-int					ft_padding_display(t_printinfo *l, char **buf);
+int					ft_padding_display(t_printinfo *l, char **buf, int zero);
 int					ft_pad_xo(t_printinfo *l, int zero, char **buf);
 int					ft_print_preset_buf(unsigned char c, int n);
 int					ft_pad_di(t_printinfo *l, char **buf);

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 22:49:38 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/13 02:12:30 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 04:32:58 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,13 @@ size_t		ft_treat_syntax(t_printinfo *info, t_rep *rep, char *seg)
 {
 	char		*syntax;
 	size_t		ret;
+	int			zero;
 
 	ret = 0;
 	syntax = ft_fillbuf(info, rep);
+	zero = (!ft_strcmp("0", syntax)) ? 1 : 0;	
 	syntax = ft_pad_prec(info, syntax);
-	ret += ft_padding_display(info, &syntax);
+	ret += ft_padding_display(info, &syntax, zero);
 	ret += ft_print_rest(&seg[rep->syntaxlen], rep->seglen - rep->syntaxlen);
 	return (ret);
 }

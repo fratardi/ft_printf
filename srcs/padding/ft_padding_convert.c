@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 05:46:33 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/13 04:23:31 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/13 04:31:19 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 char		*padding_hash_convert(t_printinfo *l, int zero, char **buf)
 {
 	char	*temp;
+	char	*cpy;
 	int		octal;
 
+	cpy = *buf;
 	octal = (l->prec > (int)ft_strlen(*buf)) ? 1 : 0;
-	if (l->alt && ft_strchr("xX", l->t) && *buf[0] && !zero)
+	if (l->alt && ft_strchr("xX", l->t) && cpy[0] && !zero)
 	{
 		*buf = ft_joinfree(ft_strdup((l->t == 'x') ? "0x" : "0X"), *buf);
 		if (!ft_strcmp("0x0", *buf) || !ft_strcmp("0X0", *buf))
