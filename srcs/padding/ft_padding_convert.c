@@ -34,9 +34,7 @@ char		*padding_hash_convert(t_printinfo *l, int zero, char **buf)
 	{
 		if ((l->extra == 0 && ((l->prec >= -2 && !zero) ||
 			(octal && zero))) || (l->extra && (!zero || octal)))
-		{			
 			*buf = ft_joinfree(ft_strdup("0"), *buf);
-		}
 	}
 	return (*buf);
 }
