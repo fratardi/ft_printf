@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pow_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/24 05:26:24 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/15 08:04:21 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char		*init_pow(int po, int *last, char *str)
 
 char		*ft_pow_neg(int po, int end)
 {
+
+    //Norm pas plus de 1 statique ? 
 	static char	*str;
 	static int	last = 0;
 	t_power5	pow;

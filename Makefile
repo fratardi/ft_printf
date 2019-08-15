@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
+#    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/08/15 05:00:29 by fratardi         ###   ########.fr        #
+#    Updated: 2019/08/15 09:02:33 by fratardi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ FLAGS = -Wall -Wextra -Werror
 INC_PATH = ./includes
 
 INC_NAME = ft_printf.h
+
+EXTRA = -pedantic -fsanitize=address
+
 
 C = ft_printf.c\
 	srcs/convert/ft_convert.c \
