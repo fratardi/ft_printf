@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/08/13 06:20:33 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/08/15 05:00:29 by fratardi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INC_PATH = ./includes
 
 INC_NAME = ft_printf.h
 
-C = ft_print2.c\
+C = ft_printf.c\
 	srcs/convert/ft_convert.c \
 	srcs/convert/ft_displaybin.c\
 	srcs/convert/size_convert.c\
@@ -45,6 +45,7 @@ C = ft_print2.c\
 	srcs/parsing/ft_fill_struct1.c\
 	srcs/parsing/ft_fill_struct2.c\
 	srcs/parsing/ft_issyntax.c\
+	srcs/parsing/ft_info_len.c\
 	srcs/parsing/ft_sequence.c\
 	srcs/parsing/ft_va.c\
 	srcs/unicodes/ft_print_uni_char.c\
@@ -53,7 +54,7 @@ C = ft_print2.c\
 	srcs/unicodes/ft_uni_str_len.c\
 	srcs/display/disp_content_char.c\
 	srcs/display/ft_print_rest.c\
-	srcs/parsing/ft_info_len.c
+	
 
 C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_freetab.o \

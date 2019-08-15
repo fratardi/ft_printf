@@ -35,6 +35,7 @@
 **Type ENUM
 */
 
+/*
 enum					e_type {
 	PA_INT = 1,
 	PA_CHAR = 2,
@@ -45,7 +46,7 @@ enum					e_type {
 	PA_FLOAT = 7,
 	PA_LAST
 };
-
+*/
 /*
 **Syntax Infos
 */
@@ -116,11 +117,13 @@ typedef struct			s_elem{
 **End Buffer to print
 */
 
+
+/*
 typedef struct			s_return{
 	size_t				written;
 	char				*to_print;
 }						t_return;
-
+*/
 /*
 **Struct for va_read
 */
@@ -219,7 +222,7 @@ char					*ft_convert_p(void *to_convert);
 */
 
 size_t					ft_display(char **tab, t_printinfo *list);
-size_t					ft_dispnoh(t_printinfo *list, t_elem *elem);
+//size_t					ft_dispnoh(t_printinfo *list, t_elem *elem);
 size_t					ft_disphmodchar(t_printinfo *list, t_elem *elem);
 size_t					ft_disphmodshort(t_printinfo *list, t_elem *elem);
 int						onlystring(char **tab);
@@ -232,9 +235,9 @@ size_t					ft_endseq(char *s1);
 */
 char					*ft_rest(char *str);
 int						ft_issyntax(char *s, size_t len);
-void					ft_modndol(t_printinfo *list);
+//void					ft_modndol(t_printinfo *list);
 void					ft_displaybin(void *content, size_t n);
-char					*ft_of(char *name);
+//char					*ft_of(char *name);
 char					*ft_binary(void *content, size_t n);
 char					*ft_binary_string(void *content, size_t n);
 
@@ -256,8 +259,8 @@ t_printinfo				*ft_filltype(char *str, t_printinfo *list);
 **Fill Elems from va_arg
 */
 
-void					ft_initelem(t_elem *elem);
-t_elem					*ft_varead(t_printinfo *list, va_list va, char **tab);
+//void					ft_initelem(t_elem *elem);
+//t_elem					*ft_varead(t_printinfo *list, va_list va, char **tab);
 t_elem					*ft_fillfloats(t_printinfo *list, va_list va,
 	t_elem *elem);
 long long int			ft_filldi(t_printinfo *list, t_rep *rep);
@@ -267,11 +270,11 @@ unsigned long long int	ft_fillunsigned(t_printinfo *list, t_rep *rep);
 **Free
 */
 
-void					ft_free_printf(char **tab, t_elem *elem,
-	t_printinfo *list);
-void					ft_free_parsing(char **tab);
-void					ft_free_elem(t_elem *elem, t_printinfo *list);
-void					ft_free_printinfo(t_printinfo *list);
+//void					ft_free_printf(char **tab, t_elem *elem,
+//	t_printinfo *list);
+//void					ft_free_parsing(char **tab);
+//void					ft_free_elem(t_elem *elem, t_printinfo *list);
+//void					ft_free_printinfo(t_printinfo *list);
 
 /*
 **Padding
