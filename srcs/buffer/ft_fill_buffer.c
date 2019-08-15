@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_buf.c                                      :+:      :+:    :+:   */
+/*   ft_fill_buffer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:10:32 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/11 22:42:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/15 07:43:05 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,9 @@ char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 	char	*ret;
 	char	c;
 
+    //
+    ret = NULL;
+    //
 	if (l->t == 'd' || l->t == 'i' || l->t == 'u')
 		ret = ft_fillbuf_digits(l, rep);
 	else if (ft_strchr("oOxXp", l->t))

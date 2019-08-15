@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_va.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 12:11:07 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/13 01:42:47 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/15 07:49:22 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ void	ft_arg_search(t_rep *rep, t_printinfo *info)
 {
 	if (!info->ndol || rep->vapos == 0)
 		return ;
-	if (info->ndol != 0 && info->ndol != rep->vapos)
+	if (info->ndol != 0 && /**/(int)/**/info->ndol != rep->vapos)
 	{
-		if (info->ndol < rep->vapos)
+		if (/**/(int)/**/info->ndol < rep->vapos)
 		{
 			va_end(rep->current);
 			va_copy(rep->current, rep->start);
 			rep->vapos = 1;
 		}
-		while (rep->vapos < info->ndol)
+		while (rep->vapos < /**/(int)/**/info->ndol)
 		{
 			va_arg(rep->current, int);
 			rep->vapos++;

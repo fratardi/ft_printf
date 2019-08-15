@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_buffer_ouxp.c                              :+:      :+:    :+:   */
+/*   ft_fill_buffer_ouxf.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 04:00:28 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/13 04:02:24 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/08/15 07:41:44 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@ char	*ft_fillbuf_float(t_printinfo *l, t_rep *rep)
 	char		*buf;
 	char		*exception;
 	int			i;
+
+    /*
+
+    */
+    buf = NULL;
+   //
+
 
 	i = (!l->alt) ? 1 : 0;
 	flts = (l->is_long_double) ?

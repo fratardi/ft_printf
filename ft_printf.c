@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print2.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 22:49:38 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/13 06:21:03 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/15 07:39:28 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ size_t		ft_treat_syntax(t_printinfo *info, t_rep *rep, char *seg)
 size_t		ft_print_seg(const char *format, t_rep *rep)
 {
 	char		*seg;
-	char		*syntax;
+//	char		*syntax;
 	t_printinfo	info;
 	size_t		ret;
 
