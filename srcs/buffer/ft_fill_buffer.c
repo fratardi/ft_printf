@@ -19,7 +19,8 @@ unsigned long long int	ft_fillunsigned(t_printinfo *list, t_rep *rep)
 
 	ret = 0;
 	if (list->is_long_double || list->max)
-		ret = (unsigned long long int)va_arg(rep->current, unsigned long long int);
+		ret = (unsigned long long int)va_arg(rep->current,
+			unsigned long long int);
 	else if (list->is_long || ft_strchr("OU", list->t))
 		ret = (unsigned long int)va_arg(rep->current, unsigned long int);
 	else
@@ -104,19 +105,6 @@ char					*ft_fillbuf_bin(t_printinfo *l, t_rep *rep)
 	return (buf);
 }
 
-/*
-** func below to make the orm fit
-*/
-
-/*
-void	ft_pick_va_string(char **ret,t_rep *rep)
-{
-		*ret = va_arg(rep->current, char *);
-		*ret = ft_strdup((*ret == NULL) ? "(null)" : *ret);
-		rep->vapos++;
-}
-*/
-
 char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 {
 	char	*ret;
@@ -132,7 +120,7 @@ char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 	else if (l->t == 'f')
 		ret = ft_fillbuf_float(l, rep);
 	else if (l->t == 's')
-		ft_pick_va_string(&ret,rep);
+		ft_pick_va_string(&ret, rep);
 	else if (l->t == 'c' && (rep->vapos += 1))
 	{
 		c = (int)va_arg(rep->current, int);

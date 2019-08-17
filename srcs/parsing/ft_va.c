@@ -13,11 +13,11 @@
 #include "../../includes/ft_printf.h"
 #include <stdarg.h>
 
-void	ft_pick_va_string(char **ret,t_rep *rep)
+void	ft_pick_va_string(char **ret, t_rep *rep)
 {
-		*ret = (char *)va_arg(rep->current, char *);
-		*ret = ft_strdup((*ret == NULL) ? "(null)" : *ret);
-		rep->vapos++;
+	*ret = (char *)va_arg(rep->current, char *);
+	*ret = ft_strdup((*ret == NULL) ? "(null)" : *ret);
+	rep->vapos++;
 }
 
 void	ft_star_search(t_rep *rep, t_printinfo *info)
@@ -45,15 +45,15 @@ void	ft_arg_search(t_rep *rep, t_printinfo *info)
 {
 	if (!info->ndol || rep->vapos == 0)
 		return ;
-	if (info->ndol != 0 && /**/(int)/**/info->ndol != rep->vapos)
+	if (info->ndol != 0 && (int)info->ndol != rep->vapos)
 	{
-		if (/**/(int)/**/info->ndol < rep->vapos)
+		if ((int)info->ndol < rep->vapos)
 		{
 			va_end(rep->current);
 			va_copy(rep->current, rep->start);
 			rep->vapos = 1;
 		}
-		while (rep->vapos < /**/(int)/**/info->ndol)
+		while (rep->vapos < (int)info->ndol)
 		{
 			(void)va_arg(rep->current, int);
 			rep->vapos++;
