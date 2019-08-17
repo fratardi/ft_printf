@@ -104,14 +104,23 @@ char					*ft_fillbuf_bin(t_printinfo *l, t_rep *rep)
 	return (buf);
 }
 
+
+/*
+** func below to make the orm fit
+*/
+void	ft_treat_string(char **ret,t_rep *rep)
+{
+		*ret = va_arg(rep->current, char *);
+		*ret = ft_strdup((*ret == NULL) ? "(null)" : *ret);
+		rep->vapos++;
+}
+
 char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 {
 	char	*ret;
 	char	c;
 
-    //
-    ret = NULL;
-    //
+	ret = NULL;
 	if (l->t == 'd' || l->t == 'i' || l->t == 'u')
 		ret = ft_fillbuf_digits(l, rep);
 	else if (ft_strchr("oOxXp", l->t))
@@ -121,10 +130,14 @@ char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 	else if (l->t == 'f')
 		ret = ft_fillbuf_float(l, rep);
 	else if (l->t == 's')
-	{
+	{	
+		ft_treat_string(&ret,rep);
+/*
 		ret = va_arg(rep->current, char *);
 		ret = ft_strdup((ret == NULL) ? "(null)" : ret);
 		rep->vapos++;
+*/
+
 	}
 	else if (l->t == 'c' && (rep->vapos += 1))
 	{

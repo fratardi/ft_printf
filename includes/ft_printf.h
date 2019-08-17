@@ -114,11 +114,6 @@ typedef struct			s_elem{
 }						t_elem;
 
 /*
-**End Buffer to print
-*/
-
-
-/*
 typedef struct			s_return{
 	size_t				written;
 	char				*to_print;
@@ -260,7 +255,8 @@ t_printinfo				*ft_filltype(char *str, t_printinfo *list);
 */
 
 //void					ft_initelem(t_elem *elem);
-//t_elem					*ft_varead(t_printinfo *list, va_list va, char **tab);
+//t_elem					*ft_varead(t_printinfo *list, va_list va,
+//	char **tab);
 t_elem					*ft_fillfloats(t_printinfo *list, va_list va,
 	t_elem *elem);
 long long int			ft_filldi(t_printinfo *list, t_rep *rep);

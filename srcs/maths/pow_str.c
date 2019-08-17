@@ -37,8 +37,6 @@ char		*init_pow(int po, int *last, char *str)
 
 char		*ft_pow_neg(int po, int end)
 {
-
-    //Norm pas plus de 1 statique ? 
 	static char	*str;
 	static int	last = 0;
 	t_power5	pow;
