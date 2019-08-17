@@ -19,13 +19,7 @@ char	*ft_fillbuf_float(t_printinfo *l, t_rep *rep)
 	char		*exception;
 	int			i;
 
-    /*
-
-    */
-    buf = NULL;
-   //
-
-
+	buf = NULL;
 	i = (!l->alt) ? 1 : 0;
 	flts = (l->is_long_double) ?
 	(va_arg(rep->current, long double)) : (va_arg(rep->current, double));
