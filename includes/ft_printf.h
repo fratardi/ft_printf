@@ -291,6 +291,8 @@ int						ft_pad_float(t_printinfo *l, char **buf);
 **	MORE
 */
 
+
+void					ft_pick_va_string(char **ret,t_rep *rep);
 int						ft_sequencelen(const char *format);
 int						ft_syntaxlen(const char *format);
 size_t					ft_display_char_content(void *content, size_t len);

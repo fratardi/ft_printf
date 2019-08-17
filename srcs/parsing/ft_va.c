@@ -13,6 +13,13 @@
 #include "../../includes/ft_printf.h"
 #include <stdarg.h>
 
+void	ft_pick_va_string(char **ret,t_rep *rep)
+{
+		*ret = va_arg(rep->current, char *);
+		*ret = ft_strdup((*ret == NULL) ? "(null)" : *ret);
+		rep->vapos++;
+}
+
 void	ft_star_search(t_rep *rep, t_printinfo *info)
 {
 	if (info->width == -1)

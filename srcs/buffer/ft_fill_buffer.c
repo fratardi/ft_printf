@@ -104,16 +104,18 @@ char					*ft_fillbuf_bin(t_printinfo *l, t_rep *rep)
 	return (buf);
 }
 
-
 /*
 ** func below to make the orm fit
 */
-void	ft_treat_string(char **ret,t_rep *rep)
+
+/*
+void	ft_pick_va_string(char **ret,t_rep *rep)
 {
 		*ret = va_arg(rep->current, char *);
 		*ret = ft_strdup((*ret == NULL) ? "(null)" : *ret);
 		rep->vapos++;
 }
+*/
 
 char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 {
@@ -131,7 +133,7 @@ char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 		ret = ft_fillbuf_float(l, rep);
 	else if (l->t == 's')
 	{	
-		ft_treat_string(&ret,rep);
+		ft_pick_va_string(&ret,rep);
 /*
 		ret = va_arg(rep->current, char *);
 		ret = ft_strdup((ret == NULL) ? "(null)" : ret);
