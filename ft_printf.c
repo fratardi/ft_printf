@@ -72,7 +72,6 @@ size_t		ft_treat_syntax(t_printinfo *info, t_rep *rep, char *seg)
 size_t		ft_print_seg(const char *format, t_rep *rep)
 {
 	char		*seg;
-//	char		*syntax;
 	t_printinfo	info;
 	size_t		ret;
 
