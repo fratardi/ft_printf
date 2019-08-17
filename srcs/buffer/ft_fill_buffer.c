@@ -132,15 +132,7 @@ char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 	else if (l->t == 'f')
 		ret = ft_fillbuf_float(l, rep);
 	else if (l->t == 's')
-	{	
 		ft_pick_va_string(&ret,rep);
-/*
-		ret = va_arg(rep->current, char *);
-		ret = ft_strdup((ret == NULL) ? "(null)" : ret);
-		rep->vapos++;
-*/
-
-	}
 	else if (l->t == 'c' && (rep->vapos += 1))
 	{
 		c = va_arg(rep->current, int);
