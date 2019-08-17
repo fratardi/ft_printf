@@ -19,11 +19,11 @@ unsigned long long int	ft_fillunsigned(t_printinfo *list, t_rep *rep)
 
 	ret = 0;
 	if (list->is_long_double || list->max)
-		ret = va_arg(rep->current, unsigned long long int);
+		ret = (unsigned long long int)va_arg(rep->current, unsigned long long int);
 	else if (list->is_long || ft_strchr("OU", list->t))
-		ret = va_arg(rep->current, unsigned long int);
+		ret = (unsigned long int)va_arg(rep->current, unsigned long int);
 	else
-		ret = va_arg(rep->current, unsigned int);
+		ret = (unsigned int)va_arg(rep->current, unsigned int);
 	if (ft_strchr("OU", list->t))
 	{
 		list->is_long = 1;
@@ -42,11 +42,11 @@ long long int			ft_filldi(t_printinfo *list, t_rep *rep)
 
 	ret = 0;
 	if (list->is_long_double || list->max)
-		ret = va_arg(rep->current, long long int);
+		ret = (long long int)va_arg(rep->current, long long int);
 	else if (list->is_long)
-		ret = va_arg(rep->current, long int);
+		ret = (long int)va_arg(rep->current, long int);
 	else
-		ret = va_arg(rep->current, int);
+		ret = (int)va_arg(rep->current, int);
 	rep->vapos++;
 	return (ret);
 }
@@ -96,7 +96,7 @@ char					*ft_fillbuf_bin(t_printinfo *l, t_rep *rep)
 	}
 	else if (l->t == 'B')
 	{
-		value = va_arg(rep->current, void *);
+		value = (void *)va_arg(rep->current, void *);
 		rep->vapos++;
 		buf = ft_binary_string(value,
 		sizeof(char) * ft_strlen(value));
@@ -135,7 +135,7 @@ char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 		ft_pick_va_string(&ret,rep);
 	else if (l->t == 'c' && (rep->vapos += 1))
 	{
-		c = va_arg(rep->current, int);
+		c = (int)va_arg(rep->current, int);
 		if (c == 0)
 			l->special = 0;
 		ret = ft_strndup(&c, 1);

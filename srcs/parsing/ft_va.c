@@ -15,7 +15,7 @@
 
 void	ft_pick_va_string(char **ret,t_rep *rep)
 {
-		*ret = va_arg(rep->current, char *);
+		*ret = (char *)va_arg(rep->current, char *);
 		*ret = ft_strdup((*ret == NULL) ? "(null)" : *ret);
 		rep->vapos++;
 }
@@ -24,7 +24,7 @@ void	ft_star_search(t_rep *rep, t_printinfo *info)
 {
 	if (info->width == -1)
 	{
-		info->width = va_arg(rep->current, int);
+		info->width = (int)va_arg(rep->current, int);
 		if (info->width < 0)
 		{
 			info->left = 1;
@@ -34,7 +34,7 @@ void	ft_star_search(t_rep *rep, t_printinfo *info)
 	}
 	if (info->prec == -1)
 	{
-		info->prec = va_arg(rep->current, int);
+		info->prec = (int)va_arg(rep->current, int);
 		rep->vapos++;
 		if (info->prec < 0)
 			info->prec = -2;
@@ -55,7 +55,7 @@ void	ft_arg_search(t_rep *rep, t_printinfo *info)
 		}
 		while (rep->vapos < /**/(int)/**/info->ndol)
 		{
-			va_arg(rep->current, int);
+			(void)va_arg(rep->current, int);
 			rep->vapos++;
 		}
 	}
