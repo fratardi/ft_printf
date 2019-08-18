@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/18 02:09:50 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 04:14:33 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include "../libft/libft.h"
+#include <stdio.h>
 
 /*
 **Defines for the static padding buffer
