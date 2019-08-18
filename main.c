@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/18 04:46:13 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 06:23:46 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(void)
 {
     	double		nb;
 
-    nb = 1.0/0.0;
+    nb = 12.13;
 	ft_printf("%f\n", nb);
 	ft_printf("%12f\n", nb);
 	ft_printf("%-12f\n", nb);

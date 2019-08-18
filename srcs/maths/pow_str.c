@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/18 02:27:06 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 06:25:54 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,7 @@ char		*ft_pow_pos(int po, int end)
 	}
 	last = pow.p;
 	pow.i = 0;
-	while(str[pow.i] == '0')
-		pow.i++;
+	while(str[pow.i] == '0' && (pow.i += 1));
 	return (ft_strdup(&str[pow.i]));
 }
 
