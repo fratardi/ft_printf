@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/18 02:27:17 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 02:29:28 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,10 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 		if (dble.m[i++] == '1')
 			dble = ft_doublesign(dble, 0);
 		if (!dble.m[i])
+		{
 			free(ft_pow2str(-1, 1));
+			free(ft_pow2str(1, 1));
+		}
 		dble.b--;
 	}
 	if (!is_ten)
