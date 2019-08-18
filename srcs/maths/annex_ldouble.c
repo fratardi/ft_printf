@@ -6,13 +6,12 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/18 02:19:14 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 02:27:17 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /*
 **If float == 0
@@ -76,7 +75,6 @@ t_double	init_dble(long double a)
 
 	dble.b = -1;
 	dble.ex = ft_expldouble(a);
-	printf("ex = %d\n", dble.ex);	
 	dble.dec = (dble.ex < 0) ? ft_pow2str(0 + dble.ex, 0) : ft_strdup("0");
 	dble.ent = (dble.ex >= 0) ? ft_pow2str(0 + dble.ex, 0) : ft_strdup("0");
 	dble.m = ft_mantissaldouble(a);

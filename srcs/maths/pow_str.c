@@ -6,13 +6,12 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 21:38:54 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/18 02:25:40 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 02:27:06 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /*
 **Functions Power 2 and 5 returning a char*
@@ -136,5 +135,5 @@ char		*ft_pow2str(int ex, char end)
 {
 	if (ex == 0)
 		return (ft_strdup("1"));
-	return ((ex > 0) ? ft_pow_pos(ex) : ft_pow_neg(-ex, end));
+	return ((ex > 0) ? ft_pow_pos(ex, end) : ft_pow_neg(-ex, end));
 }
