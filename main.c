@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/15 09:01:57 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/08/18 02:23:45 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/ft_printf.h"
 #include <time.h>
+#include <float.h>
 
 int main(void)
 {
@@ -47,9 +48,9 @@ printf("{%*3d%2$d}\n", 5, 0);
     //ft_printf("test %2$.15d modifs\n", 42);
     //ft_printf("test %d modifs\n", 42);
     //ft_printf("test %o modifs\n", 42);
-    ft_printf("test %0$u error\n", 42);
-    printf("test %0$u error\n", 42);
- 
+    ft_printf("%Lf\n", LDBL_MAX - 1);
+    //  printf("%Lf\n", LDBL_MAX - 1);
+    // ft_putendl(ft_pow_pos(1200, 0));
   //  ft_printf("test %% mod\n", 42);
    // ft_printf("%10d\n", 15); 
     // while(1);

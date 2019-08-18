@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/13 06:19:50 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 02:09:50 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,11 +123,11 @@ typedef struct			s_double{
 	int		b;
 }						t_double;
 
-typedef struct			s_power5{
+typedef struct			s_power{
 	char	*base;
 	int		p;
 	int		i;
-}						t_power5;
+}						t_power;
 
 /*
 **Funtions to print Digits
@@ -147,7 +147,6 @@ char					*ft_addstrings(char *s1, char *s2);
 void					ft_addstrings_stack(char *assign, char *base,
 	int po_assig, int po_base);
 char					*ft_new_addstrings(char *s1, char *s2);
-char					*ft_pow5(int pow, char end);
 void					ft_hexfloat(void *content, size_t n);
 char					*ft_fillbig(char *s1, char *s2);
 char					*ft_pow2str(int ex, char end);
@@ -159,6 +158,8 @@ int						ft_expldouble(long double a);
 char					*ft_ldouble(long double a, int prec,
 	unsigned int is_ten, int sign);
 char					*ft_exception(long double a, t_printinfo *list);
+char					*ft_pow_pos(int po, int end);
+
 
 /*
 **Unicode str handlers

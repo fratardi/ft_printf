@@ -6,12 +6,13 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/25 13:23:35 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 02:19:14 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /*
 **If float == 0
@@ -75,6 +76,7 @@ t_double	init_dble(long double a)
 
 	dble.b = -1;
 	dble.ex = ft_expldouble(a);
+	printf("ex = %d\n", dble.ex);	
 	dble.dec = (dble.ex < 0) ? ft_pow2str(0 + dble.ex, 0) : ft_strdup("0");
 	dble.ent = (dble.ex >= 0) ? ft_pow2str(0 + dble.ex, 0) : ft_strdup("0");
 	dble.m = ft_mantissaldouble(a);
@@ -89,11 +91,29 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 {
 	t_double	dble;
 	int			i;
+	int			cpy;
+	int			b_cpy;
 
 	i = 0;
 	if (a == 0)
 		return (ft_float_zero(prec, is_ten, a, sign));
 	dble = init_dble(a);
+	b_cpy = dble.b;
+	while (dble.m[i] && (dble.b + dble.ex) >= 0)
+	{
+		i++;
+		dble.b --;
+	}
+	cpy = i + 1;
+	while (i >= 0)
+	{
+		if (dble.m[i] == '1')
+			dble = ft_doublesign(dble, 0);
+		i--;
+		dble.b++;
+	}
+	i = cpy + 1;
+	dble.b = b_cpy;
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')
