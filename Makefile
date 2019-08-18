@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/08/18 05:53:51 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/08/18 06:05:19 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,15 +101,6 @@ O = $(C:.c=.o)
 O_LIB = $(C_LIB:.c=.o)
 
 all : $(NAME)
-
-bonus :
-	git checkout bonus
-	make re
-
-temp :
-	make -C ./libft
-	gcc ft_print2.c libft/libft.a srcs/*/*.c main.c
-	make fclean -C ./libft
 
 newline :
 	@echo ""
