@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+         #
+#    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/08/15 09:02:33 by fratardi         ###   ########.fr        #
+#    Updated: 2019/08/18 05:53:51 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,6 +101,10 @@ O = $(C:.c=.o)
 O_LIB = $(C_LIB:.c=.o)
 
 all : $(NAME)
+
+bonus :
+	git checkout bonus
+	make re
 
 temp :
 	make -C ./libft
