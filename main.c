@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/18 04:36:40 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 04:46:13 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,39 @@
 
 int main(void)
 {
+    	double		nb;
+
+    nb = 1.0/0.0;
+	ft_printf("%f\n", nb);
+	ft_printf("%12f\n", nb);
+	ft_printf("%-12f\n", nb);
+	ft_printf("%5.9f\n", nb);
+	printf("%f\n", nb);
+	printf("%12f\n", nb);
+	printf("%-12f\n", nb);
+	printf("%5.9f\n", nb);
+
+/*     nb = -1.0/0.0;
+	ft_printf("%f\n", nb);
+	printf("%f\n", nb);
+	ft_printf("%12f\n", nb);
+	printf("%12f\n", nb);
+	ft_printf("%-12f\n", nb);
+	printf("%-12f\n", nb);
+	ft_printf("%5.9f\n", nb);
+	printf("%5.9f\n", nb); */
+/* 
+ 	nb = 0.0/0.0;
+	ft_printf("%f\n", nb);
+	printf("%f\n", nb);
+	ft_printf("%12f\n", nb);
+	printf("%12f\n", nb);
+	ft_printf("%-12f\n", nb);
+	printf("%-12f\n", nb);
+	ft_printf("%5.9f\n", nb);
+	printf("%5.9f\n", nb); */
+
+
 		// printf("aa%%bb\n");
 	//	ft_printf("%*.*d || % $0$d\n", 15, 2, 4,5,6);
 	//	 ft_printf("test %3$*.*d\n", 15, 2, 4,5,6);

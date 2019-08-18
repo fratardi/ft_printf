@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/19 22:22:21 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/24 05:24:53 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 04:44:08 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ char	*ft_exception(long double a, t_printinfo *list)
 	m = ft_mantissaldouble(a);
 	list->is_char = 0;
 	inf = ft_memaset('0', 63);
-	if (ft_strcmp(inf, m) == 0)
+	if (ft_strcmp(inf, &m[1]) == 0)
 	{
 		ft_strdel(&inf);
 		ft_strdel(&m);
 		return (ft_strdup((a < 0) ? "-inf" : "inf"));
 	}
-	else if (ft_strcmp(inf, m) != 0)
+	else if (ft_strcmp(inf, &m[1]) != 0)
 	{
 		ft_strdel(&inf);
 		ft_strdel(&m);
