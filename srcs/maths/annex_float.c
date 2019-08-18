@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 21:05:06 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/06/25 14:42:05 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 03:27:59 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_mantissaldouble(long double d)
 	char	*f;
 
 	temp = ft_binary(&d, 10);
-	f = ft_strdup(&temp[17]);
+	f = ft_strdup(&temp[16]);
 	free(temp);
 	return (f);
 }

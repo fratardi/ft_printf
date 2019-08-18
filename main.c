@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/18 02:23:45 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 03:48:02 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ printf("{%*3d%2$d}\n", 5, 0);
     //ft_printf("test %2$.15d modifs\n", 42);
     //ft_printf("test %d modifs\n", 42);
     //ft_printf("test %o modifs\n", 42);
-    ft_printf("%Lf\n", LDBL_MAX - 1);
+    ft_printf("%+Lf\n", -123456.123456L);
+    printf("%+Lf\n", -123456.123456L);
     //  printf("%Lf\n", LDBL_MAX - 1);
     // ft_putendl(ft_pow_pos(1200, 0));
   //  ft_printf("test %% mod\n", 42);

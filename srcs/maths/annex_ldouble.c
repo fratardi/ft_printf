@@ -6,12 +6,13 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/18 02:29:28 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 03:48:15 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /*
 **If float == 0
@@ -96,21 +97,24 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 	if (a == 0)
 		return (ft_float_zero(prec, is_ten, a, sign));
 	dble = init_dble(a);
-	b_cpy = dble.b;
 	while (dble.m[i] && (dble.b + dble.ex) >= 0)
 	{
 		i++;
-		dble.b --;
+		if (dble.m[i + 1])
+			dble.b --;
 	}
+	dble.b++;
 	cpy = i + 1;
-	while (i >= 0)
+	b_cpy = dble.b - 1;
+
+	while (i > 0)
 	{
 		if (dble.m[i] == '1')
 			dble = ft_doublesign(dble, 0);
 		i--;
 		dble.b++;
 	}
-	i = cpy + 1;
+	i = cpy;
 	dble.b = b_cpy;
 	while (dble.m[i])
 	{
