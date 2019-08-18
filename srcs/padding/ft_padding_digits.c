@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/18 04:21:11 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/18 04:36:17 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,17 @@ int		ft_print_pad_dig(t_printinfo *l, int width, char **buf)
 
 	ret = 0;
 	l->prec = (l->t == 'f' && l->prec == -2) ? 6 : l->prec;
+	if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
+		width -= l->prec - ft_declen(*buf);
 	if (width > 0 && !l->left && ((!l->extra && l->prec == -2) ||
 		(l->extra) || (l->width > l->prec)))
 	{
-		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
-			width -= l->prec - ft_declen(*buf);
 		ret += ft_print_preset_buf(' ', width);
 		ret += ft_display_char_content(*buf, ft_strlen(*buf));
 		ret += ft_case_buf(l, *buf);
 	}
 	else if (width > 0 && l->left)
 	{
-		if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(*buf))
-			width -= l->prec - ft_declen(*buf);
 		ret += ft_display_char_content(*buf, ft_strlen(*buf));
 		ret += ft_case_buf(l, *buf);
 		ret += ft_print_preset_buf(' ', width);
