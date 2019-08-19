@@ -26,8 +26,8 @@ int main(void)
 		//	ft_putendl("<<orig");
 		//	ft_displaybin(&f, sizeof(float));
 			//ft_putendl("<<copy");
-			ft_printf("%48.U\n",294807462971541824);
-			printf( "%48.2hhU\n",294807462971541824);
+			ft_printf("%Ef\n",123.456E-35);
+		//	printf( "%4E\n",294807462971541824);
 	//	}
  
  

@@ -143,7 +143,6 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 		dble.ent = ft_joinfree(dble.ent, ft_strdup("."));
 	dble.ent = ft_joinfree(dble.ent, dble.dec);
 	ft_strdel(&dble.m);
-	if (is_ten)
-		dble.ent = ft_floatexp(dble.ent, (prec > 0) ? prec : 6);
+	dble.ent = (is_ten) ? ft_floatexp(dble.ent, prec) : dble.ent;
 	return (dble.ent);
 }
