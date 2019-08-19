@@ -41,7 +41,7 @@ t_double	ft_doublesign(t_double dble, char end)
 **Main function to calculate and transform mant&exp to str long double
 */
 
-t_double	ft_annex_norm(int *i, t_double dble)
+t_double	ft_distribute_exp(int *i, t_double dble)
 {
 	int cpy;
 	int b_cpy;
@@ -82,7 +82,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 	if (a == 0)
 		return (ft_float_zero(prec, is_ten, a, sign));
 	dble = init_dble(a);
-	dble = ft_annex_norm(&i, dble);
+	dble = ft_distribute_exp(&i, dble);
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')

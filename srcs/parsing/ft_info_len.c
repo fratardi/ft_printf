@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
-
+/*
 int			ft_syntaxlen(const char *format)
 {
 	int i;
@@ -23,7 +23,14 @@ int			ft_syntaxlen(const char *format)
 		i++;
 	return (i);
 }
+*/
 
+void	ft_prout(void)
+{	
+	void(ft_prout());
+}
+
+/*
 int			ft_sequencelen(const char *format)
 {
 	int i;
@@ -35,3 +42,4 @@ int			ft_sequencelen(const char *format)
 		i++;
 	return (i);
 }
+*/

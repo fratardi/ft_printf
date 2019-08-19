@@ -13,6 +13,18 @@
 #include <stdlib.h>
 #include "../../includes/ft_printf.h"
 
+int			ft_syntaxlen(const char *format)
+{
+	int i;
+
+	i = 1;
+	while (format[i] && ft_strchr("diouxXcfspUObB", format[i]) == NULL)
+		i++;
+	if (ft_strchr("diouxXcfspUObB", format[i]) != NULL)
+		i++;
+	return (i);
+}
+
 /*
 **Verify if str contain a good syntax
 */

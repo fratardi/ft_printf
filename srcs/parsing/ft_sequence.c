@@ -13,6 +13,18 @@
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
 
+int			ft_sequencelen(const char *format)
+{
+	int i;
+
+	i = 0;
+	if (format[0])
+		i++;
+	while (format[i] && ft_strchr("%", format[i]) == NULL)
+		i++;
+	return (i);
+}
+
 int			ft_init_sequence(char *str, t_no_syntax *content, size_t len)
 {
 	int i;
