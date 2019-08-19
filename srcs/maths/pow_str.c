@@ -39,7 +39,7 @@ char		*ft_pow_neg(int po, int end)
 {
 	static char	*str;
 	static int	last = 0;
-	t_power	pow;
+	t_power		pow;
 
 	if (end == 1 && last != 0)
 	{
@@ -85,7 +85,7 @@ char		*ft_pow_pos(int po, int end)
 {
 	static char	*str;
 	static int	last = 0;
-	t_power	pow;
+	t_power		pow;
 
 	if (end == 1 && last != 0)
 	{
@@ -107,7 +107,8 @@ char		*ft_pow_pos(int po, int end)
 	}
 	last = pow.p;
 	pow.i = 0;
-	while(str[pow.i] == '0' && (pow.i += 1));
+	while (str[pow.i] == '0' && (pow.i += 1))
+		;
 	return (ft_strdup(&str[pow.i]));
 }
 
