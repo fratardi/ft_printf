@@ -86,36 +86,50 @@ t_double	init_dble(long double a)
 **Main function to calculate and transform mant&exp to str long double
 */
 
+t_double		ft_annex_norm(int *i, t_double dble)
+{
+	int cpy;
+	int b_cpy;
+
+	while (dble.m[*i] && (dble.b + dble.ex) >= 0)
+	{
+		*i += 1;
+		if (dble.m[*i + 1])
+			dble.b--;
+	}
+	dble.b++;
+	cpy =* i + 1;
+	b_cpy = dble.b - 1;
+	while (*i > 0)
+	{
+		if (dble.m[*i] == '1')
+			dble = ft_doublesign(dble, 0);
+		*i -= 1;
+		dble.b++;
+	}
+	*i = cpy;
+	dble.b = b_cpy;
+	return(dble);
+}
+
 char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 {
 	t_double	dble;
 	int			i;
-	int			cpy;
+/*	int			cpy;
 	int			b_cpy;
-
+*/
 	i = 0;
 	if (a == 0)
 		return (ft_float_zero(prec, is_ten, a, sign));
 	dble = init_dble(a);
-	while (dble.m[i] && (dble.b + dble.ex) >= 0)
-	{
-		i++;
-		if (dble.m[i + 1])
-			dble.b --;
-	}
-	dble.b++;
-	cpy = i + 1;
-	b_cpy = dble.b - 1;
 
-	while (i > 0)
-	{
-		if (dble.m[i] == '1')
-			dble = ft_doublesign(dble, 0);
-		i--;
-		dble.b++;
-	}
-	i = cpy;
-	dble.b = b_cpy;
+	dble = ft_annex_norm(&i, dble);
+
+
+
+	
+	
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')

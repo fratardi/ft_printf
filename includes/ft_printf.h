@@ -122,6 +122,11 @@ typedef struct			s_double{
 	char	*temp;
 	char	*tempent;
 	int		b;
+//
+	int			i;
+	int			cpy;
+	int			b_cpy;
+//
 }						t_double;
 
 typedef struct			s_power{

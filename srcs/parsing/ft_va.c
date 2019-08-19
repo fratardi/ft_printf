@@ -15,11 +15,6 @@
 
 void	ft_pick_va_string(char **ret, t_rep *rep)
 {
-/*	
-	*ret = (char *)va_arg(rep->current, char *);
-	*ret = ft_strdup((*ret == NULL) ? "(null)" : *ret);
-	rep->vapos++;
-*/
 	*ret = (char *)va_arg(rep->current, char *);
 	*ret = ft_strdup((*ret == NULL) ? "(null)" : *ret);
 	rep->vapos++;
