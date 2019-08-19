@@ -12,7 +12,6 @@
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 char	*ft_fillbig(char *s1, char *s2)
 {

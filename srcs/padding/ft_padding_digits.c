@@ -12,7 +12,6 @@
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 size_t	ft_declen(char *str)
 {
