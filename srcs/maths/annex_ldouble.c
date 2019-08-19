@@ -14,34 +14,6 @@
 #include <stdlib.h>
 
 /*
-**If float == 0
-*/
-
-char		*ft_float_zero(int prec, unsigned int is_ten, long double a, int s)
-{
-	char	*ret;
-	int		temp;
-	int		i;
-	char	*bin;
-
-	temp = 0;
-	bin = ft_binary(&a, 10);
-	ret = ft_strdup((ft_strchr(bin, '1')) ? "-0.0000000" : "0.0000000");
-	i = prec;
-	ft_strdel(&bin);
-	if (is_ten && prec > 0)
-		ret = ft_floatexp(ret, prec + ((ret[0] == '-') ? 3 : 2));
-	if (prec == -2)
-		return (ret);
-	if (prec > 0)
-		ret = ft_round_dec(ret, prec + ((ret[0] == '-') ? 3 : 2), &temp);
-	s = (s == 0) ? 1 : 0;
-	if (i == 0)
-		ret[s + ((ret[0] == '-') ? 2 : 1)] = 0;
-	return (ret);
-}
-
-/*
 **Conditions according to the sign of exposant
 */
 

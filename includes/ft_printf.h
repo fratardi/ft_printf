@@ -161,6 +161,8 @@ char					*ft_ldouble(long double a, int prec,
 char					*ft_exception(long double a, t_printinfo *list);
 char					*ft_pow_pos(int po, int end);
 char					*ft_casenull(char *str, int *last);
+char					*ft_float_zero(int prec, unsigned int is_ten,
+	long double a, int s);
 
 /*
 **Unicode str handlers
