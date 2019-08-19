@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/18 04:36:17 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/19 04:32:02 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		ft_case_buf(t_printinfo *l, char *buf)
 	ret = 0;
 	if (l->t == 'f' && l->prec > 0 && (size_t)l->prec > ft_declen(buf))
 		ret += ft_print_preset_buf('0', l->prec - ft_declen(buf));
+	ft_strdel(&buf);
 	return (ret);
 }
 
@@ -81,7 +82,6 @@ int		ft_print_pad_dig(t_printinfo *l, int width, char **buf)
 		ret += ft_display_char_content(*buf, ft_strlen(*buf));
 		ret += ft_case_buf(l, *buf);
 	}
-	ft_strdel(buf);
 	return (ret);
 }
 
