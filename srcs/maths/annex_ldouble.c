@@ -112,6 +112,12 @@ t_double	ft_annex_norm(int *i, t_double dble)
 	return (dble);
 }
 
+void		ft_free_staticpo(void)
+{
+	free(ft_pow2str(-1, 1));
+	free(ft_pow2str(1, 1));
+}
+
 char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 {
 	t_double	dble;
@@ -127,10 +133,7 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 		if (dble.m[i++] == '1')
 			dble = ft_doublesign(dble, 0);
 		if (!dble.m[i])
-		{
-			free(ft_pow2str(-1, 1));
-			free(ft_pow2str(1, 1));
-		}
+			ft_free_staticpo();
 		dble.b--;
 	}
 	if (!is_ten)
