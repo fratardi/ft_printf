@@ -111,7 +111,7 @@ char					*ft_fillbuf(t_printinfo *l, t_rep *rep)
 	char	c;
 
 	ret = NULL;
-	if (l->t == 'd' || l->t == 'i' || l->t == 'u')
+	if (l->t == 'd' || l->t == 'i' || l->t == 'u' || l->t == 'U')
 		ret = ft_fillbuf_digits(l, rep);
 	else if (ft_strchr("oOxXp", l->t))
 		ret = ft_fillbuf_convert(l, rep);

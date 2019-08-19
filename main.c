@@ -16,6 +16,22 @@
 
 int main(void)
 {
+ 
+ //float f;
+	
+	//f = 1.0f;
+
+	//while (   f++ )	
+	//	{
+		//	ft_putendl("<<orig");
+		//	ft_displaybin(&f, sizeof(float));
+			//ft_putendl("<<copy");
+			ft_printf("%48.U\n",294807462971541824);
+			printf( "%48.2hhU\n",294807462971541824);
+	//	}
+ 
+ 
+ /*
     	double		nb;
 
     nb = 12.13;
@@ -27,7 +43,7 @@ int main(void)
 	printf("%12f\n", nb);
 	printf("%-12f\n", nb);
 	printf("%5.9f\n", nb);
-
+*/
 /*     nb = -1.0/0.0;
 	ft_printf("%f\n", nb);
 	printf("%f\n", nb);
@@ -83,8 +99,8 @@ printf("{%*3d%2$d}\n", 5, 0);
     //ft_printf("test %o modifs\n", 42);
     // ft_printf("%+Lf\n", -123456.123456L);
     // printf("%+Lf\n", -123456.123456L);
-    ft_printf("%28.8lf\n", 16.125);
-    printf("%28.8lf\n", 16.125);
+ //   ft_printf("%28.8lf\n", 16.125);
+   // printf("%28.8lf\n", 16.125);
     //  printf("%Lf\n", LDBL_MAX - 1);
     // ft_putendl(ft_pow_pos(1200, 0));
   //  ft_printf("test %% mod\n", 42);
