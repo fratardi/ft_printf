@@ -104,25 +104,6 @@ char		*ft_pow_pos(int po, int end)
 	return (ft_strdup(&str[pow.i]));
 }
 
-char		*ft_pow2c(int po)
-{
-	char	*base;
-	char	*ret;
-
-	if (!po)
-		return (ft_strdup("0"));
-	if (po < 0)
-		po = -po;
-	ret = ft_strdup("2");
-	while (po-- > 1)
-	{
-		base = ft_strdup(ret);
-		ret = ft_new_addstrings(ret, base);
-		ft_strdel(&base);
-	}
-	return (ret);
-}
-
 char		*ft_pow2str(int ex, char end)
 {
 	if (ex == 0)
