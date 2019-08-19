@@ -130,7 +130,7 @@ typedef struct			s_power{
 }						t_power;
 
 /*
-**Functions to print content and values  
+** Functions to print content and values
 */
 
 void					ft_hexfloat(void *content, size_t n);
@@ -145,7 +145,7 @@ int						ft_print_rest(char *seg, int size);
 int						ft_print_preset_buf(unsigned char c, int n);
 
 /*
-** Functions to convert content into char * 
+** Functions to convert content into char *
 */
 
 char					*ft_convert_o(unsigned long long int to_convert);
@@ -157,9 +157,8 @@ char					*ft_binary_string(void *content, size_t n);
 char					*ft_rest(char *str);
 
 /*
-**len indicators 
+**len indicators
 */
-
 
 size_t					ft_size_octal(unsigned long long int to_convert);
 size_t					ft_size_hexa(unsigned long long int to_convert);
@@ -191,7 +190,6 @@ void					ft_addstrings_stack(char *assign, char *base,
 char					*ft_new_addstrings(char *s1, char *s2);
 char					*ft_pow_pos(int po, int end);
 char					*ft_pow2str(int ex, char end);
-char					*ft_fillbig(char *s1, char *s2);
 char					*ft_floatexp(char *str, int prec);
 t_double				ft_rounding_float(t_double dble, int prec);
 char					*ft_round_dec(char *str, int prec, int *round_ent);
@@ -211,9 +209,8 @@ t_printinfo				*ft_fillndol(char *str, t_printinfo *list);
 t_printinfo				*ft_fillwidth(char *str, t_printinfo *list, t_rep *rep);
 t_printinfo				*ft_filltype(char *str, t_printinfo *list);
 
-
 /*
-** Fill Buffer 
+** Fill Buffer
 */
 
 char					*ft_fillbuf_float(t_printinfo *l, t_rep *rep);

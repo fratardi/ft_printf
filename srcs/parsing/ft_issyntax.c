@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "../../includes/ft_printf.h"
 
-int			ft_syntaxlen(const char *format)
+int		ft_syntaxlen(const char *format)
 {
 	int i;
 

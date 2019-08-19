@@ -12,14 +12,7 @@
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
-/*
-char	*ft_fillbig(char *s1, char *s2)
-{
-	while (ft_strlen(s1) < ft_strlen(s2))
-		s1 = ft_joinfree(s1, ft_strdup("0"));
-	return (s1);
-}
-*/
+
 void	ft_hexfloat(void *content, size_t n)
 {
 	static char tab[16] = "0123456789abcdef";

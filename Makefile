@@ -48,7 +48,6 @@ C = ft_printf.c\
 	srcs/parsing/ft_fill_struct1.c\
 	srcs/parsing/ft_fill_struct2.c\
 	srcs/parsing/ft_issyntax.c\
-	srcs/parsing/ft_info_len.c\
 	srcs/parsing/ft_sequence.c\
 	srcs/parsing/ft_va.c\
 	srcs/unicodes/ft_print_uni_char.c\
