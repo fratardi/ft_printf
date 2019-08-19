@@ -35,13 +35,6 @@ char		*init_pow_neg(int po, int *last, char *str)
 	return (str);
 }
 
-char		*ft_casenull(char *str, int *last)
-{
-	ft_strdel(&str);
-	*last = 0;
-	return (ft_strdup("0"));
-}
-
 char		*ft_pow_neg(int po, int end)
 {
 	static char	*str;

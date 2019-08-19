@@ -15,7 +15,6 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include "../libft/libft.h"
-#include <stdio.h>
 
 /*
 **Defines for the static padding buffer
@@ -122,11 +121,6 @@ typedef struct			s_double{
 	char	*temp;
 	char	*tempent;
 	int		b;
-//
-	int			i;
-	int			cpy;
-	int			b_cpy;
-//
 }						t_double;
 
 typedef struct			s_power{
@@ -146,6 +140,7 @@ size_t					ft_printulli(unsigned long long int n, t_printinfo *l);
 **Float Handling Functions
 */
 
+t_double				init_dble(long double a);
 void					ft_adjustpospo(char **s1, char **s2);
 void					ft_adjustnegpo(char **s1, char **s2);
 char					ft_addchar(char *s1, char *s2, char *ret, char carry);
@@ -165,7 +160,7 @@ char					*ft_ldouble(long double a, int prec,
 	unsigned int is_ten, int sign);
 char					*ft_exception(long double a, t_printinfo *list);
 char					*ft_pow_pos(int po, int end);
-
+char					*ft_casenull(char *str, int *last);
 
 /*
 **Unicode str handlers

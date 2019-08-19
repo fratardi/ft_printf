@@ -13,7 +13,30 @@
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
 
-char	*ft_exception(long double a, t_printinfo *list)
+char		*ft_casenull(char *str, int *last)
+{
+	ft_strdel(&str);
+	*last = 0;
+	return (ft_strdup("0"));
+}
+
+/*
+**Function to initialize values
+*/
+
+t_double	init_dble(long double a)
+{
+	t_double dble;
+
+	dble.b = -1;
+	dble.ex = ft_expldouble(a);
+	dble.dec = (dble.ex < 0) ? ft_pow2str(0 + dble.ex, 0) : ft_strdup("0");
+	dble.ent = (dble.ex >= 0) ? ft_pow2str(0 + dble.ex, 0) : ft_strdup("0");
+	dble.m = ft_mantissaldouble(a);
+	return (dble);
+}
+
+char		*ft_exception(long double a, t_printinfo *list)
 {
 	int		ex;
 	char	*m;
