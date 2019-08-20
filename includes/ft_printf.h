@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/18 04:35:51 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/20 11:52:46 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -242,5 +242,11 @@ int						ft_padding_display(t_printinfo *l, char **buf,
 void					ft_pick_va_string(char **ret, t_rep *rep);
 void					ft_star_search(t_rep *rep, t_printinfo *info);
 void					ft_arg_search(t_rep *rep, t_printinfo *info);
+
+/*
+**Main Function of ft_printf
+*/
+
+int		ft_printf(const char *format, ...);
 
 #endif
