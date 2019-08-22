@@ -13,7 +13,7 @@
 #include "./includes/ft_printf.h"
 #include <time.h>
 #include <float.h>
-
+#include <stdio.h>
 int main(void)
 {
  
@@ -26,11 +26,33 @@ int main(void)
 		//	ft_putendl("<<orig");
 		//	ft_displaybin(&f, sizeof(float));
 			//ft_putendl("<<copy");
-			ft_printf("%Ef\n",123.456E-35);
+			//ft_printf("%Ef\n",123.456E-35);
+
+//ft_putstr("\ncopy>>\n");
+
+//ft_putnbr(ft_printf("b'%-0#28h%\\n'"));
+//ft_printf("\n>>%d<<\n",/*ft_*/ft_printf("b'%-3$-0#28hs%\\n'","un", "deux", "trois"));
+//ft_putendl("\norig>>");
 		//	printf( "%4E\n",294807462971541824);
 	//	}
- 
- 
+ /*
+t_print_info ft_print_sequence(const char *format, size_t pos)
+{
+	t_print_info ret;
+
+	init_print_info(&ret);
+	if(!str[pos]) 
+		return(ret); 
+	while(str[pos]!= 0 || str[pos]!= '%')
+	{
+
+	}
+	*/
+//	ft_putnbr(atoi("+-4556"));
+ft_printf("%/$+603.4s", "un", "deux", "trois", "quatre", "cinq");
+
+
+
  /*
     	double		nb;
 
