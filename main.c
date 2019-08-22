@@ -49,7 +49,8 @@ t_print_info ft_print_sequence(const char *format, size_t pos)
 	}
 	*/
 //	ft_putnbr(atoi("+-4556"));
-	printf("%+3+719-5$-603.4s", "un", "deux", "trois", "quatre", "cinq");
+	printf("%pruc%+3+719-5$-+603.4s\n", "un", "deux", "trois", "quatre", "cinq");
+	ft_printf("%pruc%+3+719-5$-+603.4s\n", "un", "deux", "trois", "quotre", "cinq");
 
 
 
