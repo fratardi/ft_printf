@@ -49,7 +49,7 @@ t_print_info ft_print_sequence(const char *format, size_t pos)
 	}
 	*/
 //	ft_putnbr(atoi("+-4556"));
-ft_printf("%/$+603.4s", "un", "deux", "trois", "quatre", "cinq");
+	printf("%+3+719-5$-603.4s", "un", "deux", "trois", "quatre", "cinq");
 
 
 
