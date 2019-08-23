@@ -6,12 +6,13 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 16:08:12 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/18 03:48:15 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/23 02:24:53 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /*
 **Conditions according to the sign of exposant
@@ -49,7 +50,7 @@ t_double	ft_distribute_exp(int *i, t_double dble)
 	while (dble.m[*i] && (dble.b + dble.ex) >= 0)
 	{
 		*i += 1;
-		if (dble.m[*i + 1])
+		// if (dble.m[*i + 1])
 			dble.b--;
 	}
 	dble.b++;
@@ -59,10 +60,12 @@ t_double	ft_distribute_exp(int *i, t_double dble)
 	{
 		if (dble.m[*i] == '1')
 			dble = ft_doublesign(dble, 0);
+		// printf("Ent_part = %s\n", dble.ent);		
 		*i -= 1;
 		dble.b++;
 	}
-	*i = cpy;
+	*i = (cpy > 64) ? 64 : cpy;
+	// printf("cpy = %d\n", cpy);
 	dble.b = b_cpy;
 	return (dble);
 }
@@ -83,6 +86,8 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 		return (ft_float_zero(prec, is_ten, a, sign));
 	dble = init_dble(a);
 	dble = ft_distribute_exp(&i, dble);
+	// printf("exp = %d\n", dble.ex);
+	// printf("mant = %s\n", dble.m);
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')
