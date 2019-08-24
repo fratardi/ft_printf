@@ -6,7 +6,7 @@
 #    By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/18 15:09:05 by tpacaud           #+#    #+#              #
-#    Updated: 2019/08/18 06:20:44 by tpacaud          ###   ########.fr        #
+#    Updated: 2019/08/24 02:56:14 by tpacaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ C = ft_printf.c\
 	srcs/unicodes/ft_uni_str_len.c\
 	srcs/display/disp_content_char.c\
 	srcs/display/ft_print_rest.c\
-	
+	srcs/parsing/ft_same.c
 
 C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_freetab.o \

@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/20 11:52:46 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/24 02:55:48 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,8 @@ size_t					ft_print_uni_char(char *str);
 int						ft_print_n_uni_str(char *str, int size);
 int						ft_print_rest(char *seg, int size);
 int						ft_print_preset_buf(unsigned char c, int n);
+int						ft_same(char *s1, char *s2);
+
 
 /*
 ** Functions to convert content into char *
