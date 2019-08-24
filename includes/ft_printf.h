@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/24 02:55:48 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/24 04:15:40 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -249,6 +249,10 @@ void					ft_arg_search(t_rep *rep, t_printinfo *info);
 **Main Function of ft_printf
 */
 
-int		ft_printf(const char *format, ...);
+int						ft_printf(const char *format, ...);
+void					ft_print_t_list_content(t_printinfo *info);
+int		ft_binary_exopnent(char *bin);
+int		ft_exp_ldouble(long double a);
+
 
 #endif
