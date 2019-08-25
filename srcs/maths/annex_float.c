@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 21:05:06 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/24 04:23:23 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/26 00:04:31 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,22 +69,18 @@ char	*ft_mantissaldouble(long double d)
 	*b = (*b & 0x7fff);
 	printf("ex_exp = %d\n", (int)(*b));
 	return ((int)(*b) - 16383);
-}
- */
+} */
+
 int		ft_expldouble(long double a)
 {
-	char *bin_tmp;
 	char *exp_bin;
 	int ret;
 
-	bin_tmp = ft_binary(&a, 11);
-	exp_bin = ft_strdup(&bin_tmp[8]);
+	ret = 0;
+	exp_bin = ft_binary(&a, 10);
 	exp_bin[16] = 0;
-	// printf(">> %s\n", exp_bin);
-	free(bin_tmp);
 	ret = ft_binary_exopnent(&exp_bin[1]);
 	free(exp_bin);
-	// printf("expo = %d\n", ret - 16383);
 	return (ret - 16383);
 }
 

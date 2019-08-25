@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/24 04:18:53 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/26 00:05:57 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int main(void)
 		printf("%Lf\n", -111111111111111.2222222222222L);
 		ft_printf("%Lf\n", 111111111111111.2222222222222L);
 		printf("%Lf\n", 111111111111111.2222222222222L);
-		printf("bin = %d\n", ft_binary_exopnent("011111111111111"));
+		ft_printf("%Lf\n", 0.125L);
+		ft_printf("%Lf\n", 1024.0L);
+/* 		printf("bin = %d\n", ft_binary_exopnent("011111111111111"));
 		printf("same - %d\n", ft_same("test", "test"));
 		printf("not same - %d\n", ft_same("test", "none"));
 		printf("not same - %d\n", ft_same("test", "testing"));
@@ -37,7 +39,7 @@ int main(void)
                 printf("P -.015 = [%.-015p] yo\n", s);
                 ft_printf("P -.015 = [%.-015p] yo\n", s);
                 printf("\n");
-
+ */
  
  //float f;
 	
