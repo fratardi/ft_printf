@@ -33,16 +33,15 @@ char	*padding_extra_digit(t_printinfo *l, int sign, char *buf)
 	{
 		tmp = l->width - ft_strlen(buf) - (((sign == -1) ||
 			(sign == 1 && l->showsign)) ? 1 : 0);
-		// printf(">>%d\n", tmp);
 		if (l->t == 'f' && l->prec > (int)ft_declen(buf))
-			tmp = l->width - ft_strlen(buf) - (l->prec - ft_declen(buf)) - ((sign == 1 && l->showsign) ? 1 : 0);		
+			tmp = l->width - ft_strlen(buf) - (l->prec - ft_declen(buf))
+				- ((sign == 1 && l->showsign) ? 1 : 0);
 		if (l->space && buf[0] == '0' && l->t != 'f' && sign == 1)
 			tmp--;
 		if (l->t == 'f' && l->space && sign == 1 && !l->showsign)
 			tmp--;
 		if (ft_strchr("di", l->t) && sign == 1 && l->space && buf[0] != '0')
 			tmp--;
-		// printf(">>%d avec buffer = {%s}\n", tmp, buf);
 		if (tmp > 0)
 			return (ft_memaset('0', tmp));
 	}
