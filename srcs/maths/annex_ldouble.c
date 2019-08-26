@@ -92,10 +92,10 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 	{
 		if (dble.m[i++] == '1')
 			dble = ft_doublesign(dble, 0);
-		if (!dble.m[i])
-			ft_free_staticpo();
 		dble.b--;
 	}
+	if (!dble.m[i])
+		ft_free_staticpo();
 	if (!is_ten)
 		dble = ft_rounding_float(dble, prec);
 	dble.ent = ((a < 0.0) ? ft_joinfree(ft_strdup("-"), dble.ent) : dble.ent);

@@ -41,6 +41,8 @@ char		*ft_pow_neg(int po, int end)
 	static int	last = 0;
 	t_power		pow;
 
+	if (end == 1 && last == 0)
+		return (NULL);
 	if (end == 1 && last != 0)
 		return (ft_casenull(str, &last));
 	str = init_pow_neg(po, &last, str);
@@ -82,7 +84,8 @@ char		*ft_pow_pos(int po, int end)
 	static char	*str;
 	static int	last = 0;
 	t_power		pow;
-
+	if (end == 1 && last == 0)
+		return (NULL);
 	if (end == 1 && last != 0)
 		return (ft_casenull(str, &last));
 	str = init_pow_pos(po, &last, str);

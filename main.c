@@ -20,10 +20,10 @@ int main(void)
 		// ft_exp_ldouble(-111111111111111.2222222222222L);
 		// ft_exp_ldouble(111111111111111.2222222222222L);
 		ft_printf("%Lf\n", -111111111111111.2222222222222L);
-		printf("%Lf\n", -111111111111111.2222222222222L);
-		ft_printf("%Lf\n", 111111111111111.2222222222222L);
-		printf("%Lf\n", 111111111111111.2222222222222L);
-		ft_printf("%Lf\n", 0.125L);
+//		printf("%Lf\n", -111111111111111.2222222222222L);
+//		ft_printf("%Lf\n", 111111111111111.2222222222222L);
+	//	printf("%Lf\n", 111111111111111.2222222222222L);
+	//	ft_printf("%Lf\n", 0.125L);
 		ft_printf("%Lf\n", 1024.0L);
 /* 		printf("bin = %d\n", ft_binary_exopnent("011111111111111"));
 		printf("same - %d\n", ft_same("test", "test"));
