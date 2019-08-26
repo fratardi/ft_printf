@@ -50,8 +50,7 @@ t_double	ft_distribute_exp(int *i, t_double dble)
 	while (dble.m[*i] && (dble.b + dble.ex) >= 0)
 	{
 		*i += 1;
-		// if (dble.m[*i + 1])
-			dble.b--;
+		dble.b--;
 	}
 	dble.b++;
 	cpy = *i + 1;
@@ -60,12 +59,10 @@ t_double	ft_distribute_exp(int *i, t_double dble)
 	{
 		if (dble.m[*i] == '1')
 			dble = ft_doublesign(dble, 0);
-		// printf("Ent_part = %s\n", dble.ent);		
 		*i -= 1;
 		dble.b++;
 	}
 	*i = (cpy > 64) ? 64 : cpy;
-	// printf("cpy = %d\n", cpy);
 	dble.b = b_cpy;
 	return (dble);
 }
@@ -86,8 +83,6 @@ char		*ft_ldouble(long double a, int prec, unsigned int is_ten, int sign)
 		return (ft_float_zero(prec, is_ten, a, sign));
 	dble = init_dble(a);
 	dble = ft_distribute_exp(&i, dble);
-	// printf("exp = %d\n", dble.ex);
-	// printf("mant = %s\n", dble.m);
 	while (dble.m[i])
 	{
 		if (dble.m[i++] == '1')
