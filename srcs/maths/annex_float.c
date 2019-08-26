@@ -60,21 +60,10 @@ char	*ft_mantissaldouble(long double d)
 **Get exp from long double
 */
 
-/* int		ft_expldouble(long double a)
-{
- 	__int128_t *b;
-
-	b = (__int128_t *)&a;
-	*b = *b >> 64;
-	*b = (*b & 0x7fff);
-	printf("ex_exp = %d\n", (int)(*b));
-	return ((int)(*b) - 16383);
-} */
-
 int		ft_expldouble(long double a)
 {
-	char *exp_bin;
-	int ret;
+	char	*exp_bin;
+	int		ret;
 
 	ret = 0;
 	exp_bin = ft_binary(&a, 10);
@@ -93,13 +82,13 @@ int		ft_binary_exopnent(char *bin)
 	mask = 0x00000001;
 	ret = 0;
 	i = 14;
-	if(!bin)
-		return(ret);
-	while(i >= 0)
+	if (!bin)
+		return (ret);
+	while (i >= 0)
 	{
-		if(bin[i--] == '1')
+		if (bin[i--] == '1')
 			ret = (ret | mask);
 		mask = mask << 1;
 	}
-	return(ret);
+	return (ret);
 }

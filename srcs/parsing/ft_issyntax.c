@@ -78,10 +78,10 @@ int		ft_issyntax(char *s, size_t len)
 	i = ft_iterate_syntax(str, i);
 	if (str[i] && ft_strchr("diouxXcfspOUBb", str[i]) != NULL)
 	{
-		if(ft_strchr("cs", str[i]) && str[i - 1] == 'l')
+		if (ft_strchr("cs", str[i]) && str[i - 1] == 'l')
 		{
 			free(str);
-			return(0);
+			return (0);
 		}
 		free(str);
 		return (1);
