@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/26 00:05:57 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/26 07:04:12 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,23 @@
 #include <stdio.h>
 int main(void)
 {
-        char *s = "t";
+	long double arg = 39.436405;
+	char *FORMAT = "%0  48.27f\n";	
+	ft_printf(FORMAT, arg);
+	printf(FORMAT, arg);
+	ft_printf("nous>>%041.49f\n" , 123.456f);
+        printf("orig>>%041.49f\n" , 123.456f);
+        ft_printf("nous>>%00+42.47f\n", 123.456f);
+        printf("orig>>%00+42.47f\n", 123.456f);
+        // char *s = "t";
 		// ft_exp_ldouble(-111111111111111.2222222222222L);
 		// ft_exp_ldouble(111111111111111.2222222222222L);
-		ft_printf("%Lf\n", -111111111111111.2222222222222L);
+		// ft_printf("%Lf\n", -111111111111111.2222222222222L);
 //		printf("%Lf\n", -111111111111111.2222222222222L);
 //		ft_printf("%Lf\n", 111111111111111.2222222222222L);
 	//	printf("%Lf\n", 111111111111111.2222222222222L);
 	//	ft_printf("%Lf\n", 0.125L);
-		ft_printf("%Lf\n", 1024.0L);
+		// ft_printf("%Lf\n", 1024.0L);
 /* 		printf("bin = %d\n", ft_binary_exopnent("011111111111111"));
 		printf("same - %d\n", ft_same("test", "test"));
 		printf("not same - %d\n", ft_same("test", "none"));

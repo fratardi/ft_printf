@@ -6,12 +6,13 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/19 04:32:02 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/26 07:05:05 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 size_t	ft_declen(char *str)
 {
@@ -32,12 +33,16 @@ char	*padding_extra_digit(t_printinfo *l, int sign, char *buf)
 	{
 		tmp = l->width - ft_strlen(buf) - (((sign == -1) ||
 			(sign == 1 && l->showsign)) ? 1 : 0);
+		// printf(">>%d\n", tmp);
+		if (l->t == 'f' && l->prec > (int)ft_declen(buf))
+			tmp = l->width - ft_strlen(buf) - (l->prec - ft_declen(buf)) - ((sign == 1 && l->showsign) ? 1 : 0);		
 		if (l->space && buf[0] == '0' && l->t != 'f' && sign == 1)
 			tmp--;
-		if (l->t == 'f' && l->space && sign == 1)
+		if (l->t == 'f' && l->space && sign == 1 && !l->showsign)
 			tmp--;
 		if (ft_strchr("di", l->t) && sign == 1 && l->space && buf[0] != '0')
 			tmp--;
+		// printf(">>%d avec buffer = {%s}\n", tmp, buf);
 		if (tmp > 0)
 			return (ft_memaset('0', tmp));
 	}
