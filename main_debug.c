@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 01:14:10 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/26 06:52:43 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/26 07:14:41 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int main(void)
 	char *ret;
 	int flags_num = 0;
 	int flags_cpy = 0;
-	char *type = "f";
+	char *type = "s";
 	// unsigned int arg = 42;
-	float arg;
+	char *arg;
 	int i;
 	int random_h;
 	int random_l;
@@ -31,7 +31,8 @@ int main(void)
 	ret = ft_memaset(0, 1024);
 	flags = ft_strdup(" +-#0");
 	srand(time(NULL));
-	arg = (float)rand()/((float)RAND_MAX/123.91);
+	arg = "test__test";
+	// arg = (float)rand()/((float)RAND_MAX/123.91);
 	while (flags_num < 5)
 	{
 		// arg = (float)rand()/((float)RAND_MAX/123.91);
@@ -53,7 +54,7 @@ int main(void)
 		ft_strcat(ret, ft_ullitoa(rand() % (50 + 1 - 0) + 0));        
 		random_l = 0;
 		random_h = 0;
-		if (i == 1 || i == 3)
+/* 		if (i == 1 || i == 3)
 			random_l = rand() % (2 + 1 - 0) + 0;
 		if (i == 2 || i == 3)
 			random_h = rand() % (2 + 1 - 0) + 0;
@@ -65,20 +66,12 @@ int main(void)
 				ft_strncat(ret, "ll", random_l);
 		}
 		if (random_h)
-			ft_strncat(ret, "hh", random_h);
+			ft_strncat(ret, "hh", random_h); */
 		ft_strcat(ret, type);
 		ft_strcat(ret, "\n");
 		printf("arg = %f et FORMAT = %s", ret, arg);
-		if (ret[ft_strlen(ret) - 1] == 'L')
-		{
-			ft_printf(ret, (long double)arg);
-			printf(ret, (long double)arg);
-		}
-		else
-		{
 			ft_printf(ret, arg);
 			printf(ret, arg);
-		}
 		getchar();
 		i++;
 		// printf("%d", rand() % (10 + 1 - 1) + 1);    
