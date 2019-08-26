@@ -6,40 +6,58 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 01:14:10 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/26 07:14:41 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/26 07:53:10 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/ft_printf.h"
 #include <stdlib.h>
 #include <time.h>
+#include <limits.h>
 
-int main(void)
+void	ft_brute_force(char *type)
 {
 	char *flags;
 	char *ret;
 	int flags_num = 0;
 	int flags_cpy = 0;
-	char *type = "s";
+	float	flt = 0.0f;
 	// unsigned int arg = 42;
-	char *arg;
+	void *arg;
 	int i;
-	int random_h;
-	int random_l;
+	int c, o;
+	int random;
 
+	printf("===================== TESTING TYPE > %s ====================\n", type);
 	i = 5;
 	ret = ft_memaset(0, 1024);
 	flags = ft_strdup(" +-#0");
 	srand(time(NULL));
-	arg = "test__test";
-	// arg = (float)rand()/((float)RAND_MAX/123.91);
+	if (!ft_strcmp("s", type) || !ft_strcmp("p", type))
+		arg = "chaine_test";
+	if (ft_strchr("diouxX", type[ft_strlen(type) - 1]))
+	{
+		random = rand() % (INT_MAX + 1 - 0) + INT_MIN;
+		arg = &random;
+	}
+	if (!ft_strcmp("c", type))
+	{
+		random = rand() % (126 + 1 - 32) + 32;
+		arg = &random;
+	}
+	if (!ft_strcmp("f", type))
+		flt = (float)rand()/((float)RAND_MAX/2.0000087688f);
+	// arg = (void *)42;
 	while (flags_num < 5)
 	{
-		// arg = (float)rand()/((float)RAND_MAX/123.91);
 		ft_memset(ret, 0, 1024);
 		ret[0] = '%';
 		if (i == 20)
 		{
+			if (flags_num % 2 == 0)
+				flt = (float)rand()/((float)RAND_MAX/2.0000087688f);
+			else
+				flt = (float)rand()/((float)RAND_MAX/20489.0000087688f);
 			flags_num++;
 			i = 0;
 		}
@@ -52,30 +70,58 @@ int main(void)
 		ft_strcat(ret, ft_ullitoa(rand() % (50 + 1 - 0) + 0));
 		ft_strcat(ret, ".");
 		ft_strcat(ret, ft_ullitoa(rand() % (50 + 1 - 0) + 0));        
-		random_l = 0;
-		random_h = 0;
-/* 		if (i == 1 || i == 3)
-			random_l = rand() % (2 + 1 - 0) + 0;
-		if (i == 2 || i == 3)
-			random_h = rand() % (2 + 1 - 0) + 0;
-		if (random_l)
-		{
-			if (random_l == 2 && ft_strcmp("f", type) == 0)
-				ft_strcat(ret, "L");
-			else
-				ft_strncat(ret, "ll", random_l);
-		}
-		if (random_h)
-			ft_strncat(ret, "hh", random_h); */
 		ft_strcat(ret, type);
 		ft_strcat(ret, "\n");
-		printf("arg = %f et FORMAT = %s", ret, arg);
-			ft_printf(ret, arg);
-			printf(ret, arg);
+		if (!ft_strcmp(type, "f"))
+		{
+			printf("arg = %f et FORMAT = %s", flt, ret);
+			c = ft_printf(ret, flt);
+			o = printf(ret, flt);
+			printf("DIFF >> %s\n", (c == o) ? "\033[32mOK\033[0m" : "\033[31mKO\033[0m");
+
+		}
+		if (!ft_strcmp(type, "c"))
+		{
+			printf("arg = %c et FORMAT = %s", random, ret);			
+			c = ft_printf(ret, random);
+			o = printf(ret, random);
+			printf("DIFF >> %s\n", (c == o) ? "\033[32mOK\033[0m" : "\033[31mKO\033[0m");
+		}
+		else
+		{
+			printf("arg = %d et FORMAT = %s", arg, ret);			
+			c = ft_printf(ret, arg);
+			o = printf(ret, arg);
+			printf("DIFF >> %s\n", (c == o) ? "\033[32mOK\033[0m" : "\033[31mKO\033[0m");
+		}
 		getchar();
 		i++;
 		// printf("%d", rand() % (10 + 1 - 1) + 1);    
 	}
+}
+
+int main(void)
+{
+	ft_brute_force("i");
+	ft_brute_force("d");
+	ft_brute_force("hd");
+	ft_brute_force("hhd");
+	ft_brute_force("u");
+	ft_brute_force("hu");
+	ft_brute_force("hhu");
+	ft_brute_force("o");
+	ft_brute_force("ho");
+	ft_brute_force("hho");
+	ft_brute_force("x");
+	ft_brute_force("hx");
+	ft_brute_force("hhx");
+	ft_brute_force("X");
+	ft_brute_force("hX");
+	ft_brute_force("hhX");
+	ft_brute_force("f");
+	ft_brute_force("c");
+	ft_brute_force("p");
+	ft_brute_force("s");
 	// ft_printf("%Lf\n", 0.01/1.0L);
 	// ft_printf("%Lf\n", 0.01/1.0L);
 	// double a = 123.4;
