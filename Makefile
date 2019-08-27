@@ -22,9 +22,6 @@ INC_PATH = ./includes
 
 INC_NAME = ft_printf.h
 
-EXTRA = -pedantic -fsanitize=address
-
-
 C = ft_printf.c\
 	srcs/convert/ft_convert.c \
 	srcs/convert/ft_displaybin.c\

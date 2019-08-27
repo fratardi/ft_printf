@@ -23,9 +23,9 @@ t_printinfo	*ft_fillndol(char *str, t_printinfo *list)
 	i = 1;
 	while (str[i] && str[i] != '$')
 		i++;
-	if (str[i] == 0)
-		return (list);
-	i = 1;
+	while (str[i] && ft_isdigit(str[i]))
+		i--;
+	i--;
 	list->ndol = ft_atoi(&str[i]);
 	return (list);
 }

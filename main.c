@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/26 07:04:12 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/26 23:56:19 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,16 @@
 #include <stdio.h>
 int main(void)
 {
-	long double arg = 39.436405;
-	char *FORMAT = "%0  48.27f\n";	
-	ft_printf(FORMAT, arg);
-	printf(FORMAT, arg);
-	ft_printf("nous>>%041.49f\n" , 123.456f);
-        printf("orig>>%041.49f\n" , 123.456f);
-        ft_printf("nous>>%00+42.47f\n", 123.456f);
-        printf("orig>>%00+42.47f\n", 123.456f);
-        // char *s = "t";
+    //    ft_printf("bonjour\n");
+		//   printf("\norig\n%1$d\n%2$d\n%1$d\n", 1 , 2 ,3,4,5,6,7,8,9,10,11,12);
+		//ft_printf("\ncopy\n%1$d\n%2$d\n%1$d\n" , 1 , 2 , 3,4,5,6,7,8,9,10,11,12);
+		
+	    //	printf("\norig%2-12$s %2$s %1$s\n"  "1" , "2" , "3");
+	     ft_printf("\ncopy%2$-15s %2$s  %1$s"  "A" , "B" , "C");
+		    printf("\norig%2$-15s %2$s  %1$s"  "A" , "B" , "C");
+	//ft_printf("%3$d %2$d %1$d" , 1 , 2 , 3, 5);		
+
+	// char *s = "t";
 		// ft_exp_ldouble(-111111111111111.2222222222222L);
 		// ft_exp_ldouble(111111111111111.2222222222222L);
 		// ft_printf("%Lf\n", -111111111111111.2222222222222L);
@@ -146,9 +147,9 @@ printf("{%*3d%2$d}\n", 5, 0);
     // printf("_%d_", printf("\n%17.9d et %% et %0$u %20s et %12y %1.4f %O %U", 42, "string", 1.2f, 42, 42));
  //  ft_printf("test %s %s %s modifs\n", "1", "2", "3");
   //ft_printf("test %2$.15s modifs\n", "test");
- ft_printf("b'%-01s\\n', b''\n", "");
+ /*ft_printf("b'%-01s\\n', b''\n", "");
  printf("b'%-01s\\n', b''\n", "");
-
+*/
  
 //  ft_printf("test %2$*.*s modifs\n", "test",1,2,"test",64);
 //  printf("test %2$*.*s modifs\n", "test",1,2,"test",64);
