@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/26 23:56:19 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/08/27 17:37:34 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ int main(void)
 		//ft_printf("\ncopy\n%1$d\n%2$d\n%1$d\n" , 1 , 2 , 3,4,5,6,7,8,9,10,11,12);
 		
 	    //	printf("\norig%2-12$s %2$s %1$s\n"  "1" , "2" , "3");
-	     ft_printf("\ncopy%2$-15s %2$s  %1$s"  "A" , "B" , "C");
-		    printf("\norig%2$-15s %2$s  %1$s"  "A" , "B" , "C");
+		ft_printf(">>%2$-15s\n", "A", "B");
+	    ft_printf("\ncopy%2$-15s %2$s  %1$s",  "A" , "B" , "C");
+		   printf("\norig%2$-15s %2$s  %1$s",  "A" , "B" , "C");
 	//ft_printf("%3$d %2$d %1$d" , 1 , 2 , 3, 5);		
 
 	// char *s = "t";
