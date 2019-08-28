@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/27 17:33:09 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/28 02:45:45 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,14 @@ t_printinfo	*ft_fillflag(char *str, t_printinfo *list)
 
 	i = 1;
 	// printf("\n>>%s\n", str);
-	while (str[i]/*  && ft_strchr("0 #-+b", str[i]) != NULL */)
+	while (str[i] && str[i] != '$')
+		i++;
+	if (!str[i])
+		i = 1;
+	while (str[i] && ft_strchr("0 #-+b", str[i]) != NULL)
 	{
 		// printf("traitement du flag = %c\n", str[i]);
-		if (list->extra != 1)
+		if (list->extra != 1 && !ft_isdigit(str[i - 1]))
 			list->extra = (str[i] == '0') ? 1 : 0;
 		if (list->space != 1)
 			list->space = (str[i] == ' ') ? 1 : 0;
