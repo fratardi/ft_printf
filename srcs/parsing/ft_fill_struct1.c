@@ -12,10 +12,6 @@
 
 #include "../../includes/ft_printf.h"
 
-// 
-	#include<stdio.h>
-//
-
 /*
 **Fill ndol
 */
@@ -43,16 +39,11 @@ t_printinfo	*ft_fillflag(char *str, t_printinfo *list)
 	int i;
 
 	i = 1;
-	// printf("\n>>%s\n", str);
 	while (str[i] && str[i] != '$')
 		i++;
-	if (str[i] == '$')
-		i++;
-	if (!str[i])
-		i = 1;
-	while (str[i] && str[i] != '.'/*  && ft_strchr("0 #-+b", str[i]) != NULL */)
+	i = (str[i] == '$') ? (i + 1) : 1;
+	while (str[i] && str[i] != '.')
 	{
-		// printf("traitement du flag = %c\n", str[i]);
 		if (list->extra != 1 && !ft_isdigit(str[i - 1]))
 			list->extra = (str[i] == '0') ? 1 : 0;
 		if (list->space != 1)
@@ -75,21 +66,6 @@ t_printinfo	*ft_fillflag(char *str, t_printinfo *list)
 /*
 **Fill precision
 */
-
-/* t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
-{
-	int i;
-
-	i = 0;
-	while (str[i] && str[i] != '.' && !ft_strchr("diouxXcfpsbBOU", str[i]))
-		i++;
-	while (str[i] && str[i] == '.' && !ft_strchr("diouxXcfpsbBOU", str[i]))
-		i++;
-	if (!str[i] || (ft_strchr("diouxXcfpsbBOU", str[i]) && str[i - 1] != '.'))
-		return (list);
-	list->prec = (str[i] == '*') ? -1 : ft_atoi(&str[i]);
-	return (list);
-} */
 
 t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
 {
