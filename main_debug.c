@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 01:14:10 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/28 03:36:50 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/28 04:08:54 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ void ft_brute_force(char *type)
 	}
 	if (!ft_strcmp("f", type))
 		flt = (float)rand() / ((float)RAND_MAX / 2.0000087688f);
-	// arg = (void *)42;
 	while (flags_num < 5)
 	{
 		ft_memset(ret, 0, 1024);
@@ -155,9 +154,19 @@ void ft_brute_force(char *type)
 			o = printf(ret, random);
 			printf("DIFF >> %s\n", (c == o) ? "\033[32mOK\033[0m" : "\033[31mKO\033[0m");
 		}
+		else if (!ft_strcmp(type, "s"))
+		{
+			printf("arg = %d et FORMAT = %s", arg, ret);
+			c = ft_printf(ret, arg);
+			o = printf(ret, arg);
+			printf("DIFF >> %s\n", (c == o) ? "\033[32mOK\033[0m" : "\033[31mKO\033[0m");
+		}
 		else
 		{
-			printf("arg = %d et FORMAT = %s", random, ret);
+			if (ft_strchr("ouxX", type[ft_strlen(type) - 1]))
+				printf("arg = %u et FORMAT = %s", (unsigned int)random, ret);
+			else
+				printf("arg = %d et FORMAT = %s", random, ret);
 			c = ft_printf(ret, random);
 			o = printf(ret, random);
 			printf("DIFF >> %s\n", (c == o) ? "\033[32mOK\033[0m" : "\033[31mKO\033[0m");
@@ -191,6 +200,7 @@ int main(void)
 	ft_brute_force("c");
 	ft_brute_force("p");
 	ft_brute_force("s");
+	ft_brute_force_bonus();
 	// ft_printf("%Lf\n", 0.01/1.0L);
 	// ft_printf("%Lf\n", 0.01/1.0L);
 	// double a = 123.4;
