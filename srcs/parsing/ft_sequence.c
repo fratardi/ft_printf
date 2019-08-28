@@ -58,7 +58,8 @@ size_t		ft_sequence(char *s, int len)
 	if (sy.left)
 		ft_putchar((s[i] == 0) ? s[len] : s[i]);
 	if (sy.width > 0)
-		sy.ret += ft_print_preset_buf((sy.extra == 1 && !sy.left) ? '0' : ' ', sy.width);
+		sy.ret += ft_print_preset_buf(
+			(sy.extra == 1 && !sy.left) ? '0' : ' ', sy.width);
 	if (i <= len)
 	{
 		if (s[i + ((sy.left) ? 1 : 0)] == '%')
