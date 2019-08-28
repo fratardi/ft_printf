@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 01:14:10 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/28 04:08:54 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/28 04:13:29 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ void ft_brute_force(char *type)
 		else
 		{
 			if (ft_strchr("ouxX", type[ft_strlen(type) - 1]))
-				printf("arg = %u et FORMAT = %s", (unsigned int)random, ret);
+				printf("unsigned = %u et FORMAT = %s", (unsigned int)random, ret);
 			else
 				printf("arg = %d et FORMAT = %s", random, ret);
 			c = ft_printf(ret, random);
@@ -200,7 +200,6 @@ int main(void)
 	ft_brute_force("c");
 	ft_brute_force("p");
 	ft_brute_force("s");
-	ft_brute_force_bonus();
 	// ft_printf("%Lf\n", 0.01/1.0L);
 	// ft_printf("%Lf\n", 0.01/1.0L);
 	// double a = 123.4;
