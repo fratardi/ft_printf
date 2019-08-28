@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/28 02:45:45 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/28 02:56:27 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ t_printinfo	*ft_fillflag(char *str, t_printinfo *list)
 	i = 1;
 	// printf("\n>>%s\n", str);
 	while (str[i] && str[i] != '$')
+		i++;
+	if (str[i] == '$')
 		i++;
 	if (!str[i])
 		i = 1;
