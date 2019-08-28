@@ -6,12 +6,15 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:12:19 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/28 02:56:27 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/28 03:20:00 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
-#include <stdio.h>
+
+// 
+	#include<stdio.h>
+//
 
 /*
 **Fill ndol
@@ -47,7 +50,7 @@ t_printinfo	*ft_fillflag(char *str, t_printinfo *list)
 		i++;
 	if (!str[i])
 		i = 1;
-	while (str[i] && ft_strchr("0 #-+b", str[i]) != NULL)
+	while (str[i] && str[i] != '.'/*  && ft_strchr("0 #-+b", str[i]) != NULL */)
 	{
 		// printf("traitement du flag = %c\n", str[i]);
 		if (list->extra != 1 && !ft_isdigit(str[i - 1]))
@@ -73,7 +76,7 @@ t_printinfo	*ft_fillflag(char *str, t_printinfo *list)
 **Fill precision
 */
 
-t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
+/* t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
 {
 	int i;
 
@@ -84,6 +87,20 @@ t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
 		i++;
 	if (!str[i] || (ft_strchr("diouxXcfpsbBOU", str[i]) && str[i - 1] != '.'))
 		return (list);
+	list->prec = (str[i] == '*') ? -1 : ft_atoi(&str[i]);
+	return (list);
+} */
+
+t_printinfo	*ft_fillprec(char *str, t_printinfo *list)
+{
+	int i;
+
+	i = ft_strlen(str);
+	while (i > 0 && str[i] != '.')
+		i--;
+	if (i == 0)
+		return (list);
+	i++;
 	list->prec = (str[i] == '*') ? -1 : ft_atoi(&str[i]);
 	return (list);
 }

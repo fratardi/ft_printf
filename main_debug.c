@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 01:14:10 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/26 08:43:49 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/28 03:36:50 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,65 @@
 #include <stdlib.h>
 #include <time.h>
 #include <limits.h>
+
+void ft_brute_force_ldble(long double ref)
+{
+	char *flags;
+	char *ret;
+	int flags_num = 0;
+	int flags_cpy = 0;
+	long double flt;
+	// unsigned int arg = 42;
+	char *type = "Lf";
+	void *arg;
+	int i;
+	int c, o;
+	int random;
+
+	flt = ref;
+	printf("===================== TESTING TYPE > %s ====================\n", type);
+	i = 5;
+	ret = ft_memaset(0, 1024);
+	flags = ft_strdup(" +-#0");
+	srand(time(NULL));
+	// arg = (void *)42;
+	while (flags_num < 5)
+	{
+		ft_memset(ret, 0, 1024);
+		ret[0] = '%';
+		if (i == 20)
+		{
+			// if (flags_num == 3)
+				// flt = flt /214748.0L;
+			if (flags_num % 2 == 0)
+				flt = flt / 8.24L;
+			else
+				flt = flt * 1.34L;
+			flags_num++;
+			i = 0;
+		}
+		if (i % 3)
+			flt = -flt;
+		flags_cpy = flags_num;
+		while (flags_cpy)
+		{
+			ft_strncat(ret, &flags[rand() % (4 + 1 - 0) + 0], 1);
+			flags_cpy--;
+		}
+		ft_strcat(ret, ft_ullitoa(rand() % (50 + 1 - 0) + 0));
+		ft_strcat(ret, ".");
+		ft_strcat(ret, ft_ullitoa(rand() % (50 + 1 - 0) + 0));
+		ft_strcat(ret, type);
+		ft_strcat(ret, "|\n");
+		printf("float = %Lf et FORMAT = %s", flt, ret);
+		c = ft_printf(ret, flt);
+		o = printf(ret, flt);
+		printf("DIFF >> %s\n", (c == o) ? "\033[32mOK\033[0m" : "\033[31mKO\033[0m");
+		getchar();
+		i++;
+		// printf("%d", rand() % (10 + 1 - 1) + 1);
+	}
+}
 
 void ft_brute_force(char *type)
 {
@@ -37,7 +96,7 @@ void ft_brute_force(char *type)
 		arg = "chaine_test";
 	if (ft_strchr("diouxX", type[ft_strlen(type) - 1]))
 	{
-		random = rand() % (INT_MAX + 1 - 0) + INT_MIN;
+		random = rand() % (INT_MAX + 1 - 0) - INT_MIN;
 		arg = &random;
 	}
 	if (!ft_strcmp("c", type))
@@ -81,7 +140,7 @@ void ft_brute_force(char *type)
 		ft_strcat(ret, ".");
 		ft_strcat(ret, ft_ullitoa(rand() % (50 + 1 - 0) + 0));
 		ft_strcat(ret, type);
-		ft_strcat(ret, "\n");
+		ft_strcat(ret, "|\n");
 		if (!ft_strcmp(type, "f"))
 		{
 			printf("float = %f et FORMAT = %s", flt, ret);
@@ -98,9 +157,9 @@ void ft_brute_force(char *type)
 		}
 		else
 		{
-			printf("arg = %d et FORMAT = %s", arg, ret);
-			c = ft_printf(ret, arg);
-			o = printf(ret, arg);
+			printf("arg = %d et FORMAT = %s", random, ret);
+			c = ft_printf(ret, random);
+			o = printf(ret, random);
 			printf("DIFF >> %s\n", (c == o) ? "\033[32mOK\033[0m" : "\033[31mKO\033[0m");
 		}
 		getchar();
@@ -111,6 +170,7 @@ void ft_brute_force(char *type)
 
 int main(void)
 {
+	ft_brute_force_ldble((long double)((float)rand() / ((float)RAND_MAX / 222222.0f)));
 	ft_brute_force("f");
 	ft_brute_force("i");
 	ft_brute_force("d");
