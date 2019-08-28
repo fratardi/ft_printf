@@ -15,6 +15,10 @@
 #include <time.h>
 #include <limits.h>
 
+#ifndef LEAKS
+#define LEAKS while(1);
+#endif
+
 void ft_brute_force_ldble(long double ref)
 {
 	char *flags;
