@@ -25,15 +25,15 @@ INC_NAME = ft_printf.h
 C = ft_printf.c\
 	srcs/convert/ft_convert.c \
 	srcs/convert/ft_displaybin.c\
-	srcs/convert/size_convert.c\
-	srcs/maths/annex_float.c\
-	srcs/maths/annex_ldouble.c\
+	srcs/convert/ft_size_convert.c\
+	srcs/maths/ft_annex_float.c\
+	srcs/maths/ft_annex_ldouble.c\
 	srcs/maths/ft_addstrings.c\
 	srcs/maths/ft_adjustfloat.c\
 	srcs/maths/ft_exception.c\
 	srcs/maths/ft_roundfloat.c\
-	srcs/maths/new_addstring.c\
-	srcs/maths/pow_str.c\
+	srcs/maths/ft_new_addstring.c\
+	srcs/maths/ft_pow_str.c\
 	srcs/padding/ft_pad_prec.c\
 	srcs/padding/ft_padding_convert.c\
 	srcs/padding/ft_padding_digits.c\
@@ -45,15 +45,16 @@ C = ft_printf.c\
 	srcs/parsing/ft_fill_struct1.c\
 	srcs/parsing/ft_fill_struct2.c\
 	srcs/parsing/ft_issyntax.c\
+	srcs/parsing/ft_same.c\
 	srcs/parsing/ft_sequence.c\
 	srcs/parsing/ft_va.c\
 	srcs/unicodes/ft_print_uni_char.c\
 	srcs/unicodes/ft_print_uni_str.c\
 	srcs/unicodes/ft_uni_char_len.c\
 	srcs/unicodes/ft_uni_str_len.c\
-	srcs/display/disp_content_char.c\
+	srcs/display/ft_disp_content_char.c\
 	srcs/display/ft_print_rest.c\
-	srcs/parsing/ft_same.c
+
 
 C_LIB = ./libft/ft_itoa.o \
 		./libft/ft_freetab.o \
