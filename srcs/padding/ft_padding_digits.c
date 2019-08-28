@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/08 03:29:55 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/28 03:19:19 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/28 04:46:31 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*padding_extra_digit(t_printinfo *l, int sign, char *buf)
 		if (l->t == 'f' && l->prec > (int)ft_declen(buf))
 			tmp = l->width - ft_strlen(buf) - (l->prec - ft_declen(buf))
 				- ((sign == 1 && l->showsign) ? 1 : 0);
-		if (l->space && buf[0] == '0' && l->t != 'f' && sign == 1)
+		if (l->space && buf[0] == '0' && !ft_strchr("fu", l->t) && sign == 1)
 			tmp--;
 		if (l->t == 'f' && l->space && sign == 1 && !l->showsign)
 			tmp--;

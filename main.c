@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/27 17:37:34 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/28 04:44:00 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 #include <stdio.h>
 int main(void)
 {
+	ft_printf("b'% 010u\n", 0);
+	printf("b'% 010u\n", 0);
+
+
     //    ft_printf("bonjour\n");
 		//   printf("\norig\n%1$d\n%2$d\n%1$d\n", 1 , 2 ,3,4,5,6,7,8,9,10,11,12);
 		//ft_printf("\ncopy\n%1$d\n%2$d\n%1$d\n" , 1 , 2 , 3,4,5,6,7,8,9,10,11,12);

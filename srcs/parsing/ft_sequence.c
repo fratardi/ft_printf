@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sequence.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 02:07:09 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/15 07:46:05 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/08/28 04:41:10 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ size_t		ft_sequence(char *s, int len)
 	if (sy.left)
 		ft_putchar((s[i] == 0) ? s[len] : s[i]);
 	if (sy.width > 0)
-		sy.ret += ft_print_preset_buf((sy.extra == 1) ? '0' : ' ', sy.width);
+		sy.ret += ft_print_preset_buf((sy.extra == 1 && !sy.left) ? '0' : ' ', sy.width);
 	if (i <= len)
 	{
 		if (s[i + ((sy.left) ? 1 : 0)] == '%')
