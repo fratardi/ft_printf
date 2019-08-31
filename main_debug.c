@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 01:14:10 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/28 18:59:20 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/31 18:57:30 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	bonus(void)
 	ft_printf("Y> %18.12.13.17f\n", 123.4);	
 	printf("R> %18.12.13.17f\n", 123.4);
 	ft_printf("Y> %019+#X\n", 256);	
-	printf("R> %019+#X\n", 256);	
+	printf("R> %019+#X\n", 256);
 }
 
 void ft_brute_force_ldble(long double ref)
@@ -86,6 +86,7 @@ void ft_brute_force_ldble(long double ref)
 	int i;
 	int c, o;
 	int random;
+	char *itoa;
 
 	flt = ref;
 	printf("\n\033[35m==================== TESTING SPECIFIER {%s} ================\033[0m\n", type);
@@ -117,9 +118,13 @@ void ft_brute_force_ldble(long double ref)
 			ft_strncat(ret, &flags[rand() % (4 + 1 - 0) + 0], 1);
 			flags_cpy--;
 		}
-		ft_strcat(ret, ft_ullitoa(rand() % (50 + 1 - 0) + 0));
+		itoa = ft_ullitoa(rand() % (50 + 1 - 0) + 0);
+		ft_strcat(ret, itoa);
 		ft_strcat(ret, ".");
-		ft_strcat(ret, ft_ullitoa(rand() % (50 + 1 - 0) + 0));
+		free(itoa);
+		itoa = ft_ullitoa(rand() % (50 + 1 - 0) + 0);
+		ft_strcat(ret, itoa);
+		free(itoa);
 		ft_strcat(ret, type);
 		ft_strcat(ret, "|\n");
 		printf("float = %Lf et FORMAT = %s", flt, ret);
@@ -132,6 +137,8 @@ void ft_brute_force_ldble(long double ref)
 			next = 0;
 		i++;
 	}
+	free(ret);
+	free(flags);
 }
 
 void ft_brute_force(char *type)
@@ -147,6 +154,7 @@ void ft_brute_force(char *type)
 	int i;
 	int c, o;
 	int random;
+	char *itoa;
 
 	printf("\n\033[35m==================== TESTING SPECIFIER {%s} ================\033[0m\n", type);
 	i = 5;
@@ -196,9 +204,13 @@ void ft_brute_force(char *type)
 			ft_strncat(ret, &flags[rand() % (4 + 1 - 0) + 0], 1);
 			flags_cpy--;
 		}
-		ft_strcat(ret, ft_ullitoa(rand() % (50 + 1 - 0) + 0));
+		itoa = ft_ullitoa(rand() % (50 + 1 - 0) + 0);
+		ft_strcat(ret, itoa);
 		ft_strcat(ret, ".");
-		ft_strcat(ret, ft_ullitoa(rand() % (50 + 1 - 0) + 0));
+		free(itoa);
+		itoa = ft_ullitoa(rand() % (50 + 1 - 0) + 0);
+		ft_strcat(ret, itoa);
+		free(itoa);
 		ft_strcat(ret, type);
 		ft_strcat(ret, "|\n");
 		if (!ft_strcmp(type, "f"))
@@ -239,6 +251,8 @@ void ft_brute_force(char *type)
 		i++;
 		// printf("%d", rand() % (10 + 1 - 1) + 1);
 	}
+	free(ret);
+	free(flags);
 	// getchar();
 }
 
