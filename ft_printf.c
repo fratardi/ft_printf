@@ -6,7 +6,7 @@
 /*   By: fratardi <fratardi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 22:49:38 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/15 07:39:28 by fratardi         ###   ########.fr       */
+/*   Updated: 2019/08/31 17:21:56 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,7 @@ t_printinfo	seg_to_print_info(char *seg, t_rep *rep)
 	ft_fillflag(temp, &list);
 	ft_fillwidth(temp, &list, rep);
 	ft_fillmod(temp, &list);
-
-
-
 	ft_filltype(temp, &list);
-	
-	
 	ft_arg_search(rep, &list);
 	ft_star_search(rep, &list);
 	ft_strdel(&temp);

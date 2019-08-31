@@ -14,20 +14,52 @@
 #include <time.h>
 #include <float.h>
 #include <stdio.h>
+
+#define WHILE while(1);
+
 int main(void)
 {
+
+	ft_printf( "copy%hh\n%d\n%d\n", 1 , 2 );
+	printf( "original%hh\n%d\n%d\n", 1 , 2 );
+
+/*
+
 	ft_printf("b'% 010u\n", 0);
 	printf("b'% 010u\n", 0);
 
-
+*/
     //    ft_printf("bonjour\n");
 		//   printf("\norig\n%1$d\n%2$d\n%1$d\n", 1 , 2 ,3,4,5,6,7,8,9,10,11,12);
 		//ft_printf("\ncopy\n%1$d\n%2$d\n%1$d\n" , 1 , 2 , 3,4,5,6,7,8,9,10,11,12);
 		
 	    //	printf("\norig%2-12$s %2$s %1$s\n"  "1" , "2" , "3");
-		ft_printf(">>%2$-15s\n", "A", "B");
+/*		ft_printf(">>%2$-15s\n", "A", "B");
 	    ft_printf("\ncopy%2$-15s %2$s  %1$s",  "A" , "B" , "C");
 		   printf("\norig%2$-15s %2$s  %1$s",  "A" , "B" , "C");
+*/
+/*
+	while(i++ <100)
+{
+    if(printf("o'%o\n'", i) ==ft_printf("c'%o\n'", i))
+		printf("\nsucces\n");		
+	if(printf("o'%+o\n'", i) == ft_printf("c'%+o\n'", i))
+		printf("\nnsucces\n");
+	if(printf("o'%-o\n'", i) == ft_printf("c'%-o\n'", i))
+		printf("\nsuccess\n");
+	if((printf("o'%.0o\n'", i)) == ft_printf("c'%.0o\n'", i))	
+		printf("\nsuccess\n");
+	if(printf("o'%.1o\n'", i) ==ft_printf("c'%.1o\n'", i))
+		printf("\nsuccess\n");
+	if(printf("o'%.2\n'", i) == ft_printf("c'%.2\n'", i))
+		printf("\nsuccess\n");
+	if(printf("o'% 0+-#10.5llo\no\n'", i) == ft_printf("c'% 0+-#10.5llo\no\n'", i))
+		printf("\nsuccess\n");
+}
+	printf("\nendtests\n");
+*/
+/*
+*/
 	//ft_printf("%3$d %2$d %1$d" , 1 , 2 , 3, 5);		
 
 	// char *s = "t";

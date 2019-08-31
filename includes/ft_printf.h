@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:35:32 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/24 04:15:40 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/31 17:23:36 by fratardi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,6 @@ int						ft_print_rest(char *seg, int size);
 int						ft_print_preset_buf(unsigned char c, int n);
 int						ft_same(char *s1, char *s2);
 
-
 /*
 ** Functions to convert content into char *
 */
@@ -251,8 +250,6 @@ void					ft_arg_search(t_rep *rep, t_printinfo *info);
 
 int						ft_printf(const char *format, ...);
 void					ft_print_t_list_content(t_printinfo *info);
-int		ft_binary_exopnent(char *bin);
-int		ft_exp_ldouble(long double a);
-
-
+int						ft_binary_exopnent(char *bin);
+int						ft_exp_ldouble(long double a);
 #endif
