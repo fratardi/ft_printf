@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 20:54:25 by fratardi          #+#    #+#             */
-/*   Updated: 2019/08/11 22:04:03 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/31 17:54:36 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,14 @@ char		*ft_prec_uns_ptr(t_printinfo *l, int prec, char *buf)
 	char *temp;
 	char *pad;
 
+	pad = NULL;
 	if (ft_strchr("uoxX", l->t) && prec > 0)
 	{
-		pad = ft_memaset('0', (size_t)prec -
-				((ft_strchr("oO", l->t) && l->alt) ? 1 : 0));
+		prec -= (ft_strchr("oO", l->t) && l->alt) ? 1 : 0;
+		if ((int)(ft_strlen(buf) + 1) != l->prec)
+			pad = ft_memaset('0', (size_t)prec);
+		else if (prec == 1)
+			pad = ft_strdup("0");
 		buf = ft_joinfree(pad, buf);
 	}
 	if (l->t == 'p' && l->prec > (int)ft_strlen(buf) - 2)

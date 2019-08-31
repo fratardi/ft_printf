@@ -6,7 +6,7 @@
 /*   By: tpacaud <tpacaud@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/31 14:03:52 by tpacaud           #+#    #+#             */
-/*   Updated: 2019/08/28 04:44:00 by tpacaud          ###   ########.fr       */
+/*   Updated: 2019/08/31 17:47:35 by tpacaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,35 @@
 
 #define WHILE while(1);
 
+
 int main(void)
 {
+    // ft_printf("%o\n", 0);
+    // ft_printf("% o\n", 0);
+    // ft_printf("%+o\n", 0);
+    // ft_printf("%-o\n", 0);
+    // ft_printf("%0o\n", 0);
+    // ft_printf("%#o\n", 0);
+    // ft_printf("%10o\n", 0);
+    // ft_printf("%.6o\n", 0);
+    // ft_printf("%hho\n", 0);
+    // ft_printf("%llo\n", 0);
+    // ft_printf("%ho\n", 0);
+    // ft_printf("%lo\n", 0);
+    // ft_printf("%jo\n", 0);
+    // ft_printf("%zo\n", 0);
+    // ft_printf("%#10.10o\n", 0);
+    // ft_printf("%#1.o\n", 0);
+    // ft_printf("%#.o\n", 0xff);
+    // ft_printf("%#.0o\n", 0xff);
+    // ft_printf("%#.1o\n", 0xff);
+    // ft_printf("%#.1o\n", 0);
+    ft_printf("%#.3o\n", 11);
+    // ft_printf("% 0+-#10.5llo\n", 42);
 
-	ft_printf( "copy%hh\n%d\n%d\n", 1 , 2 );
-	printf( "original%hh\n%d\n%d\n", 1 , 2 );
+
+	// ft_printf( "copy%hh\n%d\n%d\n", 1 , 2 );
+	// printf( "original%hh\n%d\n%d\n", 1 , 2 );
 
 /*
 
